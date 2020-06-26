@@ -12,6 +12,6 @@ class UserRepository implements UserRepositoryInterface {
   }
 
   public function getById($id) {
-    return DB::select("CALL user_get_by_id ($id)");
+    return DB::select("CALL user_get_by_id ($id)")[0];
   }
 }
