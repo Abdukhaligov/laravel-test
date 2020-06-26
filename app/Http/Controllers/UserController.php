@@ -53,7 +53,9 @@ class UserController extends Controller {
 
   public function update(UserRequest $request) {
     $user = Auth::user() ;
-    $user->update($request->all());
+    $input = $request->all();
+
+    $this->userRepository->update($user->id, $input["name"], $input["company_id"], $input["position_id"]);
 
     return redirect()->back();
   }
