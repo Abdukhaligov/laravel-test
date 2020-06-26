@@ -7,11 +7,21 @@ use App\Http\Requests\UserRequest;
 use App\Mail\WelcomeMail;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use App\Repositories\Interfaces\CompanyRepositoryInterface;
+use App\Repositories\Interfaces\PositionRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller {
+  private $companyRepository;
+  private $positionRepository;
   protected $redirectTo = RouteServiceProvider::HOME;
+  
+  public function __construct(CompanyRepositoryInterface $companyRepository,
+                              PositionRepositoryInterface $positionRepository) {
+    $this->companyRepository = $companyRepository;
+    $this->positionRepository = $positionRepository;
+  }
 
   public function redirectPath() {
     if (method_exists($this, 'redirectTo')) {
@@ -21,15 +31,20 @@ class RegisterController extends Controller {
   }
 
   public function showRegistrationForm() {
-    return view('auth.register');
+    $data["companies"] = $this->companyRepository->all();
+    $data["positions"] = $this->positionRepository->all();
+
+    return view('auth.register', compact("data"));
   }
 
   public function register(UserRequest $request) {
-    $user = User::create($request->all());
+    $request["password"] = bcrypt($request["password"]); //Hashing A Password
 
-    Mail::to($user->email)->send(new WelcomeMail($user));
+    $user = User::create($request->all()); //Store User in DB
 
-    Auth::guard()->login($user);
+    Mail::to($user->email)->send(new WelcomeMail($user)); //Sending Welcome Mail to email address
+
+    Auth::guard()->login($user); //Login via registered user
 
     return redirect($this->redirectPath());
   }
