@@ -57,24 +57,36 @@
                 <label for="company"
                        class="col-md-4 col-form-label text-md-right">Company</label>
                 <div class="col-md-6">
-                    <select id="company" name="company_id" class="form-control">
-                      <option value="" selected disabled>Select Company</option>
-                      @foreach($data["companies"] as $company)
-                        <option value="{{ $company->id }}">{{ $company->name }}</option>
-                      @endforeach
-                    </select>
+                  <select id="company" name="company_id"
+                          class="form-control cp1 @error('company_id') is-invalid @enderror">
+                    <option value="" selected disabled>Select Company</option>
+                    @foreach($data["companies"] as $company)
+                      <option value="{{ $company->id }}">{{ $company->name }}</option>
+                    @endforeach
+                  </select>
+                  @error('company_id')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+                  @enderror
                 </div>
               </div>
               <div class="form-group row">
                 <label for="position"
                        class="col-md-4 col-form-label text-md-right">Position</label>
                 <div class="col-md-6">
-                    <select id="position" name="position_id" class="form-control">
-                      @foreach($data["positions"] as $position)
-                        <option value="" selected disabled>Select Position</option>
-                        <option value="{{ $position->id }}">{{ $position->name }}</option>
-                      @endforeach
-                    </select>
+                  <select id="position" name="position_id"
+                          class="form-control cp1 @error('position_id') is-invalid @enderror">
+                    <option value="" selected disabled>Select Position</option>
+                    @foreach($data["positions"] as $position)
+                      <option value="{{ $position->id }}">{{ $position->name }}</option>
+                    @endforeach
+                  </select>
+                  @error('position_id')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+                  @enderror
                 </div>
               </div>
               <div class="form-group row mb-0">
