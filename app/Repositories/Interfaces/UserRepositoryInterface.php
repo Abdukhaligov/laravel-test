@@ -10,4 +10,7 @@ interface UserRepositoryInterface {
   public function getById($id);
 
   public function update($id, $rName, $rCompanyID, $rPositionID);
+
+  public function insert($rName, $rEmail, $rPassword, $rCompanyID, $rPositionID);
+
 }

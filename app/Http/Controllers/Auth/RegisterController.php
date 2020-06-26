@@ -9,18 +9,22 @@ use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use App\Repositories\Interfaces\CompanyRepositoryInterface;
 use App\Repositories\Interfaces\PositionRepositoryInterface;
+use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller {
   private $companyRepository;
   private $positionRepository;
+  private $userRepository;
   protected $redirectTo = RouteServiceProvider::HOME;
-  
+
   public function __construct(CompanyRepositoryInterface $companyRepository,
-                              PositionRepositoryInterface $positionRepository) {
+                              PositionRepositoryInterface $positionRepository,
+                              UserRepositoryInterface $userRepository) {
     $this->companyRepository = $companyRepository;
     $this->positionRepository = $positionRepository;
+    $this->userRepository = $userRepository;
   }
 
   public function redirectPath() {
@@ -39,8 +43,17 @@ class RegisterController extends Controller {
 
   public function register(UserRequest $request) {
     $request["password"] = bcrypt($request["password"]); //Hashing A Password
+    $input = $request->all();
 
-    $user = User::create($request->all()); //Store User in DB
+    $user = $this->userRepository->insert(
+        $input["name"],
+        $input["email"],
+        $input["password"],
+        $input["company_id"] ?? null,
+        $input["position_id"] ?? null
+    );
+    
+    $user = User::hydrate((array) $user)->first();
 
     Mail::to($user->email)->send(new WelcomeMail($user)); //Sending Welcome Mail to email address
 
