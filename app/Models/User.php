@@ -19,6 +19,14 @@ class User extends Authenticatable {
       'email_verified_at' => 'datetime',
   ];
 
+  public function company(){
+    return $this->belongsTo(Company::class);
+  }
+
+  public function position(){
+    return $this->belongsTo(Position::class);
+  }
+
   public function isAdmin() {
     return DB::select("CALL is_user_admin($this->id)")[0]->admin;
   }
