@@ -15,6 +15,11 @@ class CreateUsersTable extends Migration {
       $table->string('password');
       $table->rememberToken();
       $table->timestamps();
+
+      $table->bigInteger('company_id')->unsigned()->nullable();
+      $table->foreign('company_id')->references('id')->on('companies')->onDelete('SET NULL');
+      $table->bigInteger('position_id')->unsigned()->nullable();
+      $table->foreign('position_id')->references('id')->on('positions')->onDelete('SET NULL');
     });
   }
 

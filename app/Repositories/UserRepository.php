@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class UserRepository implements UserRepositoryInterface {
   public function all() {
-    return User::all();
+    return DB::select("CALL get_users");
   }
 
   public function getById($id) {
-    return DB::select("CALL user_get_by_id ($id)")[0];
+    return DB::select("CALL get_user_by_id ($id)")[0];
   }
 }

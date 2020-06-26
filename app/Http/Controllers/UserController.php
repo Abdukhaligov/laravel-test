@@ -14,7 +14,9 @@ class UserController extends Controller {
   }
 
   public function index() {
-    return $this->userRepository->all();
+    dump($this->userRepository->all());
+    return view("home");
+
   }
 
   public function create() {
@@ -26,7 +28,8 @@ class UserController extends Controller {
   }
 
   public function show(User $user) {
-    return $this->userRepository->getById($user->id);
+    dump($this->userRepository->getById($user->id));
+    return view("home");
   }
 
   public function edit(User $user) {

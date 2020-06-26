@@ -18,7 +18,8 @@ class PositionController extends Controller {
   }
 
   public function index() {
-    return $this->positionRepository->all();
+    dump($this->positionRepository->all());
+    return view('home');
   }
   public function create() {
     //

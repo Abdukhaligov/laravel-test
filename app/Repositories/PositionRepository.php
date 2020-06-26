@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\DB;
 
 class PositionRepository implements PositionRepositoryInterface {
   public function all() {
-    return Position::all();
+    return DB::select("CALL get_positions");
   }
 
   public function getById($id) {
-    return DB::select("CALL position_get_by_id ($id)")[0];
+    return DB::select("CALL get_position_by_id ($id)")[0];
   }
 
   public function getByCompany($companyID) {
-    return DB::select("CALL positions_get_by_company ($companyID)");
+    return DB::select("CALL get_positions_by_company ($companyID)");
   }
 }

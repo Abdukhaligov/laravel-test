@@ -18,7 +18,8 @@ class CompanyController extends Controller {
   }
 
   public function index() {
-    return $this->companyRepository->all();
+    dump($this->companyRepository->all());
+    return view('home');
   }
   public function create() {
     //

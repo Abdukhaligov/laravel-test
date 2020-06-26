@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\DB;
 
 class CompanyRepository implements CompanyRepositoryInterface {
   public function all() {
-    return Company::all();
+    return DB::select("CALL get_companies");
   }
 
   public function getById($id) {
-    return DB::select("CALL company_get_by_id ($id)")[0];
+    return DB::select("CALL get_company_by_id ($id)")[0];
   }
 
   public function getByPosition($positionID) {
-    return DB::select("CALL companies_get_by_position ($positionID)");
+    return DB::select("CALL get_companies_by_position ($positionID)");
   }
 }
