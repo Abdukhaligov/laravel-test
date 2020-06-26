@@ -29,9 +29,9 @@ class CompanyController extends Controller {
     //
   }
 
-  public function show(Company $company) {
-    dump($this->companyRepository->getById($company->id));
-    dump($this->positionRepository->getByCompany($company->id));
+  public function show($id) {
+    dump($this->companyRepository->getById($id));
+    dump($this->positionRepository->getByCompany($id));
     return view('home');
   }
 

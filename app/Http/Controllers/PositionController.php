@@ -29,9 +29,9 @@ class PositionController extends Controller {
     //
   }
 
-  public function show(Position $position) {
-    dump($this->positionRepository->getById($position->id));
-    dump($this->companyRepository->getByPosition($position->id));
+  public function show($id) {
+    dump($this->positionRepository->getById($id));
+    dump($this->companyRepository->getByPosition($id));
     return view('home');
   }
 
