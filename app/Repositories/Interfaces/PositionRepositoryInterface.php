@@ -8,4 +8,6 @@ interface PositionRepositoryInterface {
   public function all();
 
   public function getById($id);
+
+  public function getByCompany($companyID);
 }

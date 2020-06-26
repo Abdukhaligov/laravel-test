@@ -14,4 +14,8 @@ class CompanyRepository implements CompanyRepositoryInterface {
   public function getById($id) {
     return DB::select("CALL company_get_by_id ($id)")[0];
   }
+
+  public function getByPosition($positionID) {
+    return DB::select("CALL companies_get_by_position ($positionID)");
+  }
 }

@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Position;
+use App\Repositories\Interfaces\CompanyRepositoryInterface;
 use App\Repositories\Interfaces\PositionRepositoryInterface;
 use Illuminate\Http\Request;
 
 class PositionController extends Controller {
+  private $companyRepository;
   private $positionRepository;
 
-  public function __construct(PositionRepositoryInterface $positionRepository) {
+  public function __construct(CompanyRepositoryInterface $companyRepository,
+                              PositionRepositoryInterface $positionRepository) {
+    $this->companyRepository = $companyRepository;
     $this->positionRepository = $positionRepository;
   }
 
@@ -26,6 +30,7 @@ class PositionController extends Controller {
 
   public function show(Position $position) {
     dump($this->positionRepository->getById($position->id));
+    dump($this->companyRepository->getByPosition($position->id));
     return view('home');
   }
 
