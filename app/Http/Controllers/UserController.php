@@ -65,12 +65,13 @@ class UserController extends Controller {
 
   public function profileMediaUpload(Request $request) {
     $model = get_class(new User());
-    $user = Auth::user();
-    dump($model);
-    dump($user->id);
-    dump($this->mediaRepository->nextMediaOrder($model,$user->id));
+    $userId = Auth::user()->id;
+    $orderIndex = $this->mediaRepository->nextMediaOrder($model,$userId);
+    dump("Model_Type ".$model);
+    dump("Model_Id ".$userId);
+    dump("Order_column ".$orderIndex);
 
-    foreach ($request->allFiles()["upload"] as $file){
+    foreach ($request->allFiles()["uploads"] as $file){
       $fileNameOriginal = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
       $fileName= str_replace(' ', '-', $file->getClientOriginalName());
       $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
