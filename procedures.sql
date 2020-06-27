@@ -140,13 +140,15 @@ DELIMITER ;
 DELIMITER $$
 CREATE
     DEFINER = `root`@`127.0.0.1` PROCEDURE `update_user`(IN `uID` BIGINT, IN `rName` VARCHAR(255),
-                                                         IN `rCompanyID` BIGINT, IN `rPositionID` BIGINT)
+                                                         IN `rCompanyID` BIGINT, IN `rPositionID` BIGINT,
+                                                         IN `updatedAt` TIMESTAMP)
     NO SQL
 BEGIN
     UPDATE `users`
     SET `name`        = rName,
         `company_id`  = rCompanyID,
-        `position_id` = rPositionID
+        `position_id` = rPositionID,
+        `updated_at`  = updatedAt
     WHERE `users`.`id` = uID;
 END$$
 DELIMITER ;
@@ -163,3 +165,67 @@ BEGIN
 END$$
 DELIMITER ;
 
+DELIMITER $$
+CREATE
+    DEFINER = `root`@`127.0.0.1` PROCEDURE `get_media`(IN `modelType` VARCHAR(255), IN `modelID` BIGINT UNSIGNED,
+                                                       IN `collectionName` VARCHAR(255))
+    NO SQL
+BEGIN
+    SELECT `media`.`id`,
+           `media`.`name`,
+           `media`.`file_name` AS path,
+           `media`.`mime_type`,
+           `media`.`size`,
+           `media`.`order_column`,
+           `media`.`created_at`
+    FROM `media`
+    WHERE `media`.`model_type`
+              COLLATE utf8mb4_general_ci = modelType
+      AND `media`.`model_id` = modelID
+      AND `media`.`collection_name`
+              COLLATE utf8mb4_general_ci = collectionName
+    ORDER BY ID DESC;
+END$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE
+    DEFINER = `root`@`127.0.0.1`
+    PROCEDURE `get_media_order_column`(IN `rModel` VARCHAR(255), IN `rID` BIGINT UNSIGNED)
+    NO SQL
+BEGIN
+    SELECT `media`.`order_column`
+    FROM `media`
+    WHERE `media`.`model_type`
+              COLLATE utf8mb4_general_ci = rModel
+      AND `media`.`model_id` = rID
+    ORDER BY ID DESC
+    LIMIT 1;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE
+    DEFINER = `root`@`127.0.0.1`
+    PROCEDURE `insert_media`(IN `modelType` VARCHAR(255), IN `modelID` BIGINT, IN `collectionName` VARCHAR(255),
+                             IN `rName` VARCHAR(255), IN `rFileName` VARCHAR(255), IN `mimeType` VARCHAR(255),
+                             IN `disk` VARCHAR(255), IN `size` BIGINT, IN `orderColumn` INT, IN `createdAt` TIMESTAMP,
+                             IN `updatedAt` TIMESTAMP)
+    NO SQL
+BEGIN
+    INSERT INTO `media`
+    (`model_type`, `model_id`, `collection_name`, `name`,
+     `file_name`, `mime_type`, `disk`, `size`,
+     `manipulations`, `custom_properties`, `responsive_images`,
+     `order_column`, `created_at`, `updated_at`)
+    VALUES (modelType, modelID, collectionName, rName,
+            rFileName, mimeType, disk, size,
+            '[]', '[]', '[]', orderColumn, createdAt, updatedAt);
+    SELECT `media`.`id`,
+           LAST_INSERT_ID() AS id
+    FROM `media`
+    WHERE `media`.`id` = id
+    LIMIT 1;
+END$$
+DELIMITER ;
