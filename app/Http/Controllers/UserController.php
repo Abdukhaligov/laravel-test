@@ -66,7 +66,7 @@ class UserController extends Controller {
   public function profileMediaUpload(Request $request) {
     $model = get_class(new User());
     $userId = Auth::user()->id;
-    $orderIndex = $this->mediaRepository->nextMediaOrder($model,$userId);
+    $orderIndex = $this->mediaRepository->lastMediaOrder($model,$userId);
     dump("Model_Type ".$model);
     dump("Model_Id ".$userId);
     dump("Order_column ".$orderIndex);
@@ -78,6 +78,19 @@ class UserController extends Controller {
 
       $fileSize = $file->getSize();
       $fileMimeType = $file->getMimeType();
+
+      dump($this->mediaRepository
+          ->insertMedia(
+              $model,
+              $userId,
+              "user_media",
+              $fileNameOriginal,
+              $fileName,
+              $fileMimeType,
+              "media",
+              $fileSize,
+              ++$orderIndex));
+
 
       dump($file);
       dump($fileSize);
