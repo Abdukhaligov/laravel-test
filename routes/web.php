@@ -17,4 +17,6 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/home', 'HomeController@index')->name('home');
   Route::get('/profile', 'UserController@profile')->name('profile');
   Route::patch('/profile', 'UserController@update')->name('userUpdate');
+  Route::get('/profile-media', 'UserController@profileMedia')->name('profileMedia');
+  Route::post('/profile-media', 'UserController@profileMediaUpload')->name('profileMediaUpload');
 });

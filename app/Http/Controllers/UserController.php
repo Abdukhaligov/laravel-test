@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use App\Repositories\Interfaces\CompanyRepositoryInterface;
+use App\Repositories\Interfaces\MediaRepositoryInterface;
 use App\Repositories\Interfaces\PositionRepositoryInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Http\Request;
@@ -14,13 +15,16 @@ class UserController extends Controller {
   private $userRepository;
   private $companyRepository;
   private $positionRepository;
+  private $mediaRepository;
 
   public function __construct(UserRepositoryInterface $userRepository,
                               CompanyRepositoryInterface $companyRepository,
-                              PositionRepositoryInterface $positionRepository) {
+                              PositionRepositoryInterface $positionRepository,
+                              MediaRepositoryInterface $mediaRepository) {
     $this->userRepository = $userRepository;
     $this->companyRepository = $companyRepository;
     $this->positionRepository = $positionRepository;
+    $this->mediaRepository = $mediaRepository;
   }
 
   public function index() {
@@ -51,8 +55,43 @@ class UserController extends Controller {
     return view("profile", compact("data"));
   }
 
+  public function profileMedia() {
+    $data["user"] = Auth::user();
+    $data["companies"] = $this->companyRepository->all();
+    $data["positions"] = $this->positionRepository->all();
+
+    return view("profile-media", compact("data"));
+  }
+
+  public function profileMediaUpload(Request $request) {
+    $model = get_class(new User());
+    $user = Auth::user();
+    dump($model);
+    dump($user->id);
+    dump($this->mediaRepository->nextMediaOrder($model,$user->id));
+
+    foreach ($request->allFiles()["upload"] as $file){
+      $fileNameOriginal = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+      $fileName= str_replace(' ', '-', $file->getClientOriginalName());
+      $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
+
+      $fileSize = $file->getSize();
+      $fileMimeType = $file->getMimeType();
+
+      dump($file);
+      dump($fileSize);
+      dump($fileMimeType);
+      dump($fileNameOriginal);
+      dump($fileExtension);
+      dump($fileName);
+    }
+
+    $data["users"] = [];
+    return view('home', compact("data"));
+  }
+
   public function update(UserRequest $request) {
-    $user = Auth::user() ;
+    $user = Auth::user();
     $input = $request->all();
 
     $this->userRepository->update($user->id, $input["name"], $input["company_id"], $input["position_id"]);

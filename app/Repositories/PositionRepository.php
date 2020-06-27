@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Models\Position;
 use App\Repositories\Interfaces\PositionRepositoryInterface;
 use Illuminate\Support\Facades\DB;
 

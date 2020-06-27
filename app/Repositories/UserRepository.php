@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Models\User;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use DateTime;
 use Illuminate\Support\Facades\DB;
