@@ -10,6 +10,7 @@ use App\Repositories\Interfaces\PositionRepositoryInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller {
   private $userRepository;
@@ -66,20 +67,16 @@ class UserController extends Controller {
   public function profileMediaUpload(Request $request) {
     $model = get_class(new User());
     $userId = Auth::user()->id;
-    $orderIndex = $this->mediaRepository->lastMediaOrder($model,$userId);
-    dump("Model_Type ".$model);
-    dump("Model_Id ".$userId);
-    dump("Order_column ".$orderIndex);
+    $orderIndex = $this->mediaRepository->lastMediaOrder($model, $userId);
 
-    foreach ($request->allFiles()["uploads"] as $file){
+
+    foreach ($request->allFiles()["uploads"] as $file) {
       $fileNameOriginal = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-      $fileName= str_replace(' ', '-', $file->getClientOriginalName());
-      $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
-
+      $fileName = str_replace(' ', '-', $file->getClientOriginalName());
       $fileSize = $file->getSize();
       $fileMimeType = $file->getMimeType();
 
-      dump($this->mediaRepository
+      $directoryId = $this->mediaRepository
           ->insertMedia(
               $model,
               $userId,
@@ -89,19 +86,13 @@ class UserController extends Controller {
               $fileMimeType,
               "media",
               $fileSize,
-              ++$orderIndex));
+              ++$orderIndex);
 
+      $file->storeAs("public/media/" . $directoryId, $fileName);
 
-      dump($file);
-      dump($fileSize);
-      dump($fileMimeType);
-      dump($fileNameOriginal);
-      dump($fileExtension);
-      dump($fileName);
     }
 
-    $data["users"] = [];
-    return view('home', compact("data"));
+    return redirect()->back();
   }
 
   public function update(UserRequest $request) {
