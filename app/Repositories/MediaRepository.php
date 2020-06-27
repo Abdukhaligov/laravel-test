@@ -11,12 +11,17 @@ class MediaRepository implements MediaRepositoryInterface {
   public function lastMediaOrder($model, $id) {
     $query = DB::select(
         "CALL get_media_order_column (?,?)",
-        array($model,$id));
+        array($model, $id));
 
     return $query ? $query[0]->order_column : 0;
   }
 
-  public function insertMedia($modelType, $modelID, $collectionName, $rName, $rFileName, $mimeType, $disk, $size, $orderColumn){
+  public function getMedia($model, $id, $collectionName) {
+    return DB::select("CALL get_media (?,?,?)", array($model, $id, $collectionName));
+  }
+
+
+  public function insertMedia($modelType, $modelID, $collectionName, $rName, $rFileName, $mimeType, $disk, $size, $orderColumn) {
     $now = new DateTime();
 
     return DB::select(

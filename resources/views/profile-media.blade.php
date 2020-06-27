@@ -8,6 +8,11 @@
           <div class="card-header">My Profile</div>
           <div class="card-body">
             Hello {{ $data["user"]->name }}
+            <br>
+            @foreach($data["media"] as $media)
+              <a href="{{ Storage::disk('media')->url($media->id."/".$media->file_name) }}" target="_blank">{{ $media->name }}</a>
+              <br>
+            @endforeach
 
 
             <form action="{{ route("profileMedia") }}" method="post" enctype="multipart/form-data">

@@ -57,9 +57,13 @@ class UserController extends Controller {
   }
 
   public function profileMedia() {
-    $data["user"] = Auth::user();
+    $model = get_class(new User());
+    $user = Auth::user();
+
+    $data["user"] = $user;
     $data["companies"] = $this->companyRepository->all();
     $data["positions"] = $this->positionRepository->all();
+    $data["media"] = $this->mediaRepository->getMedia($model, $user->id, "user_media");
 
     return view("profile-media", compact("data"));
   }
@@ -68,7 +72,6 @@ class UserController extends Controller {
     $model = get_class(new User());
     $userId = Auth::user()->id;
     $orderIndex = $this->mediaRepository->lastMediaOrder($model, $userId);
-
 
     foreach ($request->allFiles()["uploads"] as $file) {
       $fileNameOriginal = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
@@ -89,7 +92,6 @@ class UserController extends Controller {
               ++$orderIndex);
 
       $file->storeAs("public/media/" . $directoryId, $fileName);
-
     }
 
     return redirect()->back();
