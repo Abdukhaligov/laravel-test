@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Models\User;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use DateTime;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +16,9 @@ class UserRepository implements UserRepositoryInterface {
   }
 
   public function update($id, $rName, $rCompanyID, $rPositionID){
-    return DB::update("CALL update_user (?, ?, ?, ?)", array($id, $rName, $rCompanyID, $rPositionID));
+    $now = new DateTime();
+
+    return DB::update("CALL update_user (?, ?, ?, ?, ?)", array($id, $rName, $rCompanyID, $rPositionID, $now));
   }
 
   public function insert($rName, $rEmail, $rPassword, $rCompanyID, $rPositionID) {

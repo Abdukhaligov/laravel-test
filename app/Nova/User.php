@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Ebess\AdvancedNovaMediaLibrary\Fields\Files;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
@@ -33,6 +34,9 @@ class User extends Resource {
             ->onlyOnForms()
             ->creationRules('required', 'string', 'min:8')
             ->updateRules('nullable', 'string', 'min:8'),
+
+
+        Files::make('Multiple files', 'user_media'),
 
         BelongsTo::make('Company'),
 

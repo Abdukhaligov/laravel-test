@@ -15,13 +15,8 @@
             @endif
 
             You are logged in!
-              <br>
-            @foreach($data["users"] as $user)
-                <span>
-                  {{$user->name}} - {{$user->company ?? " Not working Anywhere"}} - {{$user->position ?? "Without position"}}
-                </span>
-              <br>
-            @endforeach
+            <br>
+
           </div>
         </div>
       </div>

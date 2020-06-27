@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class User extends Authenticatable {
+class User extends Authenticatable implements HasMedia {
   use Notifiable;
+  use InteractsWithMedia;
 
   protected $fillable = [
       'name', 'email', 'password', 'company_id', 'position_id'
@@ -19,11 +22,17 @@ class User extends Authenticatable {
       'email_verified_at' => 'datetime',
   ];
 
-  public function company(){
+  public function registerMediaCollections(): void {
+    $this
+        ->addMediaCollection('user_media')
+        ->useDisk('media');
+  }
+
+  public function company() {
     return $this->belongsTo(Company::class);
   }
 
-  public function position(){
+  public function position() {
     return $this->belongsTo(Position::class);
   }
 
