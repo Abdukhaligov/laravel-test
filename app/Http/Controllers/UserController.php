@@ -65,6 +65,10 @@ class UserController extends Controller {
     $data["positions"] = $this->positionRepository->all();
     $data["media"] = $this->mediaRepository->getMedia($model, $user->id, "user_media");
 
+    foreach ($data["media"] as $media){
+      $media->path = Storage::disk('media')->url($media->id."/".$media->path);
+    }
+
     return view("profile-media", compact("data"));
   }
 

@@ -3,9 +3,9 @@
 namespace App\Repositories\Interfaces;
 
 interface MediaRepositoryInterface {
-  public function lastMediaOrder($model, $id);
+  public function lastMediaOrder($modelType, $modelId);
 
-  public function insertMedia($modelType, $modelID, $collectionName, $rName, $rFileName, $mimeType, $disk, $size, $orderColumn);
+  public function insertMedia($modelType, $modelId, $collectionName, $fileName, $fileFullName, $fileMimeType, $disk, $fileSize, $orderColumn);
 
-  public function getMedia($model, $id, $collectionName);
+  public function getMedia($modelType, $modelId, $collectionName);
 }
