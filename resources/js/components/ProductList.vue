@@ -3,8 +3,8 @@
     <hr>
     <div class="container row m-auto">
       <div class="p-2 col-12">
-        <button class="btn btn-primary" @click="$bvModal.show('modal-3')">Create Product</button>
-        <b-modal id="modal-3" title="Create Product">
+        <button class="btn btn-primary" @click="$bvModal.show('modal-product-create')">Create Product</button>
+        <b-modal id="modal-product-create" title="Create Product">
           <div class="form-group">
             <label for="newProductName">Name</label>
             <input type="text"

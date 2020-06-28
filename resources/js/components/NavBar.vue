@@ -10,16 +10,24 @@
         <a
             href="#"
             class="nav-item nav-link"
-            v-b-modal.modal-1
+            v-b-modal.modal-login
             v-if="credential.status !== 'ok' && !getCookie('token')">Login</a>
-        <b-modal ref="modal-1" id="modal-1" title="Login" hide-footer>
+        <b-modal ref="modal-login" id="modal-login" title="Login" hide-footer>
           <Login></Login>
         </b-modal>
+        <a
+            href="#"
+            class="nav-item nav-link"
+            v-b-modal.modal-registration
+            v-if="credential.status !== 'ok' && !getCookie('token')">Registration</a>
+        <b-modal ref="modal-registration" id="modal-registration" title="Login" hide-footer>
+          <Registration></Registration>
+        </b-modal>
         <a href="#" class="nav-item nav-link"
-           v-b-modal.modal-2 v-show="credential.status === 'ok' || getCookie('token')"
+           v-b-modal.modal-user-details v-show="credential.status === 'ok' || getCookie('token')"
            @click="getUserDetails(getCookie('token'))"
         >Details</a>
-        <b-modal id="modal-2" title="Details" hide-footer>
+        <b-modal id="modal-user-details" title="Details" hide-footer>
           <Details v-if="credential"></Details>
         </b-modal>
         <a href="#" class="nav-item nav-link" v-show="credential.status === 'ok' || getCookie('token')" @click="logout">Logout</a>
@@ -32,6 +40,7 @@
   import {mapState, mapActions} from 'vuex'
   import {setCookie, getCookie, removeCookie} from 'tiny-cookie'
   import Login from './Auth/Login';
+  import Registration from './Auth/Registration';
   import Details from './Auth/Details';
 
   export default {
@@ -39,6 +48,7 @@
     computed: mapState(["credential"]),
     components:{
       Login,
+      Registration,
       Details,
     },
     methods: {
@@ -57,7 +67,8 @@
     watch: {
       credential: function () {
         if (this.credential.status === "ok") {
-          this.$refs['modal-1'].hide();
+          this.$refs['modal-login'].hide();
+          this.$refs['modal-registration'].hide();
           setCookie('token', this.credential.token);
         } else {
           removeCookie('token');

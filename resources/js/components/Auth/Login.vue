@@ -29,7 +29,6 @@
 
 <script>
   import {mapActions, mapState} from "vuex";
-  import {getCookie, removeCookie, setCookie} from "tiny-cookie";
 
   export default {
     name: "Login",
@@ -44,9 +43,7 @@
       ...mapActions(['getCredential', 'removeCredential', 'getUserDetails']),
       login() {
         this.getCredential([this.email, this.password]);
-        console.log("login function");
-      },
-      getCookie,
+      }
     }
   }
 </script>

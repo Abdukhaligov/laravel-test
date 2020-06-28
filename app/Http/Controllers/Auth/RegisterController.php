@@ -41,24 +41,4 @@ class RegisterController extends Controller {
     return view('auth.register', compact("data"));
   }
 
-  public function register(UserRequest $request) {
-    $request["password"] = bcrypt($request["password"]); //Hashing A Password
-    $input = $request->all();
-
-    $user = $this->userRepository->insert(
-        $input["name"],
-        $input["email"],
-        $input["password"],
-        $input["company_id"] ?? null,
-        $input["position_id"] ?? null
-    );
-    
-    $user = User::hydrate((array) $user)->first();
-
-    Mail::to($user->email)->send(new WelcomeMail($user)); //Sending Welcome Mail to email address
-
-    Auth::guard()->login($user); //Login via registered user
-
-    return redirect($this->redirectPath());
-  }
 }
