@@ -25,15 +25,26 @@ export default new Vuex.Store({
         .get(state.url + "profile-media", config)
         .then(r => commit('GET_MEDIA', r.data));
     },
-    insertMedia({commit, state}, args) {
-      let config = {headers:{
+    insertMedia({commit, state}, args, loading = true) {
+      commit('SET_LOADING', true)
+
+      let config = {
+        headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${args.token}`
-        }};
+        }
+      };
 
       axios
         .post(state.url + "profile-media", args.data, config)
-        .then(r => commit('GET_MEDIA', r.data));
+        .then(r => {
+          commit('GET_MEDIA', r.data);
+          commit('SET_LOADING', false)
+        })
+        .catch(r => {
+        commit('SET_ERRORS', r.data)
+        commit('SET_LOADING', false)
+      });
     },
     setProducts({commit, state}) {
       axios

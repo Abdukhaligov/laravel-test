@@ -2,22 +2,25 @@
   <div>
     <a href="#" class="nav-item nav-link" v-b-modal.modal-media>My Media</a>
     <b-modal ref="modal-media" id="modal-media" size="lg" title="My Media" hide-footer>
-      <div v-if="media.status === 'empty'">
+      <div v-if="loading" class="text-center">LOADING</div>
+      <div v-if="!loading">
+        <div v-if="media.status === 'empty'">
         {{ media.message }}
       </div>
-      <div v-if="media.status === 'ok'">
-        <div v-for="file in media.files">
-          <a :href="file.path" target="_blank">{{ file.name }}</a>
+        <div v-if="media.status === 'ok'">
+          <div v-for="file in media.files">
+            <a :href="file.path" target="_blank">{{ file.name }}</a>
+          </div>
         </div>
+        <hr>
+        <input type="file" v-on:change="handleFilesUpload()" ref="files" multiple="multiple">
+        <button
+            type="submit"
+            class="btn btn-primary"
+            @click="submitFiles(token)">
+          Upload
+        </button>
       </div>
-      <hr>
-      <input type="file" v-on:change="handleFilesUpload()" ref="files" multiple="multiple">
-      <button
-          type="submit"
-          class="btn btn-primary"
-          @click="submitFiles(token)">
-        Upload
-      </button>
     </b-modal>
   </div>
 </template>
@@ -34,7 +37,7 @@
         token: getCookie('token')
       }
     },
-    computed: mapState(["media"]),
+    computed: mapState(["media","loading"]),
     methods: {
       ...mapActions(['getProfileMedia', 'insertMedia']),
       submitFiles(token) {
