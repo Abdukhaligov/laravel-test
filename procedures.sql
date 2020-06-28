@@ -129,10 +129,9 @@ BEGIN
             rPositionID,
             rCreated,
             rUpdated);
-    SELECT `users`.*,
-           LAST_INSERT_ID() AS id
+    SELECT `users`.*
     FROM `users`
-    WHERE `users`.`id` = id
+    WHERE `users`.`id` = LAST_INSERT_ID()
     LIMIT 1;
 END$$
 DELIMITER ;
