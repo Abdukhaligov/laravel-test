@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
 use App\Models\Company;
 use App\Repositories\Interfaces\CompanyRepositoryInterface;
 use App\Repositories\Interfaces\PositionRepositoryInterface;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 
 class CompanyController extends Controller {
   private $companyRepository;
@@ -18,32 +20,12 @@ class CompanyController extends Controller {
   }
 
   public function index() {
-    dump($this->companyRepository->all());
-    return view('home');
-  }
-  public function create() {
-    //
-  }
-
-  public function store(Request $request) {
-    //
+    return response()->json($this->companyRepository->all());
   }
 
   public function show($id) {
     dump($this->companyRepository->getById($id));
     dump($this->positionRepository->getByCompany($id));
     return view('home');
-  }
-
-  public function edit(Company $company) {
-    //
-  }
-
-  public function update(Request $request, Company $company) {
-    //
-  }
-
-  public function destroy(Company $company) {
-    //
   }
 }

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use App\Models\Position;
 use App\Repositories\Interfaces\CompanyRepositoryInterface;
 use App\Repositories\Interfaces\PositionRepositoryInterface;
@@ -18,32 +19,12 @@ class PositionController extends Controller {
   }
 
   public function index() {
-    dump($this->positionRepository->all());
-    return view('home');
-  }
-  public function create() {
-    //
-  }
-
-  public function store(Request $request) {
-    //
+    return response()->json($this->positionRepository->all());
   }
 
   public function show($id) {
     dump($this->positionRepository->getById($id));
     dump($this->companyRepository->getByPosition($id));
     return view('home');
-  }
-
-  public function edit(Position $position) {
-    //
-  }
-
-  public function update(Request $request, Position $position) {
-    //
-  }
-
-  public function destroy(Position $position) {
-    //
   }
 }

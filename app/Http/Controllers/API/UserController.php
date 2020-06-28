@@ -51,6 +51,6 @@ class UserController extends Controller {
 
   public function details() {
     $user = Auth::user();
-    return response()->json($user, 201);
+    return response()->json($user, 200);
   }
 }

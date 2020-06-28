@@ -9,6 +9,8 @@ export default new Vuex.Store({
     products: [],
     credential: [],
     userDetails: [],
+    companies: [],
+    positions: [],
     errors: {},
     loading: false,
     url: 'http://test/api/'
@@ -19,12 +21,22 @@ export default new Vuex.Store({
         .post(state.url + "products")
         .then(r => commit('SET_PRODUCTS', r.data));
     },
+    getCompanies({commit, state}) {
+      axios
+        .post(state.url + "companies")
+        .then(r => commit('SET_COMPANIES', r.data));
+    },
+    getPositions({commit, state}) {
+      axios
+        .post(state.url + "positions")
+        .then(r => commit('SET_POSITIONS', r.data));
+    },
     getCredential({commit, state}, data) {
       axios
         .post(state.url + "login?email=" + data[0] + "&password=" + data[1])
         .then(r => commit('SET_CREDENTIAL', r.data));
     },
-    setNewUser({commit, state}, data, loading = true ) {
+    setNewUser({commit, state}, data, loading = true) {
       commit('SET_LOADING', true)
 
       axios
@@ -32,7 +44,9 @@ export default new Vuex.Store({
           "&name=" + data[0] +
           "&email=" + data[1] +
           "&password=" + data[2] +
-          "&password_confirmation=" + data[3])
+          "&password_confirmation=" + data[3] +
+          "&company_id=" + data[4] +
+          "&position_id=" + data[5])
         .then(r => {
           commit('SET_CREDENTIAL', r.data)
           commit('SET_ERRORS', "")
@@ -78,11 +92,17 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    SET_LOADING(state, loading){
+    SET_LOADING(state, loading) {
       state.loading = loading;
     },
     SET_PRODUCTS(state, products) {
       state.products = products;
+    },
+    GET_COMPANIES(state, companies) {
+      state.companies = companies;
+    },
+    GET_POSITIONS(state, positions) {
+      state.positions = positions;
     },
     SET_CREDENTIAL(state, credential) {
       state.credential = credential;
@@ -95,6 +115,7 @@ export default new Vuex.Store({
     },
     SET_USER_DETAILS(state, userDetails) {
       state.userDetails = userDetails;
+      console.log(userDetails);
     }
   }
 })

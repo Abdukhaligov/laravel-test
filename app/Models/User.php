@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
@@ -21,6 +22,13 @@ class User extends Authenticatable implements HasMedia {
   protected $casts = [
       'email_verified_at' => 'datetime',
   ];
+
+  public function toArray() {
+    $array = parent::toArray();
+    $array['company'] = $this->company->name;
+    $array['position'] = $this->position->name;
+    return $array;
+  }
 
   public function registerMediaCollections(): void {
     $this

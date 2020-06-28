@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //  return $request->user();
@@ -11,8 +9,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', 'API\UserController@login');
 Route::post('register', 'API\UserController@register');
 Route::post('products', 'API\ProductController@index');
-
-
+Route::post('companies', 'API\CompanyController@index');
+Route::post('positions', 'API\PositionController@index');
 
 
 Route::group(['middleware' => ['auth:api']], function(){
