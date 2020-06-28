@@ -7,10 +7,10 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable implements HasMedia {
-  use Notifiable;
-  use InteractsWithMedia;
+  use Notifiable, HasApiTokens, InteractsWithMedia;
 
   protected $fillable = [
       'name', 'email', 'password', 'company_id', 'position_id'

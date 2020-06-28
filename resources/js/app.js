@@ -1,30 +1,14 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import store from './store'
+import App from './components/App.vue'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import VueCookie from 'vue-cookie'
 
-Vue.use(VueRouter)
+Vue.use(BootstrapVue, IconsPlugin, VueCookie);
 
-import App from './views/App'
-import Hello from './views/Hello'
-import Home from './views/Home'
+Vue.config.productionTip = false;
 
-const router = new VueRouter({
-    mode: 'history',
-    routes: [
-        {
-            path: '/',
-            name: 'home',
-            component: Home
-        },
-        {
-            path: '/hello',
-            name: 'hello',
-            component: Hello,
-        },
-    ],
-});
-
-const app = new Vue({
-    el: '#app',
-    components: { App },
-    router,
-});
+new Vue({
+    store:store,
+    render: h => h(App),
+}).$mount('#app');
