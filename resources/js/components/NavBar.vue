@@ -7,33 +7,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a
-            href="#"
-            class="nav-item nav-link"
-            v-b-modal.modal-login
-            v-if="credential.status !== 'ok' && !getCookie('token')">Login</a>
-        <b-modal ref="modal-login" id="modal-login" title="Login" hide-footer>
-          <Login></Login>
-        </b-modal>
-        <a
-            href="#"
-            class="nav-item nav-link"
-            v-b-modal.modal-registration
-            v-if="credential.status !== 'ok' && !getCookie('token')">Registration</a>
-        <b-modal ref="modal-registration" id="modal-registration" title="Registration" hide-footer>
-          <Registration></Registration>
-        </b-modal>
 
-        <Update v-show="credential.status === 'ok' || getCookie('token')"></Update>
+        <Login v-if="credential.status !== 'ok' && !getCookie('token')"></Login>
 
+        <Registration v-if="credential.status !== 'ok' && !getCookie('token')"></Registration>
 
-        <a href="#" class="nav-item nav-link"
-           v-b-modal.modal-user-details v-show="credential.status === 'ok' || getCookie('token')"
-           @click="getUserDetails(getCookie('token'))"
-        >Details</a>
-        <b-modal id="modal-user-details" title="Details" hide-footer>
-          <Details v-if="credential"></Details>
-        </b-modal>
+        <Update v-if="credential.status === 'ok' || getCookie('token')"></Update>
+
+        <Details v-if="credential.status === 'ok' || getCookie('token')"></Details>
+
         <a href="#" class="nav-item nav-link" v-show="credential.status === 'ok' || getCookie('token')" @click="logout">Logout</a>
       </div>
     </div>
@@ -73,8 +55,6 @@
     watch: {
       credential: function () {
         if (this.credential.status === "ok") {
-          this.$refs['modal-login'].hide();
-          this.$refs['modal-registration'].hide();
           setCookie('token', this.credential.token);
         } else {
           removeCookie('token');
