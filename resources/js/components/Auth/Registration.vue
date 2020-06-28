@@ -7,6 +7,9 @@
              id="registerName"
              v-model="name"
              placeholder="Enter name">
+      <div v-if="errors.name">
+        <strong>{{ errors.name[0] }}</strong>
+      </div>
     </div>
     <div class="form-group">
       <label for="registerEmail">Email address</label>
@@ -16,6 +19,9 @@
              v-model="email"
              aria-describedby="emailHelp"
              placeholder="Enter email">
+      <div v-if="errors.email">
+        <strong>{{ errors.email[0] }}</strong>
+      </div>
     </div>
     <div class="form-group">
       <label for="registerPassword">Password</label>
@@ -25,6 +31,9 @@
           id="registerPassword"
           v-model="password"
           placeholder="Password">
+      <div v-if="errors.password">
+        <strong>{{ errors.password[0] }}</strong>
+      </div>
     </div>
     <div class="form-group">
       <label for="registerPasswordConfirmation">Confirm Password</label>
@@ -45,10 +54,12 @@
 </template>
 
 <script>
-  import {mapActions} from "vuex";
+  import {mapActions, mapState} from "vuex";
+  import {removeCookie, setCookie} from "tiny-cookie";
 
   export default {
     name: "Registration",
+    computed: mapState(["errors"]),
     data() {
       return {
         name: '',
@@ -63,6 +74,11 @@
         // this.getCredential([this.email, this.password]);
         this.setNewUser([this.name, this.email, this.password, this.password_confirmation]);
         console.log("Sign up");
+      }
+    },
+    watch: {
+      errors: function () {
+        console.log(this.errors);
       }
     }
   }

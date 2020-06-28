@@ -2059,6 +2059,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var tiny_cookie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tiny-cookie */ "./node_modules/tiny-cookie/es/index.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2111,9 +2112,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Registration",
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors"]),
   data: function data() {
     return {
       name: '',
@@ -2128,7 +2140,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.setNewUser([this.name, this.email, this.password, this.password_confirmation]);
       console.log("Sign up");
     }
-  })
+  }),
+  watch: {
+    errors: function errors() {
+      console.log(this.errors);
+    }
+  }
 });
 
 /***/ }),
@@ -61255,7 +61272,11 @@ var render = function() {
             _vm.name = $event.target.value
           }
         }
-      })
+      }),
+      _vm._v(" "),
+      _vm.errors.name
+        ? _c("div", [_c("strong", [_vm._v(_vm._s(_vm.errors.name[0]))])])
+        : _vm._e()
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
@@ -61288,7 +61309,11 @@ var render = function() {
             _vm.email = $event.target.value
           }
         }
-      })
+      }),
+      _vm._v(" "),
+      _vm.errors.email
+        ? _c("div", [_c("strong", [_vm._v(_vm._s(_vm.errors.email[0]))])])
+        : _vm._e()
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
@@ -61318,7 +61343,11 @@ var render = function() {
             _vm.password = $event.target.value
           }
         }
-      })
+      }),
+      _vm._v(" "),
+      _vm.errors.password
+        ? _c("div", [_c("strong", [_vm._v(_vm._s(_vm.errors.password[0]))])])
+        : _vm._e()
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
@@ -75717,7 +75746,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     products: [],
     credential: [],
     userDetails: [],
-    errors: [],
+    errors: {},
     url: 'http://test/api/'
   },
   actions: {
@@ -75739,7 +75768,10 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
       var commit = _ref3.commit,
           state = _ref3.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "register?" + "&name=" + data[0] + "&email=" + data[1] + "&password=" + data[2] + "&password_confirmation=" + data[3]).then(function (r) {
-        return commit('SET_CREDENTIAL', r.data);
+        commit('SET_CREDENTIAL', r.data);
+        commit('SET_ERRORS', "");
+      })["catch"](function (r) {
+        return commit('SET_ERRORS', r.response.data.errors);
       });
     },
     removeCredential: function removeCredential(_ref4) {
@@ -75852,6 +75884,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     },
     SET_CREDENTIAL: function SET_CREDENTIAL(state, credential) {
       state.credential = credential;
+    },
+    SET_ERRORS: function SET_ERRORS(state, errors) {
+      state.errors = errors;
     },
     DELETE_CREDENTIAL: function DELETE_CREDENTIAL(state) {
       state.credential = "";

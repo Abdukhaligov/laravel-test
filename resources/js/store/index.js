@@ -9,7 +9,7 @@ export default new Vuex.Store({
     products: [],
     credential: [],
     userDetails: [],
-    errors: [],
+    errors: {},
     url: 'http://test/api/'
   },
   actions: {
@@ -30,7 +30,11 @@ export default new Vuex.Store({
           "&email=" + data[1] +
           "&password=" + data[2] +
           "&password_confirmation=" + data[3])
-        .then(r => commit('SET_CREDENTIAL', r.data));
+        .then(r => {
+          commit('SET_CREDENTIAL', r.data)
+          commit('SET_ERRORS', "")
+        })
+        .catch(r => commit('SET_ERRORS', r.response.data.errors));
     },
     removeCredential({commit}) {
       commit('DELETE_CREDENTIAL');
@@ -72,6 +76,9 @@ export default new Vuex.Store({
     },
     SET_CREDENTIAL(state, credential) {
       state.credential = credential;
+    },
+    SET_ERRORS(state, errors) {
+      state.errors = errors;
     },
     DELETE_CREDENTIAL(state) {
       state.credential = "";
