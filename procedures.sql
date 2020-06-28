@@ -221,10 +221,6 @@ BEGIN
     VALUES (modelType, modelID, collectionName, rName,
             rFileName, mimeType, disk, size,
             '[]', '[]', '[]', orderColumn, createdAt, updatedAt);
-    SELECT `media`.`id`,
-           LAST_INSERT_ID() AS id
-    FROM `media`
-    WHERE `media`.`id` = id
-    LIMIT 1;
+    SELECT LAST_INSERT_ID();
 END$$
 DELIMITER ;
