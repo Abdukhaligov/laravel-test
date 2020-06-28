@@ -10,6 +10,7 @@ export default new Vuex.Store({
     credential: [],
     userDetails: [],
     errors: {},
+    loading: false,
     url: 'http://test/api/'
   },
   actions: {
@@ -23,7 +24,9 @@ export default new Vuex.Store({
         .post(state.url + "login?email=" + data[0] + "&password=" + data[1])
         .then(r => commit('SET_CREDENTIAL', r.data));
     },
-    setNewUser({commit, state}, data) {
+    setNewUser({commit, state}, data, loading = true ) {
+      commit('SET_LOADING', true)
+
       axios
         .post(state.url + "register?" +
           "&name=" + data[0] +
@@ -33,8 +36,12 @@ export default new Vuex.Store({
         .then(r => {
           commit('SET_CREDENTIAL', r.data)
           commit('SET_ERRORS', "")
+          commit('SET_LOADING', false)
         })
-        .catch(r => commit('SET_ERRORS', r.response.data.errors));
+        .catch(r => {
+          commit('SET_ERRORS', r.response.data.errors)
+          commit('SET_LOADING', false)
+        });
     },
     removeCredential({commit}) {
       commit('DELETE_CREDENTIAL');
@@ -71,6 +78,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    SET_LOADING(state, loading){
+      state.loading = loading;
+    },
     SET_PRODUCTS(state, products) {
       state.products = products;
     },
