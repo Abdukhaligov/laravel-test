@@ -67,4 +67,8 @@ class UserController extends Controller {
 
     return response()->json(['status' => 'ok'], 200);
   }
+
+  public function list(){
+    return response()->json($this->userRepository->all(),200);
+  }
 }

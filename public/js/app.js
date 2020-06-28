@@ -2579,6 +2579,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2600,8 +2610,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     };
   },
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['products', 'credential']),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setNewProduct', 'setProducts', 'deleteProduct', 'editProduct'])), {}, {
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['products', 'credential', 'users', 'userDetails']),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setNewProduct', 'setProducts', 'deleteProduct', 'editProduct', 'getUsers'])), {}, {
     getCookie: tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"],
     createNewProduct: function createNewProduct(args) {
       this.setNewProduct(args);
@@ -2628,13 +2638,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     if (this.getCookie('token')) {
       this.setProducts();
+      this.getUsers(Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token'));
     }
   },
   watch: {
     credential: function credential() {
       if (this.credential.status === "ok") {
         this.setProducts();
+        this.getUsers(Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token'));
       }
+    },
+    userDetails: function userDetails() {
+      this.getUsers(Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token'));
+      this.setProducts();
     }
   }
 });
@@ -62224,253 +62240,301 @@ var render = function() {
         [
           _c("hr"),
           _vm._v(" "),
-          _c("div", { staticClass: "container row m-auto" }, [
+          _c("div", { staticClass: "row" }, [
             _c(
               "div",
-              { staticClass: "p-2 col-12" },
+              {
+                staticClass: "col-2 p-4",
+                staticStyle: { "border-right": "1px solid rgba(0,0,0,.1)" }
+              },
               [
                 _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary",
-                    on: {
-                      click: function($event) {
-                        return _vm.$bvModal.show("modal-product-create")
-                      }
-                    }
-                  },
-                  [_vm._v("Create Product")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-modal",
-                  {
-                    attrs: {
-                      id: "modal-product-create",
-                      title: "Create Product"
-                    },
-                    scopedSlots: _vm._u(
-                      [
-                        {
-                          key: "modal-footer",
-                          fn: function(ref) {
-                            var close = ref.close
-                            return [
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-primary",
-                                  attrs: { type: "submit" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.createNewProduct({
-                                        product: _vm.newProduct,
-                                        token: _vm.getCookie("token")
-                                      })
-                                      close()
-                                    }
-                                  }
-                                },
-                                [_vm._v("\n            Create\n          ")]
-                              )
-                            ]
-                          }
-                        }
-                      ],
-                      null,
-                      false,
-                      3946008021
-                    )
-                  },
-                  [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "newProductName" } }, [
-                        _vm._v("Name")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.newProduct["name"],
-                            expression: "newProduct['name']"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", id: "newProductName" },
-                        domProps: { value: _vm.newProduct["name"] },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.newProduct,
-                              "name",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "newProductCategory" } }, [
-                        _vm._v("Category")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.newProduct["category"],
-                            expression: "newProduct['category']"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", id: "newProductCategory" },
-                        domProps: { value: _vm.newProduct["category"] },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.newProduct,
-                              "category",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "newProductPrice" } }, [
-                        _vm._v("Price")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.newProduct["price"],
-                            expression: "newProduct['price']"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "number", id: "newProductPrice" },
-                        domProps: { value: _vm.newProduct["price"] },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.newProduct,
-                              "price",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
+                  "ul",
+                  _vm._l(_vm.users, function(user) {
+                    return _c("li", [
+                      _vm._v(
+                        _vm._s(user.name) +
+                          " - " +
+                          _vm._s(user.company) +
+                          " - " +
+                          _vm._s(user.position)
+                      )
                     ])
-                  ]
+                  }),
+                  0
                 )
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "container row m-auto" },
-            _vm._l(_vm.products, function(product) {
-              return _c("div", { key: product.id, staticClass: "col-4 p-2" }, [
-                _c("div", { staticClass: "card" }, [
-                  _c("div", { staticClass: "card-header" }, [
-                    _c("strong", [_vm._v("#" + _vm._s(product.id) + " Name:")]),
-                    _vm._v(" " + _vm._s(product.name) + "\n        ")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-5" }, [
-                        _c("h5", { staticClass: "card-title" }, [
-                          _vm._v("Category: " + _vm._s(product.category))
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "card-text" }, [
-                          _c("strong", [_vm._v("Price: ")]),
-                          _vm._v(_vm._s(product.price))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-7" }, [
-                        _c("div", { staticClass: "input-group" }, [
-                          _c("input", {
-                            staticClass: "form-control",
-                            attrs: { disabled: "", type: "text" },
-                            domProps: { value: product.created_at }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("hr"),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "input-group" }, [
-                          _c("input", {
-                            staticClass: "form-control",
-                            attrs: { disabled: "", type: "text" },
-                            domProps: { value: product.updated_at }
-                          })
-                        ])
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-header" }, [
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-10" }, [
+              _c("div", { staticClass: "container row m-auto" }, [
+                _c(
+                  "div",
+                  { staticClass: "p-2 col-12" },
+                  [
                     _c(
                       "button",
                       {
-                        staticClass: "btn btn-secondary float-left",
+                        staticClass: "btn btn-primary",
                         on: {
                           click: function($event) {
-                            _vm.$bvModal.show("editForm")
-                            _vm.editedProduct.id = product.id
-                            _vm.editedProduct.name = product.name
-                            _vm.editedProduct.price = product.price
-                            _vm.editedProduct.category = product.category
-                            _vm.editedProduct.created_at = product.created_at
-                            _vm.editedProduct.updated_at = product.updated_at
+                            return _vm.$bvModal.show("modal-product-create")
                           }
                         }
                       },
-                      [_vm._v("Edit\n          ")]
+                      [_vm._v("Create Product")]
                     ),
                     _vm._v(" "),
                     _c(
-                      "button",
+                      "b-modal",
                       {
-                        staticClass: "btn btn-danger float-right",
-                        on: {
-                          click: function($event) {
-                            return _vm.deleteForm({ id: product.id })
-                          }
-                        }
+                        attrs: {
+                          id: "modal-product-create",
+                          title: "Create Product"
+                        },
+                        scopedSlots: _vm._u(
+                          [
+                            {
+                              key: "modal-footer",
+                              fn: function(ref) {
+                                var close = ref.close
+                                return [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-primary",
+                                      attrs: { type: "submit" },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.createNewProduct({
+                                            product: _vm.newProduct,
+                                            token: _vm.getCookie("token")
+                                          })
+                                          close()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                Create\n              "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ],
+                          null,
+                          false,
+                          401738453
+                        )
                       },
-                      [_vm._v("X")]
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "newProductName" } }, [
+                            _vm._v("Name")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.newProduct["name"],
+                                expression: "newProduct['name']"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "text", id: "newProductName" },
+                            domProps: { value: _vm.newProduct["name"] },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.newProduct,
+                                  "name",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "newProductCategory" } },
+                            [_vm._v("Category")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.newProduct["category"],
+                                expression: "newProduct['category']"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "text", id: "newProductCategory" },
+                            domProps: { value: _vm.newProduct["category"] },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.newProduct,
+                                  "category",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "newProductPrice" } }, [
+                            _vm._v("Price")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.newProduct["price"],
+                                expression: "newProduct['price']"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "number", id: "newProductPrice" },
+                            domProps: { value: _vm.newProduct["price"] },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.newProduct,
+                                  "price",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ])
+                      ]
                     )
-                  ])
-                ])
-              ])
-            }),
-            0
-          ),
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "container row m-auto" },
+                _vm._l(_vm.products, function(product) {
+                  return _c(
+                    "div",
+                    { key: product.id, staticClass: "col-4 p-2" },
+                    [
+                      _c("div", { staticClass: "card" }, [
+                        _c("div", { staticClass: "card-header" }, [
+                          _c("strong", [
+                            _vm._v("#" + _vm._s(product.id) + " Name:")
+                          ]),
+                          _vm._v(" " + _vm._s(product.name) + "\n            ")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-5" }, [
+                              _c("p", { staticClass: "card-title" }, [
+                                _vm._v("Category: " + _vm._s(product.category))
+                              ]),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "card-text" }, [
+                                _c("strong", [_vm._v("Price: ")]),
+                                _vm._v(_vm._s(product.price))
+                              ]),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "card-text" }, [
+                                _c("strong", [_vm._v("Author: ")]),
+                                _vm._v(_vm._s(product.user))
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-7" }, [
+                              _c("div", { staticClass: "input-group" }, [
+                                _c("input", {
+                                  staticClass: "form-control",
+                                  attrs: { disabled: "", type: "text" },
+                                  domProps: { value: product.created_at }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("hr"),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "input-group" }, [
+                                _c("input", {
+                                  staticClass: "form-control",
+                                  attrs: { disabled: "", type: "text" },
+                                  domProps: { value: product.updated_at }
+                                })
+                              ])
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-header" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-secondary float-left",
+                              on: {
+                                click: function($event) {
+                                  _vm.$bvModal.show("editForm")
+                                  _vm.editedProduct.id = product.id
+                                  _vm.editedProduct.name = product.name
+                                  _vm.editedProduct.price = product.price
+                                  _vm.editedProduct.category = product.category
+                                  _vm.editedProduct.created_at =
+                                    product.created_at
+                                  _vm.editedProduct.updated_at =
+                                    product.updated_at
+                                }
+                              }
+                            },
+                            [_vm._v("Edit\n              ")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger float-right",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteForm({ id: product.id })
+                                }
+                              }
+                            },
+                            [_vm._v("X")]
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                }),
+                0
+              )
+            ])
+          ]),
           _vm._v(" "),
           _c(
             "b-modal",
@@ -76417,6 +76481,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
   state: {
     products: [],
+    users: [],
     credential: [],
     userDetails: [],
     companies: [],
@@ -76440,23 +76505,35 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         return commit('GET_COMPANIES', r.data);
       });
     },
-    getPositions: function getPositions(_ref3) {
+    getUsers: function getUsers(_ref3, token) {
       var commit = _ref3.commit,
           state = _ref3.state;
+      var config = {
+        headers: {
+          Authorization: "Bearer ".concat(token)
+        }
+      };
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(state.url + "users/list", config).then(function (r) {
+        return commit('GET_USERS', r.data);
+      });
+    },
+    getPositions: function getPositions(_ref4) {
+      var commit = _ref4.commit,
+          state = _ref4.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "positions").then(function (r) {
         return commit('GET_POSITIONS', r.data);
       });
     },
-    getCredential: function getCredential(_ref4, data) {
-      var commit = _ref4.commit,
-          state = _ref4.state;
+    getCredential: function getCredential(_ref5, data) {
+      var commit = _ref5.commit,
+          state = _ref5.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "login?email=" + data[0] + "&password=" + data[1]).then(function (r) {
         return commit('SET_CREDENTIAL', r.data);
       });
     },
-    setNewUser: function setNewUser(_ref5, data) {
-      var commit = _ref5.commit,
-          state = _ref5.state;
+    setNewUser: function setNewUser(_ref6, data) {
+      var commit = _ref6.commit,
+          state = _ref6.state;
       var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
       commit('SET_LOADING', true);
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "register?" + "&name=" + data[0] + "&email=" + data[1] + "&password=" + data[2] + "&password_confirmation=" + data[3] + "&company_id=" + data[4] + "&position_id=" + data[5]).then(function (r) {
@@ -76468,13 +76545,13 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         commit('SET_LOADING', false);
       });
     },
-    removeCredential: function removeCredential(_ref6) {
-      var commit = _ref6.commit;
+    removeCredential: function removeCredential(_ref7) {
+      var commit = _ref7.commit;
       commit('DELETE_CREDENTIAL');
     },
-    getUserDetails: function getUserDetails(_ref7, token) {
-      var commit = _ref7.commit,
-          state = _ref7.state;
+    getUserDetails: function getUserDetails(_ref8, token) {
+      var commit = _ref8.commit,
+          state = _ref8.state;
       var config = {
         headers: {
           Authorization: "Bearer ".concat(token)
@@ -76484,14 +76561,14 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         return commit('SET_USER_DETAILS', r.data);
       });
     },
-    setNewProduct: function setNewProduct(_ref8, args) {
+    setNewProduct: function setNewProduct(_ref9, args) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var commit, state, config;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                commit = _ref8.commit, state = _ref8.state;
+                commit = _ref9.commit, state = _ref9.state;
                 config = {
                   headers: {
                     Authorization: "Bearer ".concat(args.token)
@@ -76513,14 +76590,14 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         }, _callee);
       }))();
     },
-    deleteProduct: function deleteProduct(_ref9, args) {
+    deleteProduct: function deleteProduct(_ref10, args) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var commit, state, config;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                commit = _ref9.commit, state = _ref9.state;
+                commit = _ref10.commit, state = _ref10.state;
                 config = {
                   headers: {
                     Authorization: "Bearer ".concat(args.token)
@@ -76542,14 +76619,14 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         }, _callee2);
       }))();
     },
-    editProduct: function editProduct(_ref10, args) {
+    editProduct: function editProduct(_ref11, args) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         var commit, state, config;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                commit = _ref10.commit, state = _ref10.state;
+                commit = _ref11.commit, state = _ref11.state;
                 config = {
                   headers: {
                     Authorization: "Bearer ".concat(args.token)
@@ -76571,9 +76648,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         }, _callee3);
       }))();
     },
-    updateUser: function updateUser(_ref11, args) {
-      var commit = _ref11.commit,
-          state = _ref11.state;
+    updateUser: function updateUser(_ref12, args) {
+      var commit = _ref12.commit,
+          state = _ref12.state;
       var config = {
         headers: {
           Authorization: "Bearer ".concat(args.token)
@@ -76593,6 +76670,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     },
     SET_PRODUCTS: function SET_PRODUCTS(state, products) {
       state.products = products;
+    },
+    GET_USERS: function GET_USERS(state, users) {
+      state.users = users;
     },
     GET_COMPANIES: function GET_COMPANIES(state, companies) {
       state.companies = companies;

@@ -1,71 +1,79 @@
 <template>
   <div v-if="credential.status === 'ok' || getCookie('token')">
     <hr>
-    <div class="container row m-auto">
-      <div class="p-2 col-12">
-        <button class="btn btn-primary" @click="$bvModal.show('modal-product-create')">Create Product</button>
-        <b-modal id="modal-product-create" title="Create Product">
-          <div class="form-group">
-            <label for="newProductName">Name</label>
-            <input type="text"
-                   class="form-control"
-                   v-model="newProduct['name']"
-                   id="newProductName">
-          </div>
-          <div class="form-group">
-            <label for="newProductCategory">Category</label>
-            <input
-                type="text"
-                class="form-control"
-                v-model="newProduct['category']"
-                id="newProductCategory">
-          </div>
-          <div class="form-group">
-            <label for="newProductPrice">Price</label>
-            <input
-                type="number"
-                class="form-control"
-                v-model="newProduct['price']"
-                id="newProductPrice">
-          </div>
-          <template v-slot:modal-footer="{close}">
-            <button
-                @click="createNewProduct({product: newProduct, token: getCookie('token')}); close()"
-                class="btn btn-primary"
-                type="submit">
-              Create
-            </button>
-          </template>
-        </b-modal>
+    <div class="row">
+      <div class="col-2 p-4" style="border-right: 1px solid rgba(0,0,0,.1)">
+        <ul>
+          <li v-for="user in users">{{ user.name }} - {{ user.company}} - {{ user.position }}</li>
+        </ul>
       </div>
-    </div>
-    <hr>
-    <div class="container row m-auto">
-      <div v-for="product in products" :key="product.id" class="col-4 p-2">
-        <div class="card">
-          <div class="card-header">
-            <strong>#{{product.id}} Name:</strong> {{product.name}}
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-5">
-                <h5 class="card-title">Category: {{product.category}}</h5>
-                <p class="card-text"><strong>Price: </strong>{{product.price}}</p>
+      <div class="col-10">
+        <div class="container row m-auto">
+          <div class="p-2 col-12">
+            <button class="btn btn-primary" @click="$bvModal.show('modal-product-create')">Create Product</button>
+            <b-modal id="modal-product-create" title="Create Product">
+              <div class="form-group">
+                <label for="newProductName">Name</label>
+                <input type="text"
+                       class="form-control"
+                       v-model="newProduct['name']"
+                       id="newProductName">
               </div>
-              <div class="col-7">
-                <div class="input-group">
-                  <input :value="product.created_at" disabled type="text" class="form-control">
-                </div>
-                <hr>
-                <div class="input-group">
-                  <input :value="product.updated_at" disabled type="text" class="form-control">
+              <div class="form-group">
+                <label for="newProductCategory">Category</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    v-model="newProduct['category']"
+                    id="newProductCategory">
+              </div>
+              <div class="form-group">
+                <label for="newProductPrice">Price</label>
+                <input
+                    type="number"
+                    class="form-control"
+                    v-model="newProduct['price']"
+                    id="newProductPrice">
+              </div>
+              <template v-slot:modal-footer="{close}">
+                <button
+                    @click="createNewProduct({product: newProduct, token: getCookie('token')}); close()"
+                    class="btn btn-primary"
+                    type="submit">
+                  Create
+                </button>
+              </template>
+            </b-modal>
+          </div>
+        </div>
+        <hr>
+        <div class="container row m-auto">
+          <div v-for="product in products" :key="product.id" class="col-4 p-2">
+            <div class="card">
+              <div class="card-header">
+                <strong>#{{product.id}} Name:</strong> {{product.name}}
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-5">
+                    <p class="card-title">Category: {{product.category}}</p>
+                    <p class="card-text"><strong>Price: </strong>{{product.price}}</p>
+                    <p class="card-text"><strong>Author: </strong>{{product.user}}</p>
+                  </div>
+                  <div class="col-7">
+                    <div class="input-group">
+                      <input :value="product.created_at" disabled type="text" class="form-control">
+                    </div>
+                    <hr>
+                    <div class="input-group">
+                      <input :value="product.updated_at" disabled type="text" class="form-control">
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="card-header">
-            <button class="btn btn-secondary float-left"
-                    @click="$bvModal.show('editForm');
+              <div class="card-header">
+                <button class="btn btn-secondary float-left"
+                        @click="$bvModal.show('editForm');
                     editedProduct.id = product.id;
                     editedProduct.name = product.name;
                     editedProduct.price = product.price;
@@ -73,9 +81,11 @@
                     editedProduct.created_at = product.created_at;
                     editedProduct.updated_at = product.updated_at;
                     ">Edit
-            </button>
+                </button>
 
-            <button class="btn btn-danger float-right" @click="deleteForm({id:product.id})">X</button>
+                <button class="btn btn-danger float-right" @click="deleteForm({id:product.id})">X</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -151,9 +161,9 @@
         }
       }
     },
-    computed: mapState(['products', 'credential']),
+    computed: mapState(['products', 'credential', 'users', 'userDetails']),
     methods: {
-      ...mapActions(['setNewProduct', 'setProducts', 'deleteProduct', 'editProduct']),
+      ...mapActions(['setNewProduct', 'setProducts', 'deleteProduct', 'editProduct', 'getUsers']),
       getCookie,
       createNewProduct(args) {
         this.setNewProduct(args);
@@ -173,13 +183,19 @@
     mounted() {
       if (this.getCookie('token')) {
         this.setProducts();
+        this.getUsers(getCookie('token'));
       }
     },
     watch: {
       credential: function () {
         if (this.credential.status === "ok") {
           this.setProducts();
+          this.getUsers(getCookie('token'));
         }
+      },
+      userDetails: function () {
+        this.getUsers(getCookie('token'));
+        this.setProducts();
       }
     }
   }

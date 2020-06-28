@@ -7,6 +7,7 @@ Vue.use(Vuex, axios);
 export default new Vuex.Store({
   state: {
     products: [],
+    users: [],
     credential: [],
     userDetails: [],
     companies: [],
@@ -25,6 +26,13 @@ export default new Vuex.Store({
       axios
         .post(state.url + "companies")
         .then(r => commit('GET_COMPANIES', r.data));
+    },
+    getUsers({commit, state}, token) {
+      let config = {headers: {Authorization: `Bearer ${token}`}};
+
+      axios
+        .get(state.url + "users/list", config)
+        .then(r => commit('GET_USERS', r.data));
     },
     getPositions({commit, state}) {
       axios
@@ -108,6 +116,9 @@ export default new Vuex.Store({
     },
     SET_PRODUCTS(state, products) {
       state.products = products;
+    },
+    GET_USERS(state, users) {
+      state.users = users;
     },
     GET_COMPANIES(state, companies) {
       state.companies = companies;
