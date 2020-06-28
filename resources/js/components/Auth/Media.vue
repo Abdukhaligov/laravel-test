@@ -10,6 +10,14 @@
           <a :href="file.path" target="_blank">{{ file.name }}</a>
         </div>
       </div>
+      <hr>
+      <input type="file" v-on:change="handleFilesUpload()" ref="files" multiple="multiple">
+      <button
+          type="submit"
+          class="btn btn-primary"
+          @click="submitFiles(token)">
+        Upload
+      </button>
     </b-modal>
   </div>
 </template>
@@ -20,12 +28,33 @@
 
   export default {
     name: "Media",
+    data() {
+      return {
+        files: '',
+        token: getCookie('token')
+      }
+    },
     computed: mapState(["media"]),
     methods: {
-      ...mapActions(['getProfileMedia']),
+      ...mapActions(['getProfileMedia', 'insertMedia']),
+      submitFiles(token) {
+        let formData = new FormData();
+
+        for( var i = 0; i < this.files.length; i++ ){
+          let file = this.files[i];
+
+          formData.append('files[' + i + ']', file);
+        }
+
+
+        this.insertMedia({'token': token, data: formData});
+      },
+      handleFilesUpload() {
+        this.files = this.$refs.files.files;
+      },
     },
     mounted() {
-      this.getProfileMedia(getCookie('token'));
+      this.getProfileMedia(this.token);
     },
   }
 </script>

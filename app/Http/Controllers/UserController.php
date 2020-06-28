@@ -29,33 +29,5 @@ class UserController extends Controller {
   }
 
 
-  public function profileMediaUpload(Request $request) {
-    $model = get_class(new User());
-    $userId = Auth::user()->id;
-    $orderIndex = $this->mediaRepository->lastMediaOrder($model, $userId);
-
-    foreach ($request->allFiles()["uploads"] as $file) {
-      $fileNameOriginal = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-      $fileName = str_replace(' ', '-', $file->getClientOriginalName());
-      $fileSize = $file->getSize();
-      $fileMimeType = $file->getMimeType();
-
-      $directoryId = $this->mediaRepository
-          ->insertMedia(
-              $model,
-              $userId,
-              "user_media",
-              $fileNameOriginal,
-              $fileName,
-              $fileMimeType,
-              "media",
-              $fileSize,
-              ++$orderIndex);
-
-      $file->storeAs("public/media/" . $directoryId, $fileName);
-    }
-
-    return redirect()->back();
-  }
 
 }

@@ -11,6 +11,7 @@ use App\Repositories\Interfaces\CompanyRepositoryInterface;
 use App\Repositories\Interfaces\MediaRepositoryInterface;
 use App\Repositories\Interfaces\PositionRepositoryInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -93,5 +94,34 @@ class UserController extends Controller {
     }
 
     return response()->json(["status" => "ok", "files" => $media],200);
+  }
+
+  public function profileMediaUpload(Request $request) {
+    $model = get_class(new User());
+    $userId = Auth::user()->id;
+    $orderIndex = $this->mediaRepository->lastMediaOrder($model, $userId);
+
+    foreach ($request->allFiles()["files"] as $file) {
+      $fileNameOriginal = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+      $fileName = str_replace(' ', '-', $file->getClientOriginalName());
+      $fileSize = $file->getSize();
+      $fileMimeType = $file->getMimeType();
+
+      $directoryId = $this->mediaRepository
+          ->insertMedia(
+              $model,
+              $userId,
+              "user_media",
+              $fileNameOriginal,
+              $fileName,
+              $fileMimeType,
+              "media",
+              $fileSize,
+              ++$orderIndex);
+
+      $file->storeAs("public/media/" . $directoryId, $fileName);
+    }
+
+    return $this->profileMedia();
   }
 }

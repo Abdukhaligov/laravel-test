@@ -25,6 +25,16 @@ export default new Vuex.Store({
         .get(state.url + "profile-media", config)
         .then(r => commit('GET_MEDIA', r.data));
     },
+    insertMedia({commit, state}, args) {
+      let config = {headers:{
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${args.token}`
+        }};
+
+      axios
+        .post(state.url + "profile-media", args.data, config)
+        .then(r => commit('GET_MEDIA', r.data));
+    },
     setProducts({commit, state}) {
       axios
         .post(state.url + "products")

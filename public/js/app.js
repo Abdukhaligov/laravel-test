@@ -2114,14 +2114,45 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Media",
+  data: function data() {
+    return {
+      files: '',
+      token: Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token')
+    };
+  },
   computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["media"]),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['getProfileMedia'])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['getProfileMedia', 'insertMedia'])), {}, {
+    submitFiles: function submitFiles(token) {
+      var formData = new FormData();
+
+      for (var i = 0; i < this.files.length; i++) {
+        var file = this.files[i];
+        formData.append('files[' + i + ']', file);
+      }
+
+      this.insertMedia({
+        'token': token,
+        data: formData
+      });
+    },
+    handleFilesUpload: function handleFilesUpload() {
+      this.files = this.$refs.files.files;
+    }
+  }),
   mounted: function mounted() {
-    this.getProfileMedia(Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token'));
+    this.getProfileMedia(this.token);
   }
 });
 
@@ -61622,7 +61653,33 @@ var render = function() {
                 }),
                 0
               )
-            : _vm._e()
+            : _vm._e(),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("input", {
+            ref: "files",
+            attrs: { type: "file", multiple: "multiple" },
+            on: {
+              change: function($event) {
+                return _vm.handleFilesUpload()
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              attrs: { type: "submit" },
+              on: {
+                click: function($event) {
+                  return _vm.submitFiles(_vm.token)
+                }
+              }
+            },
+            [_vm._v("\n      Upload\n    ")]
+          )
         ]
       )
     ],
@@ -76706,23 +76763,36 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         return commit('GET_MEDIA', r.data);
       });
     },
-    setProducts: function setProducts(_ref2) {
+    insertMedia: function insertMedia(_ref2, args) {
       var commit = _ref2.commit,
           state = _ref2.state;
+      var config = {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: "Bearer ".concat(args.token)
+        }
+      };
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "profile-media", args.data, config).then(function (r) {
+        return commit('GET_MEDIA', r.data);
+      });
+    },
+    setProducts: function setProducts(_ref3) {
+      var commit = _ref3.commit,
+          state = _ref3.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
         return commit('SET_PRODUCTS', r.data);
       });
     },
-    getCompanies: function getCompanies(_ref3) {
-      var commit = _ref3.commit,
-          state = _ref3.state;
+    getCompanies: function getCompanies(_ref4) {
+      var commit = _ref4.commit,
+          state = _ref4.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "companies").then(function (r) {
         return commit('GET_COMPANIES', r.data);
       });
     },
-    getUsers: function getUsers(_ref4, token) {
-      var commit = _ref4.commit,
-          state = _ref4.state;
+    getUsers: function getUsers(_ref5, token) {
+      var commit = _ref5.commit,
+          state = _ref5.state;
       var config = {
         headers: {
           Authorization: "Bearer ".concat(token)
@@ -76732,23 +76802,23 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         return commit('GET_USERS', r.data);
       });
     },
-    getPositions: function getPositions(_ref5) {
-      var commit = _ref5.commit,
-          state = _ref5.state;
+    getPositions: function getPositions(_ref6) {
+      var commit = _ref6.commit,
+          state = _ref6.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "positions").then(function (r) {
         return commit('GET_POSITIONS', r.data);
       });
     },
-    getCredential: function getCredential(_ref6, data) {
-      var commit = _ref6.commit,
-          state = _ref6.state;
+    getCredential: function getCredential(_ref7, data) {
+      var commit = _ref7.commit,
+          state = _ref7.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "login?email=" + data[0] + "&password=" + data[1]).then(function (r) {
         return commit('SET_CREDENTIAL', r.data);
       });
     },
-    setNewUser: function setNewUser(_ref7, data) {
-      var commit = _ref7.commit,
-          state = _ref7.state;
+    setNewUser: function setNewUser(_ref8, data) {
+      var commit = _ref8.commit,
+          state = _ref8.state;
       var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
       commit('SET_LOADING', true);
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "register?" + "&name=" + data[0] + "&email=" + data[1] + "&password=" + data[2] + "&password_confirmation=" + data[3] + "&company_id=" + data[4] + "&position_id=" + data[5]).then(function (r) {
@@ -76760,13 +76830,13 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         commit('SET_LOADING', false);
       });
     },
-    removeCredential: function removeCredential(_ref8) {
-      var commit = _ref8.commit;
+    removeCredential: function removeCredential(_ref9) {
+      var commit = _ref9.commit;
       commit('DELETE_CREDENTIAL');
     },
-    getUserDetails: function getUserDetails(_ref9, token) {
-      var commit = _ref9.commit,
-          state = _ref9.state;
+    getUserDetails: function getUserDetails(_ref10, token) {
+      var commit = _ref10.commit,
+          state = _ref10.state;
       var config = {
         headers: {
           Authorization: "Bearer ".concat(token)
@@ -76776,14 +76846,14 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         return commit('SET_USER_DETAILS', r.data);
       });
     },
-    setNewProduct: function setNewProduct(_ref10, args) {
+    setNewProduct: function setNewProduct(_ref11, args) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var commit, state, config;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                commit = _ref10.commit, state = _ref10.state;
+                commit = _ref11.commit, state = _ref11.state;
                 config = {
                   headers: {
                     Authorization: "Bearer ".concat(args.token)
@@ -76805,14 +76875,14 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         }, _callee);
       }))();
     },
-    deleteProduct: function deleteProduct(_ref11, args) {
+    deleteProduct: function deleteProduct(_ref12, args) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var commit, state, config;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                commit = _ref11.commit, state = _ref11.state;
+                commit = _ref12.commit, state = _ref12.state;
                 config = {
                   headers: {
                     Authorization: "Bearer ".concat(args.token)
@@ -76834,14 +76904,14 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         }, _callee2);
       }))();
     },
-    editProduct: function editProduct(_ref12, args) {
+    editProduct: function editProduct(_ref13, args) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         var commit, state, config;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                commit = _ref12.commit, state = _ref12.state;
+                commit = _ref13.commit, state = _ref13.state;
                 config = {
                   headers: {
                     Authorization: "Bearer ".concat(args.token)
@@ -76863,9 +76933,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         }, _callee3);
       }))();
     },
-    updateUser: function updateUser(_ref13, args) {
-      var commit = _ref13.commit,
-          state = _ref13.state;
+    updateUser: function updateUser(_ref14, args) {
+      var commit = _ref14.commit,
+          state = _ref14.state;
       var config = {
         headers: {
           Authorization: "Bearer ".concat(args.token)
