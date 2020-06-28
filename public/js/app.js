@@ -75914,14 +75914,14 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
       var commit = _ref2.commit,
           state = _ref2.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "companies").then(function (r) {
-        return commit('SET_COMPANIES', r.data);
+        return commit('GET_COMPANIES', r.data);
       });
     },
     getPositions: function getPositions(_ref3) {
       var commit = _ref3.commit,
           state = _ref3.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "positions").then(function (r) {
-        return commit('SET_POSITIONS', r.data);
+        return commit('GET_POSITIONS', r.data);
       });
     },
     getCredential: function getCredential(_ref4, data) {

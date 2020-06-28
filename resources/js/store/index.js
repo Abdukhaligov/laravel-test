@@ -24,12 +24,12 @@ export default new Vuex.Store({
     getCompanies({commit, state}) {
       axios
         .post(state.url + "companies")
-        .then(r => commit('SET_COMPANIES', r.data));
+        .then(r => commit('GET_COMPANIES', r.data));
     },
     getPositions({commit, state}) {
       axios
         .post(state.url + "positions")
-        .then(r => commit('SET_POSITIONS', r.data));
+        .then(r => commit('GET_POSITIONS', r.data));
     },
     getCredential({commit, state}, data) {
       axios

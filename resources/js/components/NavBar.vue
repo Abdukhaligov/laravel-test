@@ -46,7 +46,7 @@
   export default {
     name: "NavBar",
     computed: mapState(["credential"]),
-    components:{
+    components: {
       Login,
       Registration,
       Details,
