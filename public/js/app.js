@@ -1911,6 +1911,412 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./nova/resources/js/views/Update.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./nova/resources/js/views/Update.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'laravel-nova'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module '@/mixins/HandlesUploads'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [!(function webpackMissingModule() { var e = new Error("Cannot find module 'laravel-nova'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), !(function webpackMissingModule() { var e = new Error("Cannot find module '@/mixins/HandlesUploads'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())],
+  props: !(function webpackMissingModule() { var e = new Error("Cannot find module 'laravel-nova'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(['resourceName', 'resourceId', 'viaResource', 'viaResourceId', 'viaRelationship']),
+  data: function data() {
+    return {
+      relationResponse: null,
+      loading: true,
+      submittedViaUpdateResourceAndContinueEditing: false,
+      submittedViaUpdateResource: false,
+      fields: [],
+      panels: [],
+      validationErrors: new !(function webpackMissingModule() { var e = new Error("Cannot find module 'laravel-nova'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(),
+      lastRetrievedAt: null
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var _yield$Nova$request, data;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              if (!Nova.missingResource(_this.resourceName)) {
+                _context.next = 2;
+                break;
+              }
+
+              return _context.abrupt("return", _this.$router.push({
+                name: '404'
+              }));
+
+            case 2:
+              if (!_this.isRelation) {
+                _context.next = 8;
+                break;
+              }
+
+              _context.next = 5;
+              return Nova.request("/nova-api/".concat(_this.viaResource, "/field/").concat(_this.viaRelationship));
+
+            case 5:
+              _yield$Nova$request = _context.sent;
+              data = _yield$Nova$request.data;
+              _this.relationResponse = data;
+
+            case 8:
+              _this.getFields();
+
+              _this.updateLastRetrievedAtTimestamp();
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  },
+  methods: {
+    /**
+     * Get the available fields for the resource.
+     */
+    getFields: function getFields() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _yield$Nova$request$g, _yield$Nova$request$g2, panels, fields;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.loading = true;
+                _this2.panels = [];
+                _this2.fields = [];
+                _context2.next = 5;
+                return Nova.request().get("/nova-api/".concat(_this2.resourceName, "/").concat(_this2.resourceId, "/update-fields"), {
+                  params: {
+                    editing: true,
+                    editMode: 'update',
+                    viaResource: _this2.viaResource,
+                    viaResourceId: _this2.viaResourceId,
+                    viaRelationship: _this2.viaRelationship
+                  }
+                })["catch"](function (error) {
+                  if (error.response.status == 404) {
+                    _this2.$router.push({
+                      name: '404'
+                    });
+
+                    return;
+                  }
+                });
+
+              case 5:
+                _yield$Nova$request$g = _context2.sent;
+                _yield$Nova$request$g2 = _yield$Nova$request$g.data;
+                panels = _yield$Nova$request$g2.panels;
+                fields = _yield$Nova$request$g2.fields;
+                _this2.panels = panels;
+                _this2.fields = fields;
+                _this2.loading = false;
+                Nova.$emit('resource-loaded');
+
+              case 13:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    submitViaUpdateResource: function submitViaUpdateResource(e) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                e.preventDefault();
+                _this3.submittedViaUpdateResource = true;
+                _this3.submittedViaUpdateResourceAndContinueEditing = false;
+                _context3.next = 5;
+                return _this3.updateResource();
+
+              case 5:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    submitViaUpdateResourceAndContinueEditing: function submitViaUpdateResourceAndContinueEditing() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _this4.submittedViaUpdateResourceAndContinueEditing = true;
+                _this4.submittedViaUpdateResource = false;
+                _context4.next = 4;
+                return _this4.updateResource();
+
+              case 4:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    },
+
+    /**
+     * Update the resource using the provided data.
+     */
+    updateResource: function updateResource() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var _yield$_this5$updateR, redirect;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _this5.isWorking = true;
+
+                if (!_this5.$refs.form.reportValidity()) {
+                  _context5.next = 28;
+                  break;
+                }
+
+                _context5.prev = 2;
+                _context5.next = 5;
+                return _this5.updateRequest();
+
+              case 5:
+                _yield$_this5$updateR = _context5.sent;
+                redirect = _yield$_this5$updateR.data.redirect;
+                Nova.success(_this5.__('The :resource was updated!', {
+                  resource: _this5.resourceInformation.singularLabel.toLowerCase()
+                }));
+                _context5.next = 10;
+                return _this5.updateLastRetrievedAtTimestamp();
+
+              case 10:
+                if (!_this5.submittedViaUpdateResource) {
+                  _context5.next = 14;
+                  break;
+                }
+
+                _this5.$router.push({
+                  path: redirect
+                });
+
+                _context5.next = 20;
+                break;
+
+              case 14:
+                // Reset the form by refetching the fields
+                _this5.getFields();
+
+                _this5.validationErrors = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'laravel-nova'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())();
+                _this5.submittedViaUpdateResource = false;
+                _this5.submittedViaUpdateResourceAndContinueEditing = false;
+                _this5.isWorking = false;
+                return _context5.abrupt("return");
+
+              case 20:
+                _context5.next = 28;
+                break;
+
+              case 22:
+                _context5.prev = 22;
+                _context5.t0 = _context5["catch"](2);
+                _this5.submittedViaUpdateResource = false;
+                _this5.submittedViaUpdateResourceAndContinueEditing = false;
+
+                if (_context5.t0.response.status == 422) {
+                  _this5.validationErrors = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'laravel-nova'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_context5.t0.response.data.errors);
+                  Nova.error(_this5.__('There was a problem submitting the form.'));
+                }
+
+                if (_context5.t0.response.status == 409) {
+                  Nova.error(_this5.__('Another user has updated this resource since this page was loaded. Please refresh the page and try again.'));
+                }
+
+              case 28:
+                _this5.submittedViaUpdateResource = false;
+                _this5.submittedViaUpdateResourceAndContinueEditing = false;
+                _this5.isWorking = false;
+
+              case 31:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, null, [[2, 22]]);
+      }))();
+    },
+
+    /**
+     * Send an update request for this resource
+     */
+    updateRequest: function updateRequest() {
+      return Nova.request().post("/nova-api/".concat(this.resourceName, "/").concat(this.resourceId), this.updateResourceFormData, {
+        params: {
+          viaResource: this.viaResource,
+          viaResourceId: this.viaResourceId,
+          viaRelationship: this.viaRelationship,
+          editing: true,
+          editMode: 'update'
+        }
+      });
+    },
+
+    /**
+     * Update the last retrieved at timestamp to the current UNIX timestamp.
+     */
+    updateLastRetrievedAtTimestamp: function updateLastRetrievedAtTimestamp() {
+      this.lastRetrievedAt = Math.floor(new Date().getTime() / 1000);
+    }
+  },
+  computed: {
+    wasSubmittedViaUpdateResourceAndContinueEditing: function wasSubmittedViaUpdateResourceAndContinueEditing() {
+      return this.isWorking && this.submittedViaUpdateResourceAndContinueEditing;
+    },
+    wasSubmittedViaUpdateResource: function wasSubmittedViaUpdateResource() {
+      return this.isWorking && this.submittedViaUpdateResource;
+    },
+
+    /**
+     * Create the form data for creating the resource.
+     */
+    updateResourceFormData: function updateResourceFormData() {
+      var _this6 = this;
+
+      return _.tap(new FormData(), function (formData) {
+        _(_this6.fields).each(function (field) {
+          field.fill(formData);
+        });
+
+        formData.append('_method', 'PUT');
+        formData.append('_retrieved_at', _this6.lastRetrievedAt);
+      });
+    },
+    singularName: function singularName() {
+      if (this.relationResponse) {
+        return this.relationResponse.singularLabel;
+      }
+
+      return this.resourceInformation.singularLabel;
+    },
+    isRelation: function isRelation() {
+      return Boolean(this.viaResourceId && this.viaRelationship);
+    },
+    panelsWithFields: function panelsWithFields() {
+      var _this7 = this;
+
+      return _.map(this.panels, function (panel) {
+        return _objectSpread(_objectSpread({}, panel), {}, {
+          fields: _.filter(_this7.fields, function (field) {
+            return field.panel == panel.name;
+          })
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/App.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/App.vue?vue&type=script&lang=js& ***!
@@ -2060,7 +2466,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var tiny_cookie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tiny-cookie */ "./node_modules/tiny-cookie/es/index.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2144,7 +2549,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Registration",
   computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors", "loading", "companies", "positions"]),
@@ -2161,7 +2565,115 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setNewUser', 'getCompanies', 'getPositions'])), {}, {
     registration: function registration() {
       this.setNewUser([this.name, this.email, this.password, this.password_confirmation, this.company_id, this.position_id]);
-      console.log("Sign up");
+    }
+  }),
+  mounted: function mounted() {
+    this.getCompanies();
+    this.getPositions();
+  },
+  watch: {
+    errors: function errors() {
+      console.log(this.errors);
+    },
+    loading: function loading() {
+      console.log(this.loading);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Auth/UpdateProfile.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Auth/UpdateProfile.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var tiny_cookie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tiny-cookie */ "./node_modules/tiny-cookie/es/index.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "UpdateProfile",
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors", "loading", "companies", "positions", "userDetails"]),
+  data: function data() {
+    return {
+      user: {
+        name: "",
+        email: "",
+        company_id: "",
+        position_id: ""
+      }
+    };
+  },
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setNewUser', 'getCompanies', 'getPositions', 'updateUser'])), {}, {
+    update: function update(data) {
+      this.updateUser({
+        'token': Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token'),
+        data: data
+      });
     }
   }),
   mounted: function mounted() {
@@ -2194,6 +2706,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Auth_Login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Auth/Login */ "./resources/js/components/Auth/Login.vue");
 /* harmony import */ var _Auth_Registration__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Auth/Registration */ "./resources/js/components/Auth/Registration.vue");
 /* harmony import */ var _Auth_Details__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Auth/Details */ "./resources/js/components/Auth/Details.vue");
+/* harmony import */ var _Auth_UpdateProfile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Auth/UpdateProfile */ "./resources/js/components/Auth/UpdateProfile.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2238,6 +2751,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -2249,7 +2770,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {
     Login: _Auth_Login__WEBPACK_IMPORTED_MODULE_2__["default"],
     Registration: _Auth_Registration__WEBPACK_IMPORTED_MODULE_3__["default"],
-    Details: _Auth_Details__WEBPACK_IMPORTED_MODULE_4__["default"]
+    Details: _Auth_Details__WEBPACK_IMPORTED_MODULE_4__["default"],
+    UpdateProfile: _Auth_UpdateProfile__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['getCredential', 'removeCredential', 'getUserDetails'])), {}, {
     getCookie: tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"],
@@ -2291,6 +2813,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var tiny_cookie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tiny-cookie */ "./node_modules/tiny-cookie/es/index.js");
+/* harmony import */ var _nova_resources_js_views_Update__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../nova/resources/js/views/Update */ "./nova/resources/js/views/Update.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2427,10 +2950,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ProductList",
+  components: {
+    Update: _nova_resources_js_views_Update__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
   data: function data() {
     return {
       newProduct: {
@@ -61079,6 +61607,146 @@ var e=function(){return(e=Object.assign||function(e){for(var t,r=1,s=arguments.l
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./nova/resources/js/views/Update.vue?vue&type=template&id=4c84d231&":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./nova/resources/js/views/Update.vue?vue&type=template&id=4c84d231& ***!
+  \*********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "loading-view",
+    { attrs: { loading: _vm.loading } },
+    [
+      _c("custom-update-header", {
+        staticClass: "mb-3",
+        attrs: {
+          "resource-name": _vm.resourceName,
+          "resource-id": _vm.resourceId
+        }
+      }),
+      _vm._v(" "),
+      _vm.panels
+        ? _c(
+            "form",
+            {
+              ref: "form",
+              attrs: { autocomplete: "off" },
+              on: { submit: _vm.submitViaUpdateResource }
+            },
+            [
+              _vm._l(_vm.panelsWithFields, function(panel) {
+                return _c("form-panel", {
+                  key: panel.name,
+                  staticClass: "mb-8",
+                  attrs: {
+                    panel: panel,
+                    name: panel.name,
+                    "resource-id": _vm.resourceId,
+                    "resource-name": _vm.resourceName,
+                    fields: panel.fields,
+                    mode: "form",
+                    "validation-errors": _vm.validationErrors,
+                    "via-resource": _vm.viaResource,
+                    "via-resource-id": _vm.viaResourceId,
+                    "via-relationship": _vm.viaRelationship
+                  },
+                  on: {
+                    "update-last-retrieved-at-timestamp":
+                      _vm.updateLastRetrievedAtTimestamp,
+                    "file-upload-started": _vm.handleFileUploadStarted,
+                    "file-upload-finished": _vm.handleFileUploadFinished
+                  }
+                })
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "flex items-center" },
+                [
+                  _c("cancel-button", {
+                    on: {
+                      click: function($event) {
+                        return _vm.$router.back()
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "progress-button",
+                    {
+                      staticClass: "mr-3",
+                      attrs: {
+                        dusk: "update-and-continue-editing-button",
+                        disabled: _vm.isWorking,
+                        processing:
+                          _vm.wasSubmittedViaUpdateResourceAndContinueEditing
+                      },
+                      nativeOn: {
+                        click: function($event) {
+                          return _vm.submitViaUpdateResourceAndContinueEditing(
+                            $event
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n        " +
+                          _vm._s(_vm.__("Update & Continue Editing")) +
+                          "\n      "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "progress-button",
+                    {
+                      attrs: {
+                        dusk: "update-button",
+                        type: "submit",
+                        disabled: _vm.isWorking,
+                        processing: _vm.wasSubmittedViaUpdateResource
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n        " +
+                          _vm._s(
+                            _vm.__("Update :resource", {
+                              resource: _vm.singularName
+                            })
+                          ) +
+                          "\n      "
+                      )
+                    ]
+                  )
+                ],
+                1
+              )
+            ],
+            2
+          )
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/App.vue?vue&type=template&id=332fccf4&":
 /*!******************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/App.vue?vue&type=template&id=332fccf4& ***!
@@ -61550,6 +62218,204 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Auth/UpdateProfile.vue?vue&type=template&id=d71b74f8&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Auth/UpdateProfile.vue?vue&type=template&id=d71b74f8& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm.loading
+      ? _c("div", { staticClass: "text-center" }, [_vm._v("LOADING")])
+      : _vm._e(),
+    _vm._v(" "),
+    !_vm.loading
+      ? _c("form", [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "registerName" } }, [_vm._v("Name")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: (_vm.user.name = _vm.userDetails.name),
+                  expression: "user.name = userDetails.name"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "registerName",
+                placeholder: "Enter name"
+              },
+              domProps: { value: (_vm.user.name = _vm.userDetails.name) },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    (_vm.user.name = _vm.userDetails),
+                    "name",
+                    $event.target.value
+                  )
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.errors.name
+              ? _c("div", [_c("strong", [_vm._v(_vm._s(_vm.errors.name[0]))])])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("Email address")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "email", disabled: "" },
+              domProps: { value: _vm.userDetails.email }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "registerCompany" } }, [
+              _vm._v("Company")
+            ]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: (_vm.user.company_id = _vm.userDetails.company_id),
+                    expression: "user.company_id = userDetails.company_id"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { name: "company", id: "registerCompany" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      (_vm.user.company_id = _vm.userDetails),
+                      "company_id",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { selected: "", value: "" } }, [
+                  _vm._v("Select company")
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.companies, function(company) {
+                  return _c("option", { domProps: { value: company.id } }, [
+                    _vm._v("\n          " + _vm._s(company.name) + "\n        ")
+                  ])
+                })
+              ],
+              2
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "registerPosition" } }, [
+              _vm._v("Position")
+            ]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: (_vm.user.position_id = _vm.userDetails.position_id),
+                    expression: "user.position_id = userDetails.position_id"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { name: "company", id: "registerPosition" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      (_vm.user.position_id = _vm.userDetails),
+                      "position_id",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { selected: "", value: "" } }, [
+                  _vm._v("Select position")
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.positions, function(position) {
+                  return _c("option", { domProps: { value: position.id } }, [
+                    _vm._v(
+                      "\n          " + _vm._s(position.name) + "\n        "
+                    )
+                  ])
+                })
+              ],
+              2
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              attrs: { type: "submit" },
+              on: {
+                click: function($event) {
+                  return _vm.update(_vm.user)
+                }
+              }
+            },
+            [_vm._v("\n      Update\n    ")]
+          )
+        ])
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NavBar.vue?vue&type=template&id=5dd24bca&":
 /*!*********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/NavBar.vue?vue&type=template&id=5dd24bca& ***!
@@ -61642,11 +62508,54 @@ var render = function() {
                   ref: "modal-registration",
                   attrs: {
                     id: "modal-registration",
-                    title: "Login",
+                    title: "Registration",
                     "hide-footer": ""
                   }
                 },
                 [_c("Registration")],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  directives: [
+                    {
+                      name: "b-modal",
+                      rawName: "v-b-modal.modal-user-update",
+                      modifiers: { "modal-user-update": true }
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value:
+                        _vm.credential.status === "ok" ||
+                        _vm.getCookie("token"),
+                      expression:
+                        "credential.status === 'ok' || getCookie('token')"
+                    }
+                  ],
+                  staticClass: "nav-item nav-link",
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      _vm.getUserDetails(_vm.getCookie("token"))
+                    }
+                  }
+                },
+                [_vm._v("Update Profile")]
+              ),
+              _vm._v(" "),
+              _c(
+                "b-modal",
+                {
+                  attrs: {
+                    id: "modal-user-update",
+                    title: "Update profile",
+                    "hide-footer": ""
+                  }
+                },
+                [_vm.credential ? _c("UpdateProfile") : _vm._e()],
                 1
               ),
               _vm._v(" "),
@@ -62162,8 +63071,11 @@ var render = function() {
                   attrs: { disabled: "", type: "text" },
                   domProps: { value: _vm.editedProduct.updated_at }
                 })
-              ])
-            ]
+              ]),
+              _vm._v(" "),
+              _c("Update")
+            ],
+            1
           )
         ],
         1
@@ -75419,6 +76331,75 @@ module.exports = g;
 
 /***/ }),
 
+/***/ "./nova/resources/js/views/Update.vue":
+/*!********************************************!*\
+  !*** ./nova/resources/js/views/Update.vue ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Update_vue_vue_type_template_id_4c84d231___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Update.vue?vue&type=template&id=4c84d231& */ "./nova/resources/js/views/Update.vue?vue&type=template&id=4c84d231&");
+/* harmony import */ var _Update_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Update.vue?vue&type=script&lang=js& */ "./nova/resources/js/views/Update.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Update_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Update_vue_vue_type_template_id_4c84d231___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Update_vue_vue_type_template_id_4c84d231___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "nova/resources/js/views/Update.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./nova/resources/js/views/Update.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./nova/resources/js/views/Update.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Update_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Update.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./nova/resources/js/views/Update.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Update_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./nova/resources/js/views/Update.vue?vue&type=template&id=4c84d231&":
+/*!***************************************************************************!*\
+  !*** ./nova/resources/js/views/Update.vue?vue&type=template&id=4c84d231& ***!
+  \***************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Update_vue_vue_type_template_id_4c84d231___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Update.vue?vue&type=template&id=4c84d231& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./nova/resources/js/views/Update.vue?vue&type=template&id=4c84d231&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Update_vue_vue_type_template_id_4c84d231___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Update_vue_vue_type_template_id_4c84d231___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -75722,6 +76703,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Registration_vue_vue_type_template_id_3583df05___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Registration_vue_vue_type_template_id_3583df05___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Auth/UpdateProfile.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/Auth/UpdateProfile.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _UpdateProfile_vue_vue_type_template_id_d71b74f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UpdateProfile.vue?vue&type=template&id=d71b74f8& */ "./resources/js/components/Auth/UpdateProfile.vue?vue&type=template&id=d71b74f8&");
+/* harmony import */ var _UpdateProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UpdateProfile.vue?vue&type=script&lang=js& */ "./resources/js/components/Auth/UpdateProfile.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UpdateProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UpdateProfile_vue_vue_type_template_id_d71b74f8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _UpdateProfile_vue_vue_type_template_id_d71b74f8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Auth/UpdateProfile.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Auth/UpdateProfile.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/Auth/UpdateProfile.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./UpdateProfile.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Auth/UpdateProfile.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Auth/UpdateProfile.vue?vue&type=template&id=d71b74f8&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/Auth/UpdateProfile.vue?vue&type=template&id=d71b74f8& ***!
+  \***************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateProfile_vue_vue_type_template_id_d71b74f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./UpdateProfile.vue?vue&type=template&id=d71b74f8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Auth/UpdateProfile.vue?vue&type=template&id=d71b74f8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateProfile_vue_vue_type_template_id_d71b74f8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateProfile_vue_vue_type_template_id_d71b74f8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -76047,6 +77097,21 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
           }
         }, _callee3);
       }))();
+    },
+    updateUser: function updateUser(_ref11, args) {
+      var commit = _ref11.commit,
+          state = _ref11.state;
+      var config = {
+        headers: {
+          Authorization: "Bearer ".concat(args.token)
+        }
+      };
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "profile/update", args.data, config)["catch"](function (r) {
+        commit('SET_ERRORS', r.response.data.errors);
+      });
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "details", '', config).then(function (r) {
+        return commit('SET_USER_DETAILS', r.data);
+      });
     }
   },
   mutations: {
@@ -76073,7 +77138,6 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     },
     SET_USER_DETAILS: function SET_USER_DETAILS(state, userDetails) {
       state.userDetails = userDetails;
-      console.log(userDetails);
     }
   }
 }));

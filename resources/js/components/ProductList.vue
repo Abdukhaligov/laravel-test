@@ -114,6 +114,7 @@
         <input :value="editedProduct.updated_at" disabled type="text" class="form-control">
       </div>
 
+      <Update></Update>
 
       <template v-slot:modal-footer="{close}">
         <button
@@ -132,9 +133,11 @@
 
   import {mapState, mapActions} from 'vuex'
   import {getCookie} from 'tiny-cookie'
+  import Update from "../../../nova/resources/js/views/Update";
 
   export default {
     name: "ProductList",
+    components: {Update},
     data() {
       return {
         newProduct: {

@@ -88,7 +88,18 @@ export default new Vuex.Store({
       await axios.put(state.url + "products/update", args.data, config);
 
       axios.post(state.url + "products").then(r => commit('SET_PRODUCTS', r.data))
+    },
+    updateUser({commit, state}, args) {
+      let config = {headers: {Authorization: `Bearer ${args.token}`}};
 
+      axios.put(state.url + "profile/update", args.data, config)
+        .catch(r => {
+          commit('SET_ERRORS', r.response.data.errors)
+        });
+
+      axios
+        .post(state.url + "details", '', config)
+        .then(r => commit('SET_USER_DETAILS', r.data));
     }
   },
   mutations: {
@@ -115,7 +126,6 @@ export default new Vuex.Store({
     },
     SET_USER_DETAILS(state, userDetails) {
       state.userDetails = userDetails;
-      console.log(userDetails);
     }
   }
 })

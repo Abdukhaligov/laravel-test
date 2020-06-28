@@ -28,33 +28,6 @@ class UserController extends Controller {
     $this->mediaRepository = $mediaRepository;
   }
 
-  public function index() {
-    dump($this->userRepository->all());
-    return view("home");
-
-  }
-
-  public function create() {
-    //
-  }
-
-  public function store(Request $request) {
-    //
-  }
-
-  public function show($id) {
-    dump($this->userRepository->getById($id));
-    return view("home");
-  }
-
-
-  public function profile() {
-    $data["user"] = Auth::user();
-    $data["companies"] = $this->companyRepository->all();
-    $data["positions"] = $this->positionRepository->all();
-
-    return view("profile", compact("data"));
-  }
 
   public function profileMedia() {
     $model = get_class(new User());
@@ -101,16 +74,4 @@ class UserController extends Controller {
     return redirect()->back();
   }
 
-  public function update(UserRequest $request) {
-    $user = Auth::user();
-    $input = $request->all();
-
-    $this->userRepository->update($user->id, $input["name"], $input["company_id"], $input["position_id"]);
-
-    return redirect()->back();
-  }
-
-  public function destroy(User $user) {
-    //
-  }
 }

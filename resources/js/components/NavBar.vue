@@ -20,8 +20,15 @@
             class="nav-item nav-link"
             v-b-modal.modal-registration
             v-if="credential.status !== 'ok' && !getCookie('token')">Registration</a>
-        <b-modal ref="modal-registration" id="modal-registration" title="Login" hide-footer>
+        <b-modal ref="modal-registration" id="modal-registration" title="Registration" hide-footer>
           <Registration></Registration>
+        </b-modal>
+        <a href="#" class="nav-item nav-link"
+           v-b-modal.modal-user-update v-show="credential.status === 'ok' || getCookie('token')"
+           @click="getUserDetails(getCookie('token'))"
+        >Update Profile</a>
+        <b-modal id="modal-user-update" title="Update profile" hide-footer>
+          <UpdateProfile v-if="credential"></UpdateProfile>
         </b-modal>
         <a href="#" class="nav-item nav-link"
            v-b-modal.modal-user-details v-show="credential.status === 'ok' || getCookie('token')"
@@ -42,6 +49,7 @@
   import Login from './Auth/Login';
   import Registration from './Auth/Registration';
   import Details from './Auth/Details';
+  import UpdateProfile from "./Auth/UpdateProfile";
 
   export default {
     name: "NavBar",
@@ -50,6 +58,7 @@
       Login,
       Registration,
       Details,
+      UpdateProfile
     },
     methods: {
       ...mapActions(['getCredential', 'removeCredential', 'getUserDetails']),

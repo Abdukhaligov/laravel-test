@@ -76,7 +76,6 @@
 
 <script>
   import {mapActions, mapState} from "vuex";
-  import {removeCookie, setCookie} from "tiny-cookie";
 
   export default {
     name: "Registration",
@@ -101,7 +100,6 @@
           this.password_confirmation,
           this.company_id,
           this.position_id]);
-        console.log("Sign up");
       }
     },
     mounted() {

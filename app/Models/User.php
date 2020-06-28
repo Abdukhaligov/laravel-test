@@ -27,6 +27,8 @@ class User extends Authenticatable implements HasMedia {
     $array = parent::toArray();
     $array['company'] = $this->company->name;
     $array['position'] = $this->position->name;
+    unset($array['email_verified_at']);
+    unset($array['admin']);
     return $array;
   }
 

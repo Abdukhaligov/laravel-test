@@ -53,4 +53,18 @@ class UserController extends Controller {
     $user = Auth::user();
     return response()->json($user, 200);
   }
+
+  public function update(UserRequest $request) {
+    $user = Auth::user();
+    $input = $request->all();
+
+    $this->userRepository
+        ->update(
+            $user->id,
+            $input["name"],
+            $input["company_id"],
+            $input["position_id"]);
+
+    return response()->json(['status' => 'ok'], 200);
+  }
 }
