@@ -133,11 +133,13 @@
 
   import {mapState, mapActions} from 'vuex'
   import {getCookie} from 'tiny-cookie'
-  import Update from "../../../nova/resources/js/views/Update";
+  import Update from "./Auth/Update";
 
   export default {
     name: "ProductList",
-    components: {Update},
+    components: {
+      Update
+    },
     data() {
       return {
         newProduct: {

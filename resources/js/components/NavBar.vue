@@ -28,7 +28,7 @@
            @click="getUserDetails(getCookie('token'))"
         >Update Profile</a>
         <b-modal id="modal-user-update" title="Update profile" hide-footer>
-          <UpdateProfile v-if="credential"></UpdateProfile>
+          <Update v-if="credential"></Update>
         </b-modal>
         <a href="#" class="nav-item nav-link"
            v-b-modal.modal-user-details v-show="credential.status === 'ok' || getCookie('token')"
@@ -49,7 +49,7 @@
   import Login from './Auth/Login';
   import Registration from './Auth/Registration';
   import Details from './Auth/Details';
-  import UpdateProfile from "./Auth/UpdateProfile";
+  import Update from "./Auth/Update";
 
   export default {
     name: "NavBar",
@@ -58,7 +58,7 @@
       Login,
       Registration,
       Details,
-      UpdateProfile
+      Update
     },
     methods: {
       ...mapActions(['getCredential', 'removeCredential', 'getUserDetails']),

@@ -56,7 +56,7 @@
   import {getCookie} from "tiny-cookie";
 
   export default {
-    name: "UpdateProfile",
+    name: "Update",
     computed: mapState(["errors", "loading", "companies", "positions", "userDetails"]),
     data() {
       return {
