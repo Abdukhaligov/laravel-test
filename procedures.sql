@@ -224,3 +224,65 @@ BEGIN
     SELECT LAST_INSERT_ID();
 END$$
 DELIMITER ;
+
+DELIMITER $$
+CREATE
+    DEFINER = `root`@`127.0.0.1` PROCEDURE `get_products`()
+    NO SQL
+BEGIN
+    SELECT `products`.*
+    FROM `products`
+    ORDER BY `id` DESC;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE
+    DEFINER = `root`@`127.0.0.1` PROCEDURE `update_product`(IN `pID` BIGINT UNSIGNED, IN `rName` VARCHAR(255),
+                                                            IN `rCategory` VARCHAR(255), IN `rPrice` INT,
+                                                            IN `updatedAt` TIMESTAMP)
+    NO SQL
+BEGIN
+    UPDATE `products`
+    SET `name`       = rName,
+        `category`   = rCategory,
+        `price`      = rPrice,
+        `updated_at` = updatedAt
+    WHERE `products`.`id` = pID;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE
+    DEFINER = `root`@`127.0.0.1` PROCEDURE `insert_product`(IN `rName` VARCHAR(255), IN `rCategory` VARCHAR(255),
+                                                            IN `rPrice` INT, IN `userID` BIGINT UNSIGNED,
+                                                            IN `rCreated` TIMESTAMP, IN `rUpdated` TIMESTAMP)
+    NO SQL
+BEGIN
+    INSERT INTO `products`
+    (`name`,
+     `category`,
+     `price`,
+     `user_id`,
+     `created_at`,
+     `updated_at`)
+    VALUES (rName,
+            rCategory,
+            rPrice,
+            userID,
+            rCreated,
+            rUpdated);
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE
+    DEFINER = `root`@`127.0.0.1` PROCEDURE `delete_product`(IN `pID` BIGINT UNSIGNED)
+    NO SQL
+BEGIN
+    DELETE
+    FROM `products`
+    WHERE `products`.`id` = pID;
+END$$
+DELIMITER ;
+

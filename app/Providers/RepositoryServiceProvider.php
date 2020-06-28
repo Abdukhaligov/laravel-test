@@ -6,9 +6,11 @@ use App\Repositories\CompanyRepository;
 use App\Repositories\Interfaces\CompanyRepositoryInterface;
 use App\Repositories\Interfaces\MediaRepositoryInterface;
 use App\Repositories\Interfaces\PositionRepositoryInterface;
+use App\Repositories\Interfaces\ProductRepositoryInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\Repositories\MediaRepository;
 use App\Repositories\PositionRepository;
+use App\Repositories\ProductRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,6 +31,10 @@ class RepositoryServiceProvider extends ServiceProvider {
     $this->app->bind(
         MediaRepositoryInterface::class,
         MediaRepository::class
+    );
+    $this->app->bind(
+        ProductRepositoryInterface::class,
+        ProductRepository::class
     );
   }
 

@@ -2,46 +2,39 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Http\Requests\ProductRequest;
+use App\Repositories\Interfaces\ProductRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-
 class ProductController extends Controller {
+  private $productRepository;
+
+  public function __construct(ProductRepositoryInterface $productRepository) {
+    $this->productRepository = $productRepository;
+  }
+
   public function index() {
-    return Product::orderBy('created_at', 'DESC')->get();
+    return $this->productRepository->all();
   }
 
-  public function create(Request $request) {
-    $valid = Validator::make($request->all(), [
-        'category' => 'required',
-        'price' => 'required'
-    ]);
+  public function create(ProductRequest $request) {
+    $user = Auth::user();
 
-    if ($valid->fails()) {
-      return response()->json(['error' => $valid->errors()], 401);
+    if ($this->productRepository->insert(
+        $request->name, $request->category, $request->price, $user->id)
+    ) {
+      return response()->json(['result' => "success", "msg" => "Data is saved"], 200);
     }
 
-    $product = new Product();
-    $product->name = $request->name;
-    $product->category = $request->category;
-    $product->price = $request->price;
-
-    if ($product->save()) {
-      return response()->json(['result' => "success", "msg" => "Data is saved"]);
-    }
-
-    return response()->json(['result' => "fail", "msg" => "Product not saved"]);
+    return response()->json(['result' => "fail", "msg" => "Product not saved"], 400);
   }
 
-  public function update(Request $request) {
-    $product = Product::find($request->id);
-    $product->name = $request->name;
-    $product->category = $request->category;
-    $product->price = $request->price;
-
-    if ($product->save()) {
+  public function update(ProductRequest $request) {
+    if ($this->productRepository->update($request->id, $request->name,$request->category,$request->price)) {
       return response()->json(['result' => "success", "msg" => "Data is updated"]);
     } else {
       return response()->json(['result' => "fail", "msg" => "something gets wrong"]);
@@ -49,8 +42,7 @@ class ProductController extends Controller {
   }
 
   public function destroy($id) {
-    $product = Product::find($id);
-    if ($product->delete()) {
+    if ($this->productRepository->delete($id)) {
       return response()->json(['result' => "success", "msg" => "Data is deleted"]);
     } else {
       return response()->json(['result' => "success", "msg" => "Something gets wrong"]);
