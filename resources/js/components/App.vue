@@ -1,13 +1,8 @@
 <template>
   <div id="app">
-
     <NavBar/>
-
     <ProductList/>
-
     <hr>
-
-
   </div>
 </template>
 

@@ -15,24 +15,24 @@
           <div class="form-group">
             <label for="newProductCategory">Category</label>
             <input
-              type="text"
-              class="form-control"
-              v-model="newProduct['category']"
-              id="newProductCategory">
+                type="text"
+                class="form-control"
+                v-model="newProduct['category']"
+                id="newProductCategory">
           </div>
           <div class="form-group">
             <label for="newProductPrice">Price</label>
             <input
-              type="number"
-              class="form-control"
-              v-model="newProduct['price']"
-              id="newProductPrice">
+                type="number"
+                class="form-control"
+                v-model="newProduct['price']"
+                id="newProductPrice">
           </div>
           <template v-slot:modal-footer="{close}">
             <button
-              @click="createNewProduct({product: newProduct, token: getCookie('token')}); close()"
-              class="btn btn-primary"
-              type="submit">
+                @click="createNewProduct({product: newProduct, token: getCookie('token')}); close()"
+                class="btn btn-primary"
+                type="submit">
               Create
             </button>
           </template>
@@ -92,18 +92,18 @@
       <div class="form-group">
         <label for="productCategory">Category</label>
         <input
-          type="text"
-          class="form-control"
-          id="productCategory"
-          v-model="editedProduct.category">
+            type="text"
+            class="form-control"
+            id="productCategory"
+            v-model="editedProduct.category">
       </div>
       <div class="form-group">
         <label for="productPrice">Price</label>
         <input
-          type="number"
-          class="form-control"
-          id="productPrice"
-          v-model="editedProduct.price">
+            type="number"
+            class="form-control"
+            id="productPrice"
+            v-model="editedProduct.price">
       </div>
       <div class="form-group">
         <label>Created time</label>
@@ -117,9 +117,9 @@
 
       <template v-slot:modal-footer="{close}">
         <button
-          @click="editForm(editedProduct);close()"
-          class="btn btn-primary"
-          type="submit">
+            @click="editForm(editedProduct);close()"
+            class="btn btn-primary"
+            type="submit">
           Edit
         </button>
       </template>
@@ -155,7 +155,6 @@
     computed: mapState(['products', 'credential']),
     methods: {
       ...mapActions(['setNewProduct', 'setProducts', 'deleteProduct', 'editProduct']),
-
       getCookie,
       createNewProduct(args) {
         this.setNewProduct(args);
@@ -173,7 +172,16 @@
       }
     },
     mounted() {
-      this.setProducts();
+      if (this.getCookie('token')) {
+        this.setProducts();
+      }
+    },
+    watch: {
+      credential: function () {
+        if (this.credential.status === "ok") {
+          this.setProducts();
+        }
+      }
     }
   }
 </script>

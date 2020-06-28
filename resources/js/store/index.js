@@ -64,7 +64,7 @@ export default new Vuex.Store({
       state.credential = credential;
     },
     DELETE_CREDENTIAL(state){
-      state.credential = {"status": "credential error"};
+      state.credential = "";
     },
     SET_USER_DETAILS(state, userDetails){
       state.userDetails = userDetails;
