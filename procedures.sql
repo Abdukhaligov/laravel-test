@@ -221,7 +221,8 @@ BEGIN
     VALUES (modelType, modelID, collectionName, rName,
             rFileName, mimeType, disk, size,
             '[]', '[]', '[]', orderColumn, createdAt, updatedAt);
-    SELECT LAST_INSERT_ID();
+    SELECT LAST_INSERT_ID() AS id
+    LIMIT 1;
 END$$
 DELIMITER ;
 
