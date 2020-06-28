@@ -8,16 +8,22 @@ use App\Mail\WelcomeMail;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use App\Repositories\Interfaces\CompanyRepositoryInterface;
+use App\Repositories\Interfaces\MediaRepositoryInterface;
 use App\Repositories\Interfaces\PositionRepositoryInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller {
   private $userRepository;
+  private $mediaRepository;
 
-  public function __construct(UserRepositoryInterface $userRepository) {
+
+  public function __construct(UserRepositoryInterface $userRepository,
+                              MediaRepositoryInterface $mediaRepository) {
     $this->userRepository = $userRepository;
+    $this->mediaRepository = $mediaRepository;
   }
 
   public function login() {
@@ -70,5 +76,22 @@ class UserController extends Controller {
 
   public function list(){
     return response()->json($this->userRepository->all(),200);
+  }
+
+  public function profileMedia(){
+    $model = get_class(new User());
+    $user = Auth::user();
+
+    $media = $this->mediaRepository->getMedia($model, $user->id, "user_media");
+
+    if (!$media){
+      return response()->json(["status" => "empty", "message" => "You have no media here :("],200);
+    }
+
+    foreach ($media as $file){
+      $file->path = Storage::disk('media')->url($file->id."/".$file->path);
+    }
+
+    return response()->json(["status" => "ok", "files" => $media],200);
   }
 }

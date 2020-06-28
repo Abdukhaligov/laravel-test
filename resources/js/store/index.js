@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     products: [],
     users: [],
+    media: [],
     credential: [],
     userDetails: [],
     companies: [],
@@ -17,6 +18,13 @@ export default new Vuex.Store({
     url: 'http://test/api/'
   },
   actions: {
+    getProfileMedia({commit, state}, token) {
+      let config = {headers: {Authorization: `Bearer ${token}`}};
+
+      axios
+        .get(state.url + "profile-media", config)
+        .then(r => commit('GET_MEDIA', r.data));
+    },
     setProducts({commit, state}) {
       axios
         .post(state.url + "products")
@@ -113,6 +121,9 @@ export default new Vuex.Store({
   mutations: {
     SET_LOADING(state, loading) {
       state.loading = loading;
+    },
+    GET_MEDIA(state, media) {
+      state.media = media;
     },
     SET_PRODUCTS(state, products) {
       state.products = products;

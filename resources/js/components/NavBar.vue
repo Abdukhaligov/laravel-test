@@ -16,6 +16,8 @@
 
         <Details v-if="credential.status === 'ok' || getCookie('token')"></Details>
 
+        <Media v-if="credential.status === 'ok' || getCookie('token')"></Media>
+
         <a href="#" class="nav-item nav-link" v-show="credential.status === 'ok' || getCookie('token')" @click="logout">Logout</a>
       </div>
     </div>
@@ -29,6 +31,7 @@
   import Registration from './Auth/Registration';
   import Details from './Auth/Details';
   import Update from "./Auth/Update";
+  import Media from "./Auth/Media";
 
   export default {
     name: "NavBar",
@@ -37,7 +40,8 @@
       Login,
       Registration,
       Details,
-      Update
+      Update,
+      Media
     },
     methods: {
       ...mapActions(['getCredential', 'removeCredential', 'getUserDetails']),

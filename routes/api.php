@@ -20,4 +20,6 @@ Route::group(['middleware' => ['auth:api']], function(){
   Route::put('products/update', 'API\ProductController@update');
   Route::put('profile/update', 'API\UserController@update');
   Route::get('users/list', 'API\UserController@list');
+  Route::get('profile-media', 'API\UserController@profileMedia');
+
 });
