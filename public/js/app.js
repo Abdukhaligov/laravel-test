@@ -1998,7 +1998,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["userDetails"]),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['getUserDetails'])), {}, {
     getCookie: tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"]
-  })
+  }),
+  mounted: function mounted() {
+    this.getUserDetails();
+  }
 });
 
 /***/ }),
@@ -2013,7 +2016,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var tiny_cookie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tiny-cookie */ "./node_modules/tiny-cookie/es/index.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2054,14 +2056,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Login",
   data: function data() {
     return {
-      email: 'admin@site.com',
-      password: '123456'
+      email: '',
+      password: ''
     };
   },
   computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["credential"]),
@@ -2256,23 +2260,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Registration",
   computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors", "loading", "companies", "positions"]),
   data: function data() {
     return {
-      name: 'asd',
-      email: 'asd@asd.asd',
-      password: '456456',
-      password_confirmation: '456456',
-      company_id: '2',
-      position_id: '3'
+      name: '',
+      email: '',
+      password: '',
+      password_confirmation: '',
+      company_id: '',
+      position_id: ''
     };
   },
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setNewUser', 'getCompanies', 'getPositions'])), {}, {
@@ -2532,6 +2531,19 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -61574,7 +61586,13 @@ var render = function() {
               [_vm._v("Login\n      ")]
             ),
             _vm._v(" "),
-            _c("div", [_vm._v(_vm._s(_vm.credential.status))])
+            _vm.credential.status === "error"
+              ? _c("div", [
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c("strong", [_vm._v(_vm._s(_vm.credential.message))])
+                ])
+              : _vm._e()
           ])
         ]
       )
@@ -62434,29 +62452,62 @@ var render = function() {
             _c(
               "div",
               {
-                staticClass: "col-2 p-4",
+                staticClass: "col-3 p-4",
                 staticStyle: { "border-right": "1px solid rgba(0,0,0,.1)" }
               },
               [
                 _c(
-                  "ul",
-                  _vm._l(_vm.users, function(user) {
-                    return _c("li", [
-                      _vm._v(
-                        _vm._s(user.name) +
-                          " - " +
-                          _vm._s(user.company) +
-                          " - " +
-                          _vm._s(user.position)
-                      )
-                    ])
-                  }),
-                  0
+                  "table",
+                  {
+                    staticClass: "table",
+                    staticStyle: { "max-height": "100%" }
+                  },
+                  [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.users, function(user) {
+                        return _c("tr", [
+                          _c("td", [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v(_vm._s(user.name))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "span",
+                              { staticStyle: { "font-size": "13px" } },
+                              [
+                                _vm._v(
+                                  _vm._s(user.company ? user.company : "no")
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "span",
+                              { staticStyle: { "font-size": "13px" } },
+                              [
+                                _vm._v(
+                                  _vm._s(user.position ? user.position : "no")
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      }),
+                      0
+                    )
+                  ]
                 )
               ]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "col-10" }, [
+            _c("div", { staticClass: "col-9" }, [
               _c("div", { staticClass: "container row m-auto" }, [
                 _c(
                   "div",
@@ -62878,7 +62929,22 @@ var render = function() {
       )
     : _vm._e()
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "thead-dark" }, [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("User")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Company")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Position")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

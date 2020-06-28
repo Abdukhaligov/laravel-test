@@ -26,23 +26,24 @@
             class="btn btn-primary"
             @click="login">Login
         </button>
-        <div>{{credential.status}}</div>
+        <div v-if="credential.status === 'error'">
+          <hr>
+          <strong>{{credential.message}}</strong>
+        </div>
       </div>
     </b-modal>
   </div>
 </template>
 
 <script>
-
   import {mapActions, mapState} from "vuex";
-  import {removeCookie, setCookie} from "tiny-cookie";
 
   export default {
     name: "Login",
     data() {
       return {
-        email: 'admin@site.com',
-        password: '123456',
+        email: '',
+        password: '',
       }
     },
     computed: mapState(["credential"]),

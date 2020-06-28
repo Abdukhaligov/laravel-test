@@ -2,12 +2,25 @@
   <div v-if="credential.status === 'ok' || getCookie('token')">
     <hr>
     <div class="row">
-      <div class="col-2 p-4" style="border-right: 1px solid rgba(0,0,0,.1)">
-        <ul>
-          <li v-for="user in users">{{ user.name }} - {{ user.company}} - {{ user.position }}</li>
-        </ul>
+      <div class="col-3 p-4" style="border-right: 1px solid rgba(0,0,0,.1)">
+        <table class="table" style="max-height: 100%">
+          <thead class="thead-dark">
+          <tr>
+            <th scope="col">User</th>
+            <th scope="col">Company</th>
+            <th scope="col">Position</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="user in users">
+            <td><a href="#">{{ user.name }}</a></td>
+            <td><span style="font-size: 13px">{{ user.company ? user.company : 'no'}}</span></td>
+            <td><span style="font-size: 13px">{{ user.position ? user.position : 'no'}}</span></td>
+          </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="col-10">
+      <div class="col-9">
         <div class="container row m-auto">
           <div class="p-2 col-12">
             <button class="btn btn-primary" @click="$bvModal.show('modal-product-create')">Create Product</button>

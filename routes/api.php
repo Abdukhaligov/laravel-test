@@ -2,16 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-//Route::middleware('auth:api')->get('/user', function (Request $request) {
-//  return $request->user();
-//});
-
 Route::post('login', 'API\UserController@login');
 Route::post('register', 'API\UserController@register');
 Route::post('products', 'API\ProductController@index');
 Route::post('companies', 'API\CompanyController@index');
 Route::post('positions', 'API\PositionController@index');
-
 
 Route::group(['middleware' => ['auth:api']], function(){
   Route::post('details', 'API\UserController@details');
@@ -22,5 +17,4 @@ Route::group(['middleware' => ['auth:api']], function(){
   Route::get('users/list', 'API\UserController@list');
   Route::get('profile-media', 'API\UserController@profileMedia');
   Route::post('profile-media', 'API\UserController@profileMediaUpload');
-
 });

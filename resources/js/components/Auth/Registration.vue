@@ -1,12 +1,7 @@
 <template>
   <div>
-    <a
-        href="#"
-        class="nav-item nav-link"
-        v-b-modal.modal-registration
-    >Registration</a>
+    <a href="#" class="nav-item nav-link" v-b-modal.modal-registration>Registration</a>
     <b-modal ref="modal-registration" id="modal-registration" title="Registration" hide-footer>
-
       <div v-if="loading" class="text-center">LOADING</div>
       <div v-if="!loading">
         <div class="form-group">
@@ -93,12 +88,12 @@
     computed: mapState(["errors", "loading", "companies", "positions"]),
     data() {
       return {
-        name: 'asd',
-        email: 'asd@asd.asd',
-        password: '456456',
-        password_confirmation: '456456',
-        company_id: '2',
-        position_id: '3',
+        name: '',
+        email: '',
+        password: '',
+        password_confirmation: '',
+        company_id: '',
+        position_id: '',
       }
     },
     methods: {

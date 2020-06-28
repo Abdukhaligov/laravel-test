@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
 use App\Mail\WelcomeMail;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use App\Repositories\Interfaces\CompanyRepositoryInterface;
 use App\Repositories\Interfaces\MediaRepositoryInterface;
-use App\Repositories\Interfaces\PositionRepositoryInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +16,6 @@ use Illuminate\Support\Facades\Storage;
 class UserController extends Controller {
   private $userRepository;
   private $mediaRepository;
-
 
   public function __construct(UserRepositoryInterface $userRepository,
                               MediaRepositoryInterface $mediaRepository) {
@@ -33,7 +29,7 @@ class UserController extends Controller {
       $token = $user->createToken('MyApp')->accessToken;
       return response()->json(['status' => 'ok', 'token' => $token], 200);
     } else {
-      return response()->json(['status' => 'credential error']);
+      return response()->json(['status' => 'error', 'message' => 'Credential error']);
     }
   }
 

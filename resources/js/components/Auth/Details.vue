@@ -32,6 +32,9 @@
       ...mapActions(['getUserDetails']),
       getCookie,
     },
+    mounted() {
+      this.getUserDetails();
+    }
   }
 </script>
 

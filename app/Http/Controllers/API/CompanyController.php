@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Models\Company;
 use App\Repositories\Interfaces\CompanyRepositoryInterface;
 use App\Repositories\Interfaces\PositionRepositoryInterface;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 
 class CompanyController extends Controller {
   private $companyRepository;
