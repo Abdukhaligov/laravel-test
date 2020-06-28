@@ -23,13 +23,10 @@
         <b-modal ref="modal-registration" id="modal-registration" title="Registration" hide-footer>
           <Registration></Registration>
         </b-modal>
-        <a href="#" class="nav-item nav-link"
-           v-b-modal.modal-user-update v-show="credential.status === 'ok' || getCookie('token')"
-           @click="getUserDetails(getCookie('token'))"
-        >Update Profile</a>
-        <b-modal id="modal-user-update" title="Update profile" hide-footer>
-          <Update v-if="credential"></Update>
-        </b-modal>
+
+        <Update v-show="credential.status === 'ok' || getCookie('token')"></Update>
+
+
         <a href="#" class="nav-item nav-link"
            v-b-modal.modal-user-details v-show="credential.status === 'ok' || getCookie('token')"
            @click="getUserDetails(getCookie('token'))"

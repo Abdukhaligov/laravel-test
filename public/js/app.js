@@ -2247,6 +2247,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2256,19 +2269,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       user: {
         name: "",
-        email: "",
         company_id: "",
         position_id: ""
       }
     };
   },
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setNewUser', 'getCompanies', 'getPositions', 'updateUser'])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setNewUser', 'getCompanies', 'getPositions', 'updateUser', 'getUserDetails'])), {}, {
     update: function update(data) {
       this.updateUser({
         'token': Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token'),
         data: data
       });
-    }
+    },
+    getCookie: tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"]
   }),
   mounted: function mounted() {
     this.getCompanies();
@@ -2307,9 +2320,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
 //
 //
 //
@@ -2407,7 +2417,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var tiny_cookie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tiny-cookie */ "./node_modules/tiny-cookie/es/index.js");
-/* harmony import */ var _Auth_Update__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Auth/Update */ "./resources/js/components/Auth/Update.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2543,16 +2552,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ProductList",
-  components: {
-    Update: _Auth_Update__WEBPACK_IMPORTED_MODULE_2__["default"]
-  },
   data: function data() {
     return {
       newProduct: {
@@ -61687,181 +61690,249 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm.loading
-      ? _c("div", { staticClass: "text-center" }, [_vm._v("LOADING")])
-      : _vm._e(),
-    _vm._v(" "),
-    !_vm.loading
-      ? _c("form", [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "registerName" } }, [_vm._v("Name")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: (_vm.user.name = _vm.userDetails.name),
-                  expression: "user.name = userDetails.name"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                id: "registerName",
-                placeholder: "Enter name"
-              },
-              domProps: { value: (_vm.user.name = _vm.userDetails.name) },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    (_vm.user.name = _vm.userDetails),
-                    "name",
-                    $event.target.value
-                  )
-                }
-              }
-            }),
-            _vm._v(" "),
-            _vm.errors.name
-              ? _c("div", [_c("strong", [_vm._v(_vm._s(_vm.errors.name[0]))])])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", [_vm._v("Email address")]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "email", disabled: "" },
-              domProps: { value: _vm.userDetails.email }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "registerCompany" } }, [
-              _vm._v("Company")
-            ]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: (_vm.user.company_id = _vm.userDetails.company_id),
-                    expression: "user.company_id = userDetails.company_id"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "company", id: "registerCompany" },
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      (_vm.user.company_id = _vm.userDetails),
-                      "company_id",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              [
-                _c("option", { attrs: { selected: "", value: "" } }, [
-                  _vm._v("Select company")
-                ]),
-                _vm._v(" "),
-                _vm._l(_vm.companies, function(company) {
-                  return _c("option", { domProps: { value: company.id } }, [
-                    _vm._v("\n          " + _vm._s(company.name) + "\n        ")
-                  ])
-                })
-              ],
-              2
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "registerPosition" } }, [
-              _vm._v("Position")
-            ]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: (_vm.user.position_id = _vm.userDetails.position_id),
-                    expression: "user.position_id = userDetails.position_id"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "company", id: "registerPosition" },
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      (_vm.user.position_id = _vm.userDetails),
-                      "position_id",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              [
-                _c("option", { attrs: { selected: "", value: "" } }, [
-                  _vm._v("Select position")
-                ]),
-                _vm._v(" "),
-                _vm._l(_vm.positions, function(position) {
-                  return _c("option", { domProps: { value: position.id } }, [
-                    _vm._v(
-                      "\n          " + _vm._s(position.name) + "\n        "
-                    )
-                  ])
-                })
-              ],
-              2
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
+  return _c(
+    "div",
+    [
+      _c(
+        "a",
+        {
+          directives: [
             {
-              staticClass: "btn btn-primary",
-              attrs: { type: "submit" },
-              on: {
-                click: function($event) {
-                  return _vm.update(_vm.user)
-                }
+              name: "b-modal",
+              rawName: "v-b-modal.modal-user-update",
+              modifiers: { "modal-user-update": true }
+            }
+          ],
+          staticClass: "nav-item nav-link",
+          attrs: { href: "#" },
+          on: {
+            click: function($event) {
+              _vm.getUserDetails(_vm.getCookie("token"))
+            }
+          }
+        },
+        [_vm._v("Update Profile")]
+      ),
+      _vm._v(" "),
+      _c(
+        "b-modal",
+        {
+          attrs: { id: "modal-user-update", title: "Update profile" },
+          scopedSlots: _vm._u([
+            {
+              key: "modal-footer",
+              fn: function(ref) {
+                var close = ref.close
+                return [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit" },
+                      on: {
+                        click: function($event) {
+                          _vm.update(_vm.user)
+                          close()
+                        }
+                      }
+                    },
+                    [_vm._v("\n        Update\n      ")]
+                  )
+                ]
               }
-            },
-            [_vm._v("\n      Update\n    ")]
-          )
-        ])
-      : _vm._e()
-  ])
+            }
+          ])
+        },
+        [
+          _vm.loading
+            ? _c("div", { staticClass: "text-center" }, [_vm._v("LOADING")])
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.loading
+            ? _c("div", [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "updateName" } }, [
+                    _vm._v("Name")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: (_vm.user.name = _vm.userDetails.name),
+                        expression: "user.name = userDetails.name"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "updateName",
+                      placeholder: "Enter name"
+                    },
+                    domProps: { value: (_vm.user.name = _vm.userDetails.name) },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          (_vm.user.name = _vm.userDetails),
+                          "name",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.name
+                    ? _c("div", [
+                        _c("strong", [_vm._v(_vm._s(_vm.errors.name[0]))])
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Email address")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: { type: "email", disabled: "" },
+                    domProps: { value: _vm.userDetails.email }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "updateCompnay" } }, [
+                    _vm._v("Company")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: (_vm.user.company_id =
+                            _vm.userDetails.company_id),
+                          expression: "user.company_id = userDetails.company_id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "company", id: "updateCompnay" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            (_vm.user.company_id = _vm.userDetails),
+                            "company_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { selected: "", value: "" } }, [
+                        _vm._v("Select company")
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.companies, function(company) {
+                        return _c(
+                          "option",
+                          { domProps: { value: company.id } },
+                          [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(company.name) +
+                                "\n          "
+                            )
+                          ]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "updatePosition" } }, [
+                    _vm._v("Position")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: (_vm.user.position_id =
+                            _vm.userDetails.position_id),
+                          expression:
+                            "user.position_id = userDetails.position_id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "company", id: "updatePosition" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            (_vm.user.position_id = _vm.userDetails),
+                            "position_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { selected: "", value: "" } }, [
+                        _vm._v("Select position")
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.positions, function(position) {
+                        return _c(
+                          "option",
+                          { domProps: { value: position.id } },
+                          [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(position.name) +
+                                "\n          "
+                            )
+                          ]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ])
+              ])
+            : _vm._e()
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -61970,48 +62041,18 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c(
-                "a",
-                {
-                  directives: [
-                    {
-                      name: "b-modal",
-                      rawName: "v-b-modal.modal-user-update",
-                      modifiers: { "modal-user-update": true }
-                    },
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value:
-                        _vm.credential.status === "ok" ||
-                        _vm.getCookie("token"),
-                      expression:
-                        "credential.status === 'ok' || getCookie('token')"
-                    }
-                  ],
-                  staticClass: "nav-item nav-link",
-                  attrs: { href: "#" },
-                  on: {
-                    click: function($event) {
-                      _vm.getUserDetails(_vm.getCookie("token"))
-                    }
+              _c("Update", {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value:
+                      _vm.credential.status === "ok" || _vm.getCookie("token"),
+                    expression:
+                      "credential.status === 'ok' || getCookie('token')"
                   }
-                },
-                [_vm._v("Update Profile")]
-              ),
-              _vm._v(" "),
-              _c(
-                "b-modal",
-                {
-                  attrs: {
-                    id: "modal-user-update",
-                    title: "Update profile",
-                    "hide-footer": ""
-                  }
-                },
-                [_vm.credential ? _c("Update") : _vm._e()],
-                1
-              ),
+                ]
+              }),
               _vm._v(" "),
               _c(
                 "a",
@@ -62525,11 +62566,8 @@ var render = function() {
                   attrs: { disabled: "", type: "text" },
                   domProps: { value: _vm.editedProduct.updated_at }
                 })
-              ]),
-              _vm._v(" "),
-              _c("Update")
-            ],
-            1
+              ])
+            ]
           )
         ],
         1
