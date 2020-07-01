@@ -7,22 +7,13 @@ use App\Repositories\Interfaces\CompanyRepositoryInterface;
 use App\Repositories\Interfaces\PositionRepositoryInterface;
 
 class PositionController extends Controller {
-  private $companyRepository;
   private $positionRepository;
 
-  public function __construct(CompanyRepositoryInterface $companyRepository,
-                              PositionRepositoryInterface $positionRepository) {
-    $this->companyRepository = $companyRepository;
+  public function __construct(PositionRepositoryInterface $positionRepository) {
     $this->positionRepository = $positionRepository;
   }
 
   public function index() {
     return response()->json($this->positionRepository->all());
-  }
-
-  public function show($id) {
-    dump($this->positionRepository->getById($id));
-    dump($this->companyRepository->getByPosition($id));
-    return view('home');
   }
 }

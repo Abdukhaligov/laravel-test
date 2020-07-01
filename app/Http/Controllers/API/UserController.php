@@ -27,7 +27,7 @@ class UserController extends Controller {
     if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
       $user = Auth::user();
       $token = $user->createToken('MyApp')->accessToken;
-      return response()->json(['status' => 'ok', 'token' => $token], 200);
+      return response()->json(['status' => 'success', 'token' => $token], 200);
     } else {
       return response()->json(['status' => 'error', 'message' => 'Credential error']);
     }
@@ -49,7 +49,7 @@ class UserController extends Controller {
     $token = $user->createToken('MyApp')->accessToken;
     Mail::to($user->email)->send(new WelcomeMail($user)); //Sending Welcome Mail to email address
 
-    return response()->json(['status' => 'ok', 'token' => $token], 200);
+    return response()->json(['status' => 'success', 'token' => $token], 200);
   }
 
   public function details() {
@@ -89,7 +89,7 @@ class UserController extends Controller {
       $file->path = Storage::disk('media')->url($file->id."/".$file->path);
     }
 
-    return response()->json(["status" => "ok", "files" => $media],200);
+    return response()->json(["status" => "success", "files" => $media],200);
   }
 
   public function profileMediaUpload(Request $request) {

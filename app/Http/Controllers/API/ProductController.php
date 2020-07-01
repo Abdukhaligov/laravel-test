@@ -27,25 +27,25 @@ class ProductController extends Controller {
     if ($this->productRepository->insert(
         $request->name, $request->category, $request->price, $user->id)
     ) {
-      return response()->json(['result' => "success", "message" => "Data is saved"], 200);
+      return response()->json(["status" => "success", "message" => "Data is saved"], 200);
     }
 
-    return response()->json(['result' => "fail", "message" => "Product not saved"], 400);
+    return response()->json(["status" => "error", "message" => "Data not saved"], 400);
   }
 
   public function update(ProductRequest $request) {
     if ($this->productRepository->update($request->id, $request->name,$request->category,$request->price)) {
-      return response()->json(['result' => "success", "message" => "Data is updated"]);
+      return response()->json(["status" => "success", "message" => "Data is updated"]);
     } else {
-      return response()->json(['result' => "fail", "message" => "Something gets wrong"]);
+      return response()->json(["status" => "error", "message" => "Data is not updated"]);
     }
   }
 
   public function destroy($id) {
     if ($this->productRepository->delete($id)) {
-      return response()->json(['result' => "success", "message" => "Data is deleted"]);
+      return response()->json(["status" => "success", "message" => "Data is deleted"]);
     } else {
-      return response()->json(['result' => "success", "message" => "Something gets wrong"]);
+      return response()->json(["status" => "error", "message" => "Data is not deleted"]);
     }
   }
 }

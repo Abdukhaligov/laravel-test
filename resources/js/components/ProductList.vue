@@ -1,5 +1,5 @@
 <template>
-  <div v-if="credential.status === 'ok' || getCookie('token')">
+  <div v-if="credential.status === 'success' || getCookie('token')">
     <hr>
     <div class="row">
       <div class="col-3 p-4" style="border-right: 1px solid rgba(0,0,0,.1)">
@@ -201,7 +201,7 @@
     },
     watch: {
       credential: function () {
-        if (this.credential.status === "ok") {
+        if (this.credential.status === "success") {
           this.setProducts();
           this.getUsers(getCookie('token'));
         }

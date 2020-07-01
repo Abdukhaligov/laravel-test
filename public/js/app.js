@@ -2076,7 +2076,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   watch: {
     credential: function credential() {
-      if (this.credential.status === "ok") {
+      if (this.credential.status === "success") {
         this.$refs['modal-login'].hide();
       }
     }
@@ -2126,6 +2126,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2136,7 +2139,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       token: Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token')
     };
   },
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["media"]),
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["media", "loading"]),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['getProfileMedia', 'insertMedia'])), {}, {
     submitFiles: function submitFiles(token) {
       var formData = new FormData();
@@ -2149,7 +2152,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.insertMedia({
         'token': token,
         data: formData
-      });
+      }, true);
     },
     handleFilesUpload: function handleFilesUpload() {
       this.files = this.$refs.files.files;
@@ -2291,7 +2294,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       console.log(this.loading);
     },
     credential: function credential() {
-      if (this.credential.status === "ok") {
+      if (this.credential.status === "success") {
         this.$refs['modal-registration'].hide();
       }
     }
@@ -2503,7 +2506,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   watch: {
     credential: function credential() {
-      if (this.credential.status === "ok") {
+      if (this.credential.status === "success") {
         Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["setCookie"])('token', this.credential.token);
       } else {
         Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["removeCookie"])('token');
@@ -2737,7 +2740,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   watch: {
     credential: function credential() {
-      if (this.credential.status === "ok") {
+      if (this.credential.status === "success") {
         this.setProducts();
         this.getUsers(Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token'));
       }
@@ -61653,51 +61656,61 @@ var render = function() {
           }
         },
         [
-          _vm.media.status === "empty"
+          _vm.loading
+            ? _c("div", { staticClass: "text-center" }, [_vm._v("LOADING")])
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.loading
             ? _c("div", [
-                _vm._v("\n      " + _vm._s(_vm.media.message) + "\n    ")
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.media.status === "ok"
-            ? _c(
-                "div",
-                _vm._l(_vm.media.files, function(file) {
-                  return _c("div", [
-                    _c("a", { attrs: { href: file.path, target: "_blank" } }, [
-                      _vm._v(_vm._s(file.name))
+                _vm.media.status === "empty"
+                  ? _c("div", [
+                      _vm._v("\n      " + _vm._s(_vm.media.message) + "\n    ")
                     ])
-                  ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.media.status === "success"
+                  ? _c(
+                      "div",
+                      _vm._l(_vm.media.files, function(file) {
+                        return _c("div", [
+                          _c(
+                            "a",
+                            { attrs: { href: file.path, target: "_blank" } },
+                            [_vm._v(_vm._s(file.name))]
+                          )
+                        ])
+                      }),
+                      0
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("hr"),
+                _vm._v(" "),
+                _c("input", {
+                  ref: "files",
+                  attrs: { type: "file", multiple: "multiple" },
+                  on: {
+                    change: function($event) {
+                      return _vm.handleFilesUpload()
+                    }
+                  }
                 }),
-                0
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c("input", {
-            ref: "files",
-            attrs: { type: "file", multiple: "multiple" },
-            on: {
-              change: function($event) {
-                return _vm.handleFilesUpload()
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary",
-              attrs: { type: "submit" },
-              on: {
-                click: function($event) {
-                  return _vm.submitFiles(_vm.token)
-                }
-              }
-            },
-            [_vm._v("\n      Upload\n    ")]
-          )
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "submit" },
+                    on: {
+                      click: function($event) {
+                        return _vm.submitFiles(_vm.token)
+                      }
+                    }
+                  },
+                  [_vm._v("\n        Upload\n      ")]
+                )
+              ])
+            : _vm._e()
         ]
       )
     ],
@@ -62359,15 +62372,15 @@ var render = function() {
                 ? _c("Registration")
                 : _vm._e(),
               _vm._v(" "),
-              _vm.credential.status === "ok" || _vm.getCookie("token")
+              _vm.credential.status === "success" || _vm.getCookie("token")
                 ? _c("Update")
                 : _vm._e(),
               _vm._v(" "),
-              _vm.credential.status === "ok" || _vm.getCookie("token")
+              _vm.credential.status === "success" || _vm.getCookie("token")
                 ? _c("Details")
                 : _vm._e(),
               _vm._v(" "),
-              _vm.credential.status === "ok" || _vm.getCookie("token")
+              _vm.credential.status === "success" || _vm.getCookie("token")
                 ? _c("Media")
                 : _vm._e(),
               _vm._v(" "),
@@ -62379,10 +62392,10 @@ var render = function() {
                       name: "show",
                       rawName: "v-show",
                       value:
-                        _vm.credential.status === "ok" ||
+                        _vm.credential.status === "success" ||
                         _vm.getCookie("token"),
                       expression:
-                        "credential.status === 'ok' || getCookie('token')"
+                        "credential.status === 'success' || getCookie('token')"
                     }
                   ],
                   staticClass: "nav-item nav-link",
@@ -62442,7 +62455,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.credential.status === "ok" || _vm.getCookie("token")
+  return _vm.credential.status === "success" || _vm.getCookie("token")
     ? _c(
         "div",
         [
@@ -76832,6 +76845,8 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     insertMedia: function insertMedia(_ref2, args) {
       var commit = _ref2.commit,
           state = _ref2.state;
+      var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+      commit('SET_LOADING', true);
       var config = {
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -76839,7 +76854,11 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         }
       };
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "profile-media", args.data, config).then(function (r) {
-        return commit('GET_MEDIA', r.data);
+        commit('GET_MEDIA', r.data);
+        commit('SET_LOADING', false);
+      })["catch"](function (r) {
+        commit('SET_ERRORS', r.data);
+        commit('SET_LOADING', false);
       });
     },
     setProducts: function setProducts(_ref3) {

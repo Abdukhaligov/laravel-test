@@ -7,7 +7,7 @@
         <div v-if="media.status === 'empty'">
         {{ media.message }}
       </div>
-        <div v-if="media.status === 'ok'">
+        <div v-if="media.status === 'success'">
           <div v-for="file in media.files">
             <a :href="file.path" target="_blank">{{ file.name }}</a>
           </div>
@@ -50,7 +50,7 @@
         }
 
 
-        this.insertMedia({'token': token, data: formData});
+        this.insertMedia({'token': token, data: formData}, true);
       },
       handleFilesUpload() {
         this.files = this.$refs.files.files;

@@ -55,7 +55,7 @@
     },
     watch: {
       credential: function () {
-        if (this.credential.status === "ok") {
+        if (this.credential.status === "success") {
           this.$refs['modal-login'].hide();
         }
       }

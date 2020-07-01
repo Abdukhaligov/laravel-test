@@ -7,5 +7,5 @@ interface PositionRepositoryInterface {
 
   public function getById($id);
 
-  public function getByCompany($companyID);
+  public function getByCompany($companyId);
 }

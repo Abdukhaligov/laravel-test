@@ -12,13 +12,13 @@
 
         <Registration v-if="credential.status !== 'ok' && !getCookie('token')"></Registration>
 
-        <Update v-if="credential.status === 'ok' || getCookie('token')"></Update>
+        <Update v-if="credential.status === 'success' || getCookie('token')"></Update>
 
-        <Details v-if="credential.status === 'ok' || getCookie('token')"></Details>
+        <Details v-if="credential.status === 'success' || getCookie('token')"></Details>
 
-        <Media v-if="credential.status === 'ok' || getCookie('token')"></Media>
+        <Media v-if="credential.status === 'success' || getCookie('token')"></Media>
 
-        <a href="#" class="nav-item nav-link" v-show="credential.status === 'ok' || getCookie('token')" @click="logout">Logout</a>
+        <a href="#" class="nav-item nav-link" v-show="credential.status === 'success' || getCookie('token')" @click="logout">Logout</a>
       </div>
     </div>
   </nav>
@@ -58,7 +58,7 @@
     },
     watch: {
       credential: function () {
-        if (this.credential.status === "ok") {
+        if (this.credential.status === "success") {
           setCookie('token', this.credential.token);
         } else {
           removeCookie('token');

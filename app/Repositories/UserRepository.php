@@ -15,18 +15,18 @@ class UserRepository implements UserRepositoryInterface {
     return DB::select("CALL get_user_by_id ($id)")[0];
   }
 
-  public function update($id, $rName, $rCompanyID, $rPositionID){
+  public function update($id, $name, $companyId, $positionId){
     $now = new DateTime();
 
-    return DB::update("CALL update_user (?, ?, ?, ?, ?)", array($id, $rName, $rCompanyID, $rPositionID, $now));
+    return DB::update("CALL update_user (?, ?, ?, ?, ?)", array($id, $name, $companyId, $positionId, $now));
   }
 
-  public function insert($rName, $rEmail, $rPassword, $rCompanyID, $rPositionID) {
+  public function insert($name, $email, $password, $companyId, $positionId) {
     $now = new DateTime();
 
     return
         DB::select(
             "CALL insert_user (?, ?, ?, ?, ?, ?, ?)",
-            array($rName, $rEmail, $rPassword, $rCompanyID, $rPositionID, $now, $now));
+            array($name, $email, $password, $companyId, $positionId, $now, $now));
   }
 }
