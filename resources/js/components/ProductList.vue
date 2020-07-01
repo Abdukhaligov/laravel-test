@@ -2,7 +2,7 @@
   <div v-if="credential.status === 'success' || getCookie('token')">
     <hr>
     <div class="row">
-      <div class="col-3 p-4" style="border-right: 1px solid rgba(0,0,0,.1)">
+      <div class="col-md-3 col-sm-12 p-4" style="border-right: 1px solid rgba(0,0,0,.1)">
         <table class="table" style="max-height: 100%">
           <thead class="thead-dark">
           <tr>
@@ -20,7 +20,7 @@
           </tbody>
         </table>
       </div>
-      <div class="col-9">
+      <div class="col-md-9 col-sm-12">
         <div class="container row m-auto">
           <div class="p-2 col-12">
             <button class="btn btn-primary" @click="$bvModal.show('modal-product-create')">Create Product</button>

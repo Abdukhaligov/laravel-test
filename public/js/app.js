@@ -62465,7 +62465,7 @@ var render = function() {
             _c(
               "div",
               {
-                staticClass: "col-3 p-4",
+                staticClass: "col-md-3 col-sm-12 p-4",
                 staticStyle: { "border-right": "1px solid rgba(0,0,0,.1)" }
               },
               [
@@ -62520,7 +62520,7 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "col-9" }, [
+            _c("div", { staticClass: "col-md-9 col-sm-12" }, [
               _c("div", { staticClass: "container row m-auto" }, [
                 _c(
                   "div",
