@@ -169,9 +169,9 @@
       }
 
     },
-    computed: mapState(["errors", "loading", "companies", "positions"]),
+    computed: mapState(["errors", "companies", "positions"]),
     methods: {
-      ...mapActions(['setNewUser', 'getCompanies', 'getPositions']),
+      ...mapActions(['setNewUser']),
       updateLoginForm: function (loginForm) {
         this.$emit('updateLoginForm', loginForm);
       },
@@ -185,17 +185,7 @@
           this.position_id]);
       }
     },
-    mounted() {
-      this.getCompanies();
-      this.getPositions();
-    },
     watch: {
-      errors: function () {
-        console.log(this.errors);
-      },
-      loading: function () {
-        console.log(this.loading);
-      },
       credential: function () {
         if (this.credential.status === "success") {
           this.$refs['modal-registration'].hide();

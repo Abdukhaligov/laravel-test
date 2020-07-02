@@ -188,7 +188,7 @@
             <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
               <div class="">
                 <div class="dropdown-item">
-                  <a href="#">
+                  <a href="#" @click="setPage('user/profile')">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-user">
@@ -225,8 +225,7 @@
             <div class="page-header">
               <nav class="breadcrumb-one" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page"><span>Sales</span></li>
+                  <li class="breadcrumb-item"><a href="javascript:void(0);">{{ this.$store.state.page }}</a></li>
                 </ol>
               </nav>
             </div>
@@ -267,7 +266,7 @@
   export default {
     name: "Navbar",
     methods: {
-      ...mapActions(['removeCredential']),
+      ...mapActions(["removeCredential", "setPage"]),
       logout() {
         this.$bvModal.msgBoxConfirm('Are you sure you want to logout ?')
           .then(value => {

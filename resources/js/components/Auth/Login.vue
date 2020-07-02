@@ -48,9 +48,9 @@
     },
     computed: mapState(["credential"]),
     methods: {
-      ...mapActions(['getCredential', 'removeCredential', 'getUserDetails']),
+      ...mapActions(['setCredential', 'removeCredential', 'getUserDetails']),
       login() {
-        this.getCredential([this.email, this.password]);
+        this.setCredential([this.email, this.password]);
       }
     },
     watch: {

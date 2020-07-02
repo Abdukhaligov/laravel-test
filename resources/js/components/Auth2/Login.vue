@@ -77,9 +77,9 @@
       updateLoginForm: function (loginForm) {
         this.$emit('updateLoginForm', loginForm);
       },
-      ...mapActions(['getCredential', 'removeCredential', 'getUserDetails']),
+      ...mapActions(['setCredential', 'removeCredential', 'getUserDetails']),
       login() {
-        this.getCredential([this.email, this.password]);
+        this.setCredential([this.email, this.password]);
       }
     },
     computed: mapState(["credential"]),

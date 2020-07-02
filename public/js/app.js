@@ -1928,25 +1928,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _libs_cork_plugins_apex_apexcharts_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../libs/cork/plugins/apex/apexcharts.css */ "./resources/libs/cork/plugins/apex/apexcharts.css");
 /* harmony import */ var _libs_cork_plugins_apex_apexcharts_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_plugins_apex_apexcharts_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _libs_cork_assets_css_plugins_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../libs/cork/assets/css/plugins.css */ "./resources/libs/cork/assets/css/plugins.css");
-/* harmony import */ var _libs_cork_assets_css_plugins_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_assets_css_plugins_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _libs_cork_assets_css_authentication_form_2_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../libs/cork/assets/css/authentication/form-2.css */ "./resources/libs/cork/assets/css/authentication/form-2.css");
-/* harmony import */ var _libs_cork_assets_css_authentication_form_2_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_assets_css_authentication_form_2_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _libs_cork_assets_css_forms_theme_checkbox_radio_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../libs/cork/assets/css/forms/theme-checkbox-radio.css */ "./resources/libs/cork/assets/css/forms/theme-checkbox-radio.css");
-/* harmony import */ var _libs_cork_assets_css_forms_theme_checkbox_radio_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_assets_css_forms_theme_checkbox_radio_css__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _libs_cork_assets_css_forms_switches_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../libs/cork/assets/css/forms/switches.css */ "./resources/libs/cork/assets/css/forms/switches.css");
-/* harmony import */ var _libs_cork_assets_css_forms_switches_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_assets_css_forms_switches_css__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _libs_cork_assets_css_dashboard_dash_1_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../libs/cork/assets/css/dashboard/dash_1.css */ "./resources/libs/cork/assets/css/dashboard/dash_1.css");
-/* harmony import */ var _libs_cork_assets_css_dashboard_dash_1_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_assets_css_dashboard_dash_1_css__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _libs_cork_assets_css_scrollspyNav_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../libs/cork/assets/css/scrollspyNav.css */ "./resources/libs/cork/assets/css/scrollspyNav.css");
-/* harmony import */ var _libs_cork_assets_css_scrollspyNav_css__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_assets_css_scrollspyNav_css__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _libs_cork_assets_css_components_cards_card_css__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../libs/cork/assets/css/components/cards/card.css */ "./resources/libs/cork/assets/css/components/cards/card.css");
-/* harmony import */ var _libs_cork_assets_css_components_cards_card_css__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_assets_css_components_cards_card_css__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _libs_cork_assets_css_components_custom_modal_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../libs/cork/assets/css/components/custom-modal.css */ "./resources/libs/cork/assets/css/components/custom-modal.css");
-/* harmony import */ var _libs_cork_assets_css_components_custom_modal_css__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_assets_css_components_custom_modal_css__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _Auth2_Login__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Auth2/Login */ "./resources/js/components/Auth2/Login.vue");
-/* harmony import */ var _Auth2_Register__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Auth2/Register */ "./resources/js/components/Auth2/Register.vue");
-/* harmony import */ var _Dashboard_Main__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Dashboard/Main */ "./resources/js/components/Dashboard/Main.vue");
+/* harmony import */ var _libs_cork_plugins_animate_animate_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../libs/cork/plugins/animate/animate.css */ "./resources/libs/cork/plugins/animate/animate.css");
+/* harmony import */ var _libs_cork_plugins_animate_animate_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_plugins_animate_animate_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _libs_cork_assets_css_plugins_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../libs/cork/assets/css/plugins.css */ "./resources/libs/cork/assets/css/plugins.css");
+/* harmony import */ var _libs_cork_assets_css_plugins_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_assets_css_plugins_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _libs_cork_assets_css_authentication_form_2_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../libs/cork/assets/css/authentication/form-2.css */ "./resources/libs/cork/assets/css/authentication/form-2.css");
+/* harmony import */ var _libs_cork_assets_css_authentication_form_2_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_assets_css_authentication_form_2_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _libs_cork_assets_css_forms_theme_checkbox_radio_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../libs/cork/assets/css/forms/theme-checkbox-radio.css */ "./resources/libs/cork/assets/css/forms/theme-checkbox-radio.css");
+/* harmony import */ var _libs_cork_assets_css_forms_theme_checkbox_radio_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_assets_css_forms_theme_checkbox_radio_css__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _libs_cork_assets_css_forms_switches_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../libs/cork/assets/css/forms/switches.css */ "./resources/libs/cork/assets/css/forms/switches.css");
+/* harmony import */ var _libs_cork_assets_css_forms_switches_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_assets_css_forms_switches_css__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _libs_cork_assets_css_dashboard_dash_1_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../libs/cork/assets/css/dashboard/dash_1.css */ "./resources/libs/cork/assets/css/dashboard/dash_1.css");
+/* harmony import */ var _libs_cork_assets_css_dashboard_dash_1_css__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_assets_css_dashboard_dash_1_css__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _libs_cork_assets_css_scrollspyNav_css__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../libs/cork/assets/css/scrollspyNav.css */ "./resources/libs/cork/assets/css/scrollspyNav.css");
+/* harmony import */ var _libs_cork_assets_css_scrollspyNav_css__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_assets_css_scrollspyNav_css__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _libs_cork_assets_css_components_cards_card_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../libs/cork/assets/css/components/cards/card.css */ "./resources/libs/cork/assets/css/components/cards/card.css");
+/* harmony import */ var _libs_cork_assets_css_components_cards_card_css__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_assets_css_components_cards_card_css__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _libs_cork_assets_css_components_custom_modal_css__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../libs/cork/assets/css/components/custom-modal.css */ "./resources/libs/cork/assets/css/components/custom-modal.css");
+/* harmony import */ var _libs_cork_assets_css_components_custom_modal_css__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_assets_css_components_custom_modal_css__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _libs_cork_assets_css_users_user_profile_css__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../libs/cork/assets/css/users/user-profile.css */ "./resources/libs/cork/assets/css/users/user-profile.css");
+/* harmony import */ var _libs_cork_assets_css_users_user_profile_css__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_libs_cork_assets_css_users_user_profile_css__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _Auth2_Login__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Auth2/Login */ "./resources/js/components/Auth2/Login.vue");
+/* harmony import */ var _Auth2_Register__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Auth2/Register */ "./resources/js/components/Auth2/Register.vue");
+/* harmony import */ var _Dashboard_Main__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./Dashboard/Main */ "./resources/js/components/Dashboard/Main.vue");
+/* harmony import */ var _BlockUI__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./BlockUI */ "./resources/js/components/BlockUI.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -1967,6 +1972,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+
+
+
 
 
 
@@ -1987,22 +1998,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App',
   components: {
-    Login: _Auth2_Login__WEBPACK_IMPORTED_MODULE_13__["default"],
-    Register: _Auth2_Register__WEBPACK_IMPORTED_MODULE_14__["default"],
-    Dashboard: _Dashboard_Main__WEBPACK_IMPORTED_MODULE_15__["default"]
+    Login: _Auth2_Login__WEBPACK_IMPORTED_MODULE_15__["default"],
+    Register: _Auth2_Register__WEBPACK_IMPORTED_MODULE_16__["default"],
+    Dashboard: _Dashboard_Main__WEBPACK_IMPORTED_MODULE_17__["default"],
+    BlockUI: _BlockUI__WEBPACK_IMPORTED_MODULE_18__["default"]
   },
   data: function data() {
     return {
-      loginForm: false
+      loginForm: true
     };
   },
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["credential"]),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['getCredential', 'removeCredential', 'getUserDetails'])), {}, {
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["credential", "loading"]),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setCredential', 'getCompanies', 'getPositions'])), {}, {
     getCookie: tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"],
     updateLoginForm: function updateLoginForm(loginForm) {
       this.loginForm = loginForm;
     }
   }),
+  mounted: function mounted() {
+    this.getCompanies();
+    this.getPositions();
+  },
   watch: {
     credential: function credential() {
       if (this.credential.status === "success") {
@@ -2109,9 +2125,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     updateLoginForm: function updateLoginForm(loginForm) {
       this.$emit('updateLoginForm', loginForm);
     }
-  }, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['getCredential', 'removeCredential', 'getUserDetails'])), {}, {
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setCredential', 'removeCredential', 'getUserDetails'])), {}, {
     login: function login() {
-      this.getCredential([this.email, this.password]);
+      this.setCredential([this.email, this.password]);
     }
   }),
   computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["credential"]),
@@ -2313,8 +2329,8 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('vue-select', vue_select__W
       result1: ''
     };
   },
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors", "loading", "companies", "positions"]),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setNewUser', 'getCompanies', 'getPositions'])), {}, {
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors", "companies", "positions"]),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setNewUser'])), {}, {
     updateLoginForm: function updateLoginForm(loginForm) {
       this.$emit('updateLoginForm', loginForm);
     },
@@ -2322,17 +2338,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('vue-select', vue_select__W
       this.setNewUser([this.name, this.email, this.password, this.password_confirmation, this.company_id, this.position_id]);
     }
   }),
-  mounted: function mounted() {
-    this.getCompanies();
-    this.getPositions();
-  },
   watch: {
-    errors: function errors() {
-      console.log(this.errors);
-    },
-    loading: function loading() {
-      console.log(this.loading);
-    },
     credential: function credential() {
       if (this.credential.status === "success") {
         this.$refs['modal-registration'].hide();
@@ -2353,6 +2359,45 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('vue-select', vue_select__W
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/BlockUI.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/BlockUI.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "BlockUI"
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard/Container.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dashboard/Container.vue?vue&type=script&lang=js& ***!
@@ -2364,6 +2409,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('vue-select', vue_select__W
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SideBar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SideBar */ "./resources/js/components/Dashboard/SideBar.vue");
 /* harmony import */ var _Product_List__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Product/List */ "./resources/js/components/Dashboard/Product/List.vue");
+/* harmony import */ var _User_List__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./User/List */ "./resources/js/components/Dashboard/User/List.vue");
+/* harmony import */ var _User_Profile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./User/Profile */ "./resources/js/components/Dashboard/User/Profile.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 //
 //
 //
@@ -2397,14 +2445,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
+
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Container",
   components: {
     SideBar: _SideBar__WEBPACK_IMPORTED_MODULE_0__["default"],
-    ProductList: _Product_List__WEBPACK_IMPORTED_MODULE_1__["default"]
-  }
+    ProductList: _Product_List__WEBPACK_IMPORTED_MODULE_1__["default"],
+    UserList: _User_List__WEBPACK_IMPORTED_MODULE_2__["default"],
+    UserProfile: _User_Profile__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapState"])(["page"])
 });
 
 /***/ }),
@@ -2746,12 +2802,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Navbar",
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['removeCredential'])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(["removeCredential", "setPage"])), {}, {
     logout: function logout() {
       var _this = this;
 
@@ -2922,7 +2977,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['products']),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setNewProduct', 'setProducts', 'deleteProduct', 'editProduct'])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setNewProduct', 'getProducts', 'deleteProduct', 'editProduct'])), {}, {
     createNewProduct: function createNewProduct(args) {
       this.setNewProduct(args);
     },
@@ -2947,7 +3002,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }),
   mounted: function mounted() {
-    this.setProducts();
+    this.getProducts();
   }
 });
 
@@ -2957,6 +3012,75 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /*!****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dashboard/SideBar.vue?vue&type=script&lang=js& ***!
   \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "SideBar",
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["page"]),
+  methods: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["setPage"])
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard/User/List.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dashboard/User/List.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3089,8 +3213,433 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "SideBar"
+  name: "List"
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard/User/Profile.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dashboard/User/Profile.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Profile"
 });
 
 /***/ }),
@@ -45451,6 +46000,44 @@ exports.push([module.i, "html { min-height: 100% }\r\nbody {\r\n    color: #888e
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/libs/cork/assets/css/users/user-profile.css":
+/*!***********************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/libs/cork/assets/css/users/user-profile.css ***!
+  \***********************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".widget-content-area {\r\n    box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);\r\n}\r\n.layout-spacing {\r\n    padding-bottom: 25px;\r\n}\r\n/* \r\n===================\r\n    User Profile\r\n===================\r\n*/\r\n.user-profile .widget-content-area { border-radius: 6px; }\r\n.user-profile .widget-content-area .edit-profile {\r\n    height: 35px;\r\n    width: 35px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-self: center;\r\n    background-color: #1b55e2;\r\n    background: linear-gradient(to right, #3cba92 0%, #0ba360 100%);\r\n    border-radius: 50%;\r\n    box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);\r\n}\r\n.user-profile .widget-content-area .edit-profile svg {\r\n    font-size: 17px;\r\n    vertical-align: middle;\r\n    margin-right: 0;\r\n    color: #060818;\r\n    width: 19px;\r\n    align-self: center;\r\n}\r\n.user-profile .widget-content-area h3 {\r\n    position: relative;\r\n    font-size: 21px;\r\n    color: #bfc9d4;\r\n    margin: 6px 0px 0 0;\r\n}\r\n.user-profile .widget-content-area h3:after {\r\n    position: absolute;\r\n    content: \"\";\r\n    height: 2px;\r\n    width: 55px;\r\n    background: #009688;\r\n    border-radius: 50%;\r\n    bottom: 9px;\r\n    left: 15px;\r\n}\r\n.user-profile .widget-content-area .user-info { margin-top: 40px; }\r\n.user-profile .widget-content-area .user-info img {\r\n    border-radius: 9px;\r\n    box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);\r\n}\r\n.user-profile .widget-content-area .user-info p {\r\n    font-size: 20px;\r\n    font-weight: 600;\r\n    margin-top: 22px;\r\n    color: #009688;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block {\r\n    border: none;\r\n    max-width: 217px;\r\n    margin: 36px auto;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block li {\r\n    margin-bottom: 13px;\r\n    font-weight: 600;\r\n    font-size: 13px;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block li a {\r\n    font-weight: 600;\r\n    font-size: 15px;\r\n    color: #009688;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block svg {\r\n    width: 21px;\r\n    margin-right: 15px;\r\n    color: #888ea8;\r\n    vertical-align: middle;\r\n    fill: rgba(0, 23, 55, 0.08);\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block li:hover svg {\r\n    color: #009688;\r\n    fill: rgba(27, 85, 226, 0.23921568627450981);\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block ul.list-inline  {\r\n    margin: 27px auto;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block ul.list-inline div.social-icon {\r\n    border: 2px solid #3b3f5c;\r\n    border-radius: 50%;\r\n    height: 35px;\r\n    width: 35px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-self: center;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block ul.list-inline svg {\r\n    margin-right: 0;\r\n    color: #bfc9d4;\r\n    width: 19px;\r\n    align-self: center;\r\n}\r\n\r\n\r\n/* \r\n==============\r\n    Skills\r\n==============\r\n*/\r\n.skills .widget-content-area { border-radius: 6px; }\r\n.skills .widget-content-area h3 {\r\n    position: relative;\r\n    font-size: 21px;\r\n    color: #bfc9d4;\r\n    margin: 6px 0px 40px 0;\r\n}\r\n.skills .widget-content-area h3:after {\r\n    position: absolute;\r\n    content: \"\";\r\n    height: 2px;\r\n    width: 47px;\r\n    background: #009688;\r\n    border-radius: 50%;\r\n    bottom: -2px;\r\n    left: 15px;\r\n}\r\n.skills .widget-content-area p.skill-item {\r\n    margin-bottom: 5px;\r\n    font-size: 15px;\r\n    color: #515365;\r\n    font-weight: 600;\r\n}\r\n.skills .widget-content-area .progress {\r\n    height: 20px;\r\n    margin-bottom: 31px;\r\n}\r\n.skills .widget-content-area .progress .progress-bar {\r\n    background-color: #1b55e2;\r\n    background: linear-gradient(to right, #2b5876 0%, #4e4376 100%);\r\n    border-radius: 1rem;\r\n    font-size: 12px;\r\n    letter-spacing: 1px;\r\n    font-weight: 100;\r\n}\r\n.skills .widget-content-area .progress .progress-title {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    padding: 15px;\r\n}\r\n.skills .widget-content-area .progress .progress-title span { align-self: center; }\r\n\r\n/* \r\n==============\r\n    Bio\r\n==============\r\n*/\r\n.bio .widget-content-area {\r\n    border-radius: 6px;\r\n    padding-bottom: 0;\r\n}\r\n.bio .widget-content-area h3 {\r\n    position: relative;\r\n    font-size: 21px;\r\n    color: #bfc9d4;\r\n    margin: 6px 0px 40px 0;\r\n}\r\n.bio .widget-content-area h3:after {\r\n    position: absolute;\r\n    content: \"\";\r\n    height: 2px;\r\n    width: 30px;\r\n    background: #009688;\r\n    border-radius: 50%;\r\n    bottom: -2px;\r\n    left: 15px;\r\n}\r\n.bio .widget-content-area h5 {\r\n    font-size: 16px;\r\n    font-weight: 700;\r\n    color: #888ea8;\r\n}\r\n.bio .widget-content-area p {\r\n    color: #bfc9d4;\r\n    font-size: 15px;\r\n}\r\n.bio .widget-content-area .bio-skill-box {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n.bio .widget-content-area .b-skills {\r\n    padding: 22px 16px;\r\n    box-shadow: 2px 5px 17px 0 rgba(31,45,61,.1);\r\n    background: #191e3a;\r\n    border-radius: 10px;\r\n    padding: 30px 30px 24px;\r\n}\r\n.bio .widget-content-area .b-skills svg {\r\n    width: 30px;\r\n    height: 30px;\r\n    margin-right: 21px;\r\n    color: #1b55e2;\r\n}\r\n.bio .widget-content-area .b-skills h5 {\r\n    margin-bottom: 10px;\r\n    font-size: 16px;\r\n}\r\n.bio .widget-content-area .b-skills p { font-size: 13px; }\r\n\r\n/* \r\n================\r\n    Education\r\n================\r\n*/\r\n.education .widget-content-area { border-radius: 6px; }\r\n.education .widget-content-area h3 {\r\n    position: relative;\r\n    font-size: 21px;\r\n    color: #bfc9d4;\r\n    margin: 6px 0px 40px 0;\r\n}\r\n.education .widget-content-area h3:after {\r\n    position: absolute;\r\n    content: \"\";\r\n    height: 2px;\r\n    width: 97px;\r\n    background: #009688;\r\n    border-radius: 50%;\r\n    bottom: -2px;\r\n    left: 15px;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline { display: flex; }\r\n.education .widget-content-area .timeline-alter .item-timeline .t-dot {\r\n    position: relative;\r\n    border-color: #009688;\r\n    padding: 10px;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-dot:before {\r\n    content: '';\r\n    position: absolute;\r\n    border-color: inherit;\r\n    border-width: 2px;\r\n    border-style: solid;\r\n    border-radius: 50%;\r\n    width: 10px;\r\n    height: 10px;\r\n    top: 15px;\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline:not(:last-child) .t-dot:after {\r\n    content: '';\r\n    position: absolute;\r\n    border-color: inherit;\r\n    border-width: 2px;\r\n    border-style: solid;\r\n    border-radius: 50%;\r\n    width: 10px;\r\n    height: 10px;\r\n    top: 15px;\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n    width: 0;\r\n    height: auto;\r\n    top: 25px;\r\n    bottom: -15px;\r\n    border-right-width: 0;\r\n    border-top-width: 0;\r\n    border-bottom-width: 0;\r\n    border-radius: 0;\r\n    border-color: #1b2e4b;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-dot img {\r\n    width: 45px;\r\n    height: 45px;\r\n    border-radius: 50%;\r\n    z-index: 7;\r\n    position: relative;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-meta-date { padding: 10px; }\r\n.education .widget-content-area .timeline-alter .item-timeline .t-meta-date p {\r\n    margin: 0;\r\n    min-width: 100px;\r\n    max-width: 100px;\r\n    font-size: 12px;\r\n    font-weight: 700;\r\n    color: #888ea8;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-text {\r\n    padding: 10px;\r\n    align-self: center;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-text p {\r\n    font-size: 13px;\r\n    margin: 0;\r\n    color: #bfc9d4;\r\n    font-weight: 600;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-text p a {\r\n    color: #2196f3;\r\n    font-weight: 600;\r\n}\r\n@media (max-width: 575px) {\r\n    .education .widget-content-area .timeline-alter .item-timeline {\r\n        display: block; \r\n        text-align: center;\r\n    }\r\n    .education .widget-content-area .timeline-alter .item-timeline .t-meta-date p { margin: 0 auto; }\r\n    .education .widget-content-area .timeline-alter .item-timeline .t-usr-txt p { margin: 0 auto; }\r\n}\r\n\r\n\r\n/* \r\n=======================\r\n    Work Experience\r\n=======================\r\n*/\r\n.work-experience .widget-content-area { border-radius: 6px; }\r\n.work-experience .widget-content-area h3 {\r\n    position: relative;\r\n    font-size: 21px;\r\n    color: #bfc9d4;\r\n    margin: 6px 0px 40px 0;\r\n}\r\n.work-experience .widget-content-area h3:after {\r\n    position: absolute;\r\n    content: \"\";\r\n    height: 2px;\r\n    width: 173px;\r\n    background: #009688;\r\n    border-radius: 50%;\r\n    bottom: -2px;\r\n    left: 15px;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline { display: flex; }\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-dot {\r\n    position: relative;\r\n    border-color: #009688;\r\n    padding: 10px;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-dot:before {\r\n    content: '';\r\n    position: absolute;\r\n    border-color: inherit;\r\n    border-width: 2px;\r\n    border-style: solid;\r\n    border-radius: 50%;\r\n    width: 10px;\r\n    height: 10px;\r\n    top: 15px;\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline:not(:last-child) .t-dot:after {\r\n    content: '';\r\n    position: absolute;\r\n    border-color: inherit;\r\n    border-width: 2px;\r\n    border-style: solid;\r\n    border-radius: 50%;\r\n    width: 10px;\r\n    height: 10px;\r\n    top: 15px;\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n    width: 0;\r\n    height: auto;\r\n    top: 25px;\r\n    bottom: -15px;\r\n    border-right-width: 0;\r\n    border-top-width: 0;\r\n    border-bottom-width: 0;\r\n    border-radius: 0;\r\n    border-color: #1b2e4b;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-dot img {\r\n    width: 45px;\r\n    height: 45px;\r\n    border-radius: 50%;\r\n    z-index: 7;\r\n    position: relative;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-meta-date { padding: 10px; }\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-meta-date p {\r\n    margin: 0;\r\n    min-width: 100px;\r\n    max-width: 100px;\r\n    font-size: 12px;\r\n    font-weight: 700;\r\n    color: #888ea8;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-text {\r\n    padding: 10px;\r\n    align-self: center;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-text p {\r\n    font-size: 13px;\r\n    margin: 0;\r\n    color: #bfc9d4;\r\n    font-weight: 600;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-text p a {\r\n    color: #2196f3;\r\n    font-weight: 600;\r\n}\r\n@media (max-width: 575px) {\r\n    .work-experience .widget-content-area .timeline-alter .item-timeline {\r\n        display: block; \r\n        text-align: center;\r\n    }\r\n    .work-experience .widget-content-area .timeline-alter .item-timeline .t-meta-date p { margin: 0 auto; }\r\n    .work-experience .widget-content-area .timeline-alter .item-timeline .t-usr-txt p { margin: 0 auto; }\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/libs/cork/plugins/animate/animate.css":
+/*!*****************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/libs/cork/plugins/animate/animate.css ***!
+  \*****************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "@charset \"UTF-8\";\r\n\r\n/*!\r\n * animate.css -http://daneden.me/animate\r\n * Version - 3.5.1\r\n * Licensed under the MIT license - http://opensource.org/licenses/MIT\r\n *\r\n * Copyright (c) 2016 Daniel Eden\r\n */\r\n\r\n.animated {\r\n  -webkit-animation-duration: 1s;\r\n  animation-duration: 1s;\r\n  -webkit-animation-fill-mode: both;\r\n  animation-fill-mode: both;\r\n}\r\n\r\n.animated.infinite {\r\n  -webkit-animation-iteration-count: infinite;\r\n  animation-iteration-count: infinite;\r\n}\r\n\r\n.animated.hinge {\r\n  -webkit-animation-duration: 2s;\r\n  animation-duration: 2s;\r\n}\r\n\r\n.animated.flipOutX,\r\n.animated.flipOutY,\r\n.animated.bounceIn,\r\n.animated.bounceOut {\r\n  -webkit-animation-duration: .75s;\r\n  animation-duration: .75s;\r\n}\r\n\r\n@-webkit-keyframes bounce {\r\n  from, 20%, 53%, 80%, to {\r\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n    transform: translate3d(0,0,0);\r\n  }\r\n\r\n  40%, 43% {\r\n    -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\r\n    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\r\n    transform: translate3d(0, -30px, 0);\r\n  }\r\n\r\n  70% {\r\n    -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\r\n    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\r\n    transform: translate3d(0, -15px, 0);\r\n  }\r\n\r\n  90% {\r\n    transform: translate3d(0,-4px,0);\r\n  }\r\n}\r\n\r\n@keyframes bounce {\r\n  from, 20%, 53%, 80%, to {\r\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n    transform: translate3d(0,0,0);\r\n  }\r\n\r\n  40%, 43% {\r\n    -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\r\n    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\r\n    transform: translate3d(0, -30px, 0);\r\n  }\r\n\r\n  70% {\r\n    -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\r\n    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\r\n    transform: translate3d(0, -15px, 0);\r\n  }\r\n\r\n  90% {\r\n    transform: translate3d(0,-4px,0);\r\n  }\r\n}\r\n\r\n.bounce {\r\n  -webkit-animation-name: bounce;\r\n  animation-name: bounce;\r\n  transform-origin: center bottom;\r\n}\r\n\r\n@-webkit-keyframes flash {\r\n  from, 50%, to {\r\n    opacity: 1;\r\n  }\r\n\r\n  25%, 75% {\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n@keyframes flash {\r\n  from, 50%, to {\r\n    opacity: 1;\r\n  }\r\n\r\n  25%, 75% {\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n.flash {\r\n  -webkit-animation-name: flash;\r\n  animation-name: flash;\r\n}\r\n\r\n/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */\r\n\r\n@-webkit-keyframes pulse {\r\n  from {\r\n    transform: scale3d(1, 1, 1);\r\n  }\r\n\r\n  50% {\r\n    transform: scale3d(1.05, 1.05, 1.05);\r\n  }\r\n\r\n  to {\r\n    transform: scale3d(1, 1, 1);\r\n  }\r\n}\r\n\r\n@keyframes pulse {\r\n  from {\r\n    transform: scale3d(1, 1, 1);\r\n  }\r\n\r\n  50% {\r\n    transform: scale3d(1.05, 1.05, 1.05);\r\n  }\r\n\r\n  to {\r\n    transform: scale3d(1, 1, 1);\r\n  }\r\n}\r\n\r\n.pulse {\r\n  -webkit-animation-name: pulse;\r\n  animation-name: pulse;\r\n}\r\n\r\n@-webkit-keyframes rubberBand {\r\n  from {\r\n    transform: scale3d(1, 1, 1);\r\n  }\r\n\r\n  30% {\r\n    transform: scale3d(1.25, 0.75, 1);\r\n  }\r\n\r\n  40% {\r\n    transform: scale3d(0.75, 1.25, 1);\r\n  }\r\n\r\n  50% {\r\n    transform: scale3d(1.15, 0.85, 1);\r\n  }\r\n\r\n  65% {\r\n    transform: scale3d(.95, 1.05, 1);\r\n  }\r\n\r\n  75% {\r\n    transform: scale3d(1.05, .95, 1);\r\n  }\r\n\r\n  to {\r\n    transform: scale3d(1, 1, 1);\r\n  }\r\n}\r\n\r\n@keyframes rubberBand {\r\n  from {\r\n    transform: scale3d(1, 1, 1);\r\n  }\r\n\r\n  30% {\r\n    transform: scale3d(1.25, 0.75, 1);\r\n  }\r\n\r\n  40% {\r\n    transform: scale3d(0.75, 1.25, 1);\r\n  }\r\n\r\n  50% {\r\n    transform: scale3d(1.15, 0.85, 1);\r\n  }\r\n\r\n  65% {\r\n    transform: scale3d(.95, 1.05, 1);\r\n  }\r\n\r\n  75% {\r\n    transform: scale3d(1.05, .95, 1);\r\n  }\r\n\r\n  to {\r\n    transform: scale3d(1, 1, 1);\r\n  }\r\n}\r\n\r\n.rubberBand {\r\n  -webkit-animation-name: rubberBand;\r\n  animation-name: rubberBand;\r\n}\r\n\r\n@-webkit-keyframes shake {\r\n  from, to {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n\r\n  10%, 30%, 50%, 70%, 90% {\r\n    transform: translate3d(-10px, 0, 0);\r\n  }\r\n\r\n  20%, 40%, 60%, 80% {\r\n    transform: translate3d(10px, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes shake {\r\n  from, to {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n\r\n  10%, 30%, 50%, 70%, 90% {\r\n    transform: translate3d(-10px, 0, 0);\r\n  }\r\n\r\n  20%, 40%, 60%, 80% {\r\n    transform: translate3d(10px, 0, 0);\r\n  }\r\n}\r\n\r\n.shake {\r\n  -webkit-animation-name: shake;\r\n  animation-name: shake;\r\n}\r\n\r\n@-webkit-keyframes headShake {\r\n  0% {\r\n    transform: translateX(0);\r\n  }\r\n\r\n  6.5% {\r\n    transform: translateX(-6px) rotateY(-9deg);\r\n  }\r\n\r\n  18.5% {\r\n    transform: translateX(5px) rotateY(7deg);\r\n  }\r\n\r\n  31.5% {\r\n    transform: translateX(-3px) rotateY(-5deg);\r\n  }\r\n\r\n  43.5% {\r\n    transform: translateX(2px) rotateY(3deg);\r\n  }\r\n\r\n  50% {\r\n    transform: translateX(0);\r\n  }\r\n}\r\n\r\n@keyframes headShake {\r\n  0% {\r\n    transform: translateX(0);\r\n  }\r\n\r\n  6.5% {\r\n    transform: translateX(-6px) rotateY(-9deg);\r\n  }\r\n\r\n  18.5% {\r\n    transform: translateX(5px) rotateY(7deg);\r\n  }\r\n\r\n  31.5% {\r\n    transform: translateX(-3px) rotateY(-5deg);\r\n  }\r\n\r\n  43.5% {\r\n    transform: translateX(2px) rotateY(3deg);\r\n  }\r\n\r\n  50% {\r\n    transform: translateX(0);\r\n  }\r\n}\r\n\r\n.headShake {\r\n  -webkit-animation-timing-function: ease-in-out;\r\n  animation-timing-function: ease-in-out;\r\n  -webkit-animation-name: headShake;\r\n  animation-name: headShake;\r\n}\r\n\r\n@-webkit-keyframes swing {\r\n  20% {\r\n    transform: rotate3d(0, 0, 1, 15deg);\r\n  }\r\n\r\n  40% {\r\n    transform: rotate3d(0, 0, 1, -10deg);\r\n  }\r\n\r\n  60% {\r\n    transform: rotate3d(0, 0, 1, 5deg);\r\n  }\r\n\r\n  80% {\r\n    transform: rotate3d(0, 0, 1, -5deg);\r\n  }\r\n\r\n  to {\r\n    transform: rotate3d(0, 0, 1, 0deg);\r\n  }\r\n}\r\n\r\n@keyframes swing {\r\n  20% {\r\n    transform: rotate3d(0, 0, 1, 15deg);\r\n  }\r\n\r\n  40% {\r\n    transform: rotate3d(0, 0, 1, -10deg);\r\n  }\r\n\r\n  60% {\r\n    transform: rotate3d(0, 0, 1, 5deg);\r\n  }\r\n\r\n  80% {\r\n    transform: rotate3d(0, 0, 1, -5deg);\r\n  }\r\n\r\n  to {\r\n    transform: rotate3d(0, 0, 1, 0deg);\r\n  }\r\n}\r\n\r\n.swing {\r\n  transform-origin: top center;\r\n  -webkit-animation-name: swing;\r\n  animation-name: swing;\r\n}\r\n\r\n@-webkit-keyframes tada {\r\n  from {\r\n    transform: scale3d(1, 1, 1);\r\n  }\r\n\r\n  10%, 20% {\r\n    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);\r\n  }\r\n\r\n  30%, 50%, 70%, 90% {\r\n    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);\r\n  }\r\n\r\n  40%, 60%, 80% {\r\n    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);\r\n  }\r\n\r\n  to {\r\n    transform: scale3d(1, 1, 1);\r\n  }\r\n}\r\n\r\n@keyframes tada {\r\n  from {\r\n    transform: scale3d(1, 1, 1);\r\n  }\r\n\r\n  10%, 20% {\r\n    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);\r\n  }\r\n\r\n  30%, 50%, 70%, 90% {\r\n    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);\r\n  }\r\n\r\n  40%, 60%, 80% {\r\n    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);\r\n  }\r\n\r\n  to {\r\n    transform: scale3d(1, 1, 1);\r\n  }\r\n}\r\n\r\n.tada {\r\n  -webkit-animation-name: tada;\r\n  animation-name: tada;\r\n}\r\n\r\n/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */\r\n\r\n@-webkit-keyframes wobble {\r\n  from {\r\n    transform: none;\r\n  }\r\n\r\n  15% {\r\n    transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);\r\n  }\r\n\r\n  30% {\r\n    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);\r\n  }\r\n\r\n  45% {\r\n    transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);\r\n  }\r\n\r\n  60% {\r\n    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);\r\n  }\r\n\r\n  75% {\r\n    transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);\r\n  }\r\n\r\n  to {\r\n    transform: none;\r\n  }\r\n}\r\n\r\n@keyframes wobble {\r\n  from {\r\n    transform: none;\r\n  }\r\n\r\n  15% {\r\n    transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);\r\n  }\r\n\r\n  30% {\r\n    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);\r\n  }\r\n\r\n  45% {\r\n    transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);\r\n  }\r\n\r\n  60% {\r\n    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);\r\n  }\r\n\r\n  75% {\r\n    transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);\r\n  }\r\n\r\n  to {\r\n    transform: none;\r\n  }\r\n}\r\n\r\n.wobble {\r\n  -webkit-animation-name: wobble;\r\n  animation-name: wobble;\r\n}\r\n\r\n@-webkit-keyframes jello {\r\n  from, 11.1%, to {\r\n    transform: none;\r\n  }\r\n\r\n  22.2% {\r\n    transform: skewX(-12.5deg) skewY(-12.5deg);\r\n  }\r\n\r\n  33.3% {\r\n    transform: skewX(6.25deg) skewY(6.25deg);\r\n  }\r\n\r\n  44.4% {\r\n    transform: skewX(-3.125deg) skewY(-3.125deg);\r\n  }\r\n\r\n  55.5% {\r\n    transform: skewX(1.5625deg) skewY(1.5625deg);\r\n  }\r\n\r\n  66.6% {\r\n    transform: skewX(-0.78125deg) skewY(-0.78125deg);\r\n  }\r\n\r\n  77.7% {\r\n    transform: skewX(0.390625deg) skewY(0.390625deg);\r\n  }\r\n\r\n  88.8% {\r\n    transform: skewX(-0.1953125deg) skewY(-0.1953125deg);\r\n  }\r\n}\r\n\r\n@keyframes jello {\r\n  from, 11.1%, to {\r\n    transform: none;\r\n  }\r\n\r\n  22.2% {\r\n    transform: skewX(-12.5deg) skewY(-12.5deg);\r\n  }\r\n\r\n  33.3% {\r\n    transform: skewX(6.25deg) skewY(6.25deg);\r\n  }\r\n\r\n  44.4% {\r\n    transform: skewX(-3.125deg) skewY(-3.125deg);\r\n  }\r\n\r\n  55.5% {\r\n    transform: skewX(1.5625deg) skewY(1.5625deg);\r\n  }\r\n\r\n  66.6% {\r\n    transform: skewX(-0.78125deg) skewY(-0.78125deg);\r\n  }\r\n\r\n  77.7% {\r\n    transform: skewX(0.390625deg) skewY(0.390625deg);\r\n  }\r\n\r\n  88.8% {\r\n    transform: skewX(-0.1953125deg) skewY(-0.1953125deg);\r\n  }\r\n}\r\n\r\n.jello {\r\n  -webkit-animation-name: jello;\r\n  animation-name: jello;\r\n  transform-origin: center;\r\n}\r\n\r\n@-webkit-keyframes bounceIn {\r\n  from, 20%, 40%, 60%, 80%, to {\r\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n  }\r\n\r\n  0% {\r\n    opacity: 0;\r\n    transform: scale3d(.3, .3, .3);\r\n  }\r\n\r\n  20% {\r\n    transform: scale3d(1.1, 1.1, 1.1);\r\n  }\r\n\r\n  40% {\r\n    transform: scale3d(.9, .9, .9);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: scale3d(1.03, 1.03, 1.03);\r\n  }\r\n\r\n  80% {\r\n    transform: scale3d(.97, .97, .97);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: scale3d(1, 1, 1);\r\n  }\r\n}\r\n\r\n@keyframes bounceIn {\r\n  from, 20%, 40%, 60%, 80%, to {\r\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n  }\r\n\r\n  0% {\r\n    opacity: 0;\r\n    transform: scale3d(.3, .3, .3);\r\n  }\r\n\r\n  20% {\r\n    transform: scale3d(1.1, 1.1, 1.1);\r\n  }\r\n\r\n  40% {\r\n    transform: scale3d(.9, .9, .9);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: scale3d(1.03, 1.03, 1.03);\r\n  }\r\n\r\n  80% {\r\n    transform: scale3d(.97, .97, .97);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: scale3d(1, 1, 1);\r\n  }\r\n}\r\n\r\n.bounceIn {\r\n  -webkit-animation-name: bounceIn;\r\n  animation-name: bounceIn;\r\n}\r\n\r\n@-webkit-keyframes bounceInDown {\r\n  from, 60%, 75%, 90%, to {\r\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n  }\r\n\r\n  0% {\r\n    opacity: 0;\r\n    transform: translate3d(0, -3000px, 0);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: translate3d(0, 25px, 0);\r\n  }\r\n\r\n  75% {\r\n    transform: translate3d(0, -10px, 0);\r\n  }\r\n\r\n  90% {\r\n    transform: translate3d(0, 5px, 0);\r\n  }\r\n\r\n  to {\r\n    transform: none;\r\n  }\r\n}\r\n\r\n@keyframes bounceInDown {\r\n  from, 60%, 75%, 90%, to {\r\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n  }\r\n\r\n  0% {\r\n    opacity: 0;\r\n    transform: translate3d(0, -3000px, 0);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: translate3d(0, 25px, 0);\r\n  }\r\n\r\n  75% {\r\n    transform: translate3d(0, -10px, 0);\r\n  }\r\n\r\n  90% {\r\n    transform: translate3d(0, 5px, 0);\r\n  }\r\n\r\n  to {\r\n    transform: none;\r\n  }\r\n}\r\n\r\n.bounceInDown {\r\n  -webkit-animation-name: bounceInDown;\r\n  animation-name: bounceInDown;\r\n}\r\n\r\n@-webkit-keyframes bounceInLeft {\r\n  from, 60%, 75%, 90%, to {\r\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n  }\r\n\r\n  0% {\r\n    opacity: 0;\r\n    transform: translate3d(-3000px, 0, 0);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: translate3d(25px, 0, 0);\r\n  }\r\n\r\n  75% {\r\n    transform: translate3d(-10px, 0, 0);\r\n  }\r\n\r\n  90% {\r\n    transform: translate3d(5px, 0, 0);\r\n  }\r\n\r\n  to {\r\n    transform: none;\r\n  }\r\n}\r\n\r\n@keyframes bounceInLeft {\r\n  from, 60%, 75%, 90%, to {\r\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n  }\r\n\r\n  0% {\r\n    opacity: 0;\r\n    transform: translate3d(-3000px, 0, 0);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: translate3d(25px, 0, 0);\r\n  }\r\n\r\n  75% {\r\n    transform: translate3d(-10px, 0, 0);\r\n  }\r\n\r\n  90% {\r\n    transform: translate3d(5px, 0, 0);\r\n  }\r\n\r\n  to {\r\n    transform: none;\r\n  }\r\n}\r\n\r\n.bounceInLeft {\r\n  -webkit-animation-name: bounceInLeft;\r\n  animation-name: bounceInLeft;\r\n}\r\n\r\n@-webkit-keyframes bounceInRight {\r\n  from, 60%, 75%, 90%, to {\r\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n  }\r\n\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(3000px, 0, 0);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: translate3d(-25px, 0, 0);\r\n  }\r\n\r\n  75% {\r\n    transform: translate3d(10px, 0, 0);\r\n  }\r\n\r\n  90% {\r\n    transform: translate3d(-5px, 0, 0);\r\n  }\r\n\r\n  to {\r\n    transform: none;\r\n  }\r\n}\r\n\r\n@keyframes bounceInRight {\r\n  from, 60%, 75%, 90%, to {\r\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n  }\r\n\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(3000px, 0, 0);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: translate3d(-25px, 0, 0);\r\n  }\r\n\r\n  75% {\r\n    transform: translate3d(10px, 0, 0);\r\n  }\r\n\r\n  90% {\r\n    transform: translate3d(-5px, 0, 0);\r\n  }\r\n\r\n  to {\r\n    transform: none;\r\n  }\r\n}\r\n\r\n.bounceInRight {\r\n  -webkit-animation-name: bounceInRight;\r\n  animation-name: bounceInRight;\r\n}\r\n\r\n@-webkit-keyframes bounceInUp {\r\n  from, 60%, 75%, 90%, to {\r\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n  }\r\n\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(0, 3000px, 0);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: translate3d(0, -20px, 0);\r\n  }\r\n\r\n  75% {\r\n    transform: translate3d(0, 10px, 0);\r\n  }\r\n\r\n  90% {\r\n    transform: translate3d(0, -5px, 0);\r\n  }\r\n\r\n  to {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes bounceInUp {\r\n  from, 60%, 75%, 90%, to {\r\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\r\n  }\r\n\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(0, 3000px, 0);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: translate3d(0, -20px, 0);\r\n  }\r\n\r\n  75% {\r\n    transform: translate3d(0, 10px, 0);\r\n  }\r\n\r\n  90% {\r\n    transform: translate3d(0, -5px, 0);\r\n  }\r\n\r\n  to {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n}\r\n\r\n.bounceInUp {\r\n  -webkit-animation-name: bounceInUp;\r\n  animation-name: bounceInUp;\r\n}\r\n\r\n@-webkit-keyframes bounceOut {\r\n  20% {\r\n    transform: scale3d(.9, .9, .9);\r\n  }\r\n\r\n  50%, 55% {\r\n    opacity: 1;\r\n    transform: scale3d(1.1, 1.1, 1.1);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: scale3d(.3, .3, .3);\r\n  }\r\n}\r\n\r\n@keyframes bounceOut {\r\n  20% {\r\n    transform: scale3d(.9, .9, .9);\r\n  }\r\n\r\n  50%, 55% {\r\n    opacity: 1;\r\n    transform: scale3d(1.1, 1.1, 1.1);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: scale3d(.3, .3, .3);\r\n  }\r\n}\r\n\r\n.bounceOut {\r\n  -webkit-animation-name: bounceOut;\r\n  animation-name: bounceOut;\r\n}\r\n\r\n@-webkit-keyframes bounceOutDown {\r\n  20% {\r\n    transform: translate3d(0, 10px, 0);\r\n  }\r\n\r\n  40%, 45% {\r\n    opacity: 1;\r\n    transform: translate3d(0, -20px, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(0, 2000px, 0);\r\n  }\r\n}\r\n\r\n@keyframes bounceOutDown {\r\n  20% {\r\n    transform: translate3d(0, 10px, 0);\r\n  }\r\n\r\n  40%, 45% {\r\n    opacity: 1;\r\n    transform: translate3d(0, -20px, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(0, 2000px, 0);\r\n  }\r\n}\r\n\r\n.bounceOutDown {\r\n  -webkit-animation-name: bounceOutDown;\r\n  animation-name: bounceOutDown;\r\n}\r\n\r\n@-webkit-keyframes bounceOutLeft {\r\n  20% {\r\n    opacity: 1;\r\n    transform: translate3d(20px, 0, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(-2000px, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes bounceOutLeft {\r\n  20% {\r\n    opacity: 1;\r\n    transform: translate3d(20px, 0, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(-2000px, 0, 0);\r\n  }\r\n}\r\n\r\n.bounceOutLeft {\r\n  -webkit-animation-name: bounceOutLeft;\r\n  animation-name: bounceOutLeft;\r\n}\r\n\r\n@-webkit-keyframes bounceOutRight {\r\n  20% {\r\n    opacity: 1;\r\n    transform: translate3d(-20px, 0, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(2000px, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes bounceOutRight {\r\n  20% {\r\n    opacity: 1;\r\n    transform: translate3d(-20px, 0, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(2000px, 0, 0);\r\n  }\r\n}\r\n\r\n.bounceOutRight {\r\n  -webkit-animation-name: bounceOutRight;\r\n  animation-name: bounceOutRight;\r\n}\r\n\r\n@-webkit-keyframes bounceOutUp {\r\n  20% {\r\n    transform: translate3d(0, -10px, 0);\r\n  }\r\n\r\n  40%, 45% {\r\n    opacity: 1;\r\n    transform: translate3d(0, 20px, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(0, -2000px, 0);\r\n  }\r\n}\r\n\r\n@keyframes bounceOutUp {\r\n  20% {\r\n    transform: translate3d(0, -10px, 0);\r\n  }\r\n\r\n  40%, 45% {\r\n    opacity: 1;\r\n    transform: translate3d(0, 20px, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(0, -2000px, 0);\r\n  }\r\n}\r\n\r\n.bounceOutUp {\r\n  -webkit-animation-name: bounceOutUp;\r\n  animation-name: bounceOutUp;\r\n}\r\n\r\n@-webkit-keyframes fadeIn {\r\n  from {\r\n    opacity: 0;\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n@keyframes fadeIn {\r\n  from {\r\n    opacity: 0;\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n.fadeIn {\r\n  -webkit-animation-name: fadeIn;\r\n  animation-name: fadeIn;\r\n}\r\n\r\n@-webkit-keyframes fadeInDown {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(0, -100%, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n@keyframes fadeInDown {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(0, -100%, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n.fadeInDown {\r\n  -webkit-animation-name: fadeInDown;\r\n  animation-name: fadeInDown;\r\n}\r\n\r\n@-webkit-keyframes fadeInDownBig {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(0, -2000px, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n@keyframes fadeInDownBig {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(0, -2000px, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n.fadeInDownBig {\r\n  -webkit-animation-name: fadeInDownBig;\r\n  animation-name: fadeInDownBig;\r\n}\r\n\r\n@-webkit-keyframes fadeInLeft {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(-100%, 0, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n@keyframes fadeInLeft {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(-100%, 0, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n.fadeInLeft {\r\n  -webkit-animation-name: fadeInLeft;\r\n  animation-name: fadeInLeft;\r\n}\r\n\r\n@-webkit-keyframes fadeInLeftBig {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(-2000px, 0, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n@keyframes fadeInLeftBig {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(-2000px, 0, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n.fadeInLeftBig {\r\n  -webkit-animation-name: fadeInLeftBig;\r\n  animation-name: fadeInLeftBig;\r\n}\r\n\r\n@-webkit-keyframes fadeInRight {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(100%, 0, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n@keyframes fadeInRight {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(100%, 0, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n.fadeInRight {\r\n  -webkit-animation-name: fadeInRight;\r\n  animation-name: fadeInRight;\r\n}\r\n\r\n@-webkit-keyframes fadeInRightBig {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(2000px, 0, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n@keyframes fadeInRightBig {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(2000px, 0, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n.fadeInRightBig {\r\n  -webkit-animation-name: fadeInRightBig;\r\n  animation-name: fadeInRightBig;\r\n}\r\n\r\n@-webkit-keyframes fadeInUp {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(0, 100%, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n@keyframes fadeInUp {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(0, 20%, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n.fadeInUp {\r\n  -webkit-animation-name: fadeInUp;\r\n  animation-name: fadeInUp;\r\n}\r\n\r\n@-webkit-keyframes fadeInUpBig {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(0, 2000px, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n@keyframes fadeInUpBig {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(0, 2000px, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n.fadeInUpBig {\r\n  -webkit-animation-name: fadeInUpBig;\r\n  animation-name: fadeInUpBig;\r\n}\r\n\r\n@-webkit-keyframes fadeOut {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n@keyframes fadeOut {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n.fadeOut {\r\n  -webkit-animation-name: fadeOut;\r\n  animation-name: fadeOut;\r\n}\r\n\r\n@-webkit-keyframes fadeOutDown {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(0, 100%, 0);\r\n  }\r\n}\r\n\r\n@keyframes fadeOutDown {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(0, 100%, 0);\r\n  }\r\n}\r\n\r\n.fadeOutDown {\r\n  -webkit-animation-name: fadeOutDown;\r\n  animation-name: fadeOutDown;\r\n}\r\n\r\n@-webkit-keyframes fadeOutDownBig {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(0, 2000px, 0);\r\n  }\r\n}\r\n\r\n@keyframes fadeOutDownBig {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(0, 2000px, 0);\r\n  }\r\n}\r\n\r\n.fadeOutDownBig {\r\n  -webkit-animation-name: fadeOutDownBig;\r\n  animation-name: fadeOutDownBig;\r\n}\r\n\r\n@-webkit-keyframes fadeOutLeft {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(-100%, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes fadeOutLeft {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(-100%, 0, 0);\r\n  }\r\n}\r\n\r\n.fadeOutLeft {\r\n  -webkit-animation-name: fadeOutLeft;\r\n  animation-name: fadeOutLeft;\r\n}\r\n\r\n@-webkit-keyframes fadeOutLeftBig {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(-2000px, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes fadeOutLeftBig {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(-2000px, 0, 0);\r\n  }\r\n}\r\n\r\n.fadeOutLeftBig {\r\n  -webkit-animation-name: fadeOutLeftBig;\r\n  animation-name: fadeOutLeftBig;\r\n}\r\n\r\n@-webkit-keyframes fadeOutRight {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(100%, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes fadeOutRight {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(100%, 0, 0);\r\n  }\r\n}\r\n\r\n.fadeOutRight {\r\n  -webkit-animation-name: fadeOutRight;\r\n  animation-name: fadeOutRight;\r\n}\r\n\r\n@-webkit-keyframes fadeOutRightBig {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(2000px, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes fadeOutRightBig {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(2000px, 0, 0);\r\n  }\r\n}\r\n\r\n.fadeOutRightBig {\r\n  -webkit-animation-name: fadeOutRightBig;\r\n  animation-name: fadeOutRightBig;\r\n}\r\n\r\n@-webkit-keyframes fadeOutUp {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(0, -100%, 0);\r\n  }\r\n}\r\n\r\n@keyframes fadeOutUp {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(0, -100%, 0);\r\n  }\r\n}\r\n\r\n.fadeOutUp {\r\n  -webkit-animation-name: fadeOutUp;\r\n  animation-name: fadeOutUp;\r\n}\r\n\r\n@-webkit-keyframes fadeOutUpBig {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(0, -2000px, 0);\r\n  }\r\n}\r\n\r\n@keyframes fadeOutUpBig {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(0, -2000px, 0);\r\n  }\r\n}\r\n\r\n.fadeOutUpBig {\r\n  -webkit-animation-name: fadeOutUpBig;\r\n  animation-name: fadeOutUpBig;\r\n}\r\n\r\n@-webkit-keyframes flip {\r\n  from {\r\n    transform: perspective(400px) rotate3d(0, 1, 0, -360deg);\r\n    -webkit-animation-timing-function: ease-out;\r\n    animation-timing-function: ease-out;\r\n  }\r\n\r\n  40% {\r\n    transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);\r\n    -webkit-animation-timing-function: ease-out;\r\n    animation-timing-function: ease-out;\r\n  }\r\n\r\n  50% {\r\n    transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);\r\n    -webkit-animation-timing-function: ease-in;\r\n    animation-timing-function: ease-in;\r\n  }\r\n\r\n  80% {\r\n    transform: perspective(400px) scale3d(.95, .95, .95);\r\n    -webkit-animation-timing-function: ease-in;\r\n    animation-timing-function: ease-in;\r\n  }\r\n\r\n  to {\r\n    transform: perspective(400px);\r\n    -webkit-animation-timing-function: ease-in;\r\n    animation-timing-function: ease-in;\r\n  }\r\n}\r\n\r\n@keyframes flip {\r\n  from {\r\n    transform: perspective(400px) rotate3d(0, 1, 0, -360deg);\r\n    -webkit-animation-timing-function: ease-out;\r\n    animation-timing-function: ease-out;\r\n  }\r\n\r\n  40% {\r\n    transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);\r\n    -webkit-animation-timing-function: ease-out;\r\n    animation-timing-function: ease-out;\r\n  }\r\n\r\n  50% {\r\n    transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);\r\n    -webkit-animation-timing-function: ease-in;\r\n    animation-timing-function: ease-in;\r\n  }\r\n\r\n  80% {\r\n    transform: perspective(400px) scale3d(.95, .95, .95);\r\n    -webkit-animation-timing-function: ease-in;\r\n    animation-timing-function: ease-in;\r\n  }\r\n\r\n  to {\r\n    transform: perspective(400px);\r\n    -webkit-animation-timing-function: ease-in;\r\n    animation-timing-function: ease-in;\r\n  }\r\n}\r\n\r\n.animated.flip {\r\n  -webkit-backface-visibility: visible;\r\n  backface-visibility: visible;\r\n  -webkit-animation-name: flip;\r\n  animation-name: flip;\r\n}\r\n\r\n@-webkit-keyframes flipInX {\r\n  from {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\r\n    -webkit-animation-timing-function: ease-in;\r\n    animation-timing-function: ease-in;\r\n    opacity: 0;\r\n  }\r\n\r\n  40% {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\r\n    -webkit-animation-timing-function: ease-in;\r\n    animation-timing-function: ease-in;\r\n  }\r\n\r\n  60% {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);\r\n    opacity: 1;\r\n  }\r\n\r\n  80% {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);\r\n  }\r\n\r\n  to {\r\n    transform: perspective(400px);\r\n  }\r\n}\r\n\r\n@keyframes flipInX {\r\n  from {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\r\n    -webkit-animation-timing-function: ease-in;\r\n    animation-timing-function: ease-in;\r\n    opacity: 0;\r\n  }\r\n\r\n  40% {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\r\n    -webkit-animation-timing-function: ease-in;\r\n    animation-timing-function: ease-in;\r\n  }\r\n\r\n  60% {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);\r\n    opacity: 1;\r\n  }\r\n\r\n  80% {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);\r\n  }\r\n\r\n  to {\r\n    transform: perspective(400px);\r\n  }\r\n}\r\n\r\n.flipInX {\r\n  -webkit-backface-visibility: visible !important;\r\n  backface-visibility: visible !important;\r\n  -webkit-animation-name: flipInX;\r\n  animation-name: flipInX;\r\n}\r\n\r\n@-webkit-keyframes flipInY {\r\n  from {\r\n    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);\r\n    -webkit-animation-timing-function: ease-in;\r\n    animation-timing-function: ease-in;\r\n    opacity: 0;\r\n  }\r\n\r\n  40% {\r\n    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);\r\n    -webkit-animation-timing-function: ease-in;\r\n    animation-timing-function: ease-in;\r\n  }\r\n\r\n  60% {\r\n    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);\r\n    opacity: 1;\r\n  }\r\n\r\n  80% {\r\n    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);\r\n  }\r\n\r\n  to {\r\n    transform: perspective(400px);\r\n  }\r\n}\r\n\r\n@keyframes flipInY {\r\n  from {\r\n    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);\r\n    -webkit-animation-timing-function: ease-in;\r\n    animation-timing-function: ease-in;\r\n    opacity: 0;\r\n  }\r\n\r\n  40% {\r\n    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);\r\n    -webkit-animation-timing-function: ease-in;\r\n    animation-timing-function: ease-in;\r\n  }\r\n\r\n  60% {\r\n    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);\r\n    opacity: 1;\r\n  }\r\n\r\n  80% {\r\n    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);\r\n  }\r\n\r\n  to {\r\n    transform: perspective(400px);\r\n  }\r\n}\r\n\r\n.flipInY {\r\n  -webkit-backface-visibility: visible !important;\r\n  backface-visibility: visible !important;\r\n  -webkit-animation-name: flipInY;\r\n  animation-name: flipInY;\r\n}\r\n\r\n@-webkit-keyframes flipOutX {\r\n  from {\r\n    transform: perspective(400px);\r\n  }\r\n\r\n  30% {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n@keyframes flipOutX {\r\n  from {\r\n    transform: perspective(400px);\r\n  }\r\n\r\n  30% {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n.flipOutX {\r\n  -webkit-animation-name: flipOutX;\r\n  animation-name: flipOutX;\r\n  -webkit-backface-visibility: visible !important;\r\n  backface-visibility: visible !important;\r\n}\r\n\r\n@-webkit-keyframes flipOutY {\r\n  from {\r\n    transform: perspective(400px);\r\n  }\r\n\r\n  30% {\r\n    transform: perspective(400px) rotate3d(0, 1, 0, -15deg);\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n@keyframes flipOutY {\r\n  from {\r\n    transform: perspective(400px);\r\n  }\r\n\r\n  30% {\r\n    transform: perspective(400px) rotate3d(0, 1, 0, -15deg);\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n.flipOutY {\r\n  -webkit-backface-visibility: visible !important;\r\n  backface-visibility: visible !important;\r\n  -webkit-animation-name: flipOutY;\r\n  animation-name: flipOutY;\r\n}\r\n\r\n@-webkit-keyframes lightSpeedIn {\r\n  from {\r\n    transform: translate3d(100%, 0, 0) skewX(-30deg);\r\n    opacity: 0;\r\n  }\r\n\r\n  60% {\r\n    transform: skewX(20deg);\r\n    opacity: 1;\r\n  }\r\n\r\n  80% {\r\n    transform: skewX(-5deg);\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform: none;\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n@keyframes lightSpeedIn {\r\n  from {\r\n    transform: translate3d(100%, 0, 0) skewX(-30deg);\r\n    opacity: 0;\r\n  }\r\n\r\n  60% {\r\n    transform: skewX(20deg);\r\n    opacity: 1;\r\n  }\r\n\r\n  80% {\r\n    transform: skewX(-5deg);\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform: none;\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n.lightSpeedIn {\r\n  -webkit-animation-name: lightSpeedIn;\r\n  animation-name: lightSpeedIn;\r\n  -webkit-animation-timing-function: ease-out;\r\n  animation-timing-function: ease-out;\r\n}\r\n\r\n@-webkit-keyframes lightSpeedOut {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform: translate3d(100%, 0, 0) skewX(30deg);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n@keyframes lightSpeedOut {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform: translate3d(100%, 0, 0) skewX(30deg);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n.lightSpeedOut {\r\n  -webkit-animation-name: lightSpeedOut;\r\n  animation-name: lightSpeedOut;\r\n  -webkit-animation-timing-function: ease-in;\r\n  animation-timing-function: ease-in;\r\n}\r\n\r\n@-webkit-keyframes rotateIn {\r\n  from {\r\n    transform-origin: center;\r\n    transform: rotate3d(0, 0, 1, -200deg);\r\n    opacity: 0;\r\n  }\r\n\r\n  to {\r\n    transform-origin: center;\r\n    transform: none;\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n@keyframes rotateIn {\r\n  from {\r\n    transform-origin: center;\r\n    transform: rotate3d(0, 0, 1, -200deg);\r\n    opacity: 0;\r\n  }\r\n\r\n  to {\r\n    transform-origin: center;\r\n    transform: none;\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n.rotateIn {\r\n  -webkit-animation-name: rotateIn;\r\n  animation-name: rotateIn;\r\n}\r\n\r\n@-webkit-keyframes rotateInDownLeft {\r\n  from {\r\n    transform-origin: left bottom;\r\n    transform: rotate3d(0, 0, 1, -45deg);\r\n    opacity: 0;\r\n  }\r\n\r\n  to {\r\n    transform-origin: left bottom;\r\n    transform: none;\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n@keyframes rotateInDownLeft {\r\n  from {\r\n    transform-origin: left bottom;\r\n    transform: rotate3d(0, 0, 1, -45deg);\r\n    opacity: 0;\r\n  }\r\n\r\n  to {\r\n    transform-origin: left bottom;\r\n    transform: none;\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n.rotateInDownLeft {\r\n  -webkit-animation-name: rotateInDownLeft;\r\n  animation-name: rotateInDownLeft;\r\n}\r\n\r\n@-webkit-keyframes rotateInDownRight {\r\n  from {\r\n    transform-origin: right bottom;\r\n    transform: rotate3d(0, 0, 1, 45deg);\r\n    opacity: 0;\r\n  }\r\n\r\n  to {\r\n    transform-origin: right bottom;\r\n    transform: none;\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n@keyframes rotateInDownRight {\r\n  from {\r\n    transform-origin: right bottom;\r\n    transform: rotate3d(0, 0, 1, 45deg);\r\n    opacity: 0;\r\n  }\r\n\r\n  to {\r\n    transform-origin: right bottom;\r\n    transform: none;\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n.rotateInDownRight {\r\n  -webkit-animation-name: rotateInDownRight;\r\n  animation-name: rotateInDownRight;\r\n}\r\n\r\n@-webkit-keyframes rotateInUpLeft {\r\n  from {\r\n    transform-origin: left bottom;\r\n    transform: rotate3d(0, 0, 1, 45deg);\r\n    opacity: 0;\r\n  }\r\n\r\n  to {\r\n    transform-origin: left bottom;\r\n    transform: none;\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n@keyframes rotateInUpLeft {\r\n  from {\r\n    transform-origin: left bottom;\r\n    transform: rotate3d(0, 0, 1, 45deg);\r\n    opacity: 0;\r\n  }\r\n\r\n  to {\r\n    transform-origin: left bottom;\r\n    transform: none;\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n.rotateInUpLeft {\r\n  -webkit-animation-name: rotateInUpLeft;\r\n  animation-name: rotateInUpLeft;\r\n}\r\n\r\n@-webkit-keyframes rotateInUpRight {\r\n  from {\r\n    transform-origin: right bottom;\r\n    transform: rotate3d(0, 0, 1, -90deg);\r\n    opacity: 0;\r\n  }\r\n\r\n  to {\r\n    transform-origin: right bottom;\r\n    transform: none;\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n@keyframes rotateInUpRight {\r\n  from {\r\n    transform-origin: right bottom;\r\n    transform: rotate3d(0, 0, 1, -90deg);\r\n    opacity: 0;\r\n  }\r\n\r\n  to {\r\n    transform-origin: right bottom;\r\n    transform: none;\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n.rotateInUpRight {\r\n  -webkit-animation-name: rotateInUpRight;\r\n  animation-name: rotateInUpRight;\r\n}\r\n\r\n@-webkit-keyframes rotateOut {\r\n  from {\r\n    transform-origin: center;\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform-origin: center;\r\n    transform: rotate3d(0, 0, 1, 200deg);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n@keyframes rotateOut {\r\n  from {\r\n    transform-origin: center;\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform-origin: center;\r\n    transform: rotate3d(0, 0, 1, 200deg);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n.rotateOut {\r\n  -webkit-animation-name: rotateOut;\r\n  animation-name: rotateOut;\r\n}\r\n\r\n@-webkit-keyframes rotateOutDownLeft {\r\n  from {\r\n    transform-origin: left bottom;\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform-origin: left bottom;\r\n    transform: rotate3d(0, 0, 1, 45deg);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n@keyframes rotateOutDownLeft {\r\n  from {\r\n    transform-origin: left bottom;\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform-origin: left bottom;\r\n    transform: rotate3d(0, 0, 1, 45deg);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n.rotateOutDownLeft {\r\n  -webkit-animation-name: rotateOutDownLeft;\r\n  animation-name: rotateOutDownLeft;\r\n}\r\n\r\n@-webkit-keyframes rotateOutDownRight {\r\n  from {\r\n    transform-origin: right bottom;\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform-origin: right bottom;\r\n    transform: rotate3d(0, 0, 1, -45deg);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n@keyframes rotateOutDownRight {\r\n  from {\r\n    transform-origin: right bottom;\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform-origin: right bottom;\r\n    transform: rotate3d(0, 0, 1, -45deg);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n.rotateOutDownRight {\r\n  -webkit-animation-name: rotateOutDownRight;\r\n  animation-name: rotateOutDownRight;\r\n}\r\n\r\n@-webkit-keyframes rotateOutUpLeft {\r\n  from {\r\n    transform-origin: left bottom;\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform-origin: left bottom;\r\n    transform: rotate3d(0, 0, 1, -45deg);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n@keyframes rotateOutUpLeft {\r\n  from {\r\n    transform-origin: left bottom;\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform-origin: left bottom;\r\n    transform: rotate3d(0, 0, 1, -45deg);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n.rotateOutUpLeft {\r\n  -webkit-animation-name: rotateOutUpLeft;\r\n  animation-name: rotateOutUpLeft;\r\n}\r\n\r\n@-webkit-keyframes rotateOutUpRight {\r\n  from {\r\n    transform-origin: right bottom;\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform-origin: right bottom;\r\n    transform: rotate3d(0, 0, 1, 90deg);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n@keyframes rotateOutUpRight {\r\n  from {\r\n    transform-origin: right bottom;\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform-origin: right bottom;\r\n    transform: rotate3d(0, 0, 1, 90deg);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n.rotateOutUpRight {\r\n  -webkit-animation-name: rotateOutUpRight;\r\n  animation-name: rotateOutUpRight;\r\n}\r\n\r\n@-webkit-keyframes hinge {\r\n  0% {\r\n    transform-origin: top left;\r\n    -webkit-animation-timing-function: ease-in-out;\r\n    animation-timing-function: ease-in-out;\r\n  }\r\n\r\n  20%, 60% {\r\n    transform: rotate3d(0, 0, 1, 80deg);\r\n    transform-origin: top left;\r\n    -webkit-animation-timing-function: ease-in-out;\r\n    animation-timing-function: ease-in-out;\r\n  }\r\n\r\n  40%, 80% {\r\n    transform: rotate3d(0, 0, 1, 60deg);\r\n    transform-origin: top left;\r\n    -webkit-animation-timing-function: ease-in-out;\r\n    animation-timing-function: ease-in-out;\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform: translate3d(0, 700px, 0);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n@keyframes hinge {\r\n  0% {\r\n    transform-origin: top left;\r\n    -webkit-animation-timing-function: ease-in-out;\r\n    animation-timing-function: ease-in-out;\r\n  }\r\n\r\n  20%, 60% {\r\n    transform: rotate3d(0, 0, 1, 80deg);\r\n    transform-origin: top left;\r\n    -webkit-animation-timing-function: ease-in-out;\r\n    animation-timing-function: ease-in-out;\r\n  }\r\n\r\n  40%, 80% {\r\n    transform: rotate3d(0, 0, 1, 60deg);\r\n    transform-origin: top left;\r\n    -webkit-animation-timing-function: ease-in-out;\r\n    animation-timing-function: ease-in-out;\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    transform: translate3d(0, 700px, 0);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n.hinge {\r\n  -webkit-animation-name: hinge;\r\n  animation-name: hinge;\r\n}\r\n\r\n/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */\r\n\r\n@-webkit-keyframes rollIn {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n@keyframes rollIn {\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);\r\n  }\r\n\r\n  to {\r\n    opacity: 1;\r\n    transform: none;\r\n  }\r\n}\r\n\r\n.rollIn {\r\n  -webkit-animation-name: rollIn;\r\n  animation-name: rollIn;\r\n}\r\n\r\n/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */\r\n\r\n@-webkit-keyframes rollOut {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);\r\n  }\r\n}\r\n\r\n@keyframes rollOut {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);\r\n  }\r\n}\r\n\r\n.rollOut {\r\n  -webkit-animation-name: rollOut;\r\n  animation-name: rollOut;\r\n}\r\n\r\n@-webkit-keyframes zoomIn {\r\n  from {\r\n    opacity: 0;\r\n    transform: scale3d(.3, .3, .3);\r\n  }\r\n\r\n  50% {\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n@keyframes zoomIn {\r\n  from {\r\n    opacity: 0;\r\n    transform: scale3d(.3, .3, .3);\r\n  }\r\n\r\n  50% {\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n.zoomIn {\r\n  -webkit-animation-name: zoomIn;\r\n  animation-name: zoomIn;\r\n}\r\n\r\n@-webkit-keyframes zoomInDown {\r\n  from {\r\n    opacity: 0;\r\n    transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n  }\r\n}\r\n\r\n@keyframes zoomInDown {\r\n  from {\r\n    opacity: 0;\r\n    transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n  }\r\n}\r\n\r\n.zoomInDown {\r\n  -webkit-animation-name: zoomInDown;\r\n  animation-name: zoomInDown;\r\n}\r\n\r\n@-webkit-keyframes zoomInLeft {\r\n  from {\r\n    opacity: 0;\r\n    transform: scale3d(.1, .1, .1) translate3d(-1000px, 0, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: scale3d(.475, .475, .475) translate3d(10px, 0, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n  }\r\n}\r\n\r\n@keyframes zoomInLeft {\r\n  from {\r\n    opacity: 0;\r\n    transform: scale3d(.1, .1, .1) translate3d(-1000px, 0, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: scale3d(.475, .475, .475) translate3d(10px, 0, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n  }\r\n}\r\n\r\n.zoomInLeft {\r\n  -webkit-animation-name: zoomInLeft;\r\n  animation-name: zoomInLeft;\r\n}\r\n\r\n@-webkit-keyframes zoomInRight {\r\n  from {\r\n    opacity: 0;\r\n    transform: scale3d(.1, .1, .1) translate3d(1000px, 0, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: scale3d(.475, .475, .475) translate3d(-10px, 0, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n  }\r\n}\r\n\r\n@keyframes zoomInRight {\r\n  from {\r\n    opacity: 0;\r\n    transform: scale3d(.1, .1, .1) translate3d(1000px, 0, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: scale3d(.475, .475, .475) translate3d(-10px, 0, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n  }\r\n}\r\n\r\n.zoomInRight {\r\n  -webkit-animation-name: zoomInRight;\r\n  animation-name: zoomInRight;\r\n}\r\n\r\n@-webkit-keyframes zoomInUp {\r\n  from {\r\n    opacity: 0;\r\n    transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n  }\r\n}\r\n\r\n@keyframes zoomInUp {\r\n  from {\r\n    opacity: 0;\r\n    transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n  }\r\n}\r\n\r\n.zoomInUp {\r\n  -webkit-animation-name: zoomInUp;\r\n  animation-name: zoomInUp;\r\n}\r\n\r\n@-webkit-keyframes zoomOut {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  50% {\r\n    opacity: 0;\r\n    transform: scale3d(.3, .3, .3);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n@keyframes zoomOut {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n\r\n  50% {\r\n    opacity: 0;\r\n    transform: scale3d(.3, .3, .3);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n.zoomOut {\r\n  -webkit-animation-name: zoomOut;\r\n  animation-name: zoomOut;\r\n}\r\n\r\n@-webkit-keyframes zoomOutDown {\r\n  40% {\r\n    opacity: 1;\r\n    transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: scale3d(.1, .1, .1) translate3d(0, 2000px, 0);\r\n    transform-origin: center bottom;\r\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n  }\r\n}\r\n\r\n@keyframes zoomOutDown {\r\n  40% {\r\n    opacity: 1;\r\n    transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: scale3d(.1, .1, .1) translate3d(0, 2000px, 0);\r\n    transform-origin: center bottom;\r\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n  }\r\n}\r\n\r\n.zoomOutDown {\r\n  -webkit-animation-name: zoomOutDown;\r\n  animation-name: zoomOutDown;\r\n}\r\n\r\n@-webkit-keyframes zoomOutLeft {\r\n  40% {\r\n    opacity: 1;\r\n    transform: scale3d(.475, .475, .475) translate3d(42px, 0, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: scale(.1) translate3d(-2000px, 0, 0);\r\n    transform-origin: left center;\r\n  }\r\n}\r\n\r\n@keyframes zoomOutLeft {\r\n  40% {\r\n    opacity: 1;\r\n    transform: scale3d(.475, .475, .475) translate3d(42px, 0, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: scale(.1) translate3d(-2000px, 0, 0);\r\n    transform-origin: left center;\r\n  }\r\n}\r\n\r\n.zoomOutLeft {\r\n  -webkit-animation-name: zoomOutLeft;\r\n  animation-name: zoomOutLeft;\r\n}\r\n\r\n@-webkit-keyframes zoomOutRight {\r\n  40% {\r\n    opacity: 1;\r\n    transform: scale3d(.475, .475, .475) translate3d(-42px, 0, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: scale(.1) translate3d(2000px, 0, 0);\r\n    transform-origin: right center;\r\n  }\r\n}\r\n\r\n@keyframes zoomOutRight {\r\n  40% {\r\n    opacity: 1;\r\n    transform: scale3d(.475, .475, .475) translate3d(-42px, 0, 0);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: scale(.1) translate3d(2000px, 0, 0);\r\n    transform-origin: right center;\r\n  }\r\n}\r\n\r\n.zoomOutRight {\r\n  -webkit-animation-name: zoomOutRight;\r\n  animation-name: zoomOutRight;\r\n}\r\n\r\n@-webkit-keyframes zoomOutUp {\r\n  40% {\r\n    opacity: 1;\r\n    transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: scale3d(.1, .1, .1) translate3d(0, -2000px, 0);\r\n    transform-origin: center bottom;\r\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n  }\r\n}\r\n\r\n@keyframes zoomOutUp {\r\n  40% {\r\n    opacity: 1;\r\n    transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);\r\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\r\n  }\r\n\r\n  to {\r\n    opacity: 0;\r\n    transform: scale3d(.1, .1, .1) translate3d(0, -2000px, 0);\r\n    transform-origin: center bottom;\r\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\r\n  }\r\n}\r\n\r\n.zoomOutUp {\r\n  -webkit-animation-name: zoomOutUp;\r\n  animation-name: zoomOutUp;\r\n}\r\n\r\n@-webkit-keyframes slideInDown {\r\n  from {\r\n    transform: translate3d(0, -100%, 0);\r\n    visibility: visible;\r\n  }\r\n\r\n  to {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes slideInDown {\r\n  from {\r\n    transform: translate3d(0, -100%, 0);\r\n    visibility: visible;\r\n  }\r\n\r\n  to {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n}\r\n\r\n.slideInDown {\r\n  -webkit-animation-name: slideInDown;\r\n  animation-name: slideInDown;\r\n}\r\n\r\n@-webkit-keyframes slideInLeft {\r\n  from {\r\n    transform: translate3d(-100%, 0, 0);\r\n    visibility: visible;\r\n  }\r\n\r\n  to {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes slideInLeft {\r\n  from {\r\n    transform: translate3d(-100%, 0, 0);\r\n    visibility: visible;\r\n  }\r\n\r\n  to {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n}\r\n\r\n.slideInLeft {\r\n  -webkit-animation-name: slideInLeft;\r\n  animation-name: slideInLeft;\r\n}\r\n\r\n@-webkit-keyframes slideInRight {\r\n  from {\r\n    transform: translate3d(100%, 0, 0);\r\n    visibility: visible;\r\n  }\r\n\r\n  to {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes slideInRight {\r\n  from {\r\n    transform: translate3d(100%, 0, 0);\r\n    visibility: visible;\r\n  }\r\n\r\n  to {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n}\r\n\r\n.slideInRight {\r\n  -webkit-animation-name: slideInRight;\r\n  animation-name: slideInRight;\r\n}\r\n\r\n@-webkit-keyframes slideInUp {\r\n  from {\r\n    transform: translate3d(0, 100%, 0);\r\n    visibility: visible;\r\n  }\r\n\r\n  to {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes slideInUp {\r\n  from {\r\n    transform: translate3d(0, 100%, 0);\r\n    visibility: visible;\r\n  }\r\n\r\n  to {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n}\r\n\r\n.slideInUp {\r\n  -webkit-animation-name: slideInUp;\r\n  animation-name: slideInUp;\r\n}\r\n\r\n@-webkit-keyframes slideOutDown {\r\n  from {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n\r\n  to {\r\n    visibility: hidden;\r\n    transform: translate3d(0, 100%, 0);\r\n  }\r\n}\r\n\r\n@keyframes slideOutDown {\r\n  from {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n\r\n  to {\r\n    visibility: hidden;\r\n    transform: translate3d(0, 100%, 0);\r\n  }\r\n}\r\n\r\n.slideOutDown {\r\n  -webkit-animation-name: slideOutDown;\r\n  animation-name: slideOutDown;\r\n}\r\n\r\n@-webkit-keyframes slideOutLeft {\r\n  from {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n\r\n  to {\r\n    visibility: hidden;\r\n    transform: translate3d(-100%, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes slideOutLeft {\r\n  from {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n\r\n  to {\r\n    visibility: hidden;\r\n    transform: translate3d(-100%, 0, 0);\r\n  }\r\n}\r\n\r\n.slideOutLeft {\r\n  -webkit-animation-name: slideOutLeft;\r\n  animation-name: slideOutLeft;\r\n}\r\n\r\n@-webkit-keyframes slideOutRight {\r\n  from {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n\r\n  to {\r\n    visibility: hidden;\r\n    transform: translate3d(100%, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes slideOutRight {\r\n  from {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n\r\n  to {\r\n    visibility: hidden;\r\n    transform: translate3d(100%, 0, 0);\r\n  }\r\n}\r\n\r\n.slideOutRight {\r\n  -webkit-animation-name: slideOutRight;\r\n  animation-name: slideOutRight;\r\n}\r\n\r\n@-webkit-keyframes slideOutUp {\r\n  from {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n\r\n  to {\r\n    visibility: hidden;\r\n    transform: translate3d(0, -100%, 0);\r\n  }\r\n}\r\n\r\n@keyframes slideOutUp {\r\n  from {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n\r\n  to {\r\n    visibility: hidden;\r\n    transform: translate3d(0, -100%, 0);\r\n  }\r\n}\r\n\r\n.slideOutUp {\r\n  -webkit-animation-name: slideOutUp;\r\n  animation-name: slideOutUp;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/libs/cork/plugins/apex/apexcharts.css":
 /*!*****************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/libs/cork/plugins/apex/apexcharts.css ***!
@@ -62099,6 +62686,8 @@ var render = function() {
     "div",
     { attrs: { id: "app" } },
     [
+      _vm.loading ? _c("BlockUI") : _vm._e(),
+      _vm._v(" "),
       _vm.credential.status !== "ok" && !_vm.getCookie("token") && _vm.loginForm
         ? _c("Login", {
             attrs: { "login-form": _vm.loginForm },
@@ -63176,6 +63765,113 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/BlockUI.vue?vue&type=template&id=0d3930c6&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/BlockUI.vue?vue&type=template&id=0d3930c6& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", {
+      staticClass: "blockUI blockOverlay",
+      staticStyle: {
+        "z-index": "1200",
+        border: "none",
+        margin: "0px",
+        padding: "0px",
+        width: "100%",
+        height: "100%",
+        top: "0px",
+        left: "0px",
+        "background-color": "rgb(25, 30, 58)",
+        opacity: "0.8",
+        cursor: "wait",
+        position: "fixed"
+      }
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "blockUI blockMsg blockPage",
+        staticStyle: {
+          "z-index": "1201",
+          position: "fixed",
+          padding: "0px",
+          margin: "0px",
+          width: "30%",
+          top: "40%",
+          left: "35%",
+          "text-align": "center",
+          color: "rgb(37, 213, 228)",
+          border: "0px",
+          "background-color": "transparent",
+          cursor: "wait"
+        }
+      },
+      [
+        _c(
+          "svg",
+          {
+            staticClass: "feather feather-loader spin",
+            attrs: {
+              xmlns: "http://www.w3.org/2000/svg",
+              width: "24",
+              height: "24",
+              viewBox: "0 0 24 24",
+              fill: "none",
+              stroke: "currentColor",
+              "stroke-width": "2",
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          },
+          [
+            _c("line", { attrs: { x1: "12", y1: "2", x2: "12", y2: "6" } }),
+            _vm._v(" "),
+            _c("line", { attrs: { x1: "12", y1: "18", x2: "12", y2: "22" } }),
+            _vm._v(" "),
+            _c("line", {
+              attrs: { x1: "4.93", y1: "4.93", x2: "7.76", y2: "7.76" }
+            }),
+            _vm._v(" "),
+            _c("line", {
+              attrs: { x1: "16.24", y1: "16.24", x2: "19.07", y2: "19.07" }
+            }),
+            _vm._v(" "),
+            _c("line", { attrs: { x1: "2", y1: "12", x2: "6", y2: "12" } }),
+            _vm._v(" "),
+            _c("line", { attrs: { x1: "18", y1: "12", x2: "22", y2: "12" } }),
+            _vm._v(" "),
+            _c("line", {
+              attrs: { x1: "4.93", y1: "19.07", x2: "7.76", y2: "16.24" }
+            }),
+            _vm._v(" "),
+            _c("line", {
+              attrs: { x1: "16.24", y1: "7.76", x2: "19.07", y2: "4.93" }
+            })
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard/Container.vue?vue&type=template&id=3cff8d8b&":
 /*!**********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dashboard/Container.vue?vue&type=template&id=3cff8d8b& ***!
@@ -63205,7 +63901,38 @@ var render = function() {
         "div",
         { staticClass: "main-content", attrs: { id: "content" } },
         [
-          _c("ProductList"),
+          _c("ProductList", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.page === "product/list",
+                expression: "page === 'product/list'"
+              }
+            ]
+          }),
+          _vm._v(" "),
+          _c("UserList", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.page === "user/list",
+                expression: "page === 'user/list'"
+              }
+            ]
+          }),
+          _vm._v(" "),
+          _c("UserProfile", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.page === "user/profile",
+                expression: "page === 'user/profile'"
+              }
+            ]
+          }),
           _vm._v(" "),
           _c("div", { staticClass: "footer-wrapper" }, [
             _vm._m(0),
@@ -63634,35 +64361,48 @@ var render = function() {
               [
                 _c("div", {}, [
                   _c("div", { staticClass: "dropdown-item" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "feather feather-user",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            return _vm.setPage("user/profile")
                           }
-                        },
-                        [
-                          _c("path", {
+                        }
+                      },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-user",
                             attrs: {
-                              d: "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
                             }
-                          }),
-                          _vm._v(" "),
-                          _c("circle", { attrs: { cx: "12", cy: "7", r: "4" } })
-                        ]
-                      ),
-                      _vm._v("\n                  My Profile")
-                    ])
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d: "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("circle", {
+                              attrs: { cx: "12", cy: "7", r: "4" }
+                            })
+                          ]
+                        ),
+                        _vm._v("\n                  My Profile")
+                      ]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "dropdown-item" }, [
@@ -63716,7 +64456,28 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "sub-header-container" }, [
       _c("header", { staticClass: "header navbar navbar-expand-sm" }, [
-        _vm._m(8),
+        _c("ul", { staticClass: "navbar-nav flex-row sidebarCollapse" }, [
+          _c("li", [
+            _c("div", { staticClass: "page-header" }, [
+              _c(
+                "nav",
+                {
+                  staticClass: "breadcrumb-one",
+                  attrs: { "aria-label": "breadcrumb" }
+                },
+                [
+                  _c("ol", { staticClass: "breadcrumb" }, [
+                    _c("li", { staticClass: "breadcrumb-item" }, [
+                      _c("a", { attrs: { href: "javascript:void(0);" } }, [
+                        _vm._v(_vm._s(this.$store.state.page))
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ]),
         _vm._v(" "),
         _c("ul", { staticClass: "navbar-nav flex-row ml-auto " }, [
           _c("li", { staticClass: "nav-item more-dropdown" }, [
@@ -63758,7 +64519,7 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(9)
+              _vm._m(8)
             ])
           ])
         ])
@@ -64057,42 +64818,6 @@ var staticRenderFns = [
         })
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "navbar-nav flex-row sidebarCollapse" }, [
-      _c("li", [
-        _c("div", { staticClass: "page-header" }, [
-          _c(
-            "nav",
-            {
-              staticClass: "breadcrumb-one",
-              attrs: { "aria-label": "breadcrumb" }
-            },
-            [
-              _c("ol", { staticClass: "breadcrumb" }, [
-                _c("li", { staticClass: "breadcrumb-item" }, [
-                  _c("a", { attrs: { href: "javascript:void(0);" } }, [
-                    _vm._v("Dashboard")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass: "breadcrumb-item active",
-                    attrs: { "aria-current": "page" }
-                  },
-                  [_c("span", [_vm._v("Sales")])]
-                )
-              ])
-            ]
-          )
-        ])
-      ])
-    ])
   },
   function() {
     var _vm = this
@@ -64573,10 +65298,13 @@ var render = function() {
               {
                 staticClass: "dropdown-toggle",
                 attrs: {
-                  href: "#dashboard",
-                  "data-active": "true",
-                  "data-toggle": "collapse",
-                  "aria-expanded": "true"
+                  href: "#",
+                  "data-active": _vm.page === "product/list"
+                },
+                on: {
+                  click: function($event) {
+                    return _vm.setPage("product/list")
+                  }
                 }
               },
               [
@@ -64616,32 +65344,9 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("span", [_vm._v("Products")])
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-chevron-right",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [_c("polyline", { attrs: { points: "9 18 15 12 9 6" } })]
-                  )
                 ])
               ]
-            ),
-            _vm._v(" "),
-            _vm._m(0)
+            )
           ]),
           _vm._v(" "),
           _c("li", { staticClass: "menu" }, [
@@ -64652,7 +65357,7 @@ var render = function() {
                 attrs: {
                   href: "#components",
                   "data-toggle": "collapse",
-                  "aria-expanded": "false"
+                  "data-active": _vm.page.includes("user")
                 }
               },
               [
@@ -64660,7 +65365,7 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "feather feather-box",
+                      staticClass: "feather feather-users",
                       attrs: {
                         xmlns: "http://www.w3.org/2000/svg",
                         width: "24",
@@ -64676,22 +65381,18 @@ var render = function() {
                     [
                       _c("path", {
                         attrs: {
-                          d:
-                            "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                          d: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
                         }
                       }),
-                      _vm._v(" "),
-                      _c("polyline", {
-                        attrs: { points: "3.27 6.96 12 12.01 20.73 6.96" }
+                      _c("circle", { attrs: { cx: "9", cy: "7", r: "4" } }),
+                      _c("path", {
+                        attrs: { d: "M23 21v-2a4 4 0 0 0-3-3.87" }
                       }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "12", y1: "22.08", x2: "12", y2: "12" }
-                      })
+                      _c("path", { attrs: { d: "M16 3.13a4 4 0 0 1 0 7.75" } })
                     ]
                   ),
                   _vm._v(" "),
-                  _c("span", [_vm._v("Components")])
+                  _c("span", [_vm._v("Users")])
                 ]),
                 _vm._v(" "),
                 _c("div", [
@@ -64717,48 +65418,1347 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _vm._m(1)
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "menu" }, [
             _c(
-              "a",
+              "ul",
               {
-                staticClass: "dropdown-toggle",
-                attrs: { href: "fonticons.html", "aria-expanded": "false" }
+                staticClass: "collapse submenu list-unstyled",
+                attrs: { id: "components", "data-parent": "#accordionExample" }
               },
               [
-                _c("div", {}, [
+                _c("li", { class: _vm.page === "user/list" ? "active" : "" }, [
                   _c(
-                    "svg",
+                    "a",
                     {
-                      staticClass: "feather feather-target",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
+                      attrs: { href: "#" },
+                      on: {
+                        click: function($event) {
+                          return _vm.setPage("user/list")
+                        }
                       }
                     },
-                    [
-                      _c("circle", { attrs: { cx: "12", cy: "12", r: "10" } }),
-                      _vm._v(" "),
-                      _c("circle", { attrs: { cx: "12", cy: "12", r: "6" } }),
-                      _vm._v(" "),
-                      _c("circle", { attrs: { cx: "12", cy: "12", r: "2" } })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Font Icons")])
-                ])
+                    [_vm._v(" List ")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { class: _vm.page === "user/profile" ? "active" : "" },
+                  [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            return _vm.setPage("user/profile")
+                          }
+                        }
+                      },
+                      [_vm._v(" Profile ")]
+                    )
+                  ]
+                )
               ]
             )
           ])
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "layout-px-spacing" }, [
+    _c("div", { staticClass: "row layout-top-spacing" }, [
+      _c(
+        "div",
+        { staticClass: "col-xl-12 col-lg-12 col-sm-12  layout-spacing" },
+        [
+          _c(
+            "div",
+            { staticClass: "widget-content widget-content-area br-6" },
+            [
+              _c("div", { staticClass: "table-responsive mb-4 mt-4" }, [
+                _c(
+                  "table",
+                  {
+                    staticClass: "table table-hover",
+                    staticStyle: { width: "100%" },
+                    attrs: { id: "zero-config" }
+                  },
+                  [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("tbody", [
+                      _c("tr", [
+                        _c("td", [_vm._v("Tiger Nixon")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("System Architect")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Edinburgh")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("61")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2011/04/25")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$320,800")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Garrett Winters")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Accountant")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Tokyo")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("63")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2011/07/25")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$170,750")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Ashton Cox")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Junior Technical Author")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("San Francisco")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("66")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2009/01/12")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$86,000")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Cedric Kelly")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Senior Javascript Developer")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Edinburgh")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("22")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2012/03/29")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$433,060")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Airi Satou")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Accountant")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Tokyo")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("33")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2008/11/28")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$162,700")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Brielle Williamson")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Integration Specialist")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("New York")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("61")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2012/12/02")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$372,000")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Herrod Chandler")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Sales Assistant")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("San Francisco")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("59")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2012/08/06")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$137,500")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Rhona Davidson")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Integration Specialist")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Tokyo")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("55")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2010/10/14")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$327,900")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Colleen Hurst")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Javascript Developer")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("San Francisco")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("39")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2009/09/15")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$205,500")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Sonya Frost")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Software Engineer")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Edinburgh")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("23")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2008/12/13")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$103,600")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Jena Gaines")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Office Manager")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("London")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("30")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2008/12/19")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$90,560")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Quinn Flynn")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Support Lead")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Edinburgh")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("22")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2013/03/03")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$342,000")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Charde Marshall")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Regional Director")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("San Francisco")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("36")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2008/10/16")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$470,600")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Haley Kennedy")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Senior Marketing Designer")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("London")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("43")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2012/12/18")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$313,500")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Tatyana Fitzpatrick")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Regional Director")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("London")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("19")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2010/03/17")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$385,750")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Michael Silva")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Marketing Designer")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("London")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("66")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2012/11/27")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$198,500")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Paul Byrd")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Chief Financial Officer (CFO)")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("New York")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("64")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2010/06/09")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$725,000")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Gloria Little")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Systems Administrator")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("New York")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("59")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2009/04/10")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$237,500")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Bradley Greer")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Software Engineer")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("London")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("41")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2012/10/13")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$132,000")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Dai Rios")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Personnel Lead")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Edinburgh")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("35")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2012/09/26")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$217,500")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Jenette Caldwell")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Development Lead")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("New York")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("30")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2011/09/03")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$345,000")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Yuri Berry")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Chief Marketing Officer (CMO)")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("New York")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("40")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2009/06/25")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$675,000")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Caesar Vance")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Pre-Sales Support")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("New York")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("21")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2011/12/12")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$106,450")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Doris Wilder")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Sales Assistant")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Sidney")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("23")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2010/09/20")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$85,600")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Angelica Ramos")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Chief Executive Officer (CEO)")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("London")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("47")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2009/10/09")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$1,200,000")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Gavin Joyce")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Developer")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Edinburgh")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("42")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2010/12/22")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$92,575")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [_vm._v("Jennifer Chang")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Regional Director")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("Singapore")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("28")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("2010/11/14")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v("$357,650")]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "feather feather-x-circle table-cancel",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("circle", {
+                                attrs: { cx: "12", cy: "12", r: "10" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
+                              })
+                            ]
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1)
+                  ]
+                )
+              ])
+            ]
+          )
         ]
       )
     ])
@@ -64769,123 +66769,746 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "ul",
-      {
-        staticClass: "collapse submenu list-unstyled show",
-        attrs: { id: "dashboard", "data-parent": "#accordionExample" }
-      },
-      [
-        _c("li", { staticClass: "active" }, [
-          _c("a", { attrs: { href: "index-2.html" } }, [_vm._v(" List ")])
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Position")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Office")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Age")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Start date")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Salary")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "no-content" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tfoot", [
+      _c("tr", [
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Position")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Office")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Age")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Start date")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Salary")]),
+        _vm._v(" "),
+        _c("th")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard/User/Profile.vue?vue&type=template&id=93cf39aa&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dashboard/User/Profile.vue?vue&type=template&id=93cf39aa& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "layout-px-spacing" }, [
+    _c("div", { staticClass: "row layout-spacing" }, [
+      _c(
+        "div",
+        {
+          staticClass: "col-xl-4 col-lg-6 col-md-5 col-sm-12 layout-top-spacing"
+        },
+        [
+          _c("div", { staticClass: "user-profile layout-spacing" }, [
+            _c("div", { staticClass: "widget-content widget-content-area" }, [
+              _c("div", { staticClass: "d-flex justify-content-between" }, [
+                _c("h3", {}, [_vm._v("Profile")]),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "mt-2 edit-profile",
+                    attrs: { href: "user_account_setting.html" }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-edit-3",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      },
+                      [
+                        _c("path", { attrs: { d: "M12 20h9" } }),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "user-info-list" }, [
+                _c("div", {}, [
+                  _c("ul", { staticClass: "contacts-block list-unstyled" }, [
+                    _c("li", { staticClass: "contacts-block__item" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-coffee",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: { d: "M18 8h1a4 4 0 0 1 0 8h-1" }
+                          }),
+                          _c("path", {
+                            attrs: {
+                              d: "M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"
+                            }
+                          }),
+                          _c("line", {
+                            attrs: { x1: "6", y1: "1", x2: "6", y2: "4" }
+                          }),
+                          _c("line", {
+                            attrs: { x1: "10", y1: "1", x2: "10", y2: "4" }
+                          }),
+                          _c("line", {
+                            attrs: { x1: "14", y1: "1", x2: "14", y2: "4" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" Web Developer\n                ")
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "contacts-block__item" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-calendar",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("rect", {
+                            attrs: {
+                              x: "3",
+                              y: "4",
+                              width: "18",
+                              height: "18",
+                              rx: "2",
+                              ry: "2"
+                            }
+                          }),
+                          _c("line", {
+                            attrs: { x1: "16", y1: "2", x2: "16", y2: "6" }
+                          }),
+                          _c("line", {
+                            attrs: { x1: "8", y1: "2", x2: "8", y2: "6" }
+                          }),
+                          _c("line", {
+                            attrs: { x1: "3", y1: "10", x2: "21", y2: "10" }
+                          })
+                        ]
+                      ),
+                      _vm._v("Jan 20, 1989\n                ")
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "contacts-block__item" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-map-pin",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                            }
+                          }),
+                          _c("circle", {
+                            attrs: { cx: "12", cy: "10", r: "3" }
+                          })
+                        ]
+                      ),
+                      _vm._v("New York, USA\n                ")
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "contacts-block__item" }, [
+                      _c("a", { attrs: { href: "mailto:example@mail.com" } }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-mail",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                              }
+                            }),
+                            _c("polyline", {
+                              attrs: { points: "22,6 12,13 2,6" }
+                            })
+                          ]
+                        ),
+                        _vm._v("Jimmy@gmail.com")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "contacts-block__item" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-phone",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" +1 (530) 555-12121\n                ")
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "contacts-block__item" }, [
+                      _c("ul", { staticClass: "list-inline" }, [
+                        _c("li", { staticClass: "list-inline-item" }, [
+                          _c("div", { staticClass: "social-icon" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "feather feather-facebook",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "24",
+                                  height: "24",
+                                  viewBox: "0 0 24 24",
+                                  fill: "none",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                                  }
+                                })
+                              ]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "list-inline-item" }, [
+                          _c("div", { staticClass: "social-icon" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "feather feather-twitter",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "24",
+                                  height: "24",
+                                  viewBox: "0 0 24 24",
+                                  fill: "none",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                                  }
+                                })
+                              ]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "list-inline-item" }, [
+                          _c("div", { staticClass: "social-icon" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "feather feather-linkedin",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "24",
+                                  height: "24",
+                                  viewBox: "0 0 24 24",
+                                  fill: "none",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                                  }
+                                }),
+                                _c("rect", {
+                                  attrs: {
+                                    x: "2",
+                                    y: "9",
+                                    width: "4",
+                                    height: "12"
+                                  }
+                                }),
+                                _c("circle", {
+                                  attrs: { cx: "4", cy: "4", r: "2" }
+                                })
+                              ]
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2)
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(3)
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center user-info" }, [
+      _c("img", { attrs: { src: "assets/img/profile-3.jpg", alt: "avatar" } }),
+      _vm._v(" "),
+      _c("p", {}, [_vm._v("Jimmy Turner")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "education layout-spacing " }, [
+      _c("div", { staticClass: "widget-content widget-content-area" }, [
+        _c("h3", {}, [_vm._v("Education")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "timeline-alter" }, [
+          _c("div", { staticClass: "item-timeline" }, [
+            _c("div", { staticClass: "t-meta-date" }, [
+              _c("p", {}, [_vm._v("04 Mar 2009")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "t-dot" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "t-text" }, [
+              _c("p", [_vm._v("Royal Collage of Art")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Designer Illustrator")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "item-timeline" }, [
+            _c("div", { staticClass: "t-meta-date" }, [
+              _c("p", {}, [_vm._v("25 Apr 2014")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "t-dot" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "t-text" }, [
+              _c("p", [_vm._v("Massachusetts Institute of Technology (MIT)")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Designer Illustrator")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "item-timeline" }, [
+            _c("div", { staticClass: "t-meta-date" }, [
+              _c("p", {}, [_vm._v("04 Apr 2018")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "t-dot" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "t-text" }, [
+              _c("p", [_vm._v("School of Art Institute of Chicago (SAIC)")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Designer Illustrator")])
+            ])
+          ])
         ])
-      ]
-    )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "work-experience layout-spacing " }, [
+      _c("div", { staticClass: "widget-content widget-content-area" }, [
+        _c("h3", {}, [_vm._v("Work Experience")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "timeline-alter" }, [
+          _c("div", { staticClass: "item-timeline" }, [
+            _c("div", { staticClass: "t-meta-date" }, [
+              _c("p", {}, [_vm._v("04 Mar 2009")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "t-dot" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "t-text" }, [
+              _c("p", [_vm._v("Netfilx Inc.")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Designer Illustrator")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "item-timeline" }, [
+            _c("div", { staticClass: "t-meta-date" }, [
+              _c("p", {}, [_vm._v("25 Apr 2014")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "t-dot" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "t-text" }, [
+              _c("p", [_vm._v("Google Inc.")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Designer Illustrator")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "item-timeline" }, [
+            _c("div", { staticClass: "t-meta-date" }, [
+              _c("p", {}, [_vm._v("04 Apr 2018")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "t-dot" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "t-text" }, [
+              _c("p", [_vm._v("Design Reset Inc.")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Designer Illustrator")])
+            ])
+          ])
+        ])
+      ])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "ul",
+      "div",
       {
-        staticClass: "collapse submenu list-unstyled",
-        attrs: { id: "components", "data-parent": "#accordionExample" }
+        staticClass: "col-xl-8 col-lg-6 col-md-7 col-sm-12 layout-top-spacing"
       },
       [
-        _c("li", [
-          _c("a", { attrs: { href: "component_tabs.html" } }, [
-            _vm._v(" Tabs ")
+        _c("div", { staticClass: "skills layout-spacing " }, [
+          _c("div", { staticClass: "widget-content widget-content-area" }, [
+            _c("h3", {}, [_vm._v("Skills")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "progress br-30" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "progress-bar bg-primary",
+                  staticStyle: { width: "25%" },
+                  attrs: {
+                    role: "progressbar",
+                    "aria-valuenow": "25",
+                    "aria-valuemin": "0",
+                    "aria-valuemax": "100"
+                  }
+                },
+                [
+                  _c("div", { staticClass: "progress-title" }, [
+                    _c("span", [_vm._v("PHP")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("25%")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "progress br-30" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "progress-bar bg-primary",
+                  staticStyle: { width: "50%" },
+                  attrs: {
+                    role: "progressbar",
+                    "aria-valuenow": "25",
+                    "aria-valuemin": "0",
+                    "aria-valuemax": "100"
+                  }
+                },
+                [
+                  _c("div", { staticClass: "progress-title" }, [
+                    _c("span", [_vm._v("Wordpress")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("50%")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "progress br-30" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "progress-bar bg-primary",
+                  staticStyle: { width: "70%" },
+                  attrs: {
+                    role: "progressbar",
+                    "aria-valuenow": "25",
+                    "aria-valuemin": "0",
+                    "aria-valuemax": "100"
+                  }
+                },
+                [
+                  _c("div", { staticClass: "progress-title" }, [
+                    _c("span", [_vm._v("Javascript")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("70%")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "progress br-30" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "progress-bar bg-primary",
+                  staticStyle: { width: "60%" },
+                  attrs: {
+                    role: "progressbar",
+                    "aria-valuenow": "25",
+                    "aria-valuemin": "0",
+                    "aria-valuemax": "100"
+                  }
+                },
+                [
+                  _c("div", { staticClass: "progress-title" }, [
+                    _c("span", [_vm._v("jQuery")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("60%")])
+                  ])
+                ]
+              )
+            ])
           ])
         ]),
         _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "component_accordion.html" } }, [
-            _vm._v(" Accordions ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "component_modal.html" } }, [
-            _vm._v(" Modals ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "component_cards.html" } }, [
-            _vm._v(" Cards ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "component_bootstrap_carousel.html" } }, [
-            _vm._v("Carousel")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "component_blockui.html" } }, [
-            _vm._v(" Block UI ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "component_countdown.html" } }, [
-            _vm._v(" Countdown ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "component_counter.html" } }, [
-            _vm._v(" Counter ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "component_sweetalert.html" } }, [
-            _vm._v(" Sweet Alerts ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "component_timeline.html" } }, [
-            _vm._v(" Timeline ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "component_snackbar.html" } }, [
-            _vm._v(" Notifications ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "component_session_timeout.html" } }, [
-            _vm._v(" Session Timeout ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "component_media_object.html" } }, [
-            _vm._v(" Media Object ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "component_list_group.html" } }, [
-            _vm._v(" List Group ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "component_pricing_table.html" } }, [
-            _vm._v(" Pricing Tables ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "component_lightbox.html" } }, [
-            _vm._v(" Lightbox ")
+        _c("div", { staticClass: "bio layout-spacing " }, [
+          _c("div", { staticClass: "widget-content widget-content-area" }, [
+            _c("h3", {}, [_vm._v("Bio")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "I'm Web Developer from California. I code and design websites worldwide. Mauris varius tellus vitae tristique sagittis. Sed aliquet, est nec auctor aliquet, orci ex vestibulum ex, non pharetra lacus erat ac nulla."
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Sed vulputate, ligula eget mollis auctor, lectus elit feugiat urna, eget euismod turpis lectus sed ex. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc ut velit finibus, scelerisque sapien vitae, pharetra est. Nunc accumsan ligula vehicula scelerisque vulputate."
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "bio-skill-box" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-12 col-xl-6 col-lg-12 mb-xl-5 mb-5 " },
+                  [
+                    _c("div", { staticClass: "d-flex b-skills" }, [
+                      _c("div"),
+                      _vm._v(" "),
+                      _c("div", {}, [
+                        _c("h5", [_vm._v("Sass Applications")]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "Duis aute irure dolor in reprehenderit in voluptate velit esse eu fugiat nulla pariatur."
+                          )
+                        ])
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-12 col-xl-6 col-lg-12 mb-xl-5 mb-5 " },
+                  [
+                    _c("div", { staticClass: "d-flex b-skills" }, [
+                      _c("div"),
+                      _vm._v(" "),
+                      _c("div", {}, [
+                        _c("h5", [_vm._v("Github Countributer")]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "Ut enim ad minim veniam, quis nostrud exercitation aliquip ex ea commodo consequat."
+                          )
+                        ])
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-12 col-xl-6 col-lg-12 mb-xl-0 mb-5 " },
+                  [
+                    _c("div", { staticClass: "d-flex b-skills" }, [
+                      _c("div"),
+                      _vm._v(" "),
+                      _c("div", {}, [
+                        _c("h5", [_vm._v("Photograhpy")]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia anim id est laborum."
+                          )
+                        ])
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-12 col-xl-6 col-lg-12 mb-xl-0 mb-0 " },
+                  [
+                    _c("div", { staticClass: "d-flex b-skills" }, [
+                      _c("div"),
+                      _vm._v(" "),
+                      _c("div", {}, [
+                        _c("h5", [_vm._v("Mobile Apps")]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do et dolore magna aliqua."
+                          )
+                        ])
+                      ])
+                    ])
+                  ]
+                )
+              ])
+            ])
           ])
         ])
       ]
@@ -78475,6 +81098,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/BlockUI.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/components/BlockUI.vue ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _BlockUI_vue_vue_type_template_id_0d3930c6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BlockUI.vue?vue&type=template&id=0d3930c6& */ "./resources/js/components/BlockUI.vue?vue&type=template&id=0d3930c6&");
+/* harmony import */ var _BlockUI_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BlockUI.vue?vue&type=script&lang=js& */ "./resources/js/components/BlockUI.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _BlockUI_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BlockUI_vue_vue_type_template_id_0d3930c6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _BlockUI_vue_vue_type_template_id_0d3930c6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/BlockUI.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/BlockUI.vue?vue&type=script&lang=js&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/BlockUI.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BlockUI_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./BlockUI.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/BlockUI.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BlockUI_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/BlockUI.vue?vue&type=template&id=0d3930c6&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/BlockUI.vue?vue&type=template&id=0d3930c6& ***!
+  \****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BlockUI_vue_vue_type_template_id_0d3930c6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./BlockUI.vue?vue&type=template&id=0d3930c6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/BlockUI.vue?vue&type=template&id=0d3930c6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BlockUI_vue_vue_type_template_id_0d3930c6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BlockUI_vue_vue_type_template_id_0d3930c6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Dashboard/Container.vue":
 /*!*********************************************************!*\
   !*** ./resources/js/components/Dashboard/Container.vue ***!
@@ -78889,6 +81581,144 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Dashboard/User/List.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/Dashboard/User/List.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _List_vue_vue_type_template_id_5200890c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./List.vue?vue&type=template&id=5200890c&scoped=true& */ "./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c&scoped=true&");
+/* harmony import */ var _List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./List.vue?vue&type=script&lang=js& */ "./resources/js/components/Dashboard/User/List.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _List_vue_vue_type_template_id_5200890c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _List_vue_vue_type_template_id_5200890c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "5200890c",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Dashboard/User/List.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Dashboard/User/List.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/Dashboard/User/List.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./List.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard/User/List.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c&scoped=true&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c&scoped=true& ***!
+  \****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_5200890c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./List.vue?vue&type=template&id=5200890c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_5200890c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_5200890c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Dashboard/User/Profile.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/Dashboard/User/Profile.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Profile_vue_vue_type_template_id_93cf39aa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Profile.vue?vue&type=template&id=93cf39aa& */ "./resources/js/components/Dashboard/User/Profile.vue?vue&type=template&id=93cf39aa&");
+/* harmony import */ var _Profile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Profile.vue?vue&type=script&lang=js& */ "./resources/js/components/Dashboard/User/Profile.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Profile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Profile_vue_vue_type_template_id_93cf39aa___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Profile_vue_vue_type_template_id_93cf39aa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Dashboard/User/Profile.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Dashboard/User/Profile.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/Dashboard/User/Profile.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Profile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Profile.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard/User/Profile.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Profile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Dashboard/User/Profile.vue?vue&type=template&id=93cf39aa&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/Dashboard/User/Profile.vue?vue&type=template&id=93cf39aa& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Profile_vue_vue_type_template_id_93cf39aa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Profile.vue?vue&type=template&id=93cf39aa& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard/User/Profile.vue?vue&type=template&id=93cf39aa&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Profile_vue_vue_type_template_id_93cf39aa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Profile_vue_vue_type_template_id_93cf39aa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/store/index.js":
 /*!*************************************!*\
   !*** ./resources/js/store/index.js ***!
@@ -78917,21 +81747,81 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__["default"], axios__WEBPACK_IMPORTED_MODULE_3___default.a);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
   state: {
-    products: [],
-    users: [],
-    media: [],
     credential: [],
     userDetails: [],
+    media: [],
+    users: [],
+    products: [],
     companies: [],
     positions: [],
     errors: {},
     loading: false,
-    url: 'http://test/api/'
+    url: 'http://test/api/',
+    page: 'product/list'
   },
   actions: {
-    getProfileMedia: function getProfileMedia(_ref, token) {
-      var commit = _ref.commit,
-          state = _ref.state;
+    setPage: function setPage(_ref, page) {
+      var commit = _ref.commit;
+      commit('SET_PAGE', page);
+    },
+    setNewUser: function setNewUser(_ref2, data) {
+      var commit = _ref2.commit,
+          state = _ref2.state;
+      var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+      commit('SET_LOADING', true);
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "register?" + "&name=" + data[0] + "&email=" + data[1] + "&password=" + data[2] + "&password_confirmation=" + data[3] + "&company_id=" + data[4] + "&position_id=" + data[5]).then(function (r) {
+        commit('SET_CREDENTIAL', r.data);
+        commit('SET_ERRORS', "");
+        commit('SET_LOADING', false);
+      })["catch"](function (r) {
+        commit('SET_ERRORS', r.response.data.errors);
+        commit('SET_LOADING', false);
+      });
+    },
+    setCredential: function setCredential(_ref3, data) {
+      var commit = _ref3.commit,
+          state = _ref3.state;
+      var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+      commit('SET_LOADING', true);
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "login?email=" + data[0] + "&password=" + data[1]).then(function (r) {
+        commit('SET_CREDENTIAL', r.data);
+        commit('SET_LOADING', false);
+      });
+    },
+    removeCredential: function removeCredential(_ref4) {
+      var commit = _ref4.commit;
+      commit('DELETE_CREDENTIAL');
+    },
+    getUserDetails: function getUserDetails(_ref5, token) {
+      var commit = _ref5.commit,
+          state = _ref5.state;
+      var config = {
+        headers: {
+          Authorization: "Bearer ".concat(token)
+        }
+      };
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "details", '', config).then(function (r) {
+        return commit('SET_USER_DETAILS', r.data);
+      });
+    },
+    updateUser: function updateUser(_ref6, args) {
+      var commit = _ref6.commit,
+          state = _ref6.state;
+      var config = {
+        headers: {
+          Authorization: "Bearer ".concat(args.token)
+        }
+      };
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "profile/update", args.data, config)["catch"](function (r) {
+        commit('SET_ERRORS', r.response.data.errors);
+      });
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "details", '', config).then(function (r) {
+        return commit('SET_USER_DETAILS', r.data);
+      });
+    },
+    getUserMedia: function getUserMedia(_ref7, token) {
+      var commit = _ref7.commit,
+          state = _ref7.state;
       var config = {
         headers: {
           Authorization: "Bearer ".concat(token)
@@ -78941,9 +81831,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         return commit('GET_MEDIA', r.data);
       });
     },
-    insertMedia: function insertMedia(_ref2, args) {
-      var commit = _ref2.commit,
-          state = _ref2.state;
+    insertMedia: function insertMedia(_ref8, args) {
+      var commit = _ref8.commit,
+          state = _ref8.state;
       var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
       commit('SET_LOADING', true);
       var config = {
@@ -78960,23 +81850,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         commit('SET_LOADING', false);
       });
     },
-    setProducts: function setProducts(_ref3) {
-      var commit = _ref3.commit,
-          state = _ref3.state;
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
-        return commit('SET_PRODUCTS', r.data);
-      });
-    },
-    getCompanies: function getCompanies(_ref4) {
-      var commit = _ref4.commit,
-          state = _ref4.state;
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "companies").then(function (r) {
-        return commit('GET_COMPANIES', r.data);
-      });
-    },
-    getUsers: function getUsers(_ref5, token) {
-      var commit = _ref5.commit,
-          state = _ref5.state;
+    getUsers: function getUsers(_ref9, token) {
+      var commit = _ref9.commit,
+          state = _ref9.state;
       var config = {
         headers: {
           Authorization: "Bearer ".concat(token)
@@ -78986,72 +81862,53 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         return commit('GET_USERS', r.data);
       });
     },
-    getPositions: function getPositions(_ref6) {
-      var commit = _ref6.commit,
-          state = _ref6.state;
+    getProducts: function getProducts(_ref10) {
+      var commit = _ref10.commit,
+          state = _ref10.state;
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
+        return commit('GET_PRODUCTS', r.data);
+      });
+    },
+    getCompanies: function getCompanies(_ref11) {
+      var commit = _ref11.commit,
+          state = _ref11.state;
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "companies").then(function (r) {
+        return commit('GET_COMPANIES', r.data);
+      });
+    },
+    getPositions: function getPositions(_ref12) {
+      var commit = _ref12.commit,
+          state = _ref12.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "positions").then(function (r) {
         return commit('GET_POSITIONS', r.data);
       });
     },
-    getCredential: function getCredential(_ref7, data) {
-      var commit = _ref7.commit,
-          state = _ref7.state;
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "login?email=" + data[0] + "&password=" + data[1]).then(function (r) {
-        return commit('SET_CREDENTIAL', r.data);
-      });
-    },
-    setNewUser: function setNewUser(_ref8, data) {
-      var commit = _ref8.commit,
-          state = _ref8.state;
-      var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-      commit('SET_LOADING', true);
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "register?" + "&name=" + data[0] + "&email=" + data[1] + "&password=" + data[2] + "&password_confirmation=" + data[3] + "&company_id=" + data[4] + "&position_id=" + data[5]).then(function (r) {
-        commit('SET_CREDENTIAL', r.data);
-        commit('SET_ERRORS', "");
-        commit('SET_LOADING', false);
-      })["catch"](function (r) {
-        commit('SET_ERRORS', r.response.data.errors);
-        commit('SET_LOADING', false);
-      });
-    },
-    removeCredential: function removeCredential(_ref9) {
-      var commit = _ref9.commit;
-      commit('DELETE_CREDENTIAL');
-    },
-    getUserDetails: function getUserDetails(_ref10, token) {
-      var commit = _ref10.commit,
-          state = _ref10.state;
-      var config = {
-        headers: {
-          Authorization: "Bearer ".concat(token)
-        }
-      };
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "details", '', config).then(function (r) {
-        return commit('SET_USER_DETAILS', r.data);
-      });
-    },
-    setNewProduct: function setNewProduct(_ref11, args) {
+    setNewProduct: function setNewProduct(_ref13, args) {
+      var _arguments = arguments;
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var commit, state, config;
+        var commit, state, loading, config;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                commit = _ref11.commit, state = _ref11.state;
+                commit = _ref13.commit, state = _ref13.state;
+                loading = _arguments.length > 2 && _arguments[2] !== undefined ? _arguments[2] : true;
+                commit('SET_LOADING', true);
                 config = {
                   headers: {
                     Authorization: "Bearer ".concat(args.token)
                   }
                 };
-                _context.next = 4;
+                _context.next = 6;
                 return axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products/create", args.product, config);
 
-              case 4:
+              case 6:
                 axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
-                  return commit('SET_PRODUCTS', r.data);
+                  commit('GET_PRODUCTS', r.data);
+                  commit('SET_LOADING', false);
                 });
 
-              case 5:
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -79059,14 +81916,14 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         }, _callee);
       }))();
     },
-    deleteProduct: function deleteProduct(_ref12, args) {
+    deleteProduct: function deleteProduct(_ref14, args) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var commit, state, config;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                commit = _ref12.commit, state = _ref12.state;
+                commit = _ref14.commit, state = _ref14.state;
                 config = {
                   headers: {
                     Authorization: "Bearer ".concat(args.token)
@@ -79077,7 +81934,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
 
               case 4:
                 axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
-                  return commit('SET_PRODUCTS', r.data);
+                  return commit('GET_PRODUCTS', r.data);
                 });
 
               case 5:
@@ -79088,14 +81945,14 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         }, _callee2);
       }))();
     },
-    editProduct: function editProduct(_ref13, args) {
+    editProduct: function editProduct(_ref15, args) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         var commit, state, config;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                commit = _ref13.commit, state = _ref13.state;
+                commit = _ref15.commit, state = _ref15.state;
                 config = {
                   headers: {
                     Authorization: "Bearer ".concat(args.token)
@@ -79106,7 +81963,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
 
               case 4:
                 axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
-                  return commit('SET_PRODUCTS', r.data);
+                  return commit('GET_PRODUCTS', r.data);
                 });
 
               case 5:
@@ -79116,53 +81973,41 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
           }
         }, _callee3);
       }))();
-    },
-    updateUser: function updateUser(_ref14, args) {
-      var commit = _ref14.commit,
-          state = _ref14.state;
-      var config = {
-        headers: {
-          Authorization: "Bearer ".concat(args.token)
-        }
-      };
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "profile/update", args.data, config)["catch"](function (r) {
-        commit('SET_ERRORS', r.response.data.errors);
-      });
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "details", '', config).then(function (r) {
-        return commit('SET_USER_DETAILS', r.data);
-      });
     }
   },
   mutations: {
+    SET_PAGE: function SET_PAGE(state, page) {
+      state.page = page;
+    },
     SET_LOADING: function SET_LOADING(state, loading) {
       state.loading = loading;
     },
-    GET_MEDIA: function GET_MEDIA(state, media) {
-      state.media = media;
-    },
-    SET_PRODUCTS: function SET_PRODUCTS(state, products) {
-      state.products = products;
-    },
-    GET_USERS: function GET_USERS(state, users) {
-      state.users = users;
-    },
-    GET_COMPANIES: function GET_COMPANIES(state, companies) {
-      state.companies = companies;
-    },
-    GET_POSITIONS: function GET_POSITIONS(state, positions) {
-      state.positions = positions;
+    SET_ERRORS: function SET_ERRORS(state, errors) {
+      state.errors = errors;
     },
     SET_CREDENTIAL: function SET_CREDENTIAL(state, credential) {
       state.credential = credential;
-    },
-    SET_ERRORS: function SET_ERRORS(state, errors) {
-      state.errors = errors;
     },
     DELETE_CREDENTIAL: function DELETE_CREDENTIAL(state) {
       state.credential = "";
     },
     SET_USER_DETAILS: function SET_USER_DETAILS(state, userDetails) {
       state.userDetails = userDetails;
+    },
+    GET_MEDIA: function GET_MEDIA(state, media) {
+      state.media = media;
+    },
+    GET_USERS: function GET_USERS(state, users) {
+      state.users = users;
+    },
+    GET_PRODUCTS: function GET_PRODUCTS(state, products) {
+      state.products = products;
+    },
+    GET_COMPANIES: function GET_COMPANIES(state, companies) {
+      state.companies = companies;
+    },
+    GET_POSITIONS: function GET_POSITIONS(state, positions) {
+      state.positions = positions;
     }
   }
 }));
@@ -79409,6 +82254,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./resources/libs/cork/assets/css/users/user-profile.css":
+/*!***************************************************************!*\
+  !*** ./resources/libs/cork/assets/css/users/user-profile.css ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/postcss-loader/src??ref--6-2!./user-profile.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/libs/cork/assets/css/users/user-profile.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./resources/libs/cork/assets/img/arrow-down.png":
 /*!*******************************************************!*\
   !*** ./resources/libs/cork/assets/img/arrow-down.png ***!
@@ -79417,6 +82292,36 @@ if(false) {}
 /***/ (function(module, exports) {
 
 module.exports = "/images/arrow-down.png?cfe1322d28ff5fc4594dc338ce6a0cf7";
+
+/***/ }),
+
+/***/ "./resources/libs/cork/plugins/animate/animate.css":
+/*!*********************************************************!*\
+  !*** ./resources/libs/cork/plugins/animate/animate.css ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/postcss-loader/src??ref--6-2!./animate.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/libs/cork/plugins/animate/animate.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
 
 /***/ }),
 

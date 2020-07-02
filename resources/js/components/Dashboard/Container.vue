@@ -8,7 +8,9 @@
 
     <div id="content" class="main-content">
 
-      <ProductList></ProductList>
+      <ProductList v-show="page === 'product/list'"></ProductList>
+      <UserList v-show="page === 'user/list'"></UserList>
+      <UserProfile v-show="page === 'user/profile'"></UserProfile>
 
 
       <div class="footer-wrapper">
@@ -34,12 +36,18 @@
 <script>
   import SideBar from "./SideBar";
   import ProductList from "./Product/List";
+  import UserList from "./User/List";
+  import UserProfile from "./User/Profile";
+  import {mapState} from "vuex";
 
   export default {
     name: "Container",
     components: {
       SideBar,
-      ProductList
-    }
+      ProductList,
+      UserList,
+      UserProfile
+    },
+    computed: mapState(["page"]),
   }
 </script>

@@ -138,7 +138,7 @@
     },
     computed: mapState(['products']),
     methods: {
-      ...mapActions(['setNewProduct', 'setProducts', 'deleteProduct', 'editProduct']),
+      ...mapActions(['setNewProduct', 'getProducts', 'deleteProduct', 'editProduct']),
       createNewProduct(args) {
         this.setNewProduct(args);
       },
@@ -156,7 +156,7 @@
       }
     },
     mounted() {
-      this.setProducts();
+      this.getProducts();
     },
   }
 </script>

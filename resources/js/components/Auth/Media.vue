@@ -39,7 +39,7 @@
     },
     computed: mapState(["media","loading"]),
     methods: {
-      ...mapActions(['getProfileMedia', 'insertMedia']),
+      ...mapActions(['getUserMedia', 'insertMedia']),
       submitFiles(token) {
         let formData = new FormData();
 
@@ -57,7 +57,7 @@
       },
     },
     mounted() {
-      this.getProfileMedia(this.token);
+      this.getUserMedia(this.token);
     },
   }
 </script>
