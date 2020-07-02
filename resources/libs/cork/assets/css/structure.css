@@ -55,7 +55,7 @@ code { color: #e7515a; }
     font-weight: normal
 }
 .main-container {
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -78,7 +78,7 @@ code { color: #e7515a; }
     position: relative;
     width: 50%;
     flex-grow: 8;
-    margin-top: 106px;
+    margin-top: 94px;
     margin-bottom: 0;
     margin-left: 212px;
     transition: .600s;
@@ -103,7 +103,7 @@ code { color: #e7515a; }
 }
 .layout-top-spacing { margin-top: 20px; }
 .layout-spacing { padding-bottom: 40px; }
-.layout-px-spacing { padding: 0 20px 0 18px!important; min-height: calc(100vh - 170px)!important; }
+.layout-px-spacing { padding: 0 20px 0 18px!important; min-height: calc(99vh - 170px)!important; }
 .sidebar-closed .layout-px-spacing { padding: 0 16px!important;}
 .widget.box .widget-header {
     background: #0e1726;

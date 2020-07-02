@@ -10,7 +10,7 @@
 .component-card_1 {
     border: 1px solid #1b2e4b;
     border-radius: 6px;
-    width: 19rem;
+    /*width: 19rem;*/
     margin: 0 auto;
 }
 .component-card_1 .card-body { padding: 28px 25px; }

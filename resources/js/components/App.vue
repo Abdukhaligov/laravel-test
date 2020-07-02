@@ -18,13 +18,18 @@
   import 'bootstrap/dist/js/bootstrap.min'
   import 'bootstrap-vue/dist/bootstrap-vue.css';
 
+  import '../../libs/cork/plugins/apex/apexcharts.css';
+
   import '../../libs/cork/assets/css/plugins.css';
   import '../../libs/cork/assets/css/authentication/form-2.css';
   import '../../libs/cork/assets/css/forms/theme-checkbox-radio.css';
   import '../../libs/cork/assets/css/forms/switches.css';
   import '../../libs/cork/assets/css/plugins.css';
-  import '../../libs/cork/plugins/apex/apexcharts.css';
   import '../../libs/cork/assets/css/dashboard/dash_1.css';
+  import '../../libs/cork/assets/css/scrollspyNav.css';
+  import '../../libs/cork/assets/css/components/cards/card.css';
+  import '../../libs/cork/assets/css/components/custom-modal.css';
+
 
   import Login from "./Auth2/Login";
   import Register from "./Auth2/Register";
@@ -62,7 +67,3 @@
     }
   }
 </script>
-
-<style>
-
-</style>
