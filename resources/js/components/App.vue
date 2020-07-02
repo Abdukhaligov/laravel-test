@@ -15,9 +15,17 @@
 <script>
   import {mapState, mapActions} from 'vuex'
   import {setCookie, getCookie, removeCookie} from 'tiny-cookie'
-  import 'bootstrap/dist/css/bootstrap.min.css'
   import 'bootstrap/dist/js/bootstrap.min'
   import 'bootstrap-vue/dist/bootstrap-vue.css';
+
+  import '../../libs/cork/assets/css/plugins.css';
+  import '../../libs/cork/assets/css/authentication/form-2.css';
+  import '../../libs/cork/assets/css/forms/theme-checkbox-radio.css';
+  import '../../libs/cork/assets/css/forms/switches.css';
+  import '../../libs/cork/assets/css/plugins.css';
+  import '../../libs/cork/plugins/apex/apexcharts.css';
+  import '../../libs/cork/assets/css/dashboard/dash_1.css';
+
   import Login from "./Auth2/Login";
   import Register from "./Auth2/Register";
   import Dashboard from "./Dashboard/Main";

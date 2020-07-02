@@ -1,10 +1,4 @@
 html, body { height: 100%; }
-body {
-    overflow: auto;
-    margin: 0;
-    padding: 0;
-    background-color: #0e1726;
-}
 .form-form {
     width: 50%;
     display: flex;

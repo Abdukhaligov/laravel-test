@@ -1,5 +1,5 @@
 <template>
-  <div class="form">
+  <div class="form form-main">
     <div class="form-container outer">
       <div class="form-form">
         <div class="form-form-wrap">
@@ -85,11 +85,6 @@
 </template>
 
 <script>
-  import '../../../libs/cork/assets/css/plugins.css';
-  import '../../../libs/cork/assets/css/authentication/form-2.css';
-  import '../../../libs/cork/assets/css/forms/theme-checkbox-radio.css';
-  import '../../../libs/cork/assets/css/forms/switches.css';
-
   export default {
     name: "Login",
     props: ['loginForm'],
@@ -107,5 +102,10 @@
 </script>
 
 <style scoped>
-
+  .form-main{
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    background-color: #0e1726;
+  }
 </style>

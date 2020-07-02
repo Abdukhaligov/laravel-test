@@ -1,5 +1,5 @@
 <template>
-  <div class="form">
+  <div class="form-main">
     <div class="form-container outer">
       <div class="form-form">
         <div class="form-form-wrap">
@@ -62,8 +62,6 @@
 
 <script>
   import {mapActions, mapState} from "vuex";
-  import '../../../libs/cork/assets/css/plugins.css';
-  import '../../../libs/cork/assets/css/authentication/form-2.css';
 
   export default {
     name: "Login",
@@ -96,5 +94,10 @@
 </script>
 
 <style scoped>
-
+  .form-main{
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    background-color: #0e1726;
+  }
 </style>
