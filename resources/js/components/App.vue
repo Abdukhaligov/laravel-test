@@ -57,7 +57,7 @@
     },
     computed: mapState(["credential", "loading"]),
     methods: {
-      ...mapActions(['setCredential', 'getCompanies', 'getPositions']),
+      ...mapActions(['setCredential', 'getCompanies', 'getPositions', 'getUser']),
       getCookie,
       updateLoginForm(loginForm) {
         this.loginForm = loginForm
@@ -66,11 +66,15 @@
     mounted() {
       this.getCompanies();
       this.getPositions();
+      if (getCookie('token')){
+        this.getUser(getCookie('token'));
+      }
     },
     watch: {
       credential: function () {
         if (this.credential.status === "success") {
           setCookie('token', this.credential.token);
+          this.getUser(this.credential.token);
         } else {
           removeCookie('token');
         }

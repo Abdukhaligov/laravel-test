@@ -7,7 +7,7 @@ Vue.use(Vuex, axios);
 export default new Vuex.Store({
   state: {
     credential: [],
-    userDetails: [],
+    user: [],
     media: [],
 
     users: [],
@@ -20,7 +20,7 @@ export default new Vuex.Store({
     loading: false,
     url: 'http://test/api/',
 
-    page: 'product/list'
+    page: 'user/profile'
   },
   actions: {
     setPage({commit}, page){
@@ -63,23 +63,23 @@ export default new Vuex.Store({
       commit('DELETE_CREDENTIAL');
     },
     
-    getUserDetails({commit, state}, token) {
+    getUser({commit, state}, token) {
       let config = {headers: {Authorization: `Bearer ${token}`}};
       axios
         .post(state.url + "details", '', config)
-        .then(r => commit('SET_USER_DETAILS', r.data));
+        .then(r => commit('SET_USER', r.data));
     },
-    updateUser({commit, state}, args) {
+    async updateUser({commit, state}, args) {
       let config = {headers: {Authorization: `Bearer ${args.token}`}};
 
-      axios.put(state.url + "profile/update", args.data, config)
+      await axios.put(state.url + "profile/update", args.data, config)
         .catch(r => {
           commit('SET_ERRORS', r.response.data.errors)
         });
 
       axios
         .post(state.url + "details", '', config)
-        .then(r => commit('SET_USER_DETAILS', r.data));
+        .then(r => commit('SET_USER', r.data));
     },
 
     getUserMedia({commit, state}, token) {
@@ -181,8 +181,8 @@ export default new Vuex.Store({
     DELETE_CREDENTIAL(state) {
       state.credential = "";
     },
-    SET_USER_DETAILS(state, userDetails) {
-      state.userDetails = userDetails;
+    SET_USER(state, user) {
+      state.user = user;
     },
 
     GET_MEDIA(state, media) {

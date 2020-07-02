@@ -34,7 +34,7 @@
         </button>
       </template>
     </b-modal>
-    <b-modal id="editForm" :title="'Edit Product with id ' + editedProduct.id">
+    <b-modal id="updateProduct" :title="'Edit Product with id ' + editedProduct.id">
       <div class="form-group">
         <label for="productName">Name</label>
         <input type="text"
@@ -69,7 +69,7 @@
 
       <template v-slot:modal-footer="{close}">
         <button
-            @click="editForm(editedProduct);close()"
+            @click="updateProduct(editedProduct);close()"
             class="btn btn-primary"
             type="submit">
           Edit
@@ -93,7 +93,7 @@
           <div class="row col-12 m-auto">
             <div class="col-6 p-2">
               <button class="btn btn-secondary float-left"
-                      @click="$bvModal.show('editForm');
+                      @click="$bvModal.show('updateProduct');
                     editedProduct.id = product.id;
                     editedProduct.name = product.name;
                     editedProduct.price = product.price;
@@ -151,7 +151,7 @@
             }
           });
       },
-      editForm(data) {
+      updateProduct(data) {
         this.editProduct({'token': getCookie('token'), data: data})
       }
     },

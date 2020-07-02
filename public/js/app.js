@@ -2009,7 +2009,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["credential", "loading"]),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setCredential', 'getCompanies', 'getPositions'])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setCredential', 'getCompanies', 'getPositions', 'getUser'])), {}, {
     getCookie: tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"],
     updateLoginForm: function updateLoginForm(loginForm) {
       this.loginForm = loginForm;
@@ -2018,11 +2018,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     this.getCompanies();
     this.getPositions();
+
+    if (Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token')) {
+      this.getUser(Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token'));
+    }
   },
   watch: {
     credential: function credential() {
       if (this.credential.status === "success") {
         Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["setCookie"])('token', this.credential.token);
+        this.getUser(this.credential.token);
       } else {
         Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["removeCookie"])('token');
       }
@@ -2994,7 +2999,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       });
     },
-    editForm: function editForm(data) {
+    updateProduct: function updateProduct(data) {
       this.editProduct({
         'token': Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token'),
         data: data
@@ -3387,6 +3392,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var tiny_cookie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tiny-cookie */ "./node_modules/tiny-cookie/es/index.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -3608,38 +3621,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Profile"
+  name: "Profile",
+  data: function data() {
+    return {
+      updatedUser: {
+        name: "",
+        company_id: "",
+        position_id: ""
+      }
+    };
+  },
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["user", "errors", "positions", "companies"]),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['updateUser'])), {}, {
+    update: function update(data) {
+      this.updateUser({
+        'token': Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token'),
+        data: data
+      });
+    },
+    getCookie: tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"]
+  })
 });
 
 /***/ }),
@@ -65037,7 +65041,7 @@ var render = function() {
         "b-modal",
         {
           attrs: {
-            id: "editForm",
+            id: "updateProduct",
             title: "Edit Product with id " + _vm.editedProduct.id
           },
           scopedSlots: _vm._u([
@@ -65053,7 +65057,7 @@ var render = function() {
                       attrs: { type: "submit" },
                       on: {
                         click: function($event) {
-                          _vm.editForm(_vm.editedProduct)
+                          _vm.updateProduct(_vm.editedProduct)
                           close()
                         }
                       }
@@ -65220,7 +65224,7 @@ var render = function() {
                         staticClass: "btn btn-secondary float-left",
                         on: {
                           click: function($event) {
-                            _vm.$bvModal.show("editForm")
+                            _vm.$bvModal.show("updateProduct")
                             _vm.editedProduct.id = product.id
                             _vm.editedProduct.name = product.name
                             _vm.editedProduct.price = product.price
@@ -66831,66 +66835,180 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "layout-px-spacing" }, [
-    _c("div", { staticClass: "row layout-spacing" }, [
+  return _c(
+    "div",
+    { staticClass: "layout-px-spacing" },
+    [
       _c(
-        "div",
+        "b-modal",
         {
-          staticClass: "col-xl-4 col-lg-6 col-md-5 col-sm-12 layout-top-spacing"
+          attrs: { id: "modal-user-update", title: "Update profile" },
+          scopedSlots: _vm._u([
+            {
+              key: "modal-footer",
+              fn: function(ref) {
+                var close = ref.close
+                return [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit" },
+                      on: {
+                        click: function($event) {
+                          _vm.update(_vm.updatedUser)
+                          close()
+                        }
+                      }
+                    },
+                    [_vm._v("\n        Update\n      ")]
+                  )
+                ]
+              }
+            }
+          ])
         },
         [
-          _c("div", { staticClass: "user-profile layout-spacing" }, [
-            _c("div", { staticClass: "widget-content widget-content-area" }, [
-              _c("div", { staticClass: "d-flex justify-content-between" }, [
-                _c("h3", {}, [_vm._v("Profile")]),
+          _c(
+            "div",
+            [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "updateName" } }, [_vm._v("Name")]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "mt-2 edit-profile",
-                    attrs: { href: "user_account_setting.html" }
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.updatedUser.name,
+                      expression: "updatedUser.name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "updateName",
+                    placeholder: "Enter name"
                   },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "feather feather-edit-3",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          width: "24",
-                          height: "24",
-                          viewBox: "0 0 24 24",
-                          fill: "none",
-                          stroke: "currentColor",
-                          "stroke-width": "2",
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round"
-                        }
-                      },
-                      [
-                        _c("path", { attrs: { d: "M12 20h9" } }),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
-                          }
-                        })
-                      ]
-                    )
-                  ]
-                )
+                  domProps: { value: _vm.updatedUser.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.updatedUser, "name", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.errors.name
+                  ? _c("div", [
+                      _c("strong", [_vm._v(_vm._s(_vm.errors.name[0]))])
+                    ])
+                  : _vm._e()
               ]),
               _vm._v(" "),
-              _vm._m(0),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", [_vm._v("Email address")]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: { type: "email", disabled: "" },
+                  domProps: { value: _vm.user.email }
+                })
+              ]),
               _vm._v(" "),
-              _c("div", { staticClass: "user-info-list" }, [
-                _c("div", {}, [
-                  _c("ul", { staticClass: "contacts-block list-unstyled" }, [
-                    _c("li", { staticClass: "contacts-block__item" }, [
+              _c("div", { staticClass: "field-wrapper" }, [
+                _c("div", { staticClass: "d-flex justify-content-between" }, [
+                  _c("label", { attrs: { for: "company" } }, [
+                    _vm._v("COMPANY")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("vue-select", {
+                staticClass: "form-control basic",
+                attrs: {
+                  id: "company",
+                  options: _vm.companies,
+                  reduce: function(company) {
+                    return company.id
+                  },
+                  label: "name"
+                },
+                model: {
+                  value: _vm.updatedUser.company_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.updatedUser, "company_id", $$v)
+                  },
+                  expression: "updatedUser.company_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-wrapper" }, [
+                _c("div", { staticClass: "d-flex justify-content-between" }, [
+                  _c("label", { attrs: { for: "position" } }, [
+                    _vm._v("POSITION")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("vue-select", {
+                staticClass: "form-control basic",
+                attrs: {
+                  id: "position",
+                  options: _vm.positions,
+                  reduce: function(position) {
+                    return position.id
+                  },
+                  label: "name"
+                },
+                model: {
+                  value: _vm.updatedUser.position_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.updatedUser, "position_id", $$v)
+                  },
+                  expression: "updatedUser.position_id"
+                }
+              })
+            ],
+            1
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "row layout-spacing" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "col-xl-4 col-lg-6 col-md-5 col-sm-12 layout-top-spacing"
+          },
+          [
+            _c("div", { staticClass: "user-profile layout-spacing" }, [
+              _c("div", { staticClass: "widget-content widget-content-area" }, [
+                _c("div", { staticClass: "d-flex justify-content-between" }, [
+                  _c("h3", {}, [_vm._v("Profile")]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "mt-2 edit-profile",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function($event) {
+                          _vm.$bvModal.show("modal-user-update")
+                          _vm.updatedUser.name = _vm.user.name
+                          _vm.updatedUser.company_id = _vm.user.company_id
+                          _vm.updatedUser.position_id = _vm.user.position_id
+                        }
+                      }
+                    },
+                    [
                       _c(
                         "svg",
                         {
-                          staticClass: "feather feather-coffee",
+                          staticClass: "feather feather-edit-3",
                           attrs: {
                             xmlns: "http://www.w3.org/2000/svg",
                             width: "24",
@@ -66904,108 +67022,36 @@ var render = function() {
                           }
                         },
                         [
-                          _c("path", {
-                            attrs: { d: "M18 8h1a4 4 0 0 1 0 8h-1" }
-                          }),
-                          _c("path", {
-                            attrs: {
-                              d: "M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"
-                            }
-                          }),
-                          _c("line", {
-                            attrs: { x1: "6", y1: "1", x2: "6", y2: "4" }
-                          }),
-                          _c("line", {
-                            attrs: { x1: "10", y1: "1", x2: "10", y2: "4" }
-                          }),
-                          _c("line", {
-                            attrs: { x1: "14", y1: "1", x2: "14", y2: "4" }
-                          })
-                        ]
-                      ),
-                      _vm._v(" Web Developer\n                ")
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "contacts-block__item" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "feather feather-calendar",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("rect", {
-                            attrs: {
-                              x: "3",
-                              y: "4",
-                              width: "18",
-                              height: "18",
-                              rx: "2",
-                              ry: "2"
-                            }
-                          }),
-                          _c("line", {
-                            attrs: { x1: "16", y1: "2", x2: "16", y2: "6" }
-                          }),
-                          _c("line", {
-                            attrs: { x1: "8", y1: "2", x2: "8", y2: "6" }
-                          }),
-                          _c("line", {
-                            attrs: { x1: "3", y1: "10", x2: "21", y2: "10" }
-                          })
-                        ]
-                      ),
-                      _vm._v("Jan 20, 1989\n                ")
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "contacts-block__item" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "feather feather-map-pin",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
+                          _c("path", { attrs: { d: "M12 20h9" } }),
+                          _vm._v(" "),
                           _c("path", {
                             attrs: {
                               d:
-                                "M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                                "M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
                             }
-                          }),
-                          _c("circle", {
-                            attrs: { cx: "12", cy: "10", r: "3" }
                           })
                         ]
-                      ),
-                      _vm._v("New York, USA\n                ")
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "contacts-block__item" }, [
-                      _c("a", { attrs: { href: "mailto:example@mail.com" } }, [
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-center user-info" }, [
+                  _c("img", {
+                    attrs: { src: "assets/img/profile-3.jpg", alt: "avatar" }
+                  }),
+                  _vm._v(" "),
+                  _c("p", {}, [_vm._v(_vm._s(_vm.user.name))])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "user-info-list" }, [
+                  _c("div", {}, [
+                    _c("ul", { staticClass: "contacts-block list-unstyled" }, [
+                      _c("li", { staticClass: "contacts-block__item" }, [
                         _c(
                           "svg",
                           {
-                            staticClass: "feather feather-mail",
+                            staticClass: "feather feather-coffee",
                             attrs: {
                               xmlns: "http://www.w3.org/2000/svg",
                               width: "24",
@@ -67020,288 +67066,159 @@ var render = function() {
                           },
                           [
                             _c("path", {
+                              attrs: { d: "M18 8h1a4 4 0 0 1 0 8h-1" }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
                               attrs: {
-                                d:
-                                  "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                                d: "M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"
                               }
                             }),
-                            _c("polyline", {
-                              attrs: { points: "22,6 12,13 2,6" }
+                            _vm._v(" "),
+                            _c("line", {
+                              attrs: { x1: "6", y1: "1", x2: "6", y2: "4" }
+                            }),
+                            _vm._v(" "),
+                            _c("line", {
+                              attrs: { x1: "10", y1: "1", x2: "10", y2: "4" }
+                            }),
+                            _vm._v(" "),
+                            _c("line", {
+                              attrs: { x1: "14", y1: "1", x2: "14", y2: "4" }
                             })
                           ]
                         ),
-                        _vm._v("Jimmy@gmail.com")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "contacts-block__item" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "feather feather-phone",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" +1 (530) 555-12121\n                ")
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "contacts-block__item" }, [
-                      _c("ul", { staticClass: "list-inline" }, [
-                        _c("li", { staticClass: "list-inline-item" }, [
-                          _c("div", { staticClass: "social-icon" }, [
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "feather feather-facebook",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "24",
-                                  height: "24",
-                                  viewBox: "0 0 24 24",
-                                  fill: "none",
-                                  stroke: "currentColor",
-                                  "stroke-width": "2",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                                  }
-                                })
-                              ]
-                            )
-                          ])
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("span", [
+                          _vm._v("Company: "),
+                          _c("strong", [_vm._v(_vm._s(_vm.user.company))])
                         ]),
                         _vm._v(" "),
-                        _c("li", { staticClass: "list-inline-item" }, [
-                          _c("div", { staticClass: "social-icon" }, [
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "feather feather-twitter",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "24",
-                                  height: "24",
-                                  viewBox: "0 0 24 24",
-                                  fill: "none",
-                                  stroke: "currentColor",
-                                  "stroke-width": "2",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
-                                  }
-                                })
-                              ]
-                            )
-                          ])
-                        ]),
+                        _c("br"),
                         _vm._v(" "),
-                        _c("li", { staticClass: "list-inline-item" }, [
-                          _c("div", { staticClass: "social-icon" }, [
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "feather feather-linkedin",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "24",
-                                  height: "24",
-                                  viewBox: "0 0 24 24",
-                                  fill: "none",
-                                  stroke: "currentColor",
-                                  "stroke-width": "2",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-                                  }
-                                }),
-                                _c("rect", {
-                                  attrs: {
-                                    x: "2",
-                                    y: "9",
-                                    width: "4",
-                                    height: "12"
-                                  }
-                                }),
-                                _c("circle", {
-                                  attrs: { cx: "4", cy: "4", r: "2" }
-                                })
-                              ]
-                            )
-                          ])
+                        _c("span", [
+                          _vm._v("Position: "),
+                          _c("strong", [_vm._v(_vm._s(_vm.user.position))])
                         ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "contacts-block__item" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-calendar",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("rect", {
+                              attrs: {
+                                x: "3",
+                                y: "4",
+                                width: "18",
+                                height: "18",
+                                rx: "2",
+                                ry: "2"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("line", {
+                              attrs: { x1: "16", y1: "2", x2: "16", y2: "6" }
+                            }),
+                            _vm._v(" "),
+                            _c("line", {
+                              attrs: { x1: "8", y1: "2", x2: "8", y2: "6" }
+                            }),
+                            _vm._v(" "),
+                            _c("line", {
+                              attrs: { x1: "3", y1: "10", x2: "21", y2: "10" }
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("span", [
+                          _vm._v("Created at: "),
+                          _c("strong", [_vm._v(_vm._s(_vm.user.created_at))])
+                        ]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("span", [
+                          _vm._v("Updated at: "),
+                          _c("strong", [_vm._v(_vm._s(_vm.user.updated_at))])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "contacts-block__item" }, [
+                        _c(
+                          "a",
+                          { attrs: { href: "mailto:example@mail.com" } },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "feather feather-mail",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "24",
+                                  height: "24",
+                                  viewBox: "0 0 24 24",
+                                  fill: "none",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("polyline", {
+                                  attrs: { points: "22,6 12,13 2,6" }
+                                })
+                              ]
+                            ),
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(_vm.user.email) +
+                                "\n                  "
+                            )
+                          ]
+                        )
                       ])
                     ])
                   ])
                 ])
               ])
             ])
-          ]),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _vm._m(2)
-        ]
-      ),
-      _vm._v(" "),
-      _vm._m(3)
-    ])
-  ])
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(0)
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center user-info" }, [
-      _c("img", { attrs: { src: "assets/img/profile-3.jpg", alt: "avatar" } }),
-      _vm._v(" "),
-      _c("p", {}, [_vm._v("Jimmy Turner")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "education layout-spacing " }, [
-      _c("div", { staticClass: "widget-content widget-content-area" }, [
-        _c("h3", {}, [_vm._v("Education")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "timeline-alter" }, [
-          _c("div", { staticClass: "item-timeline" }, [
-            _c("div", { staticClass: "t-meta-date" }, [
-              _c("p", {}, [_vm._v("04 Mar 2009")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "t-dot" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "t-text" }, [
-              _c("p", [_vm._v("Royal Collage of Art")]),
-              _vm._v(" "),
-              _c("p", [_vm._v("Designer Illustrator")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item-timeline" }, [
-            _c("div", { staticClass: "t-meta-date" }, [
-              _c("p", {}, [_vm._v("25 Apr 2014")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "t-dot" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "t-text" }, [
-              _c("p", [_vm._v("Massachusetts Institute of Technology (MIT)")]),
-              _vm._v(" "),
-              _c("p", [_vm._v("Designer Illustrator")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item-timeline" }, [
-            _c("div", { staticClass: "t-meta-date" }, [
-              _c("p", {}, [_vm._v("04 Apr 2018")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "t-dot" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "t-text" }, [
-              _c("p", [_vm._v("School of Art Institute of Chicago (SAIC)")]),
-              _vm._v(" "),
-              _c("p", [_vm._v("Designer Illustrator")])
-            ])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "work-experience layout-spacing " }, [
-      _c("div", { staticClass: "widget-content widget-content-area" }, [
-        _c("h3", {}, [_vm._v("Work Experience")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "timeline-alter" }, [
-          _c("div", { staticClass: "item-timeline" }, [
-            _c("div", { staticClass: "t-meta-date" }, [
-              _c("p", {}, [_vm._v("04 Mar 2009")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "t-dot" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "t-text" }, [
-              _c("p", [_vm._v("Netfilx Inc.")]),
-              _vm._v(" "),
-              _c("p", [_vm._v("Designer Illustrator")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item-timeline" }, [
-            _c("div", { staticClass: "t-meta-date" }, [
-              _c("p", {}, [_vm._v("25 Apr 2014")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "t-dot" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "t-text" }, [
-              _c("p", [_vm._v("Google Inc.")]),
-              _vm._v(" "),
-              _c("p", [_vm._v("Designer Illustrator")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item-timeline" }, [
-            _c("div", { staticClass: "t-meta-date" }, [
-              _c("p", {}, [_vm._v("04 Apr 2018")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "t-dot" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "t-text" }, [
-              _c("p", [_vm._v("Design Reset Inc.")]),
-              _vm._v(" "),
-              _c("p", [_vm._v("Designer Illustrator")])
-            ])
-          ])
-        ])
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -67312,117 +67229,19 @@ var staticRenderFns = [
         staticClass: "col-xl-8 col-lg-6 col-md-7 col-sm-12 layout-top-spacing"
       },
       [
-        _c("div", { staticClass: "skills layout-spacing " }, [
-          _c("div", { staticClass: "widget-content widget-content-area" }, [
-            _c("h3", {}, [_vm._v("Skills")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "progress br-30" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "progress-bar bg-primary",
-                  staticStyle: { width: "25%" },
-                  attrs: {
-                    role: "progressbar",
-                    "aria-valuenow": "25",
-                    "aria-valuemin": "0",
-                    "aria-valuemax": "100"
-                  }
-                },
-                [
-                  _c("div", { staticClass: "progress-title" }, [
-                    _c("span", [_vm._v("PHP")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("25%")])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "progress br-30" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "progress-bar bg-primary",
-                  staticStyle: { width: "50%" },
-                  attrs: {
-                    role: "progressbar",
-                    "aria-valuenow": "25",
-                    "aria-valuemin": "0",
-                    "aria-valuemax": "100"
-                  }
-                },
-                [
-                  _c("div", { staticClass: "progress-title" }, [
-                    _c("span", [_vm._v("Wordpress")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("50%")])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "progress br-30" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "progress-bar bg-primary",
-                  staticStyle: { width: "70%" },
-                  attrs: {
-                    role: "progressbar",
-                    "aria-valuenow": "25",
-                    "aria-valuemin": "0",
-                    "aria-valuemax": "100"
-                  }
-                },
-                [
-                  _c("div", { staticClass: "progress-title" }, [
-                    _c("span", [_vm._v("Javascript")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("70%")])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "progress br-30" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "progress-bar bg-primary",
-                  staticStyle: { width: "60%" },
-                  attrs: {
-                    role: "progressbar",
-                    "aria-valuenow": "25",
-                    "aria-valuemin": "0",
-                    "aria-valuemax": "100"
-                  }
-                },
-                [
-                  _c("div", { staticClass: "progress-title" }, [
-                    _c("span", [_vm._v("jQuery")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("60%")])
-                  ])
-                ]
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
         _c("div", { staticClass: "bio layout-spacing " }, [
           _c("div", { staticClass: "widget-content widget-content-area" }, [
             _c("h3", {}, [_vm._v("Bio")]),
             _vm._v(" "),
             _c("p", [
               _vm._v(
-                "I'm Web Developer from California. I code and design websites worldwide. Mauris varius tellus vitae tristique sagittis. Sed aliquet, est nec auctor aliquet, orci ex vestibulum ex, non pharetra lacus erat ac nulla."
+                "I'm Web Developer from California. I code and design websites worldwide. Mauris varius tellus vitae\n            tristique sagittis. Sed aliquet, est nec auctor aliquet, orci ex vestibulum ex, non pharetra lacus erat ac\n            nulla."
               )
             ]),
             _vm._v(" "),
             _c("p", [
               _vm._v(
-                "Sed vulputate, ligula eget mollis auctor, lectus elit feugiat urna, eget euismod turpis lectus sed ex. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc ut velit finibus, scelerisque sapien vitae, pharetra est. Nunc accumsan ligula vehicula scelerisque vulputate."
+                "Sed vulputate, ligula eget mollis auctor, lectus elit feugiat urna, eget euismod turpis lectus sed ex.\n            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc ut velit\n            finibus, scelerisque sapien vitae, pharetra est. Nunc accumsan ligula vehicula scelerisque vulputate."
               )
             ]),
             _vm._v(" "),
@@ -67480,7 +67299,7 @@ var staticRenderFns = [
                         _vm._v(" "),
                         _c("p", [
                           _vm._v(
-                            "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia anim id est laborum."
+                            "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia anim id est\n                      laborum."
                           )
                         ])
                       ])
@@ -81748,7 +81567,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
   state: {
     credential: [],
-    userDetails: [],
+    user: [],
     media: [],
     users: [],
     products: [],
@@ -81757,7 +81576,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     errors: {},
     loading: false,
     url: 'http://test/api/',
-    page: 'product/list'
+    page: 'user/profile'
   },
   actions: {
     setPage: function setPage(_ref, page) {
@@ -81792,7 +81611,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
       var commit = _ref4.commit;
       commit('DELETE_CREDENTIAL');
     },
-    getUserDetails: function getUserDetails(_ref5, token) {
+    getUser: function getUser(_ref5, token) {
       var commit = _ref5.commit,
           state = _ref5.state;
       var config = {
@@ -81801,23 +81620,39 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         }
       };
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "details", '', config).then(function (r) {
-        return commit('SET_USER_DETAILS', r.data);
+        return commit('SET_USER', r.data);
       });
     },
     updateUser: function updateUser(_ref6, args) {
-      var commit = _ref6.commit,
-          state = _ref6.state;
-      var config = {
-        headers: {
-          Authorization: "Bearer ".concat(args.token)
-        }
-      };
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "profile/update", args.data, config)["catch"](function (r) {
-        commit('SET_ERRORS', r.response.data.errors);
-      });
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "details", '', config).then(function (r) {
-        return commit('SET_USER_DETAILS', r.data);
-      });
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var commit, state, config;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                commit = _ref6.commit, state = _ref6.state;
+                config = {
+                  headers: {
+                    Authorization: "Bearer ".concat(args.token)
+                  }
+                };
+                _context.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "profile/update", args.data, config)["catch"](function (r) {
+                  commit('SET_ERRORS', r.response.data.errors);
+                });
+
+              case 4:
+                axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "details", '', config).then(function (r) {
+                  return commit('SET_USER', r.data);
+                });
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     },
     getUserMedia: function getUserMedia(_ref7, token) {
       var commit = _ref7.commit,
@@ -81885,11 +81720,11 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     },
     setNewProduct: function setNewProduct(_ref13, args) {
       var _arguments = arguments;
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var commit, state, loading, config;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 commit = _ref13.commit, state = _ref13.state;
                 loading = _arguments.length > 2 && _arguments[2] !== undefined ? _arguments[2] : true;
@@ -81899,7 +81734,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
                     Authorization: "Bearer ".concat(args.token)
                   }
                 };
-                _context.next = 6;
+                _context2.next = 6;
                 return axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products/create", args.product, config);
 
               case 6:
@@ -81910,18 +81745,18 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
 
               case 7:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee);
+        }, _callee2);
       }))();
     },
     deleteProduct: function deleteProduct(_ref14, args) {
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         var commit, state, config;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 commit = _ref14.commit, state = _ref14.state;
                 config = {
@@ -81929,37 +81764,8 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
                     Authorization: "Bearer ".concat(args.token)
                   }
                 };
-                _context2.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "products/delete/" + args.id, '', config);
-
-              case 4:
-                axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
-                  return commit('GET_PRODUCTS', r.data);
-                });
-
-              case 5:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }))();
-    },
-    editProduct: function editProduct(_ref15, args) {
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
-        var commit, state, config;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                commit = _ref15.commit, state = _ref15.state;
-                config = {
-                  headers: {
-                    Authorization: "Bearer ".concat(args.token)
-                  }
-                };
                 _context3.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "products/update", args.data, config);
+                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "products/delete/" + args.id, '', config);
 
               case 4:
                 axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
@@ -81972,6 +81778,35 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
             }
           }
         }, _callee3);
+      }))();
+    },
+    editProduct: function editProduct(_ref15, args) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var commit, state, config;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                commit = _ref15.commit, state = _ref15.state;
+                config = {
+                  headers: {
+                    Authorization: "Bearer ".concat(args.token)
+                  }
+                };
+                _context4.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "products/update", args.data, config);
+
+              case 4:
+                axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
+                  return commit('GET_PRODUCTS', r.data);
+                });
+
+              case 5:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
       }))();
     }
   },
@@ -81991,8 +81826,8 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     DELETE_CREDENTIAL: function DELETE_CREDENTIAL(state) {
       state.credential = "";
     },
-    SET_USER_DETAILS: function SET_USER_DETAILS(state, userDetails) {
-      state.userDetails = userDetails;
+    SET_USER: function SET_USER(state, user) {
+      state.user = user;
     },
     GET_MEDIA: function GET_MEDIA(state, media) {
       state.media = media;
