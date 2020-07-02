@@ -2149,6 +2149,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -61191,7 +61194,7 @@ var render = function() {
                         attrs: {
                           id: "password",
                           name: "password",
-                          type: "password",
+                          type: _vm.showPassword ? "text" : "password",
                           placeholder: "Password"
                         }
                       }),
@@ -61209,8 +61212,21 @@ var render = function() {
                             stroke: "currentColor",
                             "stroke-width": "2",
                             "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            id: "toggle-password"
+                            "stroke-linejoin": "round"
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.showPassword
+                                ? (_vm.showPassword = false)
+                                : (_vm.showPassword = true)
+                            }
+                          },
+                          model: {
+                            value: _vm.showPassword,
+                            callback: function($$v) {
+                              _vm.showPassword = $$v
+                            },
+                            expression: "showPassword"
                           }
                         },
                         [
