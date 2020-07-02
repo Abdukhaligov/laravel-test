@@ -20,11 +20,15 @@ export default new Vuex.Store({
     loading: false,
     url: 'http://test/api/',
 
-    page: 'user/profile'
+    page: 'user/profile',
+    sideBar: false
   },
   actions: {
     setPage({commit}, page){
       commit('SET_PAGE', page)
+    },
+    setSideBar({commit}, sideBar){
+      commit('SET_SIDEBAR', sideBar)
     },
 
     setNewUser({commit, state}, data, loading = true) {
@@ -168,6 +172,9 @@ export default new Vuex.Store({
   mutations: {
     SET_PAGE(state, page) {
       state.page = page;
+    },
+    SET_SIDEBAR(state, sideBar) {
+      state.sideBar = sideBar;
     },
     SET_LOADING(state, loading) {
       state.loading = loading;

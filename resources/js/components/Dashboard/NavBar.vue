@@ -220,6 +220,8 @@
     <!--  BEGIN NAVBAR  -->
     <div class="sub-header-container">
       <header class="header navbar navbar-expand-sm">
+        <a href="javascript:void(0);" @click="sideBar ? setSideBar(false) : setSideBar(true)" class="sidebarCollapse" data-placement="bottom"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></a>
+
         <ul class="navbar-nav flex-row sidebarCollapse">
           <li>
             <div class="page-header">
@@ -261,12 +263,13 @@
 
 <script>
   import {removeCookie} from "tiny-cookie";
-  import {mapActions} from "vuex";
+  import {mapActions, mapState} from "vuex";
 
   export default {
     name: "Navbar",
+    computed: mapState(["sideBar"]),
     methods: {
-      ...mapActions(["removeCredential", "setPage"]),
+      ...mapActions(["removeCredential", "setPage", "setSideBar"]),
       logout() {
         this.$bvModal.msgBoxConfirm('Are you sure you want to logout ?')
           .then(value => {

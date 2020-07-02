@@ -2467,7 +2467,8 @@ __webpack_require__.r(__webpack_exports__);
     UserList: _User_List__WEBPACK_IMPORTED_MODULE_2__["default"],
     UserProfile: _User_Profile__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapState"])(["page"])
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapState"])(["page", "sideBar"]),
+  methods: Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapActions"])(["setSideBar"])
 });
 
 /***/ }),
@@ -2809,11 +2810,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Navbar",
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(["removeCredential", "setPage"])), {}, {
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])(["sideBar"]),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(["removeCredential", "setPage", "setSideBar"])), {}, {
     logout: function logout() {
       var _this = this;
 
@@ -63869,7 +63873,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "main-container", attrs: { id: "container" } },
+    {
+      staticClass: "main-container",
+      class: _vm.sideBar ? "sbar-open" : "sidebar-closed",
+      attrs: { id: "container" }
+    },
     [
       _c("div", { staticClass: "overlay" }),
       _vm._v(" "),
@@ -63879,7 +63887,15 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "main-content", attrs: { id: "content" } },
+        {
+          staticClass: "main-content",
+          attrs: { id: "content" },
+          on: {
+            click: function($event) {
+              return _vm.setSideBar(false)
+            }
+          }
+        },
         [
           _c("ProductList", {
             directives: [
@@ -64436,6 +64452,45 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "sub-header-container" }, [
       _c("header", { staticClass: "header navbar navbar-expand-sm" }, [
+        _c(
+          "a",
+          {
+            staticClass: "sidebarCollapse",
+            attrs: { href: "javascript:void(0);", "data-placement": "bottom" },
+            on: {
+              click: function($event) {
+                _vm.sideBar ? _vm.setSideBar(false) : _vm.setSideBar(true)
+              }
+            }
+          },
+          [
+            _c(
+              "svg",
+              {
+                staticClass: "feather feather-menu",
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "24",
+                  height: "24",
+                  viewBox: "0 0 24 24",
+                  fill: "none",
+                  stroke: "currentColor",
+                  "stroke-width": "2",
+                  "stroke-linecap": "round",
+                  "stroke-linejoin": "round"
+                }
+              },
+              [
+                _c("line", {
+                  attrs: { x1: "3", y1: "12", x2: "21", y2: "12" }
+                }),
+                _c("line", { attrs: { x1: "3", y1: "6", x2: "21", y2: "6" } }),
+                _c("line", { attrs: { x1: "3", y1: "18", x2: "21", y2: "18" } })
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
         _c("ul", { staticClass: "navbar-nav flex-row sidebarCollapse" }, [
           _c("li", [
             _c("div", { staticClass: "page-header" }, [
@@ -81524,16 +81579,21 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     errors: {},
     loading: false,
     url: 'http://test/api/',
-    page: 'user/profile'
+    page: 'user/profile',
+    sideBar: false
   },
   actions: {
     setPage: function setPage(_ref, page) {
       var commit = _ref.commit;
       commit('SET_PAGE', page);
     },
-    setNewUser: function setNewUser(_ref2, data) {
-      var commit = _ref2.commit,
-          state = _ref2.state;
+    setSideBar: function setSideBar(_ref2, sideBar) {
+      var commit = _ref2.commit;
+      commit('SET_SIDEBAR', sideBar);
+    },
+    setNewUser: function setNewUser(_ref3, data) {
+      var commit = _ref3.commit,
+          state = _ref3.state;
       var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
       commit('SET_LOADING', true);
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "register?" + "&name=" + data[0] + "&email=" + data[1] + "&password=" + data[2] + "&password_confirmation=" + data[3] + "&company_id=" + data[4] + "&position_id=" + data[5]).then(function (r) {
@@ -81545,9 +81605,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         commit('SET_LOADING', false);
       });
     },
-    setCredential: function setCredential(_ref3, data) {
-      var commit = _ref3.commit,
-          state = _ref3.state;
+    setCredential: function setCredential(_ref4, data) {
+      var commit = _ref4.commit,
+          state = _ref4.state;
       var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
       commit('SET_LOADING', true);
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "login?email=" + data[0] + "&password=" + data[1]).then(function (r) {
@@ -81555,13 +81615,13 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         commit('SET_LOADING', false);
       });
     },
-    removeCredential: function removeCredential(_ref4) {
-      var commit = _ref4.commit;
+    removeCredential: function removeCredential(_ref5) {
+      var commit = _ref5.commit;
       commit('DELETE_CREDENTIAL');
     },
-    getUser: function getUser(_ref5, token) {
-      var commit = _ref5.commit,
-          state = _ref5.state;
+    getUser: function getUser(_ref6, token) {
+      var commit = _ref6.commit,
+          state = _ref6.state;
       var config = {
         headers: {
           Authorization: "Bearer ".concat(token)
@@ -81571,14 +81631,14 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         return commit('SET_USER', r.data);
       });
     },
-    updateUser: function updateUser(_ref6, args) {
+    updateUser: function updateUser(_ref7, args) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var commit, state, config;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                commit = _ref6.commit, state = _ref6.state;
+                commit = _ref7.commit, state = _ref7.state;
                 config = {
                   headers: {
                     Authorization: "Bearer ".concat(args.token)
@@ -81602,9 +81662,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         }, _callee);
       }))();
     },
-    getUserMedia: function getUserMedia(_ref7, token) {
-      var commit = _ref7.commit,
-          state = _ref7.state;
+    getUserMedia: function getUserMedia(_ref8, token) {
+      var commit = _ref8.commit,
+          state = _ref8.state;
       var config = {
         headers: {
           Authorization: "Bearer ".concat(token)
@@ -81614,9 +81674,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         return commit('GET_MEDIA', r.data);
       });
     },
-    insertMedia: function insertMedia(_ref8, args) {
-      var commit = _ref8.commit,
-          state = _ref8.state;
+    insertMedia: function insertMedia(_ref9, args) {
+      var commit = _ref9.commit,
+          state = _ref9.state;
       var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
       commit('SET_LOADING', true);
       var config = {
@@ -81633,9 +81693,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         commit('SET_LOADING', false);
       });
     },
-    getUsers: function getUsers(_ref9, token) {
-      var commit = _ref9.commit,
-          state = _ref9.state;
+    getUsers: function getUsers(_ref10, token) {
+      var commit = _ref10.commit,
+          state = _ref10.state;
       var config = {
         headers: {
           Authorization: "Bearer ".concat(token)
@@ -81645,28 +81705,28 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         return commit('GET_USERS', r.data);
       });
     },
-    getProducts: function getProducts(_ref10) {
-      var commit = _ref10.commit,
-          state = _ref10.state;
+    getProducts: function getProducts(_ref11) {
+      var commit = _ref11.commit,
+          state = _ref11.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
         return commit('GET_PRODUCTS', r.data);
       });
     },
-    getCompanies: function getCompanies(_ref11) {
-      var commit = _ref11.commit,
-          state = _ref11.state;
+    getCompanies: function getCompanies(_ref12) {
+      var commit = _ref12.commit,
+          state = _ref12.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "companies").then(function (r) {
         return commit('GET_COMPANIES', r.data);
       });
     },
-    getPositions: function getPositions(_ref12) {
-      var commit = _ref12.commit,
-          state = _ref12.state;
+    getPositions: function getPositions(_ref13) {
+      var commit = _ref13.commit,
+          state = _ref13.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "positions").then(function (r) {
         return commit('GET_POSITIONS', r.data);
       });
     },
-    setNewProduct: function setNewProduct(_ref13, args) {
+    setNewProduct: function setNewProduct(_ref14, args) {
       var _arguments = arguments;
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var commit, state, loading, config;
@@ -81674,7 +81734,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                commit = _ref13.commit, state = _ref13.state;
+                commit = _ref14.commit, state = _ref14.state;
                 loading = _arguments.length > 2 && _arguments[2] !== undefined ? _arguments[2] : true;
                 commit('SET_LOADING', true);
                 config = {
@@ -81699,14 +81759,14 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         }, _callee2);
       }))();
     },
-    deleteProduct: function deleteProduct(_ref14, args) {
+    deleteProduct: function deleteProduct(_ref15, args) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         var commit, state, config;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                commit = _ref14.commit, state = _ref14.state;
+                commit = _ref15.commit, state = _ref15.state;
                 config = {
                   headers: {
                     Authorization: "Bearer ".concat(args.token)
@@ -81728,14 +81788,14 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         }, _callee3);
       }))();
     },
-    editProduct: function editProduct(_ref15, args) {
+    editProduct: function editProduct(_ref16, args) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
         var commit, state, config;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                commit = _ref15.commit, state = _ref15.state;
+                commit = _ref16.commit, state = _ref16.state;
                 config = {
                   headers: {
                     Authorization: "Bearer ".concat(args.token)
@@ -81761,6 +81821,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
   mutations: {
     SET_PAGE: function SET_PAGE(state, page) {
       state.page = page;
+    },
+    SET_SIDEBAR: function SET_SIDEBAR(state, sideBar) {
+      state.sideBar = sideBar;
     },
     SET_LOADING: function SET_LOADING(state, loading) {
       state.loading = loading;

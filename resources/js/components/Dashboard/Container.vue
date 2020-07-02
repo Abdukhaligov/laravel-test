@@ -1,12 +1,12 @@
 <template>
-  <div class="main-container" id="container">
+  <div class="main-container" :class="sideBar ? 'sbar-open' : 'sidebar-closed'" id="container">
 
     <div class="overlay"></div>
     <div class="search-overlay"></div>
 
     <SideBar></SideBar>
 
-    <div id="content" class="main-content">
+    <div id="content" class="main-content" @click="setSideBar(false)">
 
       <ProductList v-show="page === 'product/list'"></ProductList>
       <UserList v-show="page === 'user/list'"></UserList>
@@ -38,7 +38,7 @@
   import ProductList from "./Product/List";
   import UserList from "./User/List";
   import UserProfile from "./User/Profile";
-  import {mapState} from "vuex";
+  import {mapActions, mapState} from "vuex";
 
   export default {
     name: "Container",
@@ -48,6 +48,7 @@
       UserList,
       UserProfile
     },
-    computed: mapState(["page"]),
+    computed: mapState(["page", "sideBar"]),
+    methods: mapActions(["setSideBar"])
   }
 </script>
