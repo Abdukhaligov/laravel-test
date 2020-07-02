@@ -68,3 +68,9 @@
     }
   }
 </script>
+
+<style>
+  .invalid {
+    color: #e7515a;
+  }
+</style>

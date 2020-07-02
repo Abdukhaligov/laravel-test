@@ -47,7 +47,7 @@
                   <p class="signup-link">Not registered ? <a href="#" @click="updateLoginForm(false)">Create an account</a></p>
                 </form>
 
-                <div v-if="credential.status === 'error'">
+                <div class="invalid" v-if="credential.status === 'error'">
                   <hr>
                   <strong>{{credential.message}}</strong>
                 </div>

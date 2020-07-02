@@ -269,7 +269,4 @@
   .vs__open-indicator {
     fill: #394066;
   }
-  .invalid{
-    color: #e7515a;
-  }
 </style>
