@@ -37,8 +37,8 @@
   import '../../libs/cork/assets/css/users/user-profile.css';
 
 
-  import Login from "./Auth2/Login";
-  import Register from "./Auth2/Register";
+  import Login from "./Auth/Login";
+  import Register from "./Auth/Register";
   import Dashboard from "./Dashboard/Main";
   import BlockUI from "./BlockUI";
 
