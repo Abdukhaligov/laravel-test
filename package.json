@@ -28,6 +28,7 @@
     },
     "dependencies": {
         "tiny-cookie": "^2.3.2",
+        "vue-select": "^3.10.5",
         "vuex": "^3.4.0"
     }
 }

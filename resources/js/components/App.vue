@@ -20,6 +20,7 @@
 
   import '../../libs/cork/plugins/apex/apexcharts.css';
 
+
   import '../../libs/cork/assets/css/plugins.css';
   import '../../libs/cork/assets/css/authentication/form-2.css';
   import '../../libs/cork/assets/css/forms/theme-checkbox-radio.css';
@@ -44,7 +45,7 @@
     },
     data() {
       return {
-        loginForm: true,
+        loginForm: false,
       }
     },
     computed: mapState(["credential"]),

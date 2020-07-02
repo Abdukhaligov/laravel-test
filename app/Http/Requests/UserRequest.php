@@ -23,8 +23,8 @@ class UserRequest extends FormRequest {
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'company_id' => ['exists:companies,id'],
-            'position_id' => ['exists:positions,id'],
+            'company_id' => ['nullable', 'exists:companies,id'],
+            'position_id' => ['nullable', 'exists:positions,id'],
         ];
       }
       case 'PUT':
