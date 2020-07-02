@@ -7,8 +7,8 @@
             <div class="form-content">
               <h1 class="">Sign In</h1>
               <p class="">Log in to your account to continue.</p>
-              <form class="text-left">
-                <div class="form">
+              <div class="text-left">
+                <form class="form" @submit.prevent>
                   <div id="username-field" class="field-wrapper input">
                     <label for="email">Email</label>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -17,7 +17,7 @@
                       <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                       <circle cx="12" cy="7" r="4"></circle>
                     </svg>
-                    <input id="email" name="email" type="text" class="form-control" placeholder="e.g mail@domain.com">
+                    <input id="email" v-model="email" name="email" type="text" class="form-control" placeholder="e.g mail@domain.com">
                   </div>
                   <div id="password-field" class="field-wrapper input mb-2">
                     <div class="d-flex justify-content-between">
@@ -30,7 +30,7 @@
                       <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                       <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                     </svg>
-                    <input id="password" name="password" :type="showPassword ? 'text' : 'password'" class="form-control" placeholder="Password">
+                    <input id="password" v-model="password" name="password" :type="showPassword ? 'text' : 'password'" class="form-control" placeholder="Password">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          @click="showPassword ? showPassword = false : showPassword = true"
@@ -41,12 +41,17 @@
                   </div>
                   <div class="d-sm-flex justify-content-between">
                     <div class="field-wrapper">
-                      <button type="submit" class="btn btn-primary" value="">Log In</button>
+                      <button @click="login" type="submit" class="btn btn-primary" value="">Log In</button>
                     </div>
                   </div>
                   <p class="signup-link">Not registered ? <a href="#" @click="updateLoginForm(false)">Create an account</a></p>
+                </form>
+
+                <div v-if="credential.status === 'error'">
+                  <hr>
+                  <strong>{{credential.message}}</strong>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
@@ -56,22 +61,37 @@
 </template>
 
 <script>
+  import {mapActions, mapState} from "vuex";
   import '../../../libs/cork/assets/css/plugins.css';
   import '../../../libs/cork/assets/css/authentication/form-2.css';
 
   export default {
     name: "Login",
     props: ['loginForm'],
-    methods: {
-      updateLoginForm: function (loginForm) {
-        this.$emit('updateLoginForm', loginForm);
-      }
-    },
     data(){
       return {
+        email: '',
+        password: '',
         showPassword: false
       }
     },
+    methods: {
+      updateLoginForm: function (loginForm) {
+        this.$emit('updateLoginForm', loginForm);
+      },
+      ...mapActions(['getCredential', 'removeCredential', 'getUserDetails']),
+      login() {
+        this.getCredential([this.email, this.password]);
+      }
+    },
+    computed: mapState(["credential"]),
+    watch: {
+      credential: function () {
+        if (this.credential.status === "success") {
+          this.$refs['modal-login'].hide();
+        }
+      }
+    }
   }
 </script>
 
