@@ -2009,7 +2009,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["credential", "loading"]),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setCredential', 'getCompanies', 'getPositions', 'getUser'])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setCredential', 'getCompanies', 'getPositions', 'getUser', 'getUserMedia'])), {}, {
     getCookie: tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"],
     updateLoginForm: function updateLoginForm(loginForm) {
       this.loginForm = loginForm;
@@ -2021,6 +2021,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     if (Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token')) {
       this.getUser(Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token'));
+      this.getUserMedia(Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token'));
     }
   },
   watch: {
@@ -2028,6 +2029,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (this.credential.status === "success") {
         Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["setCookie"])('token', this.credential.token);
         this.getUser(this.credential.token);
+        this.getUserMedia(this.credential.token);
       } else {
         Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["removeCookie"])('token');
       }
@@ -3578,49 +3580,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3631,18 +3590,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         name: "",
         company_id: "",
         position_id: ""
-      }
+      },
+      token: Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token')
     };
   },
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["user", "errors", "positions", "companies"]),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['updateUser'])), {}, {
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["user", "errors", "positions", "companies", "media"]),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['updateUser', 'insertMedia'])), {}, {
     update: function update(data) {
       this.updateUser({
         'token': Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token'),
         data: data
       });
     },
-    getCookie: tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"]
+    getCookie: tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"],
+    submitFiles: function submitFiles(token) {
+      var formData = new FormData();
+
+      for (var i = 0; i < this.files.length; i++) {
+        var file = this.files[i];
+        formData.append('files[' + i + ']', file);
+      }
+
+      this.insertMedia({
+        'token': token,
+        data: formData
+      }, true);
+    },
+    handleFilesUpload: function handleFilesUpload() {
+      this.files = this.$refs.files.files;
+    }
   })
 });
 
@@ -67212,128 +67188,100 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _vm._m(0)
+        _c(
+          "div",
+          {
+            staticClass:
+              "col-xl-8 col-lg-6 col-md-7 col-sm-12 layout-top-spacing"
+          },
+          [
+            _c("div", { staticClass: "bio layout-spacing " }, [
+              _c("div", { staticClass: "widget-content widget-content-area" }, [
+                _c("h3", {}, [_vm._v("Media")]),
+                _vm._v(" "),
+                _vm.media.status === "empty"
+                  ? _c("div", [
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(_vm.media.message) +
+                          "\n          "
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.media.status === "success"
+                  ? _c("div", [
+                      _c("div", { staticClass: "bio-skill-box" }, [
+                        _c(
+                          "div",
+                          { staticClass: "row" },
+                          _vm._l(_vm.media.files, function(file) {
+                            return _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "col-12 col-xl-3 col-lg-12 p-2 mb-xl-0 mb-0 "
+                              },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: { href: file.path, target: "_blank" }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "d-flex b-skills" },
+                                      [_c("h5", [_vm._v(_vm._s(file.name))])]
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          }),
+                          0
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("hr"),
+                _vm._v(" "),
+                _c("input", {
+                  ref: "files",
+                  attrs: { type: "file", multiple: "multiple" },
+                  on: {
+                    change: function($event) {
+                      return _vm.handleFilesUpload()
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "submit" },
+                    on: {
+                      click: function($event) {
+                        return _vm.submitFiles(_vm.token)
+                      }
+                    }
+                  },
+                  [_vm._v("\n            Upload\n          ")]
+                ),
+                _vm._v(" "),
+                _c("hr")
+              ])
+            ])
+          ]
+        )
       ])
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "col-xl-8 col-lg-6 col-md-7 col-sm-12 layout-top-spacing"
-      },
-      [
-        _c("div", { staticClass: "bio layout-spacing " }, [
-          _c("div", { staticClass: "widget-content widget-content-area" }, [
-            _c("h3", {}, [_vm._v("Bio")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "I'm Web Developer from California. I code and design websites worldwide. Mauris varius tellus vitae\n            tristique sagittis. Sed aliquet, est nec auctor aliquet, orci ex vestibulum ex, non pharetra lacus erat ac\n            nulla."
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Sed vulputate, ligula eget mollis auctor, lectus elit feugiat urna, eget euismod turpis lectus sed ex.\n            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc ut velit\n            finibus, scelerisque sapien vitae, pharetra est. Nunc accumsan ligula vehicula scelerisque vulputate."
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "bio-skill-box" }, [
-              _c("div", { staticClass: "row" }, [
-                _c(
-                  "div",
-                  { staticClass: "col-12 col-xl-6 col-lg-12 mb-xl-5 mb-5 " },
-                  [
-                    _c("div", { staticClass: "d-flex b-skills" }, [
-                      _c("div"),
-                      _vm._v(" "),
-                      _c("div", {}, [
-                        _c("h5", [_vm._v("Sass Applications")]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(
-                            "Duis aute irure dolor in reprehenderit in voluptate velit esse eu fugiat nulla pariatur."
-                          )
-                        ])
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-12 col-xl-6 col-lg-12 mb-xl-5 mb-5 " },
-                  [
-                    _c("div", { staticClass: "d-flex b-skills" }, [
-                      _c("div"),
-                      _vm._v(" "),
-                      _c("div", {}, [
-                        _c("h5", [_vm._v("Github Countributer")]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(
-                            "Ut enim ad minim veniam, quis nostrud exercitation aliquip ex ea commodo consequat."
-                          )
-                        ])
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-12 col-xl-6 col-lg-12 mb-xl-0 mb-5 " },
-                  [
-                    _c("div", { staticClass: "d-flex b-skills" }, [
-                      _c("div"),
-                      _vm._v(" "),
-                      _c("div", {}, [
-                        _c("h5", [_vm._v("Photograhpy")]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(
-                            "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia anim id est\n                      laborum."
-                          )
-                        ])
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-12 col-xl-6 col-lg-12 mb-xl-0 mb-0 " },
-                  [
-                    _c("div", { staticClass: "d-flex b-skills" }, [
-                      _c("div"),
-                      _vm._v(" "),
-                      _c("div", {}, [
-                        _c("h5", [_vm._v("Mobile Apps")]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(
-                            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do et dolore magna aliqua."
-                          )
-                        ])
-                      ])
-                    ])
-                  ]
-                )
-              ])
-            ])
-          ])
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

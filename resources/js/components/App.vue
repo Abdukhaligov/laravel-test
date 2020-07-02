@@ -57,7 +57,7 @@
     },
     computed: mapState(["credential", "loading"]),
     methods: {
-      ...mapActions(['setCredential', 'getCompanies', 'getPositions', 'getUser']),
+      ...mapActions(['setCredential', 'getCompanies', 'getPositions', 'getUser', 'getUserMedia']),
       getCookie,
       updateLoginForm(loginForm) {
         this.loginForm = loginForm
@@ -68,6 +68,7 @@
       this.getPositions();
       if (getCookie('token')){
         this.getUser(getCookie('token'));
+        this.getUserMedia(getCookie('token'));
       }
     },
     watch: {
@@ -75,6 +76,7 @@
         if (this.credential.status === "success") {
           setCookie('token', this.credential.token);
           this.getUser(this.credential.token);
+          this.getUserMedia(this.credential.token);
         } else {
           removeCookie('token');
         }

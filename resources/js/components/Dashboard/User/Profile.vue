@@ -44,7 +44,6 @@
                     :reduce="position => position.id" label="name"></vue-select>
 
 
-
       </div>
 
       <template v-slot:modal-footer="{close}">
@@ -140,76 +139,34 @@
 
         <div class="bio layout-spacing ">
           <div class="widget-content widget-content-area">
-            <h3 class="">Bio</h3>
-            <p>I'm Web Developer from California. I code and design websites worldwide. Mauris varius tellus vitae
-              tristique sagittis. Sed aliquet, est nec auctor aliquet, orci ex vestibulum ex, non pharetra lacus erat ac
-              nulla.</p>
+            <h3 class="">Media</h3>
 
-            <p>Sed vulputate, ligula eget mollis auctor, lectus elit feugiat urna, eget euismod turpis lectus sed ex.
-              Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc ut velit
-              finibus, scelerisque sapien vitae, pharetra est. Nunc accumsan ligula vehicula scelerisque vulputate.</p>
-
-            <div class="bio-skill-box">
-
-              <div class="row">
-
-                <div class="col-12 col-xl-6 col-lg-12 mb-xl-5 mb-5 ">
-
-                  <div class="d-flex b-skills">
-                    <div>
-                    </div>
-                    <div class="">
-                      <h5>Sass Applications</h5>
-                      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse eu fugiat nulla pariatur.</p>
-                    </div>
-                  </div>
-
-                </div>
-
-                <div class="col-12 col-xl-6 col-lg-12 mb-xl-5 mb-5 ">
-
-                  <div class="d-flex b-skills">
-                    <div>
-                    </div>
-                    <div class="">
-                      <h5>Github Countributer</h5>
-                      <p>Ut enim ad minim veniam, quis nostrud exercitation aliquip ex ea commodo consequat.</p>
-                    </div>
-                  </div>
-
-                </div>
-
-                <div class="col-12 col-xl-6 col-lg-12 mb-xl-0 mb-5 ">
-
-                  <div class="d-flex b-skills">
-                    <div>
-                    </div>
-                    <div class="">
-                      <h5>Photograhpy</h5>
-                      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia anim id est
-                        laborum.</p>
-                    </div>
-                  </div>
-
-                </div>
-
-                <div class="col-12 col-xl-6 col-lg-12 mb-xl-0 mb-0 ">
-
-                  <div class="d-flex b-skills">
-                    <div>
-                    </div>
-                    <div class="">
-                      <h5>Mobile Apps</h5>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do et dolore magna aliqua.</p>
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-
+            <div v-if="media.status === 'empty'">
+              {{ media.message }}
             </div>
-
+            <div v-if="media.status === 'success'">
+              <div class="bio-skill-box">
+                <div class="row">
+                  <div v-for="file in media.files"
+                       class="col-12 col-xl-3 col-lg-12 p-2 mb-xl-0 mb-0 ">
+                    <a :href="file.path" target="_blank">
+                      <div class="d-flex b-skills">
+                        <h5>{{ file.name }}</h5>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <input type="file" v-on:change="handleFilesUpload()" ref="files" multiple="multiple">
+            <button
+                type="submit"
+                class="btn btn-primary"
+                @click="submitFiles(token)">
+              Upload
+            </button>
+            <hr>
           </div>
         </div>
 
@@ -231,16 +188,31 @@
           name: "",
           company_id: "",
           position_id: "",
-        }
+        },
+        token: getCookie('token')
       }
     },
-    computed: mapState(["user", "errors", "positions", "companies"]),
+    computed: mapState(["user", "errors", "positions", "companies", "media"]),
     methods: {
-      ...mapActions(['updateUser']),
+      ...mapActions(['updateUser', 'insertMedia']),
       update(data) {
         this.updateUser({'token': getCookie('token'), data: data});
       },
       getCookie,
+      submitFiles(token) {
+        let formData = new FormData();
+
+        for (var i = 0; i < this.files.length; i++) {
+          let file = this.files[i];
+
+          formData.append('files[' + i + ']', file);
+        }
+
+        this.insertMedia({'token': token, data: formData}, true);
+      },
+      handleFilesUpload() {
+        this.files = this.$refs.files.files;
+      },
     },
   }
 </script>
