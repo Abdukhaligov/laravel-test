@@ -207,7 +207,7 @@ BEGIN
      `order_column`, `created_at`, `updated_at`)
     VALUES (parameterModel, parameterId, parameterCollection,
             parameterName, parameterFileName, parameterMimeType,
-            parameterDisk, parameterSize, ''[]'', ''[]'', ''[]'',
+            parameterDisk, parameterSize, '[]', '[]', '[]',
             parameterSize, parameterCreatedAt, parameterUpdatedAt);
     SELECT LAST_INSERT_ID() AS id
     LIMIT 1;
