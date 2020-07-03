@@ -1,47 +1,22 @@
 DELIMITER $$
 CREATE
-    DEFINER = `root`@`127.0.0.1` PROCEDURE `delete_product`(IN `parametrId` BIGINT UNSIGNED)
-    NO SQL
-BEGIN
-    DELETE
-    FROM `products`
-    WHERE `products`.`id` = parametrId;
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE
-    DEFINER = `root`@`127.0.0.1` PROCEDURE `get_company_by_id`(IN `parameterId` BIGINT)
-    NO SQL
-BEGIN
-    SELECT `companies`.`name`
-    FROM `companies`
-    WHERE `companies`.`id` = parameterId
-    LIMIT 1;
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE
-    DEFINER = `root`@`127.0.0.1` PROCEDURE `get_companies_by_position`(IN `parameterId` BIGINT)
-    NO SQL
-BEGIN
-    SELECT DISTINCT `companies`.`name`
-    FROM `companies`
-             INNER JOIN `company_position`
-                        ON `companies`.`id` = `company_position`.`company_id`
-    WHERE `company_position`.`position_id` = parameterId;
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE
     DEFINER = `root`@`127.0.0.1` PROCEDURE `get_companies`()
     NO SQL
 BEGIN
     SELECT `companies`.`id`,
            `companies`.`name`
     FROM `companies`;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE
+    DEFINER = `root`@`127.0.0.1` PROCEDURE `delete_product`(IN `parametrId` BIGINT UNSIGNED)
+    NO SQL
+BEGIN
+    DELETE
+    FROM `products`
+    WHERE `products`.`id` = parametrId;
 END$$
 DELIMITER ;
 
@@ -66,6 +41,31 @@ BEGIN
       AND `media`.`collection_name`
               COLLATE utf8mb4_general_ci = parameterCollection
     ORDER BY ID DESC;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE
+    DEFINER = `root`@`127.0.0.1` PROCEDURE `get_companies_by_position`(IN `parameterId` BIGINT)
+    NO SQL
+BEGIN
+    SELECT DISTINCT `companies`.`name`
+    FROM `companies`
+             INNER JOIN `company_position`
+                        ON `companies`.`id` = `company_position`.`company_id`
+    WHERE `company_position`.`position_id` = parameterId;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE
+    DEFINER = `root`@`127.0.0.1` PROCEDURE `get_company_by_id`(IN `parameterId` BIGINT)
+    NO SQL
+BEGIN
+    SELECT `companies`.`name`
+    FROM `companies`
+    WHERE `companies`.`id` = parameterId
+    LIMIT 1;
 END$$
 DELIMITER ;
 
@@ -171,8 +171,13 @@ CREATE
     DEFINER = `root`@`127.0.0.1` PROCEDURE `get_users`()
     NO SQL
 BEGIN
-    SELECT `users`.`email`,
+    SELECT `users`.`id`,
+           `users`.`email`,
            `users`.`name`,
+           `users`.`company_id`,
+           `users`.`position_id`,
+           `users`.`updated_at`,
+           `users`.`created_at`,
            `companies`.`name` AS `company`,
            `positions`.`name` AS `position`
     FROM `users`
@@ -202,7 +207,7 @@ BEGIN
      `order_column`, `created_at`, `updated_at`)
     VALUES (parameterModel, parameterId, parameterCollection,
             parameterName, parameterFileName, parameterMimeType,
-            parameterDisk, parameterSize, '[]', '[]', '[]',
+            parameterDisk, parameterSize, ''[]'', ''[]'', ''[]'',
             parameterSize, parameterCreatedAt, parameterUpdatedAt);
     SELECT LAST_INSERT_ID() AS id
     LIMIT 1;
@@ -283,5 +288,16 @@ BEGIN
         `position_id` = parameterPositionID,
         `updated_at`  = parameterUpdatedAt
     WHERE `users`.`id` = parameterId;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE
+    DEFINER = `root`@`127.0.0.1` PROCEDURE `delete_user`(IN `parametrId` BIGINT)
+    NO SQL
+BEGIN
+    DELETE
+    FROM `users`
+    WHERE `users`.`id` = parametrId;
 END$$
 DELIMITER ;
