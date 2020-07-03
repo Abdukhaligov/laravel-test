@@ -40,6 +40,16 @@ export default new Vuex.Store({
         .then(r => commit('GET_USERS', r.data));
     },
 
+    async deleteUser({commit, state}, args) {
+      let config = {headers: {Authorization: `Bearer ${args.token}`}};
+
+      await axios.delete(state.url + "user/delete/" + args.id, config);
+
+      axios
+        .get(state.url + "users/list", config)
+        .then(r => commit('GET_USERS', r.data));
+    },
+
     setNewUser({commit, state}, data, loading = true) {
       commit('SET_LOADING', true)
 
@@ -164,7 +174,7 @@ export default new Vuex.Store({
     async deleteProduct({commit, state}, args) {
       let config = {headers: {Authorization: `Bearer ${args.token}`}};
 
-      await axios.put(state.url + "products/delete/" + args.id, '', config);
+      await axios.delete(state.url + "products/delete/" + args.id, config);
 
       axios.post(state.url + "products").then(r => commit('GET_PRODUCTS', r.data))
 

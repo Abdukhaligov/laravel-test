@@ -3246,10 +3246,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["users", "positions", "companies", "errors"]),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["editUser"])), {}, {
-    deleteUser: function deleteUser(args) {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["editUser", "deleteUser"])), {}, {
+    removeUser: function removeUser(args) {
+      var _this = this;
+
       this.$bvModal.msgBoxConfirm('Are you sure you want to delete user with id: ' + args.id + ' ?').then(function (value) {
-        if (value === true) {// this.deleteProduct({'id': args.id, 'token': getCookie('token')})
+        if (value === true) {
+          _this.deleteUser({
+            'id': args.id,
+            'token': Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token')
+          });
         }
       });
     },
@@ -65504,7 +65510,7 @@ var render = function() {
                                   staticClass: "btn btn-danger float-right",
                                   on: {
                                     click: function($event) {
-                                      return _vm.deleteUser({
+                                      return _vm.removeUser({
                                         id: data.item.id
                                       })
                                     }
@@ -80545,9 +80551,38 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         }, _callee);
       }))();
     },
-    setNewUser: function setNewUser(_ref4, data) {
-      var commit = _ref4.commit,
-          state = _ref4.state;
+    deleteUser: function deleteUser(_ref4, args) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var commit, state, config;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                commit = _ref4.commit, state = _ref4.state;
+                config = {
+                  headers: {
+                    Authorization: "Bearer ".concat(args.token)
+                  }
+                };
+                _context2.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default.a["delete"](state.url + "user/delete/" + args.id, config);
+
+              case 4:
+                axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(state.url + "users/list", config).then(function (r) {
+                  return commit('GET_USERS', r.data);
+                });
+
+              case 5:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    setNewUser: function setNewUser(_ref5, data) {
+      var commit = _ref5.commit,
+          state = _ref5.state;
       var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
       commit('SET_LOADING', true);
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "register?" + "&name=" + data[0] + "&email=" + data[1] + "&password=" + data[2] + "&password_confirmation=" + data[3] + "&company_id=" + data[4] + "&position_id=" + data[5]).then(function (r) {
@@ -80559,9 +80594,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         commit('SET_LOADING', false);
       });
     },
-    setCredential: function setCredential(_ref5, data) {
-      var commit = _ref5.commit,
-          state = _ref5.state;
+    setCredential: function setCredential(_ref6, data) {
+      var commit = _ref6.commit,
+          state = _ref6.state;
       var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
       commit('SET_LOADING', true);
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "login?email=" + data[0] + "&password=" + data[1]).then(function (r) {
@@ -80569,13 +80604,13 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         commit('SET_LOADING', false);
       });
     },
-    removeCredential: function removeCredential(_ref6) {
-      var commit = _ref6.commit;
+    removeCredential: function removeCredential(_ref7) {
+      var commit = _ref7.commit;
       commit('DELETE_CREDENTIAL');
     },
-    getUser: function getUser(_ref7, token) {
-      var commit = _ref7.commit,
-          state = _ref7.state;
+    getUser: function getUser(_ref8, token) {
+      var commit = _ref8.commit,
+          state = _ref8.state;
       var config = {
         headers: {
           Authorization: "Bearer ".concat(token)
@@ -80585,20 +80620,20 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         return commit('SET_USER', r.data);
       });
     },
-    updateUser: function updateUser(_ref8, args) {
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+    updateUser: function updateUser(_ref9, args) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         var commit, state, config;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
-                commit = _ref8.commit, state = _ref8.state;
+                commit = _ref9.commit, state = _ref9.state;
                 config = {
                   headers: {
                     Authorization: "Bearer ".concat(args.token)
                   }
                 };
-                _context2.next = 4;
+                _context3.next = 4;
                 return axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "profile/update", args.data, config)["catch"](function (r) {
                   commit('SET_ERRORS', r.response.data.errors);
                 });
@@ -80610,15 +80645,15 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
 
               case 5:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2);
+        }, _callee3);
       }))();
     },
-    getUserMedia: function getUserMedia(_ref9, token) {
-      var commit = _ref9.commit,
-          state = _ref9.state;
+    getUserMedia: function getUserMedia(_ref10, token) {
+      var commit = _ref10.commit,
+          state = _ref10.state;
       var config = {
         headers: {
           Authorization: "Bearer ".concat(token)
@@ -80628,9 +80663,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         return commit('GET_MEDIA', r.data);
       });
     },
-    insertMedia: function insertMedia(_ref10, args) {
-      var commit = _ref10.commit,
-          state = _ref10.state;
+    insertMedia: function insertMedia(_ref11, args) {
+      var commit = _ref11.commit,
+          state = _ref11.state;
       var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
       commit('SET_LOADING', true);
       var config = {
@@ -80647,9 +80682,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         commit('SET_LOADING', false);
       });
     },
-    getUsers: function getUsers(_ref11, token) {
-      var commit = _ref11.commit,
-          state = _ref11.state;
+    getUsers: function getUsers(_ref12, token) {
+      var commit = _ref12.commit,
+          state = _ref12.state;
       var config = {
         headers: {
           Authorization: "Bearer ".concat(token)
@@ -80659,36 +80694,36 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         return commit('GET_USERS', r.data);
       });
     },
-    getProducts: function getProducts(_ref12) {
-      var commit = _ref12.commit,
-          state = _ref12.state;
+    getProducts: function getProducts(_ref13) {
+      var commit = _ref13.commit,
+          state = _ref13.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
         return commit('GET_PRODUCTS', r.data);
       });
     },
-    getCompanies: function getCompanies(_ref13) {
-      var commit = _ref13.commit,
-          state = _ref13.state;
+    getCompanies: function getCompanies(_ref14) {
+      var commit = _ref14.commit,
+          state = _ref14.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "companies").then(function (r) {
         return commit('GET_COMPANIES', r.data);
       });
     },
-    getPositions: function getPositions(_ref14) {
-      var commit = _ref14.commit,
-          state = _ref14.state;
+    getPositions: function getPositions(_ref15) {
+      var commit = _ref15.commit,
+          state = _ref15.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "positions").then(function (r) {
         return commit('GET_POSITIONS', r.data);
       });
     },
-    setNewProduct: function setNewProduct(_ref15, args) {
+    setNewProduct: function setNewProduct(_ref16, args) {
       var _arguments = arguments;
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
         var commit, state, loading, config;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
-                commit = _ref15.commit, state = _ref15.state;
+                commit = _ref16.commit, state = _ref16.state;
                 loading = _arguments.length > 2 && _arguments[2] !== undefined ? _arguments[2] : true;
                 commit('SET_LOADING', true);
                 config = {
@@ -80696,7 +80731,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
                     Authorization: "Bearer ".concat(args.token)
                   }
                 };
-                _context3.next = 6;
+                _context4.next = 6;
                 return axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products/create", args.product, config);
 
               case 6:
@@ -80707,42 +80742,13 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
 
               case 7:
               case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3);
-      }))();
-    },
-    deleteProduct: function deleteProduct(_ref16, args) {
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
-        var commit, state, config;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
-          while (1) {
-            switch (_context4.prev = _context4.next) {
-              case 0:
-                commit = _ref16.commit, state = _ref16.state;
-                config = {
-                  headers: {
-                    Authorization: "Bearer ".concat(args.token)
-                  }
-                };
-                _context4.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "products/delete/" + args.id, '', config);
-
-              case 4:
-                axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
-                  return commit('GET_PRODUCTS', r.data);
-                });
-
-              case 5:
-              case "end":
                 return _context4.stop();
             }
           }
         }, _callee4);
       }))();
     },
-    editProduct: function editProduct(_ref17, args) {
+    deleteProduct: function deleteProduct(_ref17, args) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
         var commit, state, config;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
@@ -80756,7 +80762,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
                   }
                 };
                 _context5.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "products/update", args.data, config);
+                return axios__WEBPACK_IMPORTED_MODULE_3___default.a["delete"](state.url + "products/delete/" + args.id, config);
 
               case 4:
                 axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
@@ -80769,6 +80775,35 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
             }
           }
         }, _callee5);
+      }))();
+    },
+    editProduct: function editProduct(_ref18, args) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+        var commit, state, config;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                commit = _ref18.commit, state = _ref18.state;
+                config = {
+                  headers: {
+                    Authorization: "Bearer ".concat(args.token)
+                  }
+                };
+                _context6.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "products/update", args.data, config);
+
+              case 4:
+                axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
+                  return commit('GET_PRODUCTS', r.data);
+                });
+
+              case 5:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6);
       }))();
     }
   },

@@ -29,4 +29,8 @@ class UserRepository implements UserRepositoryInterface {
             "CALL insert_user (?, ?, ?, ?, ?, ?, ?)",
             array($name, $email, $password, $companyId, $positionId, $now, $now));
   }
+
+  public function delete($id) {
+    return DB::delete("CALL delete_user ($id)");
+  }
 }

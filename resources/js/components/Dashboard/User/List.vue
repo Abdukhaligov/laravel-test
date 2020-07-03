@@ -20,7 +20,7 @@
                     editedUser.updated_at = data.item.updated_at;
                     ">Edit
                 </button>
-                <button class="btn btn-danger float-right" @click="deleteUser({id:data.item.id})">X</button>
+                <button class="btn btn-danger float-right" @click="removeUser({id:data.item.id})">X</button>
               </template>
             </b-table>
           </div>
@@ -124,12 +124,12 @@
     },
     computed: mapState(["users", "positions", "companies", "errors"]),
     methods:{
-      ...mapActions(["editUser"]),
-      deleteUser(args) {
+      ...mapActions(["editUser", "deleteUser"]),
+      removeUser(args) {
         this.$bvModal.msgBoxConfirm('Are you sure you want to delete user with id: ' + args.id + ' ?')
           .then(value => {
             if (value === true) {
-              // this.deleteProduct({'id': args.id, 'token': getCookie('token')})
+              this.deleteUser({'id': args.id, 'token': getCookie('token')})
             }
           });
       },

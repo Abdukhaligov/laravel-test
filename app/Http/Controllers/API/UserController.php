@@ -86,6 +86,16 @@ class UserController extends Controller {
     return response()->json(['status' => 'ok'], 200);
   }
 
+  public function delete($id) {
+    if (!Auth::user()->isAdmin()) return response()->json(['status' => 'fail', 'message'=>'you don\'t have permission'], 400);
+
+    if ($this->userRepository->delete($id)) {
+      return response()->json(["status" => "success", "message" => "Data is deleted"]);
+    } else {
+      return response()->json(["status" => "error", "message" => "Data is not deleted"]);
+    }
+  }
+
   public function list(){
     return response()->json($this->userRepository->all(),200);
   }
