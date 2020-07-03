@@ -80539,11 +80539,17 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
                 return axios__WEBPACK_IMPORTED_MODULE_3___default.a.patch(state.url + "user/edit/" + args.data.id, args.data, config);
 
               case 4:
+                if (args.data.id === state.user.id) {
+                  axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "details", '', config).then(function (r) {
+                    return commit('SET_USER', r.data);
+                  });
+                }
+
                 axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(state.url + "users/list", config).then(function (r) {
                   return commit('GET_USERS', r.data);
                 });
 
-              case 5:
+              case 6:
               case "end":
                 return _context.stop();
             }

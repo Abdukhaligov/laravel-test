@@ -34,6 +34,11 @@ export default new Vuex.Store({
       let config = {headers: {Authorization: `Bearer ${args.token}`}};
 
       await axios.patch(state.url + "user/edit/" + args.data.id,  args.data, config);
+      if (args.data.id === state.user.id){
+        axios
+          .post(state.url + "details", '', config)
+          .then(r => commit('SET_USER', r.data));
+      }
 
       axios
         .get(state.url + "users/list", config)
