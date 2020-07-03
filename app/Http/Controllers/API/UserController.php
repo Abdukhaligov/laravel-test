@@ -72,6 +72,8 @@ class UserController extends Controller {
   }
 
   public function edit(UserRequest $request) {
+    if (!Auth::user()->isAdmin()) return response()->json(['status' => 'fail', 'message'=>'you don\'t have permission'], 400);
+
     $input = $request->all();
 
     $this->userRepository
