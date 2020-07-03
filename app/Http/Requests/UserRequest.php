@@ -28,11 +28,19 @@ class UserRequest extends FormRequest {
         ];
       }
       case 'PUT':
-      case 'PATCH':
       {
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => [Rule::unique('users')->ignore($this->user()->id)],
+            'company_id' => ['sometimes', 'exists:companies,id', 'nullable'],
+            'position_id' => ['sometimes', 'exists:positions,id', 'nullable'],
+        ];
+      }
+      case 'PATCH':
+      {
+        return [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => [Rule::unique('users')->ignore($this->id)],
             'company_id' => ['sometimes', 'exists:companies,id', 'nullable'],
             'position_id' => ['sometimes', 'exists:positions,id', 'nullable'],
         ];
@@ -45,7 +53,7 @@ class UserRequest extends FormRequest {
 
   public function messages() {
     return [
-        //
+      //
     ];
   }
 

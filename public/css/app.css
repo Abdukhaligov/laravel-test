@@ -10928,3 +10928,7 @@ a.text-dark:focus {
   }
 }
 
+.actions-column {
+  width: 150px;
+}
+

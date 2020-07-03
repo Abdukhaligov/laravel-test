@@ -71,6 +71,19 @@ class UserController extends Controller {
     return response()->json(['status' => 'ok'], 200);
   }
 
+  public function edit(UserRequest $request) {
+    $input = $request->all();
+
+    $this->userRepository
+        ->update(
+            $input["id"],
+            $input["name"],
+            $input["company_id"],
+            $input["position_id"]);
+
+    return response()->json(['status' => 'ok'], 200);
+  }
+
   public function list(){
     return response()->json($this->userRepository->all(),200);
   }

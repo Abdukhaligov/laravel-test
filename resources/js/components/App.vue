@@ -53,11 +53,12 @@
     data() {
       return {
         loginForm: true,
+        token: getCookie('token')
       }
     },
     computed: mapState(["credential", "loading"]),
     methods: {
-      ...mapActions(['setCredential', 'getCompanies', 'getPositions', 'getUser', 'getUserMedia']),
+      ...mapActions(['setCredential', 'getCompanies', 'getPositions', 'getUser', 'getUserMedia','getUsers']),
       getCookie,
       updateLoginForm(loginForm) {
         this.loginForm = loginForm
@@ -66,9 +67,10 @@
     mounted() {
       this.getCompanies();
       this.getPositions();
-      if (getCookie('token')){
-        this.getUser(getCookie('token'));
-        this.getUserMedia(getCookie('token'));
+      if (this.token){
+        this.getUser(this.token);
+        this.getUserMedia(this.token);
+        this.getUsers(this.token);
       }
     },
     watch: {
@@ -77,6 +79,7 @@
           setCookie('token', this.credential.token);
           this.getUser(this.credential.token);
           this.getUserMedia(this.credential.token);
+          this.getUsers(this.credential.token);
         } else {
           removeCookie('token');
         }

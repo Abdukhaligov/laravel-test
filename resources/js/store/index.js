@@ -20,7 +20,7 @@ export default new Vuex.Store({
     loading: false,
     url: 'http://test/api/',
 
-    page: ['user','profile'],
+    page: ['user','list'],
     sideBar: false
   },
   actions: {
@@ -29,6 +29,15 @@ export default new Vuex.Store({
     },
     setSideBar({commit}, sideBar){
       commit('SET_SIDEBAR', sideBar)
+    },
+    async editUser({commit, state}, args){
+      let config = {headers: {Authorization: `Bearer ${args.token}`}};
+
+      await axios.patch(state.url + "user/edit/" + args.data.id,  args.data, config);
+
+      axios
+        .get(state.url + "users/list", config)
+        .then(r => commit('GET_USERS', r.data));
     },
 
     setNewUser({commit, state}, data, loading = true) {

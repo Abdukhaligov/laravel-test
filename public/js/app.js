@@ -2005,11 +2005,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
-      loginForm: true
+      loginForm: true,
+      token: Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token')
     };
   },
   computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["credential", "loading"]),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setCredential', 'getCompanies', 'getPositions', 'getUser', 'getUserMedia'])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setCredential', 'getCompanies', 'getPositions', 'getUser', 'getUserMedia', 'getUsers'])), {}, {
     getCookie: tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"],
     updateLoginForm: function updateLoginForm(loginForm) {
       this.loginForm = loginForm;
@@ -2019,9 +2020,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.getCompanies();
     this.getPositions();
 
-    if (Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token')) {
-      this.getUser(Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token'));
-      this.getUserMedia(Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token'));
+    if (this.token) {
+      this.getUser(this.token);
+      this.getUserMedia(this.token);
+      this.getUsers(this.token);
     }
   },
   watch: {
@@ -2030,6 +2032,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["setCookie"])('token', this.credential.token);
         this.getUser(this.credential.token);
         this.getUserMedia(this.credential.token);
+        this.getUsers(this.credential.token);
       } else {
         Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["removeCookie"])('token');
       }
@@ -3114,6 +3117,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var tiny_cookie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tiny-cookie */ "./node_modules/tiny-cookie/es/index.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -3211,197 +3222,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "List"
+  name: "List",
+  data: function data() {
+    return {
+      fields: ['email', 'name', 'company', 'position', // A virtual column made up from two fields
+      {
+        key: 'actions',
+        label: 'Actions',
+        'class': 'actions-column'
+      }],
+      editedUser: {
+        id: "",
+        name: "",
+        email: "",
+        company_id: "",
+        position_id: "",
+        updated_at: "",
+        created_at: ""
+      }
+    };
+  },
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["users", "positions", "companies", "errors"]),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["editUser"])), {}, {
+    deleteUser: function deleteUser(args) {
+      this.$bvModal.msgBoxConfirm('Are you sure you want to delete user with id: ' + args.id + ' ?').then(function (value) {
+        if (value === true) {// this.deleteProduct({'id': args.id, 'token': getCookie('token')})
+        }
+      });
+    },
+    updateEditedUser: function updateEditedUser(data) {
+      this.editUser({
+        'token': Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('token'),
+        data: data
+      });
+    }
+  })
 });
 
 /***/ }),
@@ -3423,6 +3281,23 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -46013,7 +45888,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".widget-content-area {\r\n    box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);\r\n}\r\n.layout-spacing {\r\n    padding-bottom: 25px;\r\n}\r\n/* \r\n===================\r\n    User Profile\r\n===================\r\n*/\r\n.user-profile .widget-content-area { border-radius: 6px; }\r\n.user-profile .widget-content-area .edit-profile {\r\n    height: 35px;\r\n    width: 35px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-self: center;\r\n    background-color: #1b55e2;\r\n    background: linear-gradient(to right, #3cba92 0%, #0ba360 100%);\r\n    border-radius: 50%;\r\n    box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);\r\n}\r\n.user-profile .widget-content-area .edit-profile svg {\r\n    font-size: 17px;\r\n    vertical-align: middle;\r\n    margin-right: 0;\r\n    color: #060818;\r\n    width: 19px;\r\n    align-self: center;\r\n}\r\n.user-profile .widget-content-area h3 {\r\n    position: relative;\r\n    font-size: 21px;\r\n    color: #bfc9d4;\r\n    margin: 6px 0px 0 0;\r\n}\r\n.user-profile .widget-content-area h3:after {\r\n    position: absolute;\r\n    content: \"\";\r\n    height: 2px;\r\n    width: 55px;\r\n    background: #009688;\r\n    border-radius: 50%;\r\n    bottom: 9px;\r\n    left: 15px;\r\n}\r\n.user-profile .widget-content-area .user-info { margin-top: 40px; }\r\n.user-profile .widget-content-area .user-info img {\r\n    border-radius: 9px;\r\n    box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);\r\n}\r\n.user-profile .widget-content-area .user-info p {\r\n    font-size: 20px;\r\n    font-weight: 600;\r\n    margin-top: 22px;\r\n    color: #009688;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block {\r\n    border: none;\r\n    max-width: 217px;\r\n    margin: 36px auto;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block li {\r\n    margin-bottom: 13px;\r\n    font-weight: 600;\r\n    font-size: 13px;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block li a {\r\n    font-weight: 600;\r\n    font-size: 15px;\r\n    color: #009688;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block svg {\r\n    width: 21px;\r\n    margin-right: 15px;\r\n    color: #888ea8;\r\n    vertical-align: middle;\r\n    fill: rgba(0, 23, 55, 0.08);\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block li:hover svg {\r\n    color: #009688;\r\n    fill: rgba(27, 85, 226, 0.23921568627450981);\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block ul.list-inline  {\r\n    margin: 27px auto;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block ul.list-inline div.social-icon {\r\n    border: 2px solid #3b3f5c;\r\n    border-radius: 50%;\r\n    height: 35px;\r\n    width: 35px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-self: center;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block ul.list-inline svg {\r\n    margin-right: 0;\r\n    color: #bfc9d4;\r\n    width: 19px;\r\n    align-self: center;\r\n}\r\n\r\n\r\n/* \r\n==============\r\n    Skills\r\n==============\r\n*/\r\n.skills .widget-content-area { border-radius: 6px; }\r\n.skills .widget-content-area h3 {\r\n    position: relative;\r\n    font-size: 21px;\r\n    color: #bfc9d4;\r\n    margin: 6px 0px 40px 0;\r\n}\r\n.skills .widget-content-area h3:after {\r\n    position: absolute;\r\n    content: \"\";\r\n    height: 2px;\r\n    width: 47px;\r\n    background: #009688;\r\n    border-radius: 50%;\r\n    bottom: -2px;\r\n    left: 15px;\r\n}\r\n.skills .widget-content-area p.skill-item {\r\n    margin-bottom: 5px;\r\n    font-size: 15px;\r\n    color: #515365;\r\n    font-weight: 600;\r\n}\r\n.skills .widget-content-area .progress {\r\n    height: 20px;\r\n    margin-bottom: 31px;\r\n}\r\n.skills .widget-content-area .progress .progress-bar {\r\n    background-color: #1b55e2;\r\n    background: linear-gradient(to right, #2b5876 0%, #4e4376 100%);\r\n    border-radius: 1rem;\r\n    font-size: 12px;\r\n    letter-spacing: 1px;\r\n    font-weight: 100;\r\n}\r\n.skills .widget-content-area .progress .progress-title {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    padding: 15px;\r\n}\r\n.skills .widget-content-area .progress .progress-title span { align-self: center; }\r\n\r\n/* \r\n==============\r\n    Bio\r\n==============\r\n*/\r\n.bio .widget-content-area {\r\n    border-radius: 6px;\r\n    padding-bottom: 0;\r\n}\r\n.bio .widget-content-area h3 {\r\n    position: relative;\r\n    font-size: 21px;\r\n    color: #bfc9d4;\r\n    margin: 6px 0px 40px 0;\r\n}\r\n.bio .widget-content-area h3:after {\r\n    position: absolute;\r\n    content: \"\";\r\n    height: 2px;\r\n    width: 30px;\r\n    background: #009688;\r\n    border-radius: 50%;\r\n    bottom: -2px;\r\n    left: 15px;\r\n}\r\n.bio .widget-content-area h5 {\r\n    font-size: 16px;\r\n    font-weight: 700;\r\n    color: #888ea8;\r\n}\r\n.bio .widget-content-area p {\r\n    color: #bfc9d4;\r\n    font-size: 15px;\r\n}\r\n.bio .widget-content-area .bio-skill-box {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n.bio .widget-content-area .b-skills {\r\n    padding: 22px 16px;\r\n    box-shadow: 2px 5px 17px 0 rgba(31,45,61,.1);\r\n    background: #191e3a;\r\n    border-radius: 10px;\r\n    padding: 30px 30px 24px;\r\n}\r\n.bio .widget-content-area .b-skills svg {\r\n    width: 30px;\r\n    height: 30px;\r\n    margin-right: 21px;\r\n    color: #1b55e2;\r\n}\r\n.bio .widget-content-area .b-skills h5 {\r\n    margin-bottom: 10px;\r\n    font-size: 16px;\r\n}\r\n.bio .widget-content-area .b-skills p { font-size: 13px; }\r\n\r\n/* \r\n================\r\n    Education\r\n================\r\n*/\r\n.education .widget-content-area { border-radius: 6px; }\r\n.education .widget-content-area h3 {\r\n    position: relative;\r\n    font-size: 21px;\r\n    color: #bfc9d4;\r\n    margin: 6px 0px 40px 0;\r\n}\r\n.education .widget-content-area h3:after {\r\n    position: absolute;\r\n    content: \"\";\r\n    height: 2px;\r\n    width: 97px;\r\n    background: #009688;\r\n    border-radius: 50%;\r\n    bottom: -2px;\r\n    left: 15px;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline { display: flex; }\r\n.education .widget-content-area .timeline-alter .item-timeline .t-dot {\r\n    position: relative;\r\n    border-color: #009688;\r\n    padding: 10px;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-dot:before {\r\n    content: '';\r\n    position: absolute;\r\n    border-color: inherit;\r\n    border-width: 2px;\r\n    border-style: solid;\r\n    border-radius: 50%;\r\n    width: 10px;\r\n    height: 10px;\r\n    top: 15px;\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline:not(:last-child) .t-dot:after {\r\n    content: '';\r\n    position: absolute;\r\n    border-color: inherit;\r\n    border-width: 2px;\r\n    border-style: solid;\r\n    border-radius: 50%;\r\n    width: 10px;\r\n    height: 10px;\r\n    top: 15px;\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n    width: 0;\r\n    height: auto;\r\n    top: 25px;\r\n    bottom: -15px;\r\n    border-right-width: 0;\r\n    border-top-width: 0;\r\n    border-bottom-width: 0;\r\n    border-radius: 0;\r\n    border-color: #1b2e4b;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-dot img {\r\n    width: 45px;\r\n    height: 45px;\r\n    border-radius: 50%;\r\n    z-index: 7;\r\n    position: relative;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-meta-date { padding: 10px; }\r\n.education .widget-content-area .timeline-alter .item-timeline .t-meta-date p {\r\n    margin: 0;\r\n    min-width: 100px;\r\n    max-width: 100px;\r\n    font-size: 12px;\r\n    font-weight: 700;\r\n    color: #888ea8;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-text {\r\n    padding: 10px;\r\n    align-self: center;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-text p {\r\n    font-size: 13px;\r\n    margin: 0;\r\n    color: #bfc9d4;\r\n    font-weight: 600;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-text p a {\r\n    color: #2196f3;\r\n    font-weight: 600;\r\n}\r\n@media (max-width: 575px) {\r\n    .education .widget-content-area .timeline-alter .item-timeline {\r\n        display: block; \r\n        text-align: center;\r\n    }\r\n    .education .widget-content-area .timeline-alter .item-timeline .t-meta-date p { margin: 0 auto; }\r\n    .education .widget-content-area .timeline-alter .item-timeline .t-usr-txt p { margin: 0 auto; }\r\n}\r\n\r\n\r\n/* \r\n=======================\r\n    Work Experience\r\n=======================\r\n*/\r\n.work-experience .widget-content-area { border-radius: 6px; }\r\n.work-experience .widget-content-area h3 {\r\n    position: relative;\r\n    font-size: 21px;\r\n    color: #bfc9d4;\r\n    margin: 6px 0px 40px 0;\r\n}\r\n.work-experience .widget-content-area h3:after {\r\n    position: absolute;\r\n    content: \"\";\r\n    height: 2px;\r\n    width: 173px;\r\n    background: #009688;\r\n    border-radius: 50%;\r\n    bottom: -2px;\r\n    left: 15px;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline { display: flex; }\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-dot {\r\n    position: relative;\r\n    border-color: #009688;\r\n    padding: 10px;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-dot:before {\r\n    content: '';\r\n    position: absolute;\r\n    border-color: inherit;\r\n    border-width: 2px;\r\n    border-style: solid;\r\n    border-radius: 50%;\r\n    width: 10px;\r\n    height: 10px;\r\n    top: 15px;\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline:not(:last-child) .t-dot:after {\r\n    content: '';\r\n    position: absolute;\r\n    border-color: inherit;\r\n    border-width: 2px;\r\n    border-style: solid;\r\n    border-radius: 50%;\r\n    width: 10px;\r\n    height: 10px;\r\n    top: 15px;\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n    width: 0;\r\n    height: auto;\r\n    top: 25px;\r\n    bottom: -15px;\r\n    border-right-width: 0;\r\n    border-top-width: 0;\r\n    border-bottom-width: 0;\r\n    border-radius: 0;\r\n    border-color: #1b2e4b;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-dot img {\r\n    width: 45px;\r\n    height: 45px;\r\n    border-radius: 50%;\r\n    z-index: 7;\r\n    position: relative;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-meta-date { padding: 10px; }\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-meta-date p {\r\n    margin: 0;\r\n    min-width: 100px;\r\n    max-width: 100px;\r\n    font-size: 12px;\r\n    font-weight: 700;\r\n    color: #888ea8;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-text {\r\n    padding: 10px;\r\n    align-self: center;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-text p {\r\n    font-size: 13px;\r\n    margin: 0;\r\n    color: #bfc9d4;\r\n    font-weight: 600;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-text p a {\r\n    color: #2196f3;\r\n    font-weight: 600;\r\n}\r\n@media (max-width: 575px) {\r\n    .work-experience .widget-content-area .timeline-alter .item-timeline {\r\n        display: block; \r\n        text-align: center;\r\n    }\r\n    .work-experience .widget-content-area .timeline-alter .item-timeline .t-meta-date p { margin: 0 auto; }\r\n    .work-experience .widget-content-area .timeline-alter .item-timeline .t-usr-txt p { margin: 0 auto; }\r\n}", ""]);
+exports.push([module.i, ".widget-content-area {\r\n    box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);\r\n}\r\n.layout-spacing {\r\n    padding-bottom: 25px;\r\n}\r\n/* \r\n===================\r\n    User Profile\r\n===================\r\n*/\r\n.user-profile .widget-content-area { border-radius: 6px; }\r\n.user-profile .widget-content-area .edit-profile {\r\n    height: 35px;\r\n    width: 35px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-self: center;\r\n    background-color: #1b55e2;\r\n    background: linear-gradient(to right, #3cba92 0%, #0ba360 100%);\r\n    border-radius: 50%;\r\n    box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);\r\n}\r\n.user-profile .widget-content-area .edit-profile svg {\r\n    font-size: 17px;\r\n    vertical-align: middle;\r\n    margin-right: 0;\r\n    color: #060818;\r\n    width: 19px;\r\n    align-self: center;\r\n}\r\n.user-profile .widget-content-area h3 {\r\n    position: relative;\r\n    font-size: 21px;\r\n    color: #bfc9d4;\r\n    margin: 6px 0px 0 0;\r\n}\r\n.user-profile .widget-content-area h3:after {\r\n    position: absolute;\r\n    content: \"\";\r\n    height: 2px;\r\n    width: 55px;\r\n    background: #009688;\r\n    border-radius: 50%;\r\n    bottom: 9px;\r\n    left: 15px;\r\n}\r\n.user-profile .widget-content-area .user-info { margin-top: 40px; }\r\n.user-profile .widget-content-area .user-info img {\r\n    border-radius: 9px;\r\n    box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);\r\n}\r\n.user-profile .widget-content-area .user-info p {\r\n    font-size: 20px;\r\n    font-weight: 600;\r\n    margin-top: 22px;\r\n    color: #009688;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block {\r\n    border: none;\r\n    max-width: 370px;\r\n    margin: 36px auto;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block li {\r\n    margin-bottom: 13px;\r\n    font-weight: 600;\r\n    font-size: 13px;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block li a {\r\n    font-weight: 600;\r\n    font-size: 15px;\r\n    color: #009688;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block svg {\r\n    width: 21px;\r\n    margin-right: 15px;\r\n    color: #888ea8;\r\n    vertical-align: middle;\r\n    fill: rgba(0, 23, 55, 0.08);\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block li:hover svg {\r\n    color: #009688;\r\n    fill: rgba(27, 85, 226, 0.23921568627450981);\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block ul.list-inline  {\r\n    margin: 27px auto;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block ul.list-inline div.social-icon {\r\n    border: 2px solid #3b3f5c;\r\n    border-radius: 50%;\r\n    height: 35px;\r\n    width: 35px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-self: center;\r\n}\r\n.user-profile .widget-content-area .user-info-list ul.contacts-block ul.list-inline svg {\r\n    margin-right: 0;\r\n    color: #bfc9d4;\r\n    width: 19px;\r\n    align-self: center;\r\n}\r\n\r\n\r\n/* \r\n==============\r\n    Skills\r\n==============\r\n*/\r\n.skills .widget-content-area { border-radius: 6px; }\r\n.skills .widget-content-area h3 {\r\n    position: relative;\r\n    font-size: 21px;\r\n    color: #bfc9d4;\r\n    margin: 6px 0px 40px 0;\r\n}\r\n.skills .widget-content-area h3:after {\r\n    position: absolute;\r\n    content: \"\";\r\n    height: 2px;\r\n    width: 47px;\r\n    background: #009688;\r\n    border-radius: 50%;\r\n    bottom: -2px;\r\n    left: 15px;\r\n}\r\n.skills .widget-content-area p.skill-item {\r\n    margin-bottom: 5px;\r\n    font-size: 15px;\r\n    color: #515365;\r\n    font-weight: 600;\r\n}\r\n.skills .widget-content-area .progress {\r\n    height: 20px;\r\n    margin-bottom: 31px;\r\n}\r\n.skills .widget-content-area .progress .progress-bar {\r\n    background-color: #1b55e2;\r\n    background: linear-gradient(to right, #2b5876 0%, #4e4376 100%);\r\n    border-radius: 1rem;\r\n    font-size: 12px;\r\n    letter-spacing: 1px;\r\n    font-weight: 100;\r\n}\r\n.skills .widget-content-area .progress .progress-title {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    padding: 15px;\r\n}\r\n.skills .widget-content-area .progress .progress-title span { align-self: center; }\r\n\r\n/* \r\n==============\r\n    Bio\r\n==============\r\n*/\r\n.bio .widget-content-area {\r\n    border-radius: 6px;\r\n    padding-bottom: 0;\r\n}\r\n.bio .widget-content-area h3 {\r\n    position: relative;\r\n    font-size: 21px;\r\n    color: #bfc9d4;\r\n    margin: 6px 0px 40px 0;\r\n}\r\n.bio .widget-content-area h3:after {\r\n    position: absolute;\r\n    content: \"\";\r\n    height: 2px;\r\n    width: 30px;\r\n    background: #009688;\r\n    border-radius: 50%;\r\n    bottom: -2px;\r\n    left: 15px;\r\n}\r\n.bio .widget-content-area h5 {\r\n    font-size: 16px;\r\n    font-weight: 700;\r\n    color: #888ea8;\r\n}\r\n.bio .widget-content-area p {\r\n    color: #bfc9d4;\r\n    font-size: 15px;\r\n}\r\n.bio .widget-content-area .bio-skill-box {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n.bio .widget-content-area .b-skills {\r\n    padding: 22px 16px;\r\n    box-shadow: 2px 5px 17px 0 rgba(31,45,61,.1);\r\n    background: #191e3a;\r\n    border-radius: 10px;\r\n    padding: 30px 30px 24px;\r\n}\r\n.bio .widget-content-area .b-skills svg {\r\n    width: 30px;\r\n    height: 30px;\r\n    margin-right: 21px;\r\n    color: #1b55e2;\r\n}\r\n.bio .widget-content-area .b-skills h5 {\r\n    margin-bottom: 10px;\r\n    font-size: 16px;\r\n}\r\n.bio .widget-content-area .b-skills p { font-size: 13px; }\r\n\r\n/* \r\n================\r\n    Education\r\n================\r\n*/\r\n.education .widget-content-area { border-radius: 6px; }\r\n.education .widget-content-area h3 {\r\n    position: relative;\r\n    font-size: 21px;\r\n    color: #bfc9d4;\r\n    margin: 6px 0px 40px 0;\r\n}\r\n.education .widget-content-area h3:after {\r\n    position: absolute;\r\n    content: \"\";\r\n    height: 2px;\r\n    width: 97px;\r\n    background: #009688;\r\n    border-radius: 50%;\r\n    bottom: -2px;\r\n    left: 15px;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline { display: flex; }\r\n.education .widget-content-area .timeline-alter .item-timeline .t-dot {\r\n    position: relative;\r\n    border-color: #009688;\r\n    padding: 10px;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-dot:before {\r\n    content: '';\r\n    position: absolute;\r\n    border-color: inherit;\r\n    border-width: 2px;\r\n    border-style: solid;\r\n    border-radius: 50%;\r\n    width: 10px;\r\n    height: 10px;\r\n    top: 15px;\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline:not(:last-child) .t-dot:after {\r\n    content: '';\r\n    position: absolute;\r\n    border-color: inherit;\r\n    border-width: 2px;\r\n    border-style: solid;\r\n    border-radius: 50%;\r\n    width: 10px;\r\n    height: 10px;\r\n    top: 15px;\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n    width: 0;\r\n    height: auto;\r\n    top: 25px;\r\n    bottom: -15px;\r\n    border-right-width: 0;\r\n    border-top-width: 0;\r\n    border-bottom-width: 0;\r\n    border-radius: 0;\r\n    border-color: #1b2e4b;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-dot img {\r\n    width: 45px;\r\n    height: 45px;\r\n    border-radius: 50%;\r\n    z-index: 7;\r\n    position: relative;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-meta-date { padding: 10px; }\r\n.education .widget-content-area .timeline-alter .item-timeline .t-meta-date p {\r\n    margin: 0;\r\n    min-width: 100px;\r\n    max-width: 100px;\r\n    font-size: 12px;\r\n    font-weight: 700;\r\n    color: #888ea8;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-text {\r\n    padding: 10px;\r\n    align-self: center;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-text p {\r\n    font-size: 13px;\r\n    margin: 0;\r\n    color: #bfc9d4;\r\n    font-weight: 600;\r\n}\r\n.education .widget-content-area .timeline-alter .item-timeline .t-text p a {\r\n    color: #2196f3;\r\n    font-weight: 600;\r\n}\r\n@media (max-width: 575px) {\r\n    .education .widget-content-area .timeline-alter .item-timeline {\r\n        display: block; \r\n        text-align: center;\r\n    }\r\n    .education .widget-content-area .timeline-alter .item-timeline .t-meta-date p { margin: 0 auto; }\r\n    .education .widget-content-area .timeline-alter .item-timeline .t-usr-txt p { margin: 0 auto; }\r\n}\r\n\r\n\r\n/* \r\n=======================\r\n    Work Experience\r\n=======================\r\n*/\r\n.work-experience .widget-content-area { border-radius: 6px; }\r\n.work-experience .widget-content-area h3 {\r\n    position: relative;\r\n    font-size: 21px;\r\n    color: #bfc9d4;\r\n    margin: 6px 0px 40px 0;\r\n}\r\n.work-experience .widget-content-area h3:after {\r\n    position: absolute;\r\n    content: \"\";\r\n    height: 2px;\r\n    width: 173px;\r\n    background: #009688;\r\n    border-radius: 50%;\r\n    bottom: -2px;\r\n    left: 15px;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline { display: flex; }\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-dot {\r\n    position: relative;\r\n    border-color: #009688;\r\n    padding: 10px;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-dot:before {\r\n    content: '';\r\n    position: absolute;\r\n    border-color: inherit;\r\n    border-width: 2px;\r\n    border-style: solid;\r\n    border-radius: 50%;\r\n    width: 10px;\r\n    height: 10px;\r\n    top: 15px;\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline:not(:last-child) .t-dot:after {\r\n    content: '';\r\n    position: absolute;\r\n    border-color: inherit;\r\n    border-width: 2px;\r\n    border-style: solid;\r\n    border-radius: 50%;\r\n    width: 10px;\r\n    height: 10px;\r\n    top: 15px;\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n    width: 0;\r\n    height: auto;\r\n    top: 25px;\r\n    bottom: -15px;\r\n    border-right-width: 0;\r\n    border-top-width: 0;\r\n    border-bottom-width: 0;\r\n    border-radius: 0;\r\n    border-color: #1b2e4b;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-dot img {\r\n    width: 45px;\r\n    height: 45px;\r\n    border-radius: 50%;\r\n    z-index: 7;\r\n    position: relative;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-meta-date { padding: 10px; }\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-meta-date p {\r\n    margin: 0;\r\n    min-width: 100px;\r\n    max-width: 100px;\r\n    font-size: 12px;\r\n    font-weight: 700;\r\n    color: #888ea8;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-text {\r\n    padding: 10px;\r\n    align-self: center;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-text p {\r\n    font-size: 13px;\r\n    margin: 0;\r\n    color: #bfc9d4;\r\n    font-weight: 600;\r\n}\r\n.work-experience .widget-content-area .timeline-alter .item-timeline .t-text p a {\r\n    color: #2196f3;\r\n    font-weight: 600;\r\n}\r\n@media (max-width: 575px) {\r\n    .work-experience .widget-content-area .timeline-alter .item-timeline {\r\n        display: block; \r\n        text-align: center;\r\n    }\r\n    .work-experience .widget-content-area .timeline-alter .item-timeline .t-meta-date p { margin: 0 auto; }\r\n    .work-experience .widget-content-area .timeline-alter .item-timeline .t-usr-txt p { margin: 0 auto; }\r\n}", ""]);
 
 // exports
 
@@ -65553,10 +65428,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c& ***!
+  \**********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -65568,1328 +65443,254 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "layout-px-spacing" }, [
-    _c("div", { staticClass: "row layout-top-spacing" }, [
+  return _c(
+    "div",
+    { staticClass: "layout-px-spacing" },
+    [
+      _c("div", { staticClass: "row layout-top-spacing" }, [
+        _c(
+          "div",
+          { staticClass: "col-xl-12 col-lg-12 col-sm-12  layout-spacing" },
+          [
+            _c(
+              "div",
+              { staticClass: "widget-content widget-content-area br-6" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "table-responsive mb-4 mt-4" },
+                  [
+                    _c("b-table", {
+                      attrs: {
+                        hover: "",
+                        "foot-clone": "",
+                        bordered: "",
+                        "table-variant": "dark",
+                        items: _vm.users,
+                        fields: _vm.fields
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "cell(actions)",
+                          fn: function(data) {
+                            return [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-secondary float-left",
+                                  on: {
+                                    click: function($event) {
+                                      _vm.$bvModal.show("modal-user-edit")
+                                      _vm.editedUser.id = data.item.id
+                                      _vm.editedUser.name = data.item.name
+                                      _vm.editedUser.email = data.item.email
+                                      _vm.editedUser.company_id =
+                                        data.item.company_id
+                                      _vm.editedUser.position_id =
+                                        data.item.position_id
+                                      _vm.editedUser.created_at =
+                                        data.item.created_at
+                                      _vm.editedUser.updated_at =
+                                        data.item.updated_at
+                                    }
+                                  }
+                                },
+                                [_vm._v("Edit\n              ")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-danger float-right",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.deleteUser({
+                                        id: data.item.id
+                                      })
+                                    }
+                                  }
+                                },
+                                [_vm._v("X")]
+                              )
+                            ]
+                          }
+                        }
+                      ])
+                    })
+                  ],
+                  1
+                )
+              ]
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
       _c(
-        "div",
-        { staticClass: "col-xl-12 col-lg-12 col-sm-12  layout-spacing" },
+        "b-modal",
+        {
+          attrs: {
+            id: "modal-user-edit",
+            title: "Edit user with id" + _vm.editedUser.id
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "modal-footer",
+              fn: function(ref) {
+                var close = ref.close
+                return [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit" },
+                      on: {
+                        click: function($event) {
+                          _vm.updateEditedUser(_vm.editedUser)
+                          close()
+                        }
+                      }
+                    },
+                    [_vm._v("\n        Update\n      ")]
+                  )
+                ]
+              }
+            }
+          ])
+        },
         [
           _c(
             "div",
-            { staticClass: "widget-content widget-content-area br-6" },
             [
-              _c("div", { staticClass: "table-responsive mb-4 mt-4" }, [
-                _c(
-                  "table",
-                  {
-                    staticClass: "table table-hover",
-                    staticStyle: { width: "100%" },
-                    attrs: { id: "zero-config" }
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "updateName" } }, [_vm._v("Name")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.editedUser.name,
+                      expression: "editedUser.name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "updateName",
+                    placeholder: "Enter name"
                   },
-                  [
-                    _vm._m(0),
-                    _vm._v(" "),
-                    _c("tbody", [
-                      _c("tr", [
-                        _c("td", [_vm._v("Tiger Nixon")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("System Architect")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Edinburgh")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("61")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2011/04/25")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$320,800")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Garrett Winters")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Accountant")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Tokyo")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("63")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2011/07/25")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$170,750")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Ashton Cox")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Junior Technical Author")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("San Francisco")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("66")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2009/01/12")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$86,000")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Cedric Kelly")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Senior Javascript Developer")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Edinburgh")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("22")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2012/03/29")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$433,060")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Airi Satou")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Accountant")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Tokyo")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("33")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2008/11/28")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$162,700")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Brielle Williamson")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Integration Specialist")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("New York")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("61")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2012/12/02")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$372,000")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Herrod Chandler")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Sales Assistant")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("San Francisco")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("59")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2012/08/06")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$137,500")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Rhona Davidson")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Integration Specialist")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Tokyo")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("55")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2010/10/14")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$327,900")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Colleen Hurst")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Javascript Developer")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("San Francisco")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("39")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2009/09/15")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$205,500")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Sonya Frost")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Software Engineer")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Edinburgh")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("23")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2008/12/13")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$103,600")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Jena Gaines")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Office Manager")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("London")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("30")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2008/12/19")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$90,560")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Quinn Flynn")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Support Lead")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Edinburgh")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("22")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2013/03/03")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$342,000")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Charde Marshall")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Regional Director")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("San Francisco")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("36")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2008/10/16")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$470,600")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Haley Kennedy")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Senior Marketing Designer")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("London")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("43")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2012/12/18")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$313,500")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Tatyana Fitzpatrick")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Regional Director")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("London")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("19")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2010/03/17")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$385,750")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Michael Silva")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Marketing Designer")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("London")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("66")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2012/11/27")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$198,500")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Paul Byrd")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Chief Financial Officer (CFO)")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("New York")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("64")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2010/06/09")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$725,000")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Gloria Little")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Systems Administrator")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("New York")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("59")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2009/04/10")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$237,500")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Bradley Greer")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Software Engineer")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("London")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("41")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2012/10/13")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$132,000")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Dai Rios")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Personnel Lead")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Edinburgh")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("35")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2012/09/26")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$217,500")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Jenette Caldwell")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Development Lead")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("New York")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("30")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2011/09/03")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$345,000")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Yuri Berry")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Chief Marketing Officer (CMO)")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("New York")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("40")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2009/06/25")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$675,000")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Caesar Vance")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Pre-Sales Support")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("New York")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("21")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2011/12/12")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$106,450")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Doris Wilder")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Sales Assistant")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Sidney")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("23")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2010/09/20")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$85,600")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Angelica Ramos")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Chief Executive Officer (CEO)")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("London")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("47")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2009/10/09")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$1,200,000")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Gavin Joyce")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Developer")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Edinburgh")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("42")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2010/12/22")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$92,575")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("Jennifer Chang")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Regional Director")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Singapore")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("28")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2010/11/14")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$357,650")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "feather feather-x-circle table-cancel",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "10" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "15", y1: "9", x2: "9", y2: "15" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "9", y1: "9", x2: "15", y2: "15" }
-                              })
-                            ]
-                          )
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(1)
-                  ]
-                )
+                  domProps: { value: _vm.editedUser.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.editedUser, "name", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.errors.name
+                  ? _c("div", [
+                      _c("strong", [_vm._v(_vm._s(_vm.errors.name[0]))])
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", [_vm._v("Email address")]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: { type: "email", disabled: "" },
+                  domProps: { value: _vm.editedUser.email }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-wrapper" }, [
+                _c("div", { staticClass: "d-flex justify-content-between" }, [
+                  _c("label", { attrs: { for: "company" } }, [
+                    _vm._v("COMPANY")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("vue-select", {
+                staticClass: "form-control basic",
+                attrs: {
+                  id: "company",
+                  options: _vm.companies,
+                  reduce: function(company) {
+                    return company.id
+                  },
+                  label: "name"
+                },
+                model: {
+                  value: _vm.editedUser.company_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.editedUser, "company_id", $$v)
+                  },
+                  expression: "editedUser.company_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-wrapper" }, [
+                _c("div", { staticClass: "d-flex justify-content-between" }, [
+                  _c("label", { attrs: { for: "position" } }, [
+                    _vm._v("POSITION")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("vue-select", {
+                staticClass: "form-control basic",
+                attrs: {
+                  id: "position",
+                  options: _vm.positions,
+                  reduce: function(position) {
+                    return position.id
+                  },
+                  label: "name"
+                },
+                model: {
+                  value: _vm.editedUser.position_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.editedUser, "position_id", $$v)
+                  },
+                  expression: "editedUser.position_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", [_vm._v("Updated At")]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: { type: "text", disabled: "" },
+                  domProps: { value: _vm.editedUser.updated_at }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", [_vm._v("Created At")]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: { type: "text", disabled: "" },
+                  domProps: { value: _vm.editedUser.created_at }
+                })
               ])
-            ]
+            ],
+            1
           )
         ]
       )
-    ])
-  ])
+    ],
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Name")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Position")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Office")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Age")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Start date")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Salary")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "no-content" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tfoot", [
-      _c("tr", [
-        _c("th", [_vm._v("Name")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Position")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Office")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Age")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Start date")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Salary")]),
-        _vm._v(" "),
-        _c("th")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -67165,14 +65966,53 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
                         _c("span", [
                           _vm._v("Company: "),
                           _c("strong", [_vm._v(_vm._s(_vm.user.company))])
-                        ]),
-                        _vm._v(" "),
-                        _c("br"),
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "contacts-block__item" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-coffee",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: { d: "M18 8h1a4 4 0 0 1 0 8h-1" }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d: "M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("line", {
+                              attrs: { x1: "6", y1: "1", x2: "6", y2: "4" }
+                            }),
+                            _vm._v(" "),
+                            _c("line", {
+                              attrs: { x1: "10", y1: "1", x2: "10", y2: "4" }
+                            }),
+                            _vm._v(" "),
+                            _c("line", {
+                              attrs: { x1: "14", y1: "1", x2: "14", y2: "4" }
+                            })
+                          ]
+                        ),
                         _vm._v(" "),
                         _c("span", [
                           _vm._v("Position: "),
@@ -67223,14 +66063,54 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
                         _c("span", [
                           _vm._v("Created at: "),
                           _c("strong", [_vm._v(_vm._s(_vm.user.created_at))])
-                        ]),
-                        _vm._v(" "),
-                        _c("br"),
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "contacts-block__item" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-calendar",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("rect", {
+                              attrs: {
+                                x: "3",
+                                y: "4",
+                                width: "18",
+                                height: "18",
+                                rx: "2",
+                                ry: "2"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("line", {
+                              attrs: { x1: "16", y1: "2", x2: "16", y2: "6" }
+                            }),
+                            _vm._v(" "),
+                            _c("line", {
+                              attrs: { x1: "8", y1: "2", x2: "8", y2: "6" }
+                            }),
+                            _vm._v(" "),
+                            _c("line", {
+                              attrs: { x1: "3", y1: "10", x2: "21", y2: "10" }
+                            })
+                          ]
+                        ),
                         _vm._v(" "),
                         _c("span", [
                           _vm._v("Updated at: "),
@@ -81457,7 +80337,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _List_vue_vue_type_template_id_5200890c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./List.vue?vue&type=template&id=5200890c&scoped=true& */ "./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c&scoped=true&");
+/* harmony import */ var _List_vue_vue_type_template_id_5200890c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./List.vue?vue&type=template&id=5200890c& */ "./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c&");
 /* harmony import */ var _List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./List.vue?vue&type=script&lang=js& */ "./resources/js/components/Dashboard/User/List.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -81469,11 +80349,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _List_vue_vue_type_template_id_5200890c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _List_vue_vue_type_template_id_5200890c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _List_vue_vue_type_template_id_5200890c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _List_vue_vue_type_template_id_5200890c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "5200890c",
+  null,
   null
   
 )
@@ -81499,19 +80379,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c&scoped=true&":
-/*!****************************************************************************************************!*\
-  !*** ./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c&scoped=true& ***!
-  \****************************************************************************************************/
+/***/ "./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c& ***!
+  \****************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_5200890c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./List.vue?vue&type=template&id=5200890c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_5200890c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_5200890c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./List.vue?vue&type=template&id=5200890c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard/User/List.vue?vue&type=template&id=5200890c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_5200890c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_5200890c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_5200890c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -81624,7 +80504,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     errors: {},
     loading: false,
     url: 'http://test/api/',
-    page: ['user', 'profile'],
+    page: ['user', 'list'],
     sideBar: false
   },
   actions: {
@@ -81636,9 +80516,38 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
       var commit = _ref2.commit;
       commit('SET_SIDEBAR', sideBar);
     },
-    setNewUser: function setNewUser(_ref3, data) {
-      var commit = _ref3.commit,
-          state = _ref3.state;
+    editUser: function editUser(_ref3, args) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var commit, state, config;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                commit = _ref3.commit, state = _ref3.state;
+                config = {
+                  headers: {
+                    Authorization: "Bearer ".concat(args.token)
+                  }
+                };
+                _context.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.patch(state.url + "user/edit/" + args.data.id, args.data, config);
+
+              case 4:
+                axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(state.url + "users/list", config).then(function (r) {
+                  return commit('GET_USERS', r.data);
+                });
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    setNewUser: function setNewUser(_ref4, data) {
+      var commit = _ref4.commit,
+          state = _ref4.state;
       var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
       commit('SET_LOADING', true);
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "register?" + "&name=" + data[0] + "&email=" + data[1] + "&password=" + data[2] + "&password_confirmation=" + data[3] + "&company_id=" + data[4] + "&position_id=" + data[5]).then(function (r) {
@@ -81650,9 +80559,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         commit('SET_LOADING', false);
       });
     },
-    setCredential: function setCredential(_ref4, data) {
-      var commit = _ref4.commit,
-          state = _ref4.state;
+    setCredential: function setCredential(_ref5, data) {
+      var commit = _ref5.commit,
+          state = _ref5.state;
       var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
       commit('SET_LOADING', true);
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "login?email=" + data[0] + "&password=" + data[1]).then(function (r) {
@@ -81660,13 +80569,13 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         commit('SET_LOADING', false);
       });
     },
-    removeCredential: function removeCredential(_ref5) {
-      var commit = _ref5.commit;
+    removeCredential: function removeCredential(_ref6) {
+      var commit = _ref6.commit;
       commit('DELETE_CREDENTIAL');
     },
-    getUser: function getUser(_ref6, token) {
-      var commit = _ref6.commit,
-          state = _ref6.state;
+    getUser: function getUser(_ref7, token) {
+      var commit = _ref7.commit,
+          state = _ref7.state;
       var config = {
         headers: {
           Authorization: "Bearer ".concat(token)
@@ -81676,20 +80585,20 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         return commit('SET_USER', r.data);
       });
     },
-    updateUser: function updateUser(_ref7, args) {
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+    updateUser: function updateUser(_ref8, args) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var commit, state, config;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                commit = _ref7.commit, state = _ref7.state;
+                commit = _ref8.commit, state = _ref8.state;
                 config = {
                   headers: {
                     Authorization: "Bearer ".concat(args.token)
                   }
                 };
-                _context.next = 4;
+                _context2.next = 4;
                 return axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "profile/update", args.data, config)["catch"](function (r) {
                   commit('SET_ERRORS', r.response.data.errors);
                 });
@@ -81701,15 +80610,15 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
 
               case 5:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee);
+        }, _callee2);
       }))();
     },
-    getUserMedia: function getUserMedia(_ref8, token) {
-      var commit = _ref8.commit,
-          state = _ref8.state;
+    getUserMedia: function getUserMedia(_ref9, token) {
+      var commit = _ref9.commit,
+          state = _ref9.state;
       var config = {
         headers: {
           Authorization: "Bearer ".concat(token)
@@ -81719,9 +80628,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         return commit('GET_MEDIA', r.data);
       });
     },
-    insertMedia: function insertMedia(_ref9, args) {
-      var commit = _ref9.commit,
-          state = _ref9.state;
+    insertMedia: function insertMedia(_ref10, args) {
+      var commit = _ref10.commit,
+          state = _ref10.state;
       var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
       commit('SET_LOADING', true);
       var config = {
@@ -81738,9 +80647,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         commit('SET_LOADING', false);
       });
     },
-    getUsers: function getUsers(_ref10, token) {
-      var commit = _ref10.commit,
-          state = _ref10.state;
+    getUsers: function getUsers(_ref11, token) {
+      var commit = _ref11.commit,
+          state = _ref11.state;
       var config = {
         headers: {
           Authorization: "Bearer ".concat(token)
@@ -81750,36 +80659,36 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         return commit('GET_USERS', r.data);
       });
     },
-    getProducts: function getProducts(_ref11) {
-      var commit = _ref11.commit,
-          state = _ref11.state;
+    getProducts: function getProducts(_ref12) {
+      var commit = _ref12.commit,
+          state = _ref12.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
         return commit('GET_PRODUCTS', r.data);
       });
     },
-    getCompanies: function getCompanies(_ref12) {
-      var commit = _ref12.commit,
-          state = _ref12.state;
+    getCompanies: function getCompanies(_ref13) {
+      var commit = _ref13.commit,
+          state = _ref13.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "companies").then(function (r) {
         return commit('GET_COMPANIES', r.data);
       });
     },
-    getPositions: function getPositions(_ref13) {
-      var commit = _ref13.commit,
-          state = _ref13.state;
+    getPositions: function getPositions(_ref14) {
+      var commit = _ref14.commit,
+          state = _ref14.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "positions").then(function (r) {
         return commit('GET_POSITIONS', r.data);
       });
     },
-    setNewProduct: function setNewProduct(_ref14, args) {
+    setNewProduct: function setNewProduct(_ref15, args) {
       var _arguments = arguments;
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         var commit, state, loading, config;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
-                commit = _ref14.commit, state = _ref14.state;
+                commit = _ref15.commit, state = _ref15.state;
                 loading = _arguments.length > 2 && _arguments[2] !== undefined ? _arguments[2] : true;
                 commit('SET_LOADING', true);
                 config = {
@@ -81787,7 +80696,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
                     Authorization: "Bearer ".concat(args.token)
                   }
                 };
-                _context2.next = 6;
+                _context3.next = 6;
                 return axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products/create", args.product, config);
 
               case 6:
@@ -81798,42 +80707,13 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
 
               case 7:
               case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }))();
-    },
-    deleteProduct: function deleteProduct(_ref15, args) {
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
-        var commit, state, config;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                commit = _ref15.commit, state = _ref15.state;
-                config = {
-                  headers: {
-                    Authorization: "Bearer ".concat(args.token)
-                  }
-                };
-                _context3.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "products/delete/" + args.id, '', config);
-
-              case 4:
-                axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
-                  return commit('GET_PRODUCTS', r.data);
-                });
-
-              case 5:
-              case "end":
                 return _context3.stop();
             }
           }
         }, _callee3);
       }))();
     },
-    editProduct: function editProduct(_ref16, args) {
+    deleteProduct: function deleteProduct(_ref16, args) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
         var commit, state, config;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
@@ -81847,7 +80727,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
                   }
                 };
                 _context4.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "products/update", args.data, config);
+                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "products/delete/" + args.id, '', config);
 
               case 4:
                 axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
@@ -81860,6 +80740,35 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
             }
           }
         }, _callee4);
+      }))();
+    },
+    editProduct: function editProduct(_ref17, args) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var commit, state, config;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                commit = _ref17.commit, state = _ref17.state;
+                config = {
+                  headers: {
+                    Authorization: "Bearer ".concat(args.token)
+                  }
+                };
+                _context5.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.put(state.url + "products/update", args.data, config);
+
+              case 4:
+                axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
+                  return commit('GET_PRODUCTS', r.data);
+                });
+
+              case 5:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
       }))();
     }
   },
