@@ -8,9 +8,9 @@
 
     <div id="content" class="main-content" @click="setSideBar(false)">
 
-      <ProductList v-show="page === 'product/list'"></ProductList>
-      <UserList v-show="page === 'user/list'"></UserList>
-      <UserProfile v-show="page === 'user/profile'"></UserProfile>
+      <ProductList v-show="page[0] === 'product' && page[1] === 'list'"></ProductList>
+      <UserList v-show="page[0] === 'user' && page[1] === 'list'"></UserList>
+      <UserProfile v-show="page[0] === 'user' && page[1] === 'profile'"></UserProfile>
 
 
       <div class="footer-wrapper">

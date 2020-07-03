@@ -20,7 +20,7 @@ export default new Vuex.Store({
     loading: false,
     url: 'http://test/api/',
 
-    page: 'user/profile',
+    page: ['user','profile'],
     sideBar: false
   },
   actions: {

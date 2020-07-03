@@ -4,7 +4,8 @@
       <div class="shadow-bottom"></div>
       <ul class="list-unstyled menu-categories" id="accordionExample">
         <li class="menu">
-          <a href="#" @click="setPage('product/list')" :data-active="page === 'product/list'" class="dropdown-toggle">
+          <a href="#" @click="setPage(['product', 'list'])"
+             :data-active="page[0] === 'product' && page[1] === 'list'" class="dropdown-toggle">
             <div class="">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -20,7 +21,7 @@
         </li>
 
         <li class="menu">
-          <a href="#components" data-toggle="collapse" :data-active="page.includes('user')" class="dropdown-toggle">
+          <a href="#components" data-toggle="collapse" :data-active="page[0] === 'user'" class="dropdown-toggle">
             <div class="">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
               <span>Users</span>
@@ -34,11 +35,11 @@
             </div>
           </a>
           <ul class="collapse submenu list-unstyled" id="components" data-parent="#accordionExample">
-            <li :class="page === 'user/list' ? 'active' : ''">
-              <a href="#" @click="setPage('user/list')"> List </a>
+            <li :class="page[0] === 'user' && page[1] === 'list' ? 'active' : ''">
+              <a href="#" @click="setPage(['user', 'list'])"> List </a>
             </li>
-            <li :class="page === 'user/profile' ? 'active' : ''">
-              <a href="#" @click="setPage('user/profile')"> Profile </a>
+            <li :class="page[0] === 'user' && page[1] === 'profile' ? 'active' : ''">
+              <a href="#" @click="setPage(['user', 'profile'])"> Profile </a>
             </li>
           </ul>
         </li>

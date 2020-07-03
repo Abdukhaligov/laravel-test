@@ -188,7 +188,7 @@
             <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
               <div class="">
                 <div class="dropdown-item">
-                  <a href="#" @click="setPage('user/profile')">
+                  <a href="#" @click="setPage(['user','profile'])">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-user">
@@ -220,14 +220,26 @@
     <!--  BEGIN NAVBAR  -->
     <div class="sub-header-container">
       <header class="header navbar navbar-expand-sm">
-        <a href="javascript:void(0);" @click="sideBar ? setSideBar(false) : setSideBar(true)" class="sidebarCollapse" data-placement="bottom"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></a>
+        <a href="javascript:void(0);" @click="sideBar ? setSideBar(false) : setSideBar(true)" class="sidebarCollapse"
+           data-placement="bottom">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="feather feather-menu">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </a>
 
         <ul class="navbar-nav flex-row sidebarCollapse">
           <li>
             <div class="page-header">
               <nav class="breadcrumb-one" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="javascript:void(0);">{{ this.$store.state.page }}</a></li>
+                  <li class="breadcrumb-item"><a>{{ capitalize(page[0]) }}</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    <span>{{ capitalize(page[1]) }}</span>
+                  </li>
                 </ol>
               </nav>
             </div>
@@ -267,7 +279,7 @@
 
   export default {
     name: "Navbar",
-    computed: mapState(["sideBar"]),
+    computed: mapState(["sideBar","page"]),
     methods: {
       ...mapActions(["removeCredential", "setPage", "setSideBar"]),
       logout() {
@@ -278,6 +290,10 @@
               this.removeCredential();
             }
           });
+      },
+      capitalize (s)  {
+        if (typeof s !== 'string') return ''
+        return s.charAt(0).toUpperCase() + s.slice(1)
       }
     }
   }
