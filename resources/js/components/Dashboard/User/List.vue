@@ -6,7 +6,7 @@
           <div class="table-responsive mb-4 mt-4">
             <b-table hover foot-clone bordered
                      :table-variant="'dark'"
-                     :items="users" :fields="fields">
+                     :items="users" :fields="user.isAdmin ? fieldsAdmin : fields">
               <template v-slot:cell(actions)="data" class="col-2">
                 <!--                {{ data.item.id }}-->
                 <button class="btn btn-secondary float-left"
@@ -116,11 +116,18 @@
     name: "List",
     data() {
       return {
-        fields: [
+        fields:[
+          'email',
+          'name',
+          'company',
+          'position'
+        ],
+        fieldsAdmin: [
           'email',
           'name',
           'company',
           'position',
+          {key: 'roles_name', label: 'Roles'},
           // A virtual column made up from two fields
           {key: 'actions', label: 'Actions', 'class': 'actions-column',}
         ],
@@ -137,7 +144,7 @@
         },
       }
     },
-    computed: mapState(["users", "roles", "positions", "companies", "errors"]),
+    computed: mapState(["user", "users", "roles", "positions", "companies", "errors"]),
     methods:{
       ...mapActions(["editUser", "deleteUser"]),
       removeUser(args) {

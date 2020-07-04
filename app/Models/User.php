@@ -45,12 +45,16 @@ class User extends Authenticatable implements HasMedia {
     return $this->belongsTo(Position::class);
   }
 
-  public function roles(){
+  public function roles() {
+    return $this->belongsToMany(Role::class,'user_role');
+  }
+
+  public function getRoles(){
     return DB::select("CALL get_user_roles($this->id)");
   }
 
   public function isAdmin() {
-    foreach ($this->roles() as $item){
+    foreach ($this->getRoles() as $item){
       if ($item->name == "Administrator") return true;
     }
     return false;

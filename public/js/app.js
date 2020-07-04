@@ -3243,7 +3243,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   name: "List",
   data: function data() {
     return {
-      fields: ['email', 'name', 'company', 'position', // A virtual column made up from two fields
+      fields: ['email', 'name', 'company', 'position'],
+      fieldsAdmin: ['email', 'name', 'company', 'position', {
+        key: 'roles_name',
+        label: 'Roles'
+      }, // A virtual column made up from two fields
       {
         key: 'actions',
         label: 'Actions',
@@ -3262,7 +3266,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     };
   },
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["users", "roles", "positions", "companies", "errors"]),
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["user", "users", "roles", "positions", "companies", "errors"]),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["editUser", "deleteUser"])), {}, {
     removeUser: function removeUser(args) {
       var _this = this;
@@ -65490,7 +65494,7 @@ var render = function() {
                         bordered: "",
                         "table-variant": "dark",
                         items: _vm.users,
-                        fields: _vm.fields
+                        fields: _vm.user.isAdmin ? _vm.fieldsAdmin : _vm.fields
                       },
                       scopedSlots: _vm._u([
                         {

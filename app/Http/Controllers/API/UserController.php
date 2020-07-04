@@ -59,6 +59,7 @@ class UserController extends Controller {
 
   public function details() {
     $user = Auth::user();
+    if ($user->isAdmin()) $user->isAdmin = true;
     return response()->json($user, 200);
   }
 
