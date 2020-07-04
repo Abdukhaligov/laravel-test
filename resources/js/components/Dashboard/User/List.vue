@@ -18,6 +18,8 @@
                     editedUser.position_id = data.item.position_id;
                     editedUser.created_at = data.item.created_at;
                     editedUser.updated_at = data.item.updated_at;
+                    editedUser.roles_id = data.item.roles_id;
+                    editedUser.roles_name = data.item.roles_name;
                     ">Edit
                 </button>
                 <button class="btn btn-danger float-right" @click="removeUser({id:data.item.id})">X</button>
@@ -68,6 +70,17 @@
                     class="form-control basic"
                     :options="positions"
                     :reduce="position => position.id" label="name"></vue-select>
+        <div class="field-wrapper">
+          <div class="d-flex justify-content-between">
+            <label for="company">Roles</label>
+          </div>
+        </div>
+
+        <vue-select multiple v-model="editedUser.roles_id"
+                    class="form-control basic"
+                    :options="roles"
+                    :reduce="roles => roles.id" label="name"></vue-select>
+
         <div class="form-group">
           <label>Updated At</label>
           <input type="text"
@@ -119,10 +132,12 @@
           position_id: "",
           updated_at: "",
           created_at: "",
+          roles_id: [],
+          roles_name: [],
         },
       }
     },
-    computed: mapState(["users", "positions", "companies", "errors"]),
+    computed: mapState(["users", "roles", "positions", "companies", "errors"]),
     methods:{
       ...mapActions(["editUser", "deleteUser"]),
       removeUser(args) {

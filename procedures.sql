@@ -1,16 +1,5 @@
 DELIMITER $$
 CREATE
-    DEFINER = `root`@`127.0.0.1` PROCEDURE `get_companies`()
-    NO SQL
-BEGIN
-    SELECT `companies`.`id`,
-           `companies`.`name`
-    FROM `companies`;
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE
     DEFINER = `root`@`127.0.0.1` PROCEDURE `delete_product`(IN `parametrId` BIGINT UNSIGNED)
     NO SQL
 BEGIN
@@ -22,25 +11,34 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE
-    DEFINER = `root`@`127.0.0.1` PROCEDURE `get_media`(IN `parameterModel` VARCHAR(255),
-                                                       IN `parameterModelId` BIGINT UNSIGNED,
-                                                       IN `parameterCollection` VARCHAR(255))
+    DEFINER = `root`@`127.0.0.1` PROCEDURE `clear_user_roles`(IN `parameterId` BIGINT)
     NO SQL
 BEGIN
-    SELECT `media`.`id`,
-           `media`.`name`,
-           `media`.`file_name` AS path,
-           `media`.`mime_type`,
-           `media`.`size`,
-           `media`.`order_column`,
-           `media`.`created_at`
-    FROM `media`
-    WHERE `media`.`model_type`
-              COLLATE utf8mb4_general_ci = parameterModel
-      AND `media`.`model_id` = parameterModelId
-      AND `media`.`collection_name`
-              COLLATE utf8mb4_general_ci = parameterCollection
-    ORDER BY ID DESC;
+    DELETE
+    FROM `user_role`
+    WHERE `user_role`.`user_id` = parameterId;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE
+    DEFINER = `root`@`127.0.0.1` PROCEDURE `delete_user`(IN `parametrId` BIGINT)
+    NO SQL
+BEGIN
+    DELETE
+    FROM `users`
+    WHERE `users`.`id` = parametrId;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE
+    DEFINER = `root`@`127.0.0.1` PROCEDURE `get_companies`()
+    NO SQL
+BEGIN
+    SELECT `companies`.`id`,
+           `companies`.`name`
+    FROM `companies`;
 END$$
 DELIMITER ;
 
@@ -66,6 +64,30 @@ BEGIN
     FROM `companies`
     WHERE `companies`.`id` = parameterId
     LIMIT 1;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE
+    DEFINER = `root`@`127.0.0.1` PROCEDURE `get_media`(IN `parameterModel` VARCHAR(255),
+                                                       IN `parameterModelId` BIGINT UNSIGNED,
+                                                       IN `parameterCollection` VARCHAR(255))
+    NO SQL
+BEGIN
+    SELECT `media`.`id`,
+           `media`.`name`,
+           `media`.`file_name` AS path,
+           `media`.`mime_type`,
+           `media`.`size`,
+           `media`.`order_column`,
+           `media`.`created_at`
+    FROM `media`
+    WHERE `media`.`model_type`
+              COLLATE utf8mb4_general_ci = parameterModel
+      AND `media`.`model_id` = parameterModelId
+      AND `media`.`collection_name`
+              COLLATE utf8mb4_general_ci = parameterCollection
+    ORDER BY ID DESC;
 END$$
 DELIMITER ;
 
@@ -136,6 +158,17 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE
+    DEFINER = `root`@`127.0.0.1` PROCEDURE `get_roles`()
+    NO SQL
+BEGIN
+    SELECT `roles`.`id`,
+           `roles`.`name`
+    FROM `roles`;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE
     DEFINER = `root`@`127.0.0.1` PROCEDURE `get_user_by_id`(IN `parameterId` BIGINT)
     NO SQL
 BEGIN
@@ -158,7 +191,7 @@ CREATE
     DEFINER = `root`@`127.0.0.1` PROCEDURE `get_user_roles`(IN `parameterUserId` BIGINT)
     NO SQL
 BEGIN
-    SELECT `roles`.`name`
+    SELECT DISTINCT `roles`.`name`, `roles`.`id`
     FROM `roles`
              INNER JOIN `user_role`
                         ON `roles`.`id` = `user_role`.`role_id`
@@ -175,11 +208,11 @@ BEGIN
            `users`.`email`,
            `users`.`name`,
            `users`.`company_id`,
-           `users`.`position_id`,
-           `users`.`updated_at`,
-           `users`.`created_at`,
            `companies`.`name` AS `company`,
-           `positions`.`name` AS `position`
+           `users`.`position_id`,
+           `positions`.`name` AS `position`,
+           `users`.`updated_at`,
+           `users`.`created_at`
     FROM `users`
              LEFT JOIN `companies`
                        ON `companies`.`id` = `users`.`company_id`
@@ -259,6 +292,17 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE
+    DEFINER = `root`@`127.0.0.1` PROCEDURE `insert_user_role`(IN `parameterUserId` BIGINT, IN `parameterRoleId` BIGINT)
+    NO SQL
+BEGIN
+    INSERT INTO `user_role`
+        (`user_id`, `role_id`)
+    VALUES (parameterUserId, parameterRoleId);
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE
     DEFINER = `root`@`127.0.0.1` PROCEDURE `update_product`(IN `parameterId` BIGINT UNSIGNED,
                                                             IN `parametName` VARCHAR(255),
                                                             IN `parametCategory` VARCHAR(255), IN `parametPrice` INT,
@@ -288,16 +332,5 @@ BEGIN
         `position_id` = parameterPositionID,
         `updated_at`  = parameterUpdatedAt
     WHERE `users`.`id` = parameterId;
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE
-    DEFINER = `root`@`127.0.0.1` PROCEDURE `delete_user`(IN `parametrId` BIGINT)
-    NO SQL
-BEGIN
-    DELETE
-    FROM `users`
-    WHERE `users`.`id` = parametrId;
 END$$
 DELIMITER ;

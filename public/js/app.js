@@ -2010,7 +2010,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["credential", "loading"]),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setCredential', 'getCompanies', 'getPositions', 'getUser', 'getUserMedia', 'getUsers'])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setCredential', 'getCompanies', 'getPositions', 'getUser', 'getUserMedia', 'getUsers', 'getRoles'])), {}, {
     getCookie: tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"],
     updateLoginForm: function updateLoginForm(loginForm) {
       this.loginForm = loginForm;
@@ -2024,6 +2024,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.getUser(this.token);
       this.getUserMedia(this.token);
       this.getUsers(this.token);
+      this.getRoles(this.token);
     }
   },
   watch: {
@@ -2033,6 +2034,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.getUser(this.credential.token);
         this.getUserMedia(this.credential.token);
         this.getUsers(this.credential.token);
+        this.getRoles(this.credential.token);
       } else {
         Object(tiny_cookie__WEBPACK_IMPORTED_MODULE_1__["removeCookie"])('token');
       }
@@ -3222,6 +3224,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3241,11 +3256,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         company_id: "",
         position_id: "",
         updated_at: "",
-        created_at: ""
+        created_at: "",
+        roles_id: [],
+        roles_name: []
       }
     };
   },
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["users", "positions", "companies", "errors"]),
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["users", "roles", "positions", "companies", "errors"]),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["editUser", "deleteUser"])), {}, {
     removeUser: function removeUser(args) {
       var _this = this;
@@ -46027,7 +46044,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.form-main {\n  overflow: auto;\n  margin: 0;\n  padding: 0;\n  background-color: #0e1726;\n}\n.basic {\n  margin-bottom: 15px;\n  padding: 0;\n}\n.vs__search {\n  color: #009688;\n  font-weight: 600;\n  font-size: 16px;\n}\n.vs__search::-moz-placeholder {\n  font-weight: 600;\n  font-size: 16px;\n  max-height: 150px;\n  background: #1b2e4b;\n  border: 1px solid #1b2e4b;\n  text-transform: lowercase;\n  font-variant: small-caps;\n}\n.vs__search:-ms-input-placeholder {\n  font-weight: 600;\n  font-size: 16px;\n  max-height: 150px;\n  background: #1b2e4b;\n  border: 1px solid #1b2e4b;\n  text-transform: lowercase;\n  font-variant: small-caps;\n}\n.vs__search::-ms-input-placeholder {\n  font-weight: 600;\n  font-size: 16px;\n  max-height: 150px;\n  background: #1b2e4b;\n  border: 1px solid #1b2e4b;\n  text-transform: lowercase;\n  font-variant: small-caps;\n}\n.vs__search::placeholder,\n.vs__dropdown-toggle,\n.vs__dropdown-menu {\n  font-weight: 600;\n  font-size: 16px;\n  max-height: 150px;\n  background: #1b2e4b;\n  border: 1px solid #1b2e4b;\n  text-transform: lowercase;\n  font-variant: small-caps;\n}\n.vs__selected {\n  color: white;\n  font-weight: 600;\n  font-size: 16px;\n}\n.vs__selected-options {\n  color: white;\n  font-weight: 600;\n  font-size: 16px;\n  height: 38px;\n}\n.vs__dropdown-option {\n  color: white;\n  font-weight: 600;\n  font-size: 16px;\n}\n.vs__clear,\n.vs__open-indicator {\n  fill: #394066;\n}\n", ""]);
+exports.push([module.i, "\n.form-main {\n  overflow: auto;\n  margin: 0;\n  padding: 0;\n  background-color: #0e1726;\n}\n.basic {\n  margin-bottom: 15px;\n  padding: 0;\n}\n.vs__search {\n  color: #009688;\n  font-weight: 600;\n  font-size: 16px;\n}\n.vs__search::-moz-placeholder {\n  font-weight: 600;\n  font-size: 16px;\n  max-height: 150px;\n  background: #1b2e4b;\n  border: 1px solid #1b2e4b;\n  text-transform: lowercase;\n  font-variant: small-caps;\n}\n.vs__search:-ms-input-placeholder {\n  font-weight: 600;\n  font-size: 16px;\n  max-height: 150px;\n  background: #1b2e4b;\n  border: 1px solid #1b2e4b;\n  text-transform: lowercase;\n  font-variant: small-caps;\n}\n.vs__search::-ms-input-placeholder {\n  font-weight: 600;\n  font-size: 16px;\n  max-height: 150px;\n  background: #1b2e4b;\n  border: 1px solid #1b2e4b;\n  text-transform: lowercase;\n  font-variant: small-caps;\n}\n.vs__search::placeholder,\n.vs__dropdown-toggle,\n.vs__dropdown-menu {\n  font-weight: 600;\n  font-size: 16px;\n  max-height: 150px;\n  background: #1b2e4b;\n  border: 1px solid #1b2e4b;\n  text-transform: lowercase;\n  font-variant: small-caps;\n}\n.vs__selected {\n  color: white;\n  font-weight: 600;\n  font-size: 16px;\n  background-color: #254f90;\n}\n.vs__selected-options {\n  color: white;\n  font-weight: 600;\n  font-size: 16px;\n  height: 38px;\n}\n.vs__dropdown-option {\n  color: white;\n  font-weight: 600;\n  font-size: 16px;\n}\n.vs__clear,\n.vs__open-indicator {\n  fill: #394066;\n}\n\n", ""]);
 
 // exports
 
@@ -65498,6 +65515,10 @@ var render = function() {
                                         data.item.created_at
                                       _vm.editedUser.updated_at =
                                         data.item.updated_at
+                                      _vm.editedUser.roles_id =
+                                        data.item.roles_id
+                                      _vm.editedUser.roles_name =
+                                        data.item.roles_name
                                     }
                                   }
                                 },
@@ -65665,6 +65686,31 @@ var render = function() {
                     _vm.$set(_vm.editedUser, "position_id", $$v)
                   },
                   expression: "editedUser.position_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-wrapper" }, [
+                _c("div", { staticClass: "d-flex justify-content-between" }, [
+                  _c("label", { attrs: { for: "company" } }, [_vm._v("Roles")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("vue-select", {
+                staticClass: "form-control basic",
+                attrs: {
+                  multiple: "",
+                  options: _vm.roles,
+                  reduce: function(roles) {
+                    return roles.id
+                  },
+                  label: "name"
+                },
+                model: {
+                  value: _vm.editedUser.roles_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.editedUser, "roles_id", $$v)
+                  },
+                  expression: "editedUser.roles_id"
                 }
               }),
               _vm._v(" "),
@@ -80504,6 +80550,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     user: [],
     media: [],
     users: [],
+    roles: [],
     products: [],
     companies: [],
     positions: [],
@@ -80545,7 +80592,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
                   });
                 }
 
-                axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(state.url + "users/list", config).then(function (r) {
+                axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(state.url + "user/list", config).then(function (r) {
                   return commit('GET_USERS', r.data);
                 });
 
@@ -80574,7 +80621,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
                 return axios__WEBPACK_IMPORTED_MODULE_3___default.a["delete"](state.url + "user/delete/" + args.id, config);
 
               case 4:
-                axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(state.url + "users/list", config).then(function (r) {
+                axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(state.url + "user/list", config).then(function (r) {
                   return commit('GET_USERS', r.data);
                 });
 
@@ -80696,32 +80743,44 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
           Authorization: "Bearer ".concat(token)
         }
       };
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(state.url + "users/list", config).then(function (r) {
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(state.url + "user/list", config).then(function (r) {
         return commit('GET_USERS', r.data);
       });
     },
-    getProducts: function getProducts(_ref13) {
+    getRoles: function getRoles(_ref13, token) {
       var commit = _ref13.commit,
           state = _ref13.state;
+      var config = {
+        headers: {
+          Authorization: "Bearer ".concat(token)
+        }
+      };
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(state.url + "role/list", config).then(function (r) {
+        return commit('GET_ROLES', r.data);
+      });
+    },
+    getProducts: function getProducts(_ref14) {
+      var commit = _ref14.commit,
+          state = _ref14.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "products").then(function (r) {
         return commit('GET_PRODUCTS', r.data);
       });
     },
-    getCompanies: function getCompanies(_ref14) {
-      var commit = _ref14.commit,
-          state = _ref14.state;
+    getCompanies: function getCompanies(_ref15) {
+      var commit = _ref15.commit,
+          state = _ref15.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "companies").then(function (r) {
         return commit('GET_COMPANIES', r.data);
       });
     },
-    getPositions: function getPositions(_ref15) {
-      var commit = _ref15.commit,
-          state = _ref15.state;
+    getPositions: function getPositions(_ref16) {
+      var commit = _ref16.commit,
+          state = _ref16.state;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(state.url + "positions").then(function (r) {
         return commit('GET_POSITIONS', r.data);
       });
     },
-    setNewProduct: function setNewProduct(_ref16, args) {
+    setNewProduct: function setNewProduct(_ref17, args) {
       var _arguments = arguments;
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
         var commit, state, loading, config;
@@ -80729,7 +80788,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                commit = _ref16.commit, state = _ref16.state;
+                commit = _ref17.commit, state = _ref17.state;
                 loading = _arguments.length > 2 && _arguments[2] !== undefined ? _arguments[2] : true;
                 commit('SET_LOADING', true);
                 config = {
@@ -80754,14 +80813,14 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         }, _callee4);
       }))();
     },
-    deleteProduct: function deleteProduct(_ref17, args) {
+    deleteProduct: function deleteProduct(_ref18, args) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
         var commit, state, config;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
-                commit = _ref17.commit, state = _ref17.state;
+                commit = _ref18.commit, state = _ref18.state;
                 config = {
                   headers: {
                     Authorization: "Bearer ".concat(args.token)
@@ -80783,14 +80842,14 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
         }, _callee5);
       }))();
     },
-    editProduct: function editProduct(_ref18, args) {
+    editProduct: function editProduct(_ref19, args) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
         var commit, state, config;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
-                commit = _ref18.commit, state = _ref18.state;
+                commit = _ref19.commit, state = _ref19.state;
                 config = {
                   headers: {
                     Authorization: "Bearer ".concat(args.token)
@@ -80840,6 +80899,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     },
     GET_USERS: function GET_USERS(state, users) {
       state.users = users;
+    },
+    GET_ROLES: function GET_ROLES(state, roles) {
+      state.roles = roles;
     },
     GET_PRODUCTS: function GET_PRODUCTS(state, products) {
       state.products = products;

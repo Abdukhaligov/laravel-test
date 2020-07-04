@@ -16,7 +16,8 @@ Route::group(['middleware' => ['auth:api']], function(){
   Route::put('profile/update', 'API\UserController@update');
   Route::patch('user/edit/{id}', 'API\UserController@edit');
   Route::delete('user/delete/{id}', 'API\UserController@delete');
-  Route::get('users/list', 'API\UserController@list');
+  Route::get('user/list', 'API\UserController@list');
+  Route::get('role/list', 'API\RoleController@list');
   Route::get('profile-media', 'API\UserController@profileMedia');
   Route::post('profile-media', 'API\UserController@profileMediaUpload');
 });

@@ -11,6 +11,7 @@ export default new Vuex.Store({
     media: [],
 
     users: [],
+    roles: [],
     products: [],
     companies: [],
     positions: [],
@@ -41,7 +42,7 @@ export default new Vuex.Store({
       }
 
       axios
-        .get(state.url + "users/list", config)
+        .get(state.url + "user/list", config)
         .then(r => commit('GET_USERS', r.data));
     },
 
@@ -51,7 +52,7 @@ export default new Vuex.Store({
       await axios.delete(state.url + "user/delete/" + args.id, config);
 
       axios
-        .get(state.url + "users/list", config)
+        .get(state.url + "user/list", config)
         .then(r => commit('GET_USERS', r.data));
     },
 
@@ -143,8 +144,15 @@ export default new Vuex.Store({
       let config = {headers: {Authorization: `Bearer ${token}`}};
 
       axios
-        .get(state.url + "users/list", config)
+        .get(state.url + "user/list", config)
         .then(r => commit('GET_USERS', r.data));
+    },
+    getRoles({commit, state}, token) {
+      let config = {headers: {Authorization: `Bearer ${token}`}};
+
+      axios
+        .get(state.url + "role/list", config)
+        .then(r => commit('GET_ROLES', r.data));
     },
     getProducts({commit, state}) {
       axios
@@ -222,6 +230,9 @@ export default new Vuex.Store({
 
     GET_USERS(state, users) {
       state.users = users;
+    },
+    GET_ROLES(state, roles) {
+      state.roles = roles;
     },
     GET_PRODUCTS(state, products) {
       state.products = products;

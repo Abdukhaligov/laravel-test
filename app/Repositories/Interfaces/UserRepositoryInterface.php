@@ -7,6 +7,8 @@ interface UserRepositoryInterface {
 
   public function getById($id);
 
+  public function getUserRoles($id);
+
   public function insert($name, $email, $password, $companyId, $positionId);
 
   public function update($id, $name, $companyId, $positionId);

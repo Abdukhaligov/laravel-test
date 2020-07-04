@@ -7,10 +7,12 @@ use App\Repositories\Interfaces\CompanyRepositoryInterface;
 use App\Repositories\Interfaces\MediaRepositoryInterface;
 use App\Repositories\Interfaces\PositionRepositoryInterface;
 use App\Repositories\Interfaces\ProductRepositoryInterface;
+use App\Repositories\Interfaces\RoleRepositoryInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\Repositories\MediaRepository;
 use App\Repositories\PositionRepository;
 use App\Repositories\ProductRepository;
+use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -35,6 +37,10 @@ class RepositoryServiceProvider extends ServiceProvider {
     $this->app->bind(
         ProductRepositoryInterface::class,
         ProductRepository::class
+    );
+    $this->app->bind(
+        RoleRepositoryInterface::class,
+        RoleRepository::class
     );
   }
 

@@ -15,6 +15,10 @@ class UserRepository implements UserRepositoryInterface {
     return DB::select("CALL get_user_by_id ($id)")[0];
   }
 
+  public function getUserRoles($id) {
+    return DB::select("CALL get_user_roles($id)");
+  }
+
   public function update($id, $name, $companyId, $positionId){
     $now = new DateTime();
 

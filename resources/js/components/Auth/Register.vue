@@ -240,6 +240,7 @@
     color: white;
     font-weight: 600;
     font-size: 16px;
+    background-color: #254f90;
   }
 
   .vs__selected-options {
@@ -259,4 +260,5 @@
   .vs__open-indicator {
     fill: #394066;
   }
+
 </style>

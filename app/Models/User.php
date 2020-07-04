@@ -50,6 +50,9 @@ class User extends Authenticatable implements HasMedia {
   }
 
   public function isAdmin() {
-    return in_array((object) ["name" => "Administrator"], $this->roles());
+    foreach ($this->roles() as $item){
+      if ($item->name == "Administrator") return true;
+    }
+    return false;
   }
 }

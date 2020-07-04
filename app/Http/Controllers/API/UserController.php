@@ -7,20 +7,25 @@ use App\Http\Requests\UserRequest;
 use App\Mail\WelcomeMail;
 use App\Models\User;
 use App\Repositories\Interfaces\MediaRepositoryInterface;
+use App\Repositories\Interfaces\RoleRepositoryInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller {
   private $userRepository;
   private $mediaRepository;
+  private $roleRepository;
 
   public function __construct(UserRepositoryInterface $userRepository,
-                              MediaRepositoryInterface $mediaRepository) {
+                              MediaRepositoryInterface $mediaRepository,
+                              RoleRepositoryInterface $roleRepository) {
     $this->userRepository = $userRepository;
     $this->mediaRepository = $mediaRepository;
+    $this->roleRepository = $roleRepository;
   }
 
   public function login() {
@@ -83,6 +88,12 @@ class UserController extends Controller {
             $input["company_id"],
             $input["position_id"]);
 
+    $this->roleRepository->clearUserRoles($input["id"]);
+
+    foreach ($input["roles_id"] as $role){
+      $this->roleRepository->insertUserRole($input["id"], $role);
+    }
+
     return response()->json(['status' => 'ok'], 200);
   }
 
@@ -97,7 +108,19 @@ class UserController extends Controller {
   }
 
   public function list(){
-    return response()->json($this->userRepository->all(),200);
+    $users = $this->userRepository->all();
+    foreach ($users as $user){
+      $roles = $this->userRepository->getUserRoles($user->id);
+      $roles_id = [];
+      $roles_name = [];
+      foreach ($roles as $role){
+        $roles_id [] = $role->id;
+        $roles_name [] = $role->name;
+      }
+      $user->roles_id = $roles_id;
+      $user->roles_name = $roles_name;
+    }
+    return response()->json($users,200);
   }
 
   public function profileMedia(){
