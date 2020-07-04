@@ -3,7 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 
@@ -19,7 +19,7 @@ class Role extends Resource {
         ID::make()->sortable(),
         Text::make("Name"),
 
-        HasMany::make('Users')
+        BelongsToMany::make('Users')
     ];
   }
 }

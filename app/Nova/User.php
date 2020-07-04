@@ -5,7 +5,7 @@ namespace App\Nova;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Files;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
@@ -43,7 +43,7 @@ class User extends Resource {
 
         BelongsTo::make('Position'),
 
-        HasMany::make('Roles')
+        BelongsToMany::make('Roles')
     ];
   }
 }
